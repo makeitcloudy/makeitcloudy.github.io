@@ -6,7 +6,7 @@
 # --- Required options --- #
 
 # Name of website
-title: no title
+title: makeITcloudy
 
 # Your name to show in the footer
 author: Piotr Ostrowski
@@ -18,7 +18,7 @@ navbar-links:
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://piotro.pl"
+  Author's home: "https://makeitcloudy.pl"
 
 # --- Logo --- #
 
@@ -42,7 +42,7 @@ social-network-links:
   email: "kontakt@piotro.pl"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
 # facebook: deanattali
-  github: tansei
+  github: makeitcloudy
   twitter: ostrowski_piotr
 # patreon: DeanAttali
 #  youtube: c/daattali
@@ -80,7 +80,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "piotro.pl"
+url-pretty: "makeitcloudy.pl"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
