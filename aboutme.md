@@ -18,7 +18,7 @@ My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer fo
 - read and learn new things
 - combining people together
 
-## Technical Certifications
+### Technical Certifications
 
 * Citrix Certified: Associate – Virtualization (CCA-V)
 * Citrix Certified: Professional – Virtualization (CCP-V)
