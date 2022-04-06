@@ -15,6 +15,8 @@ author: Piotr Ostrowski
 
 navbar-links:
   About Me: "aboutme"
+  Blogs:
+    - Julian Mooren: "https://citrixguyblog.com/"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
