@@ -1,17 +1,22 @@
 ---
 layout: page
 title: About me
-subtitle: A bit about me
+subtitle:
 ---
 
 My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer for [Atos](https://atos.net/en/) in Poland. For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards cloud and serverless.
 
-### Details about me
+### A bit about me
 
-- Husband
-- Proud Father
+- husband
+- proud Father
 - homelabber
 - founder of [makeitcloudy.pl]
+
+### I like
+- tinker on bikes, metal and wood
+- read and learn new things
+- combining people together
 
 ## Technical Certifications
 
