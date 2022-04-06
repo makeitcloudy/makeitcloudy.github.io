@@ -14,7 +14,6 @@ author: Piotr Ostrowski
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "aboutme"
   Community:
     - Carl Stalhood: "https://carlstalhood.com/"
     - Freek Berson: "https://microsoftplatform.blogspot.com/"
@@ -27,7 +26,8 @@ navbar-links:
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://makeitcloudy.pl/#"
+  About Me: "aboutme"
+  #Author's home: "https://makeitcloudy.pl/#"
 
 # --- Logo --- #
 
