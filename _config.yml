@@ -15,12 +15,19 @@ author: Piotr Ostrowski
 
 navbar-links:
   About Me: "aboutme"
-  Blogs:
+  Community:
+    - Carl Stalhood: "https://carlstalhood.com/"
+    - Freek Berson: "https://microsoftplatform.blogspot.com/"
+    - James Kindon: "https://jkindon.com/"
+    - Dennis Span : "https://dennisspan.com/"
     - Julian Mooren: "https://citrixguyblog.com/"
+    - Bas Van Kaam: "https://www.basvankaam.com/"
+    - World of EUC: "https://worldofeuc.github.io/Website/"
+    - CUGC: "https://www.mycugc.org/page/home-cugc"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://makeitcloudy.pl"
+  Author's home: "https://makeitcloudy.pl/#"
 
 # --- Logo --- #
 
