@@ -16,7 +16,7 @@ My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer fo
 ### I like
 - tinker on bikes, metal and wood
 - read and learn new things
-- combining people together
+- combine people together
 
 ### Technical Certifications
 
