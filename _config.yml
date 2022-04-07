@@ -23,9 +23,8 @@ navbar-links:
     - Bas Van Kaam: "https://www.basvankaam.com/"
     - World of EUC: "https://worldofeuc.github.io/Website/"
     - CUGC: "https://www.mycugc.org/page/home-cugc"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Toolbox:
+    - Nerdio: "https://getnerdio.com/"
   About Me: "aboutme"
   #Author's home: "https://makeitcloudy.pl/#"
 
