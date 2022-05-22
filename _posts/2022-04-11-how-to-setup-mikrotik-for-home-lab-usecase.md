@@ -9,6 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [HomeLab ,Networking]
 categories: [HomeLab ,Networking]
 ---
+Your homelab can be powered from the network angle by different vendors, never the less for the price Mikrotik brings buch of functionalities which is worth the money. The interface may push you away a bit a first glimpse, but still it's worth investing a bit of time for the learning curve, especially being equipped with structualized content comming the TheNetworkBerg.
 
 ## Prerequisities
 You need the following:
