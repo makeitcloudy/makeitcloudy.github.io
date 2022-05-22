@@ -21,6 +21,6 @@ I was testing this with following devices:
 + disable LTE
 + connect adapter to the usb or lightning port of your mobile
 + it should be recognized and you should be shown with icon like this <<->> which would mean that there should be a communication with your default gateway
-+ 
+
 ## Summary
 That's it
