@@ -6,8 +6,8 @@ subtitle: "How to take the benefit of jekyll engine to create your blog in 10min
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [Github]
-categories: [Github]
+tags: [Github ,Blog]
+categories: [Github, Blog]
 ---
 
 ## Prerequisities
