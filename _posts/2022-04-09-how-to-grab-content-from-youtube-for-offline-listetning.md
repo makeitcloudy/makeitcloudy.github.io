@@ -13,7 +13,11 @@ Last edit: 2022.04.09
 
 ## Prerequisities
 
-Download and install [ffmpeg](https://ffmpeg.org/)
++ Download and install [ffmpeg](https://ffmpeg.org/)
++ Configure environmental variables so the ffmpeg and yt-dlp are directly available for your convinience
+```powershell
+$env:PATH
+```
 
 ## Howto
 
