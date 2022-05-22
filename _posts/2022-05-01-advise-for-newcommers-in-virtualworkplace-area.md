@@ -4,7 +4,7 @@ title: "Advise for newcommers in VirtualWorkplace area"
 permalink: "/advise-for-newcommers-in-virtualworkplace-area/"
 subtitle: "Virtual Workplace aka EUC is not always a bread and butter"
 cover-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-cover.jpg
-thumbnail-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-thumb.png
+thumbnail-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-thumb.jpg
 share-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-cover.jpg
 tags: [ReadmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 categories: [RedmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]

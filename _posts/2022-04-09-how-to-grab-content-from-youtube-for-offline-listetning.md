@@ -4,7 +4,7 @@ title: "How to grab content from youtube for offline listening"
 permalink: "/how-to-grab-content-from-youtube-for-offline-listening/"
 subtitle: "You don't need to have premium plan"
 cover-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-cover.jpg
-thumbnail-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-thumb.png
+thumbnail-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-thumb.jpg
 share-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-cover.jpg
 tags: [Audio ,Misc]
 categories: [Audio ,Misc]

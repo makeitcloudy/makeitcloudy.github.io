@@ -4,7 +4,7 @@ title: "How to configure your visual studio code to make use of github"
 permalink: "/how-to-configure-your-visual-studio-code-to-make-use-of-github/"
 subtitle: "How to configure git"
 cover-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/imc-cover.jpg
-thumbnail-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-thumb.png
+thumbnail-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-thumb.jpg
 share-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-cover.jpg
 tags: [ReadmeFirst ,Github ,IaC]
 categories: [ReadmeFirst ,Github ,IaC]
