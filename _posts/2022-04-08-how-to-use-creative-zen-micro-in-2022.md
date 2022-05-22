@@ -9,7 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [Audio ,Misc, Legacy]
 categories: [Audio ,Misc, Legacy]
 ---
-Last edit: 2022.04.08
+
 ## Prerequisities
 
 Creative a Zen Micro
@@ -26,3 +26,5 @@ Then connect your mp3 player, and share data back na forth. The user interface l
 ## Summary
 
 That's it.
+
+Last edit: 2022.04.08
