@@ -6,8 +6,8 @@ subtitle: "Bunch of usefull tools and books"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [HomeLab ,EUC ,Books , Tools]
-categories: [HomeLab, EUC ,Books , Tools]
+tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
+categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 ---
 Still it's worth spending money on books, which brings you non-scattered content, which can be supplemented with the latest updates comming from the great documentation from the venrods, or not. Thank you [Carl](https://www.carlstalhood.com/) and [Bas Van Kaam](https://www.basvankaam.com/my-books/).
 
