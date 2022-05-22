@@ -14,7 +14,7 @@ In case you are interested in lowering the amount of wireless traffic in your ne
 ## Prerequisities
 I was testing this with following devices:
 + Asus Google Nexus 7 tablet 2017
-+ LG Nexus 5 with GEMBIRD (P/N: NIC-mU2-01 | EAN: 8716309090421)
++ LG Nexus 5 with GEMBIRD (P/N: NIC-mU2-01, EAN: 8716309090421)
 + Iphone 6S with FOINNEX LN-UE (ASIN: B07DPMGW4D)
 
 ## Howto
