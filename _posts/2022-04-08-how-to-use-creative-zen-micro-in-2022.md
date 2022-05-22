@@ -9,11 +9,13 @@ share-img: /assets/img/path.jpg
 tags: [Audio ,Misc, Legacy]
 categories: [Audio ,Misc, Legacy]
 ---
+It's a pity that this line is not supported anymore on Windows, thankfully it's trivial to make use of it under linux.
 
 ## Prerequisities
 
-Creative a Zen Micro
-Some linux device
+Apart from windows you'll need linux vm or a physical device, unless there is a way to run gnomad2 on windows (have not been investigating this)
++ Creative a Zen Micro
++ Some linux
 
 ## Howto
 
