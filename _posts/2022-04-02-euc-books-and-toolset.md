@@ -19,7 +19,7 @@ Still it's worth spending money on books, which brings you non-scattered content
 
 ## Tools
 + [ffmpeg](https://ffmpeg.org/)
-+ [Sharex](https://getsharex.com/)
++ [Sharex](https://getsharex.com/) and (https://github.com/ShareX/ShareX)
 + [WinDirStat](https://windirstat.net/)
 + [Chocolatey](https://chocolatey.org/)
 + [Visual Studio Code](https://code.visualstudio.com/) with extensions
