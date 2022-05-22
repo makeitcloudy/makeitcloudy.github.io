@@ -12,7 +12,7 @@ categories: [Audio ,Misc]
 
 ## Prerequisities
 
-.
+Download and install [ffmpeg](https://ffmpeg.org/)
 
 ## Howto
 
@@ -21,7 +21,16 @@ This can be used for youtube, but also for other network streams, provided you k
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
-All the details how to use those can be found on github and [stackoverflow](https://stackoverflow.com/questions/tagged/yt-dlp)
+## Where to find some usefull details
+
++ Github and [stackoverflow](https://stackoverflow.com/questions/tagged/yt-dlp)
++ https://write.corbpie.com/downloading-youtube-videos-and-playlists-with-yt-dlp/
+
+## Saving video as mp3 file
+
+```bash
+yt-dlp -f 'ba' -x --audio-format mp3 https://www.youtube.com/watch?v=tJx7LbH_GwE  -o '%(id)s.%(ext)s'
+```
 
 ## Summary
 
