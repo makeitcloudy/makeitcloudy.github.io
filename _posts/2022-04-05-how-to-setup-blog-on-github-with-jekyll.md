@@ -10,19 +10,14 @@ tags: [Github ,Blog]
 categories: [Github, Blog]
 ---
 It's very convinient to take the benefit of jekyll engine to manage the content in your blog.
-
 ## Prerequisities
-
 Prerequisities section
-
 ## Howto
-
 Howto section
-
-## Usefull links
-+ [beaufifuljekyll](https://beautifuljekyll.com)
-+ [markdown tutorial](https://www.markdowntutorial.com/)
-
+## Links
++ [Beaufifuljekyll](https://beautifuljekyll.com)
++ [Markdown tutorial](https://www.markdowntutorial.com/)
++ [Building a Free Blog with Github Pages in Minutes](https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html)
 
 ## Summary
 
