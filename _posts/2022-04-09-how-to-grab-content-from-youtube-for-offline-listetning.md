@@ -39,6 +39,9 @@ yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gp
 ## How to rename multiple files with Total Commander
 + [Helge Klein](https://helgeklein.com/blog/renaming-multiple-files-with-regular-expressions-in-total-commander/) for the rescue
 
+## Alternative way of reaching similar result
++ [Fox Deploy](https://www.foxdeploy.com/blog/use-powershell-to-download-video-streams.html)
+
 ## Summary
 
 That's it.
