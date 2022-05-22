@@ -42,7 +42,7 @@ f. Is there a rollback plan<br>
 21. Don't neglect people skills. Soft skills are what helps you succeed in any career. Check out this video by the fine folks at Thrive-IT. Elevating Your Soft Skills.
 22. I asked my fellow CTPs and vExperts what advice they would like to offer you.<br><br>
 
-*CTPs:*
+*CTPs:*<br>
 **Benjamin Crill:**
 Always be willing to TRY a solution. You don't know that it is bad/won't work/not what you want/etc until you actually try something.
 
@@ -65,8 +65,8 @@ Controlling access to management, think jump host, MFA for windows logon and suc
 
 **Leee Jeffries:**
 Invest in yourself, get some hardware to play around with, work on the fundamentals, and focus on what interests you. You'll be surprised about how quickly you learn when you're keen to get started. Ask questions to your peers in the community; they are all friendly folks. Lastly, share what you know.<br><br>
-*vExperts:*
 
+*vExperts:*<br>
 **Stephen Jesse:**
 "don't be afraid to experiment," meaning do dumb stuff here not in production, so you know why you don't do it
 
