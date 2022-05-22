@@ -19,7 +19,7 @@ categories: [Audio ,Misc, Legacy]
 ## Howto
 
 Make use of linux, and install following package
-```
+```shell
 sudo apt install gnomad2
 ```
 Then connect your mp3 player, and share data back na forth. The user interface left much to be desired but still it's much better than no chances to exchange data back and forth.
