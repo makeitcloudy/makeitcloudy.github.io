@@ -9,6 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [Github ,Blog]
 categories: [Github, Blog]
 ---
+It's very convinient to take the benefit of jekyll engine to manage the content in your blog.
 
 ## Prerequisities
 
