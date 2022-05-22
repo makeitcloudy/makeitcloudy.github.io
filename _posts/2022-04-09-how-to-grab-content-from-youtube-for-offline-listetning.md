@@ -35,7 +35,7 @@ yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gp
 yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gpQ&list=PLuF78wm0RiGbo4vZ2eqgicrKkZDq3BCkH' -o '%(channel_id)s/%(playlist_id)s/%(id)s.%(title)s.%(ext)s'
 ```
 
-## How to rename multiple files with total commander
+## How to rename multiple files with Total Commander
 + [Helge Klein](https://helgeklein.com/blog/renaming-multiple-files-with-regular-expressions-in-total-commander/) for the rescue
 
 ## Summary
