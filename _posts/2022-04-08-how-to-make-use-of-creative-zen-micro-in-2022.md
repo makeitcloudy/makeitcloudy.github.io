@@ -2,7 +2,7 @@
 layout: post
 title: "How to make use of Creative Zen Micro in 2022"
 permalink: "/how-to-make-use-of-creative-zen-micro-in-2022/"
-subtitle: "Right you can still synchronize data with this great product without being equipped with windows 7"
+subtitle: "Right, you can still synchronize data with this great product without being equipped with windows xp"
 cover-img: /assets/img/how-to-make-use-of-creative-zen-micro-in-2022/img-cover.jpg
 thumbnail-img: /assets/img/how-to-make-use-of-creative-zen-micro-in-2022/img-thumb.jpg
 share-img: /assets/img/how-to-make-use-of-creative-zen-micro-in-2022/img-cover.jpg
