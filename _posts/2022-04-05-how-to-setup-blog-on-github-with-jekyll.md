@@ -19,6 +19,11 @@ Prerequisities section
 
 Howto section
 
+## Usefull links
++ [beaufifuljekyll](https://beautifuljekyll.com)
++ [markdown tutorial](https://www.markdowntutorial.com/)
+
+
 ## Summary
 
 Summary section
