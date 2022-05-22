@@ -14,6 +14,8 @@ Still it's worth spending money on books, which brings you non-scattered content
 ## Books
 + [Rds Complete Guide](https://www.amazon.pl/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
 + [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021
+<br><br>
++ [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools
 + [ffmpeg](https://ffmpeg.org/)
