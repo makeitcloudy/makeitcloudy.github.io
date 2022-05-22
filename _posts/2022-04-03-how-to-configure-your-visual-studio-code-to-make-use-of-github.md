@@ -17,12 +17,38 @@ It's worth putting some attention on making use of git to manage your code and p
 + Install [Visual Studio Code](https://code.visualstudio.com/)
 + Install extensions for Visual Studio Code: GitLens - Git supercharged, PowerShell, Azure Resource Manager (ARM) Tools, Azure CLI Tools, Bicep
 
-## Howto
+## Configure Git
 
-Run following commands within your PowerShell console
+1. Run brand new PowerShell console just in case to reinitiate the environmental variables for the console context.
+2. Run following commands within your PowerShell console
+```powershell
+git --version
+#setup the user name name and email address
+git config --global user.name "Piotr Ostrowski"
+git config --global user.email "me@your.domain"
+git config --global color.ui true
+#at this point your very initial configuration is ready
+git config --global list
+```
+3. Create folder on the filesystem which is your local copy of the github repository
+```powershell
+New-Item -Path $env:SystemDrive\Git -ItemType Directory
+Set-Location -Path $env:SystemDrive\Git
+```
+
+## Use Git
+4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS)) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
+```powershell
+git clone https://github.com/makeitcloudy/AutomatedRDS.git
+#this will result with the information that there is a version controlling within the folder you cloned
+Get-ChildItem -Hidden
+Set-Location -Path .\AutomatedRDS\
+Get-ChildItem .\.git\
+```
+
 
 ## Summary
 
-Summary section
+That's it
 
 Last edit: 2022.04.03
