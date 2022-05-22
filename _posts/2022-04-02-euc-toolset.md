@@ -9,7 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [HomeLab ,EUC, Tools]
 categories: [HomeLab, EUC, Tools]
 ---
-Last edit: 2022.04.02
+
 + [ffmpeg](https://ffmpeg.org/)
 + [Sharex](https://getsharex.com/)
 + [WinDirStat](https://windirstat.net/)
@@ -18,3 +18,5 @@ Last edit: 2022.04.02
 + [Basilisk](https://www.basilisk-browser.org/)
 + [Brave](https://brave.com/pl/)
 + [PiHole](https://pi-hole.net/)
+
+Last edit: 2022.04.02
