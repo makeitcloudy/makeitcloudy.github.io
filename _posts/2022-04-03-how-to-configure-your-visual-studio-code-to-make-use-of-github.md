@@ -6,8 +6,8 @@ subtitle: "How to configure git"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [Github ,IaC]
-categories: [Github ,IaC]
+tags: [ReadmeFirst ,Github ,IaC]
+categories: [ReadmeFirst ,Github ,IaC]
 ---
 It's worth putting some attention on making use of git to manage your code and projects, instead of using offline versioning on the filesystem level. When one reach some amount of code, it's just a life saver to move away from chaos.
 
