@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "EUC toolset and books"
-permalink: "/euc-toolset-and-books/"
-subtitle: "Bunch of usefull tools and books"
+title: "EUC books and toolset"
+permalink: "/euc-books-and-toolset/"
+subtitle: "Bunch of usefull books and tools"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
