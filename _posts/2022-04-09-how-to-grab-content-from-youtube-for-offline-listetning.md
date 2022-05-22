@@ -2,7 +2,7 @@
 layout: post
 title: "How to grab content from youtube for offline listening"
 permalink: "/how-to-grab-content-from-youtube-for-offline-listening/"
-subtitle: "You don't have to have premium plan"
+subtitle: "You don't need to have premium plan"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
