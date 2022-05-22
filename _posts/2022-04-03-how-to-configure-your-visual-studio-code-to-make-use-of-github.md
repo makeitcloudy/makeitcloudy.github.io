@@ -19,7 +19,7 @@ It's worth putting some attention on making use of git to manage your code and p
 
 ## Howto
 
-Howto section
+Run following commands within your PowerShell console
 
 ## Summary
 
