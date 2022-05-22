@@ -12,7 +12,8 @@ categories: [RedmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 Those advises are not mine, they come by the End User Computing Veteran, who is spreading and sharing his knowledge, in the community a well known person (hat's off) Carl Webster, who created his very well detailed guide [Building Webster's lab V2.pdf](https://carlwebster.com/building-websters-lab-v2/) - page 1312 of his guide for the EUC lab builders. He has spent 706hours creating this guide.
 
 Here comes the quote from his guide:
-Advice
+
+## Advice
 1. Always learn.
 2. Always improve yourself.
 3. Be a better person today than you were yesterday.
@@ -76,7 +77,7 @@ If I may, I would add just one thing, Always try to keep it simple.
 **Mike Martino:**
 Aim to be 1% better every day - small chunks of effort adds up. Especially working on things in your home lab and/or when learning and studying for a cert when there can be so much to do that you need to focus on little bits at a time to get through it.<br><br>
 
-**Conclusions**
+## Conclusions
 No one is perfect.
 Don't be afraid to start your own blog and document your learning experiences. If you have questions, someone else is asking the same questions. When you figure it out, document what you learned, the learning process, and the lessons learned along the way (also known as, oops, I made a mistake, and I
 don't want you to make the same mistake.).
