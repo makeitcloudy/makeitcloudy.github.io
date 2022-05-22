@@ -9,7 +9,6 @@ share-img: /assets/img/path.jpg
 tags: [Audio ,Misc]
 categories: [Audio ,Misc]
 ---
-Last edit: 2022.04.09
 
 ## Prerequisities
 
@@ -49,3 +48,5 @@ yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gp
 ## Summary
 
 That's it.
+
+Last edit: 2022.04.09
