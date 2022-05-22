@@ -3,9 +3,9 @@ layout: post
 title: "EUC books and toolset"
 permalink: "/euc-books-and-toolset/"
 subtitle: "Bunch of usefull books and tools"
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
+cover-img: /assets/img/euc-books-and-toolset/path.jpg
+thumbnail-img: /assets/img/euc-books-and-toolset/thumb-book.png
+share-img: /assets/img/euc-books-and-toolset/path.jpg
 tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
 categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 ---
