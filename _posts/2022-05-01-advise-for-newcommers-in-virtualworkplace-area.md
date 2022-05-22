@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Advises for newcommers in VirtualWorkplace area"
-permalink: "/advises-for-newcommers-in-virtualworkplace-area/"
+title: "Advise for newcommers in VirtualWorkplace area"
+permalink: "/advise-for-newcommers-in-virtualworkplace-area/"
 subtitle: "Virtual Workplace aka EUC is not always a bread and butter"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
