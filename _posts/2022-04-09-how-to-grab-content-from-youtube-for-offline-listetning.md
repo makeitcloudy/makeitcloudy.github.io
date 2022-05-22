@@ -9,7 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [Audio ,Misc]
 categories: [Audio ,Misc]
 ---
-In case you are interestde on listening your favourite podcasts without generating LTE/wireless traffic, when are commuting or resting.
+In case you are interested on listening your favourite podcasts without generating LTE/wireless traffic, when commuting or resting.
 
 ## Prerequisities
 
