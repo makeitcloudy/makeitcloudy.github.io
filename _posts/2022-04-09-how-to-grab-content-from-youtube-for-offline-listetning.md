@@ -24,7 +24,7 @@ This can be used for youtube, but also for other network streams, provided you k
 ## Where to find some usefull details
 
 + Github and [stackoverflow](https://stackoverflow.com/questions/tagged/yt-dlp)
-+ https://write.corbpie.com/downloading-youtube-videos-and-playlists-with-yt-dlp/
++ [corbpie blog](https://write.corbpie.com/downloading-youtube-videos-and-playlists-with-yt-dlp/)
 
 ## Saving video as mp3 file
 
