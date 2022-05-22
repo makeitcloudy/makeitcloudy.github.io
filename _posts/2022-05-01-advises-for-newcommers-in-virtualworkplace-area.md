@@ -82,3 +82,5 @@ No one is perfect.
 Don't be afraid to start your own blog and document your learning experiences. If you have questions, someone else is asking the same questions. When you figure it out, document what you learned, the learning process, and the lessons learned along the way (also known as, oops, I made a mistake, and I
 don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
+
+Last edit: 2022.05.01
