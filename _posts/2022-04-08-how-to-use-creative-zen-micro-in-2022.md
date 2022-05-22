@@ -9,7 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [Audio ,Misc, Legacy]
 categories: [Audio ,Misc, Legacy]
 ---
-
+Last edit: 2022.04.08
 ## Prerequisities
 
 Creative a Zen Micro
