@@ -6,11 +6,18 @@ subtitle: "How to configure git"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [github, iac]
+tags: [Github, IaC]
+categories: [Github, IaC]
 ---
 
 ## Prerequisities
 
+Prerequisities section
+
 ## Howto
 
+Howto section
+
 ## Summary
+
+Summary section
