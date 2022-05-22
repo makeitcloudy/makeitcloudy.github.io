@@ -15,8 +15,9 @@ There is plenty of valuable content on the internet, which is created by the com
 + [NerdOnTheStreet](https://www.youtube.com/c/NerdOnTheStreet/videos) youtube channel
 + [Intro to LVM](https://www.youtube.com/watch?v=krerZ2TZvL8) NedOnTheStreet
 + [LVM Deep Dive](https://www.youtube.com/watch?v=MeltFN-bXrQ)
-+ [](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
-## Networ Layer
++ [Setup NFS server on centos 8](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
+
+## Network Layer
 
 ## Citrix (CVAD)
 + one
