@@ -18,13 +18,13 @@ Advice
 3. Be a better person today than you were yesterday.
 4. Learn good habits in the lab. What you do in practice becomes what you do in real life.
 5. Learn to document your lab. Documenting your work and configurations is an excellent habit to learn. I have never known anyone who complained about having too much documentation.
-6. Learn to document the changes you make in the lab. While you may not need a formal change control process for your lab, learning to document changes BEFORE you make them is an excellent habit to learn. Here are some basic examples of a change control document.
-a. Reason for the change
-b. What is wrong in the current environment that requires the change
-c. What is the change
-d. What is the impact of the change (i.e., all servers require a restart)
-e. Validation of change
-f. Is there a rollback plan
+6. Learn to document the changes you make in the lab. While you may not need a formal change control process for your lab, learning to document changes BEFORE you make them is an excellent habit to learn. Here are some basic examples of a change control document.<br>
+a. Reason for the change<br>
+b. What is wrong in the current environment that requires the change<br>
+c. What is the change<br>
+d. What is the impact of the change (i.e., all servers require a restart)<br>
+e. Validation of change<br>
+f. Is there a rollback plan<br>
 7. Do not practice stuff in the lab until you get it right once. Practice until you cannot possibly get it wrong.
 8. Remember your physical health. We I.T. people have a reputation for sitting on our rear ends all day long. Get up, get some exercise, even if it is just walking up and down the stairs. Move.
 9. Remember your physical health #2. We I.T. people have a reputation for eating junk food and rarely eating much, if any, healthy food.
