@@ -9,6 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [HomeLab ,EUC ,Books , Tools]
 categories: [HomeLab, EUC ,Books , Tools]
 ---
+Still it's worth spending money on books, which brings you non-scattered content, which can be supplemented with the latest updates comming from the great documentation from the venrods, or not. Thank you [Carl](https://www.carlstalhood.com/) and [Bas Van Kaam](https://www.basvankaam.com/my-books/).
 
 ## Books
 + [Rds Complete Guide](https://www.amazon.pl/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
