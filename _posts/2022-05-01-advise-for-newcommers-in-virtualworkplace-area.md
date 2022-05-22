@@ -9,7 +9,7 @@ share-img: /assets/img/path.jpg
 tags: [ReadmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 categories: [RedmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 ---
-Those advises are not mine, they come by the End User Computing Veteran, who is spreading and sharing his knowledge, in the community a well known person (hat's off) Carl Webster, who created his very well detailed guide [Building Webster's lab V2.pdf](https://carlwebster.com/building-websters-lab-v2/) - page 1312 of his guide for the EUC lab builders. He has spent 706hours creating this guide.
+Those advises are not mine, but supporting them very much. I wish I knew them earlier. Those come from the End User Computing Veteran (hat's off) Carl Webster, supported by community members, who are spreading and sharing their knowledge and experience. Carl had created his very well detailed guide [Building Webster's lab V2.pdf](https://carlwebster.com/building-websters-lab-v2/) - page 1312 of his guide for the EUC lab builders. He has spent 706 men hours creating this.
 
 Here comes the quote from his guide:
 
