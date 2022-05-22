@@ -1,15 +1,20 @@
 ---
 layout: post
-title: "EUC toolset"
-permalink: "/euc-toolset/"
-subtitle: "Bunch of usefull tools"
+title: "EUC toolset and books"
+permalink: "/euc-toolset-and-books/"
+subtitle: "Bunch of usefull tools and books"
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
-tags: [HomeLab ,EUC, Tools]
-categories: [HomeLab, EUC, Tools]
+tags: [HomeLab ,EUC ,Books , Tools]
+categories: [HomeLab, EUC ,Books , Tools]
 ---
 
+## Books
++ [Rds Complete Guide](https://www.amazon.pl/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
++ [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021
+
+## Tools
 + [ffmpeg](https://ffmpeg.org/)
 + [Sharex](https://getsharex.com/)
 + [WinDirStat](https://windirstat.net/)
