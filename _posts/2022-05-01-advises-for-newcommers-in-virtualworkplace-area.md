@@ -53,12 +53,12 @@ Work in the test environment according to the approach - trial and error - every
 If you've got RAID arrays for some resilience against disk failure, have a hot spare where possible, and if not, at least set up practice alerting so you get notified on a disk failure. Make sure you size a UPS correctly, although mine mainly protects against occasional Residual Current Device (RCD) trips, so it only needs to provide a few minutes of power. (Webster. Check the detailed explanation of RCD at [Site issues with Earth leakage](https://www.apc.com/us/en/faqs/FA156793/).)
 
 **Julian Mooren:**
-1.) Do small steps. Especially when automating because it can get quite overwhelming
-2.) Maybe build the lab with a good friend or colleague. Together is better.
-3.) Invest time in yourself = Better Skills and career opportunities
-4.) You don't need to have a 4000$ Home lab setup. Set yourself a budget and start with a tiny machine and build component by component. If you are still enjoying it after some months upgrade.
-5.) Watch your Credit Card bill when building your lab on Azure or another public cloud.
-6.) Don't be afraid to try/learn something completely new. Play with the solution and make yourself an impression of it. Even if it is a product from the competitor
+1. Do small steps. Especially when automating because it can get quite overwhelming
+2. Maybe build the lab with a good friend or colleague. Together is better.
+3. Invest time in yourself = Better Skills and career opportunities
+4. You don't need to have a 4000$ Home lab setup. Set yourself a budget and start with a tiny machine and build component by component. If you are still enjoying it after some months upgrade.
+5. Watch your Credit Card bill when building your lab on Azure or another public cloud.
+6. Don't be afraid to try/learn something completely new. Play with the solution and make yourself an impression of it. Even if it is a product from the competitor
 
 **Mads B. Petersen:**
 Controlling access to management, think jump host, MFA for windows logon and such, which I see many companies don't do very well.
