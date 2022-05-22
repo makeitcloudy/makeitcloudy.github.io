@@ -25,6 +25,10 @@ The fact is that for the home lab, you do not need that great amount of routing,
 + CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting architectures can be built on top of that.
 ## Howto
 Howto section
+## Links
++ [OepnSSL build on Windows](https://michlstechblog.info/blog/openssl-build-on-windows/)
++ [OpenVPN Server and certificate management on MikroTik](https://gist.github.com/SmartFinn/8324a55a2020c56b267b)
++ [Enable OpenVPN Server on Mikrotik RouterOS](https://lunar.computer/posts/mikrotik-routeros-openvpn/)
 ## Summary
 That's it.
 
