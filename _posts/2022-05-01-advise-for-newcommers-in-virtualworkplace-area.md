@@ -83,4 +83,4 @@ Don't be afraid to start your own blog and document your learning experiences. I
 don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
 
-Last edit: 2022.05.01
+Last update: 2022.05.01

@@ -23,4 +23,4 @@ Howto section
 
 Summary section
 
-Last edit: 2022.04.05
+Last update: 2022.04.05

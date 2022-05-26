@@ -24,3 +24,5 @@ I was testing this with following devices:
 
 ## Summary
 That's it
+
+Last update: 2022.04.10

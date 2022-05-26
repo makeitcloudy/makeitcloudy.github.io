@@ -50,4 +50,4 @@ yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gp
 If your device supports the communication over ethernet through the wire with the use of microUsb/usb-c or Iphone lightning to RJ45, then you are closer to get rid of wireless traffic, never the less up to my knowledge, not all devices can do this.
 That's it.
 
-Last edit: 2022.04.09
+Last update: 2022.04.09

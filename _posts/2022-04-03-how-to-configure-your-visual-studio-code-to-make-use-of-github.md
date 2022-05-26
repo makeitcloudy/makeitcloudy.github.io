@@ -52,4 +52,4 @@ Starting this point of time your local repository is your single source of truth
 
 That's it
 
-Last edit: 2022.04.03
+Last update: 2022.04.03
