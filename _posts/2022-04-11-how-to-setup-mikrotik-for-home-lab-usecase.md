@@ -9,6 +9,8 @@ share-img: /assets/img/how-to-setup-mikrotik-for-home-lab-usecase/img-cover.jpg
 tags: [HomeLab ,Networking]
 categories: [HomeLab ,Networking]
 ---
+*As of 2022.05.26 - it is draft due to the fact that there are just too many ways of doing it, which differs per device line RB vs CRS vs L2 and L3 approaches*
+
 Your homelab can be powered from the network angle by different vendors, never the less for the price Mikrotik brings buch of functionalities which is worth the money. The interface may push you away a bit a first glimpse, but still it's worth investing a bit of time for the learning curve, especially being equipped with structualized content comming the TheNetworkBerg.
 
 ## Advise
