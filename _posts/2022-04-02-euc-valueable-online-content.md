@@ -51,7 +51,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + [Azure Identity](https://www.youtube.com/c/TechMindFactory/videos)
 
 + Hybrid / Trond advises for building [hybrid scenarios](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
-+ Cloud / WVD (Windows Virtual Desktop) - AIB | [(Azure Image Builder) vs Packer](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA) [and](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
++ Cloud / WVD (Windows Virtual Desktop) - AIB [(Azure Image Builder) vs Packer](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA) [and](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
 + Cloud / WVD - Travis Roberts has his course on Udemy - VWD from zero to hero, as well as on [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
 
 ## WVD (Windows Virtual Desktop)
@@ -79,7 +79,7 @@ It's impossible to list all names of great people who produce the valuable conte
 * [ViaMonstra Academy](https://academy.viamonstra.com/collections)
 
 Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
-* Building Carl Webster [lab](https://carlwebster.com/01-building-websters-lab-v2-introduction/ | https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free.
+* Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free.
 * [Carl Stalhood](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.<br>
 * [Freek Berson](https://github.com/fberson) and his [blog](http://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
 * [MsFreaks](https://msfreaks.wordpress.com/)
