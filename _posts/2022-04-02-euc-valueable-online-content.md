@@ -31,6 +31,10 @@ There is plenty of valuable content on the internet, which is created by the com
 
 ## Azure
 + [The Azure Podcast](https://www.youtube.com/c/TheAzurePodcast)
++ [90 Days of DevOps](https://github.com/MichaelCade/90DaysOfDevOps)
++ Weekly update on [Azure Exams](https://github.com/JurgenOnAzure/all-the-exams)
++ [Disruptthecloud](https://linktr.ee/disruptthecloud)
++ [Azure Identity](https://www.youtube.com/c/TechMindFactory/videos)
 ## WVD (Windows Virtual Desktop)
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep - Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
