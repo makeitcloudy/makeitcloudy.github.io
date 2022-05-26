@@ -41,9 +41,11 @@ The fact is that for the home lab, you do not need that great amount of routing,
 + CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting architectures can be built on top of that.
 
 ## Relation between virtual elements which builds the configuration
+
 # Software defined vlans (router scenario)
 1. VLANs relate to Interfaces - you can bind VLAN to interfaces for instance: (ether2-ether5) - once this is done on two sides of the wire, the devices (if you have not disabled this) can see each other as a neighbours on L2 level.
 2. IP addresses relate to VLANs - you assign an IP address to VLAN, once this is done on two sides of the wire and some traffic is generated then the devices can see each other as a neighbours on L3 level.
+
 # Bridged vlans (switch scenario)
 1. Introduce a bridge to the network
 2. For each vlan create a bridge which will be linked to that vlan
@@ -144,4 +146,4 @@ There are three ways of configuring VLANs
 ## Summary
 That's it.
 
-Last edit: 2022.04.11
+Last update: 2022.04.11
