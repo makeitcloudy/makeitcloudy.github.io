@@ -26,7 +26,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
 
 ## RDS (Remote Desktop Services)
-+ [Mehic.se](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
++ Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
 
 ## Microsoft learn
 + [Microsoft learn](https://docs.microsoft.com/en-us/learn/browse/)
@@ -81,38 +81,38 @@ It's impossible to list all names of great people who produce the valuable conte
 
 Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 * Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free.
-* [Carl Stalhood](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.<br>
-* [Freek Berson](https://github.com/fberson) and his [blog](http://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
-* [MsFreaks](https://msfreaks.wordpress.com/)
-* [Bas van Kaam](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
-* [Denis Span](https://dennisspan.com/) - he was my inspiration for some automation topics around PVS etc. His blog is full of examples how the installation of the components building CVAD can be automated. You may customize those scripts for your preference, for instance including the Error and Verbose streams, they are great starting point.
-* [Jonathan Pitre](https://github.com/JonathanPitre)
-* [Dennis Mohrmann](https://github.com/Mohrpheus78/)
-* [Trond Erik Haavarstein](https://xenappblog.com/) and his [github](https://github.com/Haavarstein/Applications), Trond is an founder of VirtualExpo.
-* [Guy Leech](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;)
-* [Johannes Norz](https://norz.at/blog) and his fantastic [blog](https://www.wonderkitchen.tech/) - here you can benefit for your Citrix ADC skilset
-* [Marius Sandbu](https://msandbu.org/) - content aroun netscaler and Azure
-* [Claudio Rodriguez](http://blog.wtslabs.com/), apart from that there were RAS university [initiative](http://ras.euc.university/) - but for some reason this is no longer active at 2022.
-* [Esther Barthel](https://github.com/cognitionit) - if you are interested in REST API, Nitro for Citrix ADC and topics around automation, she is the one to follow
-* [Julian Jakob](https://www.julianjakob.com/)
-* [Julien Mooren](https://citrixguyblog.com) and his [github](https://github.com/citrixguyblog) - he was my inspiration to fork his AutomatedRDS release back in 2017
-* [James Kindon](https://github.com/JamesKindon) and his fantastic [blog](https://jkindon.com/)
-* [James Ranklin](https://james-rankin.com/) - amazing content is produced by James, no doubts
-* [Daniel Fehler](https://virtualfeller.com/)
-* [René Bigler](https://dreadysblog.com/) - and his interesting [opinion](https://twitter.com/dready73/status/1507110067375648770) which I trully support
-* [Marco Zimmermann](http://marcozimmermann.com/)
-* [Manuel Winkel](https://www.deyda.net/index.php/en/)
-* [Matthias Schlimm](https://eucweb.com/)
-* [Ben Gelens](https://bgelens.nl/)
-* [Kristin Griffin](https://www.rdsgurus.com/author/grokker99/) - her contribution in RDS area seems to be not that well known, but still she brought added value value to the EUC community
-* [Kris Davis](https://xenapplepie.com/)
-* [John Billekens](https://blog.j81.nl/)
-* [George Spiers](https://www.jgspiers.com/) - his blog is towards, you getting handy with NetScaler and topics on your OS layer
-* [Lee Jeffries](https://www.leeejeffries.com/blog/)
-* [Ravikanth C](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
-
-+ Martin Therkelsen
-+ [Josh Duffney](https://duffney.io/)
+* Carl Stalhood [webpage](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.<br>
+* Freek Berson [github](https://github.com/fberson) and his [blog](http://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
+* MsFreaks [blog](https://msfreaks.wordpress.com/)
+* Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
+* Denis Span [blog](https://dennisspan.com/) - he was my inspiration for some automation topics around PVS etc. His blog is full of examples how the installation of the components building CVAD can be automated. You may customize those scripts for your preference, for instance including the Error and Verbose streams, they are great starting point.
+* Jonathan Pitre [github](https://github.com/JonathanPitre)
+* Dennis Mohrmann [github](https://github.com/Mohrpheus78/)
+* Trond Erik Haavarstein [blog](https://xenappblog.com/) and his [github](https://github.com/Haavarstein/Applications), Trond is an founder of VirtualExpo.
++ Martin Therkelsen [github](https://github.com/mracket) and [blog](https://www.cloudninja.nu/)
++ Patrick Koehler [blog](https://avdlogix.com/)
+* Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
+* Johannes Norz [blog](https://norz.at/blog) and his fantastic [wonderkitchen](https://www.wonderkitchen.tech/) - here you can benefit for your Citrix ADC skilset
+* Marius Sandbu [blog](https://msandbu.org/) - content aroun netscaler and Azure
+* Claudio Rodriguez [blog](http://blog.wtslabs.com/), apart from that there were RAS university [initiative](http://ras.euc.university/) - but for some reason this is no longer active at 2022.
+* Esther Barthel [github](https://github.com/cognitionit) - if you are interested in REST API, Nitro for Citrix ADC and topics around automation, she is the one to follow
+* Julian Jakob [blog](https://www.julianjakob.com/)
+* Julien Mooren [blog](https://citrixguyblog.com) and his [github](https://github.com/citrixguyblog) - he was my inspiration to fork his AutomatedRDS release back in 2017
+* James Kindon [github](https://github.com/JamesKindon) and his fantastic [blog](https://jkindon.com/)
+* James Ranklin [blog](https://james-rankin.com/) - amazing content is produced by James, no doubts
+* Daniel Fehler [blog](https://virtualfeller.com/)
+*  René Bigler [blog](https://dreadysblog.com/) - and his interesting [opinion](https://twitter.com/dready73/status/1507110067375648770) which I trully support
+* Marco Zimmermann [blog](http://marcozimmermann.com/)
+* Manuel Winkel [blog](https://www.deyda.net/index.php/en/)
+* Matthias Schlimm [blog](https://eucweb.com/)
+* Ben Gelens [blog](https://bgelens.nl/)
+* Kristin Griffin [webpage](https://www.rdsgurus.com/author/grokker99/) - her contribution in RDS area seems to be not that well known, but still she brought added value value to the EUC community
+* Kris Davis [blog](https://xenapplepie.com/)
+* John Billekens [blog](https://blog.j81.nl/)
+* George Spiers[blog](https://www.jgspiers.com/) - his blog is towards, you getting handy with NetScaler and topics on your OS layer
+* Lee Jeffries [blog](https://www.leeejeffries.com/blog/)
+* Ravikanth C[github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
++ Josh Duffney [blog](https://duffney.io/)
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
