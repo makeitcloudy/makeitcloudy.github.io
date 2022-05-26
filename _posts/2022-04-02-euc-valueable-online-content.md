@@ -18,12 +18,27 @@ There is plenty of valuable content on the internet, which is created by the com
 + [Setup NFS server on centos 8](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
 
 ## Network Layer
-
++ .
 ## Citrix (CVAD)
-+ one
++ StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
++ StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
 
 ## RDS (Remote Desktop Services)
 + [Mehic.se](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
 
+## Microsoft learn
++ [Microsoft learn](https://docs.microsoft.com/en-us/learn/browse/)
+
+## Azure
++ [The Azure Podcast](https://www.youtube.com/c/TheAzurePodcast)
 ## WVD (Windows Virtual Desktop)
-+ one
++ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
++ Bicep - Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
++ Bicep - [github](https://github.com/Azure/bicep/)
++ Azure and terraform [part1](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
++ Bicep and github actions [part1](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
+
+## Community members
+Martin Therkelsen
+Esther Barthel
+Freek Berson
