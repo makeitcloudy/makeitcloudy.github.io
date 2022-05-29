@@ -54,9 +54,10 @@ It's impossible to list all names of great people who produce the valuable conte
 + Julian Mooren - [RDS powered by PVS](https://citrixguyblog.com/2021/10/07/citrix-pvs-deploy-microsoft-remote-desktop-session-hosts-with-citrix-provisioning-services/)
 
 ## Azure - Automated lab provisioning
-+ Andreas Fleischmann - (Azure-Playground)(https://github.com/andif888/azure-playground)
-+ Andreas Fleischmann - (Azure-Sig)(https://github.com/andif888/azure-sig)
++ Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
++ Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
 + AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
+
 ## Azure Training
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
 + John Savil - Azure trainings - [youtube](https://www.youtube.com/c/NTFAQGuy/playlists)
