@@ -24,7 +24,7 @@ git config --global user.name "Piotr Ostrowski"
 git config --global user.email "me@your.domain"
 git config --global color.ui true
 #at this point your very initial configuration is ready
-git config --global list
+git config -- list
 ```
 3. Create folder on the filesystem which is your local copy of the github repository
 ```powershell

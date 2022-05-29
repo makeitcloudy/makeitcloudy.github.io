@@ -13,10 +13,10 @@ There is plenty of valuable content on the internet, which is created by the com
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.
 
 ## Storage Layer
-+ [NerdOnTheStreet](https://www.youtube.com/c/NerdOnTheStreet/videos) youtube channel
-+ [Intro to LVM](https://www.youtube.com/watch?v=krerZ2TZvL8) NedOnTheStreet
-+ [LVM Deep Dive](https://www.youtube.com/watch?v=MeltFN-bXrQ)
-+ [Setup NFS server on centos 8](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
++ NerdOnTheStreet channel [youtube](https://www.youtube.com/c/NerdOnTheStreet/videos)
++ NerdOnTheStreet Intro to LVM [youtube](https://www.youtube.com/watch?v=krerZ2TZvL8)
++ LVM Deep Dive [youtube](https://www.youtube.com/watch?v=MeltFN-bXrQ)
++ Centos8 - Setup NFS server - [blog](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
 
 ## Network Layer
 + .
@@ -28,56 +28,61 @@ It's impossible to list all names of great people who produce the valuable conte
 ## RDS (Remote Desktop Services)
 + Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
 
-## Microsoft learn
-+ [Microsoft learn](https://docs.microsoft.com/en-us/learn/browse/)
+## On-Premises - Automated lab provisioning
++ Citrix-VAD-LAB [github(https://github.com/ryancbutler/Citrix-VAD-LAB)
++ LabBuilder [github](https://github.com/PlagueHO/LabBuilder)
++ Lability [github](https://github.com/VirtualEngine/Lability)
++ PS-AutoLab-Env [github](https://github.com/pluralsight/PS-AutoLab-Env)
++ AutomatedXenServerLabs [github](https://github.com/ZachThurmond/Automated-XenServer-Labs)
++ AutomatedCitrix [github](https://github.com/makeitcloudy/AutomatedCitrix)
 
 ## Azure
-* John Savil [onboarding to Azure](https://github.com/johnthebrit/CertificationMaterials)
-* John Savil [Azure trainings](https://www.youtube.com/c/NTFAQGuy/playlists)
-* Travis Roberts [Azure Virtual Desktop](https://www.youtube.com/c/TravisRoberts/playlists) [and](https://www.youtube.com/watch?v=V8PjtCTTT6c&list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
+* John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
+* John Savil - Azure trainings - [youtube](https://www.youtube.com/c/NTFAQGuy/playlists)
++ Thomas Maurer - 2022 Azure study guide - [blog](https://www.thomasmaurer.ch/2022/01/how-to-learn-microsoft-azure-in-2022/) this should be a sufficient amount of knowledge to be prepared for studying to AZ-140
 
-+ Thomas Maurer [2022 Azure study guide](https://www.thomasmaurer.ch/2022/01/how-to-learn-microsoft-azure-in-2022/) this should be a sufficient amount of knowledge to be prepared for studying to AZ-140
-+ Thomas Maurer [AZ-900](https://www.thomasmaurer.ch/2020/03/az-900-study-guide-microsoft-azure-fundamentals-2021/)
-+ Thomas Maurer [AZ-104](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
-+ Why should you become Azure [certified](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
-
-+ AZ-900 microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
-+ AZ-104 microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
-
++ [Microsoft learn](https://docs.microsoft.com/en-us/learn/browse/)
 + [The Azure Podcast](https://www.youtube.com/c/TheAzurePodcast)
 + [90 Days of DevOps](https://github.com/MichaelCade/90DaysOfDevOps)
-+ Weekly update on [Azure Exams](https://github.com/JurgenOnAzure/all-the-exams)
+
 + [Disruptthecloud](https://linktr.ee/disruptthecloud)
 + [Azure Identity](https://www.youtube.com/c/TechMindFactory/videos)
 
-+ Hybrid / Trond advises for building [hybrid scenarios](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
-+ Cloud / WVD (Windows Virtual Desktop) - AIB [(Azure Image Builder) vs Packer](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA) [and](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
-+ Cloud / WVD - Travis Roberts has his course on Udemy - VWD from zero to hero, as well as on [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
++ Hybrid / Trond advises for building hybrid scenarios [blog](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
++ Cloud / WVD (Windows Virtual Desktop) - AIB (Azure Image Builder) vs Packer [youtube](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA)
 
-## WVD (Windows Virtual Desktop)
-+ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
-+ Bicep - Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
-+ Bicep - [github](https://github.com/Azure/bicep/)
-+ Azure and terraform [part1](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
-+ Bicep and github actions [part1](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
+## Azure exams
++ Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
++ JurgenOn Azure - All the exams - weekly update [github](https://github.com/JurgenOnAzure/all-the-exams)
+## AZ-900
++ AZ-900 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-900-study-guide-microsoft-azure-fundamentals-2021/)
++ AZ-900 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
+## AZ-104
++ AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
++ AZ-103 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
+
+## AVD (Azure Virtual Desktop)
++ Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/c/TravisRoberts/playlists) and his AVD [youtube content](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
++ Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
++ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
++ Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
-## Automated lab provisioning
-+ [LabBuilder](https://github.com/PlagueHO/LabBuilder)
-+ [Lability](https://github.com/VirtualEngine/Lability)
-+ [PS-AutoLab-Env](https://github.com/pluralsight/PS-AutoLab-Env)
-+ [AXL](https://github.com/ZachThurmond/Automated-XenServer-Labs)
-+ [AutomatedCitrix](https://github.com/makeitcloudy/AutomatedCitrix)
+## Bicep
++ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
++ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
++ Bicep [github](https://github.com/Azure/bicep/)
+
 
 ## Community shares
-* [World of EUC slack](https://t.co/EVrMXepANH)
-* [World of EUC discord](https://t.co/zE0QTpANZQ)
-* [EUC weekly digest](https://www.carlstalhood.com/category/euc-weekly-digest/)
-* MyCugc with all the [webinars](https://www.mycugc.org/events/webinars) recoreded
-* [Go-Euc](https://www.go-euc.com/) - there is an interesting mission behind the scenes
-* [PowerShellConferenceEU](https://www.youtube.com/c/PowerShellConferenceEU)
-* [VirtualExpo](https://xenappblog.com/agenda/)
-* [ViaMonstra Academy](https://academy.viamonstra.com/collections)
+* World of EUC [slack](https://t.co/EVrMXepANH)
+* World of EUC [discord](https://t.co/zE0QTpANZQ)
+* Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
+* MyCugc with it's recoreded webinars [webpage](https://www.mycugc.org/events/webinars)
+* Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
+* PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
+* VirtualExpo [blog](https://xenappblog.com/agenda/)
+* Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
 
 Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 * Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free.
