@@ -29,7 +29,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
 
 ## On-Premises - Automated lab provisioning
-+ Citrix-VAD-LAB [github(https://github.com/ryancbutler/Citrix-VAD-LAB)
++ Citrix-VAD-LAB [github](https://github.com/ryancbutler/Citrix-VAD-LAB)
 + LabBuilder [github](https://github.com/PlagueHO/LabBuilder)
 + Lability [github](https://github.com/VirtualEngine/Lability)
 + PS-AutoLab-Env [github](https://github.com/pluralsight/PS-AutoLab-Env)
@@ -41,12 +41,13 @@ It's impossible to list all names of great people who produce the valuable conte
 * John Savil - Azure trainings - [youtube](https://www.youtube.com/c/NTFAQGuy/playlists)
 + Thomas Maurer - 2022 Azure study guide - [blog](https://www.thomasmaurer.ch/2022/01/how-to-learn-microsoft-azure-in-2022/) this should be a sufficient amount of knowledge to be prepared for studying to AZ-140
 
-+ [Microsoft learn](https://docs.microsoft.com/en-us/learn/browse/)
-+ [The Azure Podcast](https://www.youtube.com/c/TheAzurePodcast)
-+ [90 Days of DevOps](https://github.com/MichaelCade/90DaysOfDevOps)
++ Microsoft learn [webpage](https://docs.microsoft.com/en-us/learn/browse/)
++ The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
++ 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
 
-+ [Disruptthecloud](https://linktr.ee/disruptthecloud)
-+ [Azure Identity](https://www.youtube.com/c/TechMindFactory/videos)
++ MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
++ DirsuptTheCloud [podcast](https://linktr.ee/disruptthecloud)
++ TechmindFactory - Identity [youtube](https://www.youtube.com/c/TechMindFactory/videos)
 
 + Hybrid / Trond advises for building hybrid scenarios [blog](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
 + Cloud / WVD (Windows Virtual Desktop) - AIB (Azure Image Builder) vs Packer [youtube](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA)
@@ -59,7 +60,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + AZ-900 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
 ## AZ-104
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
-+ AZ-103 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
++ AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
 
 ## AVD (Azure Virtual Desktop)
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/c/TravisRoberts/playlists) and his AVD [youtube content](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
