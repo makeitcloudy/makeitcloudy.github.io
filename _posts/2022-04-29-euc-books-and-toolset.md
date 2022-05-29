@@ -30,16 +30,53 @@ Still it's worth spending money on books, which brings you non-scattered content
 
 
 ## Tools
++ [EUCMonitoringRedux](https://github.com/littletoyrobots/EUCMonitoringRedux) - End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community.
++ Windows Event Log Analyzer - WELA [github](https://github.com/Yamato-Security/WELA)
++ Logging me easy [github](https://github.com/ukncsc/lme/)
++ List RDP connection history [github](https://github.com/3gstudent/List-RDP-Connections-History)
++ DiskSpd [github](https://github.com/microsoft/diskspd) - disk workload, stress tool
++ GetSTFolderSize [github](https://github.com/EliteLoser/GetSTFolderSize)
++ Guy powershell repo [github](https://github.com/guyrleech/Microsoft)
+
++ linux rdp/vnc client [github](https://github.com/skelsec/aardwolfgui)
++ devolutions powershell rdp client [MsRdpEx](https://github.com/Devolutions/MsRdpEx)
++ Citrix [PVS Admin Toolkit](https://github.com/Mohrpheus78/Citrix/tree/main/PVS%20Admin%20Toolkit)
++ Citrix [PVS RAM cache usage](https://guyrleech.wordpress.com/2016/06/27/getting-the-pvs-ram-cache-usage-as-a-percentage/)
++ Citrix [PVS disk replicator](https://www.citrix.com/blogs/2019/01/03/provisioning-services-vdisk-replication-status/?es_p=8301892)
++ Citrix [Auto Download](https://github.com/ryancbutler/Citrix/tree/master/XenDesktop/AutoDownload)
++ Citrix [Download Scrapper](https://github.com/ryancbutler/Citrix_DL_Scrapper)
++ Citrix [License usage](https://github.com/aspicola2605/citrixlicenseusage)
++ Vmwre Workstation vmxtoolkit [github](https://github.com/bottkars/vmxtoolkit)
++ Master Packager [msix](https://www.masterpackager.com/blog/msix-limitations)
++ EIDVirtual [webpage](https://www.mysmartlogon.com/products/eidvirtual.html) - Transform an USB Key into a virtual smart card
 + [ffmpeg](https://ffmpeg.org/)
++ [StaxRip](https://helgeklein.com/blog/hardware-encode-video-in-h-265-with-free-tools-to-save-disk-space/)
 + [Sharex](https://getsharex.com/) and (https://github.com/ShareX/ShareX) - fantastic project for a screen capturing, producing GIF's for your webpage
+
++ EUC [Application Check](https://eucweb.com/blog/1886) - report engine
+
++ BIS-F Optimizer [webpage](https://eucweb.com/download-bis-f)
++ Microsoft Optimizer [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
++ Vmware Optimizer [webpage](https://flings.vmware.com/vmware-os-optimization-tool)
++ Citrix Optimizer [webpage](https://support.citrix.com/article/CTX224676)
+
++ ADMX reader [github](https://github.com/cognitionIT/ADMXReader/blob/master/ADMXReader.ps1)
+
++ Citrix cloud [lower your cost](https://twitter.com/myCUGC/status/1156916283981479937)
++ MSportals.io [webpage](https://msportals.io/)
 
 + [Chocolatey](https://chocolatey.org/)
 + [Visual Studio Code](https://code.visualstudio.com/) with extensions
 
++ [Short link creator](https://katystech.blog/projects/project-short-link-creator)
+
 + Sapien [CIM/WMI Explorer](https://www.sapien.com/software/cimexplorer)
 + Ks-Soft [CIM/WMI Explorer](https://www.ks-soft.net/hostmon.eng/wmi/index.htm)
++ Aaron Parker [vcredist](https://github.com/aaronparker/vcredist)
 + [Chocolatey](https://chocolatey.org/)
 + [Ninite](https://ninite.com/) - Install and Update your apps at once
+
++ convert [txt to PsObject](https://doitpsway.com/converting-clipboard-text-content-to-powershell-object)
 
 + [WizTree](https://diskanalyzer.com/) - TreeSize alternative, which is just faster
 + [WinDirStat](https://windirstat.net/)
@@ -49,7 +86,23 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [PiHole](https://pi-hole.net/)
 + [UberAgent](https://uberagent.com/download/) and [Helge Klein](https://helgeklein.com/blog/citrix-cvad-virtual-apps-desktops-network-connection-target-hosts/) blog post for the usecase
 + [Glaswire](https://www.glasswire.com/)
++ w10/w11 - [DNS lookup](https://www.nirsoft.net/utils/dns_lookup_view.html)
 + [Shut up 10](https://www.oo-software.com/en/shutup10)
 + [BoxStarter](https://boxstarter.org/)
 
++ Wireguard [server for windows](https://github.com/micahmo/WgServerforWindows)
++ OpenSSL [easy-csr](https://www.digicert.com/easy-csr/openssl.htm)
++ certreq [docs](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certreq_1#example)
++ OpenSSL [cheat sheet](https://classes.pracnet.net/courses/openssl-training)
+
++ Invoke-CommandAs [github](https://github.com/mkellerman/invoke-commandas)
++ RunAsUser [github](https://github.com/KelvinTegelaar/RunAsUser)
+
+```powershell
+# get list of IP addresses connected via RDP
+Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operational' | select -exp Properties | where {$_.Value -like '*.*.*.*' } | sort Value -u
+```
+
++ GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration. 
++ wttr.in [github](https://github.com/chubin/wttr.in)
 Last update: 2022.04.29
