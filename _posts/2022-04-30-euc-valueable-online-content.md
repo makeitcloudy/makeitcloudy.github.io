@@ -27,23 +27,23 @@ It's impossible to list all names of great people who produce the valuable conte
 + MS-Lab [github](https://github.com/microsoft/MSLab)
 + AutomatedXenServerLabs [github](https://github.com/ZachThurmond/Automated-XenServer-Labs)
 + AutomatedCitrix [github](https://github.com/makeitcloudy/AutomatedCitrix)
-## Storage Layer
+## On-Premises - Storage Layer
 + NerdOnTheStreet channel [youtube](https://www.youtube.com/c/NerdOnTheStreet/videos)
 + NerdOnTheStreet Intro to LVM [youtube](https://www.youtube.com/watch?v=krerZ2TZvL8)
 + LVM Deep Dive [youtube](https://www.youtube.com/watch?v=MeltFN-bXrQ)
 + Centos8 - Setup NFS server - [blog](https://www.linuxtechi.com/setup-nfs-server-on-centos-8-rhel-8/)
-## Network Layer
+## On-Premises - Network Layer
 + TheNetworkBerg [youtube](https://www.youtube.com/c/TheNetworkBerg), [github](https://github.com/TheNetworkBerg) - if you are focused on EUC, here is enough content about networking shared in digestable way, which can help you pass MCTNA and MTCRE
-## PKI
+## On-Premises - PKI
 + Vadims Podans [webpage](https://www.pkisolutions.com/), [github](https://github.com/PKISolutions/PSPKI)
-## Virtual GPU
+## On-Premises - Virtual GPU
 + team GRE [videos](http://www.teamrge.com/teamrge/videos/) - 14 hours of free content about the GPU Virtualization
 + Jeremy Main [github](https://github.com/JeremyMain/GPUProfiler) - Gpu Profiler
 + Julian Mooren [blog](https://citrixguyblog.com/2019/01/17/citrix-hypervisor-unattended-installation-with-hotfixes-and-nvidia-grid-driver/)
 + Chris Twiest [blog](https://workspace-guru.com/2019/07/20/passthrough-a-consumer-gefore-and-quadro-gpu-to-a-vm-with-vmware-and-using-rdp/)
-## Profiles
+## On-Premises - Profiles
 + fslogix [webpage](https://www.sul.de/2019/04/05/fslogix-in-a-citrix-provisioning-environment/)
-## Monitoring
+## On-Premises - Monitoring
 + AdamYarborough - EUCMonitoringRedux [github](https://github.com/littletoyrobots/EUCMonitoringRedux) - 'End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community'
 + Sacha Thomet - XA-and-XD-HealthCheck [github](https://github.com/sacha81)
 ## Citrix (CVAD)
@@ -58,7 +58,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
 + AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
 
-## Azure Training
+## Azure - Training
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
 + John Savil - Azure trainings - [youtube](https://www.youtube.com/c/NTFAQGuy/playlists)
 + Thomas Maurer - 2022 Azure study guide - [blog](https://www.thomasmaurer.ch/2022/01/how-to-learn-microsoft-azure-in-2022/) this should be a sufficient amount of knowledge to be prepared for studying to AZ-140
@@ -77,7 +77,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + Hybrid / Trond advises for building hybrid scenarios [blog](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
 + Cloud / WVD (Windows Virtual Desktop) - AIB (Azure Image Builder) vs Packer [youtube](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA)
 
-## Azure Exam
+## Azure - Exam
 + Tim Warner - [youtube](https://www.youtube.com/watch?v=uoO7KpdG9Yk&feature=youtu.be)
 + Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
 + JurgenOn Azure - All the exams - weekly update [github](https://github.com/JurgenOnAzure/all-the-exams)
@@ -89,7 +89,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
 
-## Azure Virtual Desktop
+## Azure - Virtual Desktop
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/c/TravisRoberts/playlists) and his AVD playlist on [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
@@ -97,7 +97,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
-## Bicep
+## Azure - Bicep
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
 + Bicep [github](https://github.com/Azure/bicep/)
