@@ -39,7 +39,10 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 Start the device configuration according to your needs.
 
 ## Summary
-This has been sucesfuly tested with RT-N10U, RT-N16U, RT-N18U.
++ This has been sucesfuly tested with RT-N10U, RT-N16U, RT-N18U.
++ FreshTomato [Changelog](https://bitbucket.org/pedro311/freshtomato-arm/src/arm-master/CHANGELOG).
++ The Firmware can be downgraded or upgraded.
++ Bare in mind to erase NVRAM, if this it not done, there are chances for quirks.
 That's it.
 
 Last update: 2022.04.11

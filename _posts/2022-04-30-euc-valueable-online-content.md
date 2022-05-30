@@ -83,7 +83,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
 + JurgenOn Azure - All the exams - weekly update [github](https://github.com/JurgenOnAzure/all-the-exams)
 ## AZ-900
-+ AZ-900 - John Savil's [youtube](https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3) playlist - updated in 05.2022
++ AZ-900 - John Savil's [youtube](https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3) playlist - updated in 05.2022, [github](https://github.com/johnthebrit/AZ900CertCourse)
 + AZ-900 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-900-study-guide-microsoft-azure-fundamentals-2021/)
 + AZ-900 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
 ## AZ-104
