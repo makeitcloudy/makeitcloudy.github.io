@@ -166,16 +166,15 @@ Resetting the board to the factory defaults with making use of the physical butt
 2. [bridged VLANs](https://www.youtube.com/watch?v=4BOYqtV4MCY&list=PLJ7SGFemsLl1QUNkgAbGj9ldlWRrr8zMj&index=1&t=848s) (let's call it modern way) - here vlans are bound to the bridges
 + for each VLAN there is a separate bridge linked to that VLAN
 3. [switch chip powered VLANs](https://www.youtube.com/watch?v=4BOYqtV4MCY&list=PLJ7SGFemsLl1QUNkgAbGj9ldlWRrr8zMj&index=1&t=1168s) (those are the VLANs which are powered by the ASIC not the CPU, so the Central Processing Unit of your device, has some more room left for processing other type of activies like checking the firewall rules, which you'll put on top of your VLAN configurations). There is one remark - your device needs to have [switch chip](https://wiki.mikrotik.com/wiki/Manual:Switch_Chip_Features), in our example RB951-2n has one called Atheros7240, which serves the ethernet ports 2-5, so the ethernet port 1 can be used as the uplink, and what's more can be powered over PoE. Brilliant isn't ?
-3.1 Only one bridge on your device. Stick with this rule, as from what I recall from different lecture if there are more bridges the Hardware Offloading have issues with itself, and the performance is degradaded.
-3.2 For the RouterBoard series, Call the bridge bridge-switch-chip
-3.3 Add ether port to the bridge, and set the PVID of the VLAN on the port in the BRIDGE context
-3.4 At this stage VLAN tab in the bridge context should not show anything
-3.5 Still in the BRIDGE context go the the bridge tab, into the VLAN tab of the bridge-switch-chip and enable vlan filtering (just enable it, without performing any furhter configuration). At this stage it is creating the dynamic interfaces on the bridge.
-3.6 At this stage VLAN tab in the BRIDGE context should show the VLANs which are created on the interfaces along with the detail, whether those are tagged or untagged. PS. when you configure the VLANs on the interfaces which are just logically configured, and nothing is configured to them, what you will see in this tab will be the VLAN with ID 1 (provided the VLAN1 has been added to the bridge)
-3.7 At this point you can copy the dynamically configured bridge vlans, and decide on which ethernet ports those should tagged and untagged
-
-3.100 Vlan Filtering (do it last)
-
++ 3.1 Only one bridge on your device. Stick with this rule, as from what I recall from different lecture if there are more bridges the Hardware Offloading have issues with itself, and the performance is degradaded.
++ 3.2 For the RouterBoard series, Call the bridge bridge-switch-chip
++ 3.3 Add ether port to the bridge, and set the PVID of the VLAN on the port in the BRIDGE context
++ 3.4 At this stage VLAN tab in the bridge context should not show anything
++ 3.5 Still in the BRIDGE context go the the bridge tab, into the VLAN tab of the bridge-switch-chip and enable vlan filtering (just enable it, without performing any furhter configuration). At this stage it is creating the dynamic interfaces on the bridge.
++ 3.6 At this stage VLAN tab in the BRIDGE context should show the VLANs which are created on the interfaces along with the detail, whether those are tagged or untagged. PS. when you configure the VLANs on the interfaces which are just logically configured, and nothing is configured to them, what you will see in this tab will be the VLAN with ID 1 (provided the VLAN1 has been added to the bridge)
++ 3.7 At this point you can copy the dynamically configured bridge vlans, and decide on which ethernet ports those should tagged and untagged
++ 3.100 Vlan Filtering (do it last)
+4. Looks like CCR does not have a switch chip, and all ports are directly connected to CPU.
 ## Useful commands
 + When something goes wrong, or you'd like to take a fresh start
 ```bash
