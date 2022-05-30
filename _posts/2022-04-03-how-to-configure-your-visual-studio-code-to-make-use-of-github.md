@@ -33,7 +33,7 @@ Set-Location -Path $env:SystemDrive\Git
 ```
 
 ## Use Git
-4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS)) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
+4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally) like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
 ```powershell
 git clone https://github.com/makeitcloudy/AutomatedRDS.git
 #this will result with the information that there is a version controlling within the folder you cloned
