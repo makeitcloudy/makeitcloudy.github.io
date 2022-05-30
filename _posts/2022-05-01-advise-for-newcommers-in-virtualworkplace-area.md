@@ -83,4 +83,7 @@ Don't be afraid to start your own blog and document your learning experiences. I
 don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
 
-Last update: 2022.05.01
+**2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
++ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.
+
+Last update: 2022.05.30
