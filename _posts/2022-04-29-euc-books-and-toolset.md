@@ -14,6 +14,9 @@ Still it's worth spending money on books, which brings you non-scattered content
 ## Books
 + Bas Van Kaam [Inside the FMA](https://www.basvankaam.com/wp-content/uploads/2019/03/Inside-Citrix-The-FlexCast-Management-Architecture.pdf)
 + Bas Van Kaam [Byte-Sized](https://www.basvankaam.com/2019/10/14/our-byte-sized-book-is-available-for-download-free-of-charge-go-grab-your-virtual-copy-now/) and [direct](https://www.basvankaam.com/wp-content/uploads/2019/10/Final-Version-Take-17.pdf) link
++ Johan van Amersfoort [VDI Design Guide](https://www.amazon.com/VDI-Design-Guide-comprehensive-standards/dp/1977535526) A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
+
++ Claudio Rodrigues [DaaS - the complete guide](https://www.amazon.com/DaaS-Step-Step-Desktop-as-Service/dp/B09DN1FJ19) A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft, Citrix, VMware, Accops and much more.
 + Ryan Mangan [Mastering Azure Virtual Desktop](https://www.packtpub.com/product/mastering-azure-virtual-desktop/9781801075022)
 + Freek Berson [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021, Freek mentioned that he did an update for it somewhere in 2022
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
@@ -28,8 +31,9 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [PowerShell Error Handling](https://leanpub.com/thebigbookofpowershellerrorhandling) - LeanPub
 + [Pester Book](https://leanpub.com/pesterbook) - LeanPub
 + [The DSC Book](https://leanpub.com/the-dsc-book) - LeanPub
++ Ravikanth Chaganti [Pro PowerShell Desired State Configuration](https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth/dp/1484234820) - An In-Depth Guide to Windows PoweRshell DSC 2nd Edition
 
-+ [Rds Complete Guide](https://www.amazon.pl/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
++ [Rds Complete Guide](https://www.amazon.com/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools
@@ -51,6 +55,8 @@ Still it's worth spending money on books, which brings you non-scattered content
 + Citrix [License usage](https://github.com/aspicola2605/citrixlicenseusage)
 
 + Vmware Workstation vmxtoolkit [github](https://github.com/bottkars/vmxtoolkit)
+
++ HSF [Http File Server](www.rejetto.com/hfs) - the other way to share your files
 
 + Screen capturing [Sharex](https://getsharex.com/) and (https://github.com/ShareX/ShareX)
 + Screen capturing [Licelap](https://www.cockos.com/licecap/)

@@ -50,8 +50,9 @@ It's impossible to list all names of great people who produce the valuable conte
 + StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
 + StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
 ## Remote Desktop Services
-+ Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/)
-+ Julian Mooren - [RDS powered by PVS](https://citrixguyblog.com/2021/10/07/citrix-pvs-deploy-microsoft-remote-desktop-session-hosts-with-citrix-provisioning-services/)
++ Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/) - RDS with DSC
++ Simon [Another Windows Blog](https://www.anotherwindowsblog.com/2018/02) - RDS farm behind NetScaler
++ Julian Mooren - [RDS powered by PVS](https://citrixguyblog.com/2021/10/07/citrix-pvs-deploy-microsoft-remote-desktop-session-hosts-with-citrix-provisioning-services/) - RDS session host on PVS steroids
 
 ## Azure - Automated lab provisioning
 + Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
