@@ -64,7 +64,8 @@ which openssl
 openssl version
 ```
 
-## Refresh Superimcro IPMI certificate
+## Refresh Superimcro IPMI certificate - newer firmware - motherboard of X9 series
+This was tested on 3.48 version of the firmware.
 If you have a newer firmware than 3.19, the you can use following method to generate the self signed certificate, which then can be used to secure your IPMI connection.
 
 The node1ipmi-Config.cfg file contains the following
@@ -109,6 +110,9 @@ openssl req -out node1ipmi.csr -key node1ipmi-Key.key -new -config node1ipmi-Con
 ```
 
 Then on the web interface of your ipmi, choose Configuration -> SSL Certification and pick the .csr 
+
+## Refresh Supermicro IPMI certificate - older firmware - motherboard of X9 series
+For older firmware for the motherboard which was longer out of further support, but are still great use for the homelab.
 
 ## Summary
 For the IPMI certificate - Something is missing, needs some further work to validate the config which was done back then.

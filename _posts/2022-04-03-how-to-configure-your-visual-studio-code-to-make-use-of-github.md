@@ -24,7 +24,7 @@ git config --global user.name "Piotr Ostrowski"
 git config --global user.email "me@your.domain"
 git config --global color.ui true
 #at this point your very initial configuration is ready
-git config -- list
+git config --list
 ```
 3. Create folder on the filesystem which is your local copy of the github repository
 ```powershell
@@ -46,10 +46,15 @@ Get-ChildItem .\.git\
 7. Commit
 8. Sync Changes
 
-Starting this point of time your local repository is your single source of truth and this is the place where you make changes and upload them remotelly.
+Starting this point of time your local repository is your single source of truth and this is the place where you make changes and upload them remotelly. When you jump to another device and update your repository
+
+9. Fetch the repository.
+10. Pull updates from the repository.
+11. Start updating it.
+12. Then stage, commit and sync changes.
 
 ## Summary
-
-That's it
+That's it.
+Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.
 
 Last update: 2022.04.03
