@@ -108,6 +108,7 @@ It's impossible to list all names of great people who produce the valuable conte
 + World of EUC [discord](https://t.co/zE0QTpANZQ)
 + The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
 + BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
++ RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 + MyCugc with it's recoreded webinars [webpage](https://www.mycugc.org/events/webinars)
 + Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
@@ -130,9 +131,11 @@ It's impossible to list all names of great people who produce the valuable conte
 + Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
 + Matthias Schlimm [blog](https://eucweb.com/) and [github](https://github.com/EUCweb)
 + Trond Erik Haavarstein [blog](https://xenappblog.com/) and [github](https://github.com/Haavarstein/Applications), Trond is an founder of VirtualExpo.
++ Freek Berson [github](https://github.com/fberson/Slidedecks) - Virtual Workplace Ninja slideck's, along with The Microsoft Platform [youtube](https://www.youtube.com/channel/UCdwV5ypyqE01nyeQqAfr5Wg/videos) channel
 + Claudio Rodriguez [blog](http://blog.wtslabs.com/), apart from that there were RAS university [initiative](http://ras.euc.university/) - but for some reason this is no longer active at 2022.
 + David Segura [github](https://github.com/OSDeploy)
 + Helge Klein [twitter](https://twitter.com/HelgeKlein)
++ Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
 ## Azure Virtual Desktop
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
 + Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
@@ -147,10 +150,10 @@ It's impossible to list all names of great people who produce the valuable conte
 ## Remote Desktop Services
 + Denis Gundarev [twitter](https://twitter.com/fdwl/), and his great video - How does the remote protocols work on [youtube](https://www.youtube.com/watch?v=khHej2Ba9B0)
 + Jonathon Poling - Ponder the Bits [webpage](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/) - rdp related event logs
-+ Freek Berson [github](https://github.com/fberson) and his [blog](http://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
++ Freek Berson [github](https://github.com/fberson) and his [blog](https://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
 + MsFreaks [blog](https://msfreaks.wordpress.com/)
 + Kristin Griffin [webpage](https://www.rdsgurus.com/author/grokker99/) - her contribution in RDS area seems to be not that well known, but still she brought added value value to the EUC community
-+ Devolutions [github](https://github.com/Devolutions/sspi-rs)
++ Devolutions [blog](https://blog.devolutions.net/2022/04/a-closer-look-at-devolutions-gateway/?utm_source=social_share&utm_medium=twitter_devolutions), [github](https://github.com/Devolutions/sspi-rs)
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
 + DoublePulsar [RDP hijacking](https://doublepulsar.com/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6?gi=4b124037d5cb) 
 ## Citrix Netscaler
@@ -197,6 +200,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)
++ Free Intune Lab tenant with [M365 developer subscription](https://www.inthecloud247.com/set-up-a-free-microsoft-intune-lab-tenant-with-microsoft/)
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
