@@ -145,7 +145,7 @@ set sip disabled=yes
 set telnet disabled=yes
 set ftp disabled=yes
 set www disabled=yes
-set ssh port=(YOUR-SSH-PORT)
+set ssh port=(SSH-PORT)
 set api disabled=yes
 set api-ssl disabled=yes
 /ip smb
