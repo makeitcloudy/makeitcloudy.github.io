@@ -3,9 +3,9 @@ layout: post
 title: "How to setup mikrotik vlan - CCR series"
 permalink: "/how-to-setup-mikrotik-vlan-ccr-series/"
 subtitle: "CCR just works, until you break something"
-cover-img: /assets/img/how-to-setup-mikrotik-vlan-ccr-series/img-cover.jpg
+cover-img: /assets/img/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-ccr-series/img-thumb.jpg
-share-img: /assets/img/how-to-setup-mikrotik-vlan-ccr-series/img-cover.jpg
+share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---

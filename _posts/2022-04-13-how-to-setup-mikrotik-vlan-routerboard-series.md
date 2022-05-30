@@ -3,9 +3,9 @@ layout: post
 title: "How to setup mikrotik vlan - RouterBoard series"
 permalink: "/how-to-setup-mikrotik-vlan-routerboard-series/"
 subtitle: "There are plenty of alternative ways reaching this, but still mikrotik it's cost effective"
-cover-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-series/img-cover.jpg
+cover-img: /assets/img/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-series/img-thumb.jpg
-share-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-series/img-cover.jpg
+share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---

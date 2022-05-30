@@ -3,9 +3,9 @@ layout: post
 title: "How to setup mikrotik vlan - CRS3XX series"
 permalink: "/how-to-setup-mikrotik-vlan-crs3xx-series/"
 subtitle: "CRS3XX just do it's job pretty well, when it goes for switching"
-cover-img: /assets/img/how-to-setup-mikrotik-vlan-crs3xx-series/img-cover.jpg
+cover-img: /assets/img/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-crs3xx-series/img-thumb.jpg
-share-img: /assets/img/how-to-setup-mikrotik-vlan-crs3xx-series/img-cover.jpg
+share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
