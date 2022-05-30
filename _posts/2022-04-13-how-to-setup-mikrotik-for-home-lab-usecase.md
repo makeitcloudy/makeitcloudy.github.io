@@ -9,7 +9,7 @@ share-img: /assets/img/how-to-setup-mikrotik-for-home-lab-usecase/img-cover.jpg
 tags: [HomeLab ,Networking]
 categories: [HomeLab ,Networking]
 ---
-*As of 2022.05.26 - it is draft due to the fact that there are just too many ways of doing it, which differs per device line RB vs CRS vs L2 and L3 approaches*
+*As of 2022.05.26 - it is draft due to the fact that there are just too many ways of doing it, which differs per device line like CCR, CRS3XX vs CRS2XX/1XX and RB multiplied by L2 and L3 approaches*
 
 Your homelab can be powered from the network angle by different vendors, never the less for the price Mikrotik brings buch of functionalities which is worth the money. The interface may push you away a bit a first glimpse, but still it's worth investing a bit of time for the learning curve, especially being equipped with structualized content comming the TheNetworkBerg.
 
@@ -37,9 +37,44 @@ There in incredible youtube channel worth donating created by [The Network Berg]
 The Author of the channel, provides free MCTNA and more advanced trainings, bringing such level of detail which is enough for configuring your network device up to this extend that it can easily support your virtualized infrastructure or provide the service for your SOHO (small office home office) deployment.
 The fact is that for the home lab, you do not need that great amount of routing, unless you are configuring a specific usecase, never the less for simple scenarios, products like RB951 series should be more than enough.
 
++ Srdjan Stanisic [blog](https://mivilisnet.wordpress.com)
+
 + Mikrotik products can be found on thir [webpage](https://mikrotik.com/products/)
 + Mikrotik free MCTNA training provided by TheNetworkBerg can be found on [youtube](https://www.youtube.com/playlist?list=PLJ7SGFemsLl3XQhO8g0hHCrKnC6J3KURk). Please support his efforts of sharing the knowledge.
 + CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting architectures can be built on top of that.
+
+# Connect via the serial console
+If your device (laptop, desktop) is not equipped with serial port (which is not very common these days), then you should buy the USB to serial converter. I'm using (Unitek USB to Serial Converter DB9F to DB25M Adaptor (Y-105A)) and then you stick into it the correct cable, which goes hand in hand with the device. Console cable for CRS309 is the same type as for CCR's, CRS3XX has RJ45 to DB9, so you need to be equipped with another one. But still all devices can be reached with the Unitek converter.
+On the endpoint, depending from the operating system, you need putty or minicom.
+```bash
+# it shows you baud-rate of the serial port wich should to be aligned with the client's configuration
+/system routerboard settings print
+```
+
+# Downgrade mikrotik firmware
+What's the usecase for downgrading the firmware? You'd like to downgrade from 7.x to 6.x, or if you are on 6.x you decided to change the branches and from stable to long term.
+```bash
+/system package update print
+# as for the channel/brach, there are the following options
+# development, long-term, stable, testing, upgrade
+/system package update set channel=
+/system package update check-for-updates
+/system package update download
+# the update process will be finished after reboot
+/system reboot
+# upgrade the firmware
+/system routerboard upgrade
+```
+# Upgrade mikrotik firmware
+The upgrade is done the same way as the downgrade, apart from the step of changing branches, or changing the stable to long term, here it would be the oposite.
+```bash
+/system package update check-for-updates
+/system package update download
+# the update process will be finished after reboot
+/system reboot
+# upgrade the firmware
+/system routerboard upgrade
+```
 
 ## Relation between virtual elements which builds the configuration
 The overal process for configuring the VLAN on CRS3XXX looks this way:
