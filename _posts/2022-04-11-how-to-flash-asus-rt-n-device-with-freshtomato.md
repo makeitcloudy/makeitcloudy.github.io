@@ -39,6 +39,7 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 Start the device configuration according to your needs.
 
 ## Summary
+This has been sucesfuly tested with RT-N10U, RT-N16U, RT-N18U.
 That's it.
 
 Last update: 2022.04.11
