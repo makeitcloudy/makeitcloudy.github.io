@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to setup freshtomato as open vpn client"
+title: "How to setup freshtomato as OpenVPN client"
 permalink: "/how-to-setup-freshtomato-as-open-vpn-client/"
 subtitle: "Setup your freshTomato router as OpenVPN client"
 cover-img: /assets/img/how-to-setup-freshtomato-as-open-vpn-client/img-cover.jpg
