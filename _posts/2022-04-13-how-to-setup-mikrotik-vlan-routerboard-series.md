@@ -122,6 +122,12 @@ Flags: X - disabled, A - active, D - dynamic, C - connect, S - static, r - rip, 
 add distance=1 gateway=10.0.70.254
 add comment="network which due to the topology can not be recognized automatically and you need to configure it manually" distance=1 dst-address=172.16.134.0/24 gateway=ovpn
 ```
++ ip firewall service - if there is a VoIP phone, among the devices connected the SIP-ALG should be disabled, to make the SIP streams working properly.
+```bash
+[user@rb951-2n] > /ip firewall service-port export 
+/ip firewall service-port
+set sip sip-direct-media=no
+```
 + once you have a running configuration, it is a great material to study which elements are the prerequisites for the further blocks built on top of that. If you try configuring things the other way around, or you simply do know the relations between those, it's much harder to progress.
 ## Howto
 I'm sure there better ways achieving this result, never the less this configuration worked for me.
@@ -229,6 +235,7 @@ add action=masquerade chain=srcnat comment="defconf: masquerade" ipsec-policy=ou
 set ftp disabled=yes
 set tftp disabled=yes
 set irc disabled=yes
+set sip sip-direct-media=no
 set pptp disabled=yes
 set dccp disabled=yes
 set sctp disabled=yes
