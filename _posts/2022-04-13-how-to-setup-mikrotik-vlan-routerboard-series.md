@@ -66,7 +66,6 @@ add address=10.5.134.0/24 dns-server=1.1.1.1,1.1.1.2 gateway=10.5.134.254 netmas
 ```
 
 + Strive towards the configuration where you get the access to manage the device over winbox or ssh, from one of the VLANS, once you get there, you are good to go with getting rid of the PVID 1 from the bridge, and configure the VLAN on the last interface which gave you control to manage the device. *(This condition applies when you are connecting to the mikrotik device, using the IP, not MAC - with MAC connectivity, there is some tip to prevent from frequent disconnections, somewhere on the NetworkBerg channel can not recall the fix now)*.
-
 + When you run PVID 1 on your bridge, then one of the DHCP servers is running on the bridge Interface as well, and all remainig DHCP servers which are meant to serve the clients connected to the ethernet interfaces of the device runs on top of VLAN interfaces.
 + The modification of the bridge PVID needs to be done last, otherwise there is great chance of a cut off.
 + Correct me if I am wrong, never the less the hardware offloading with VLANs wont work with RB series, when it acts as L3 device. This assumption comes from the Mikrotik [table](https://wiki.mikrotik.com/wiki/Manual:Interface/Bridge#Bridge_Hardware_Offloading) and Bridge VLAN Filtering column
