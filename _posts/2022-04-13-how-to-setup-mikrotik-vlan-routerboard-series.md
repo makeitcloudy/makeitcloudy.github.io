@@ -129,6 +129,7 @@ add comment="network which due to the topology can not be recognized automatical
 set sip sip-direct-media=no
 ```
 + once you have a running configuration, it is a great material to study which elements are the prerequisites for the further blocks built on top of that. If you try configuring things the other way around, or you simply do know the relations between those, it's much harder to progress.
+
 ## Howto
 I'm sure there better ways achieving this result, never the less this configuration worked for me.
 + on top of it you can put your firewall rules, as well as try to harden the device configuration, as per the best practices shared on the Internet.
