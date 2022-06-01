@@ -9,7 +9,7 @@ share-img: /assets/img/how-to-setup-blog-on-github-with-jekyll/img-cover.jpg
 tags: [Github ,Blog]
 categories: [Github, Blog]
 ---
-It's very convinient to take the benefit of jekyll engine to manage the content in your blog. Posts along with the whole structure, can be developed within the Vistual Studio Code and the blog posts are constructed in the markdown language, pushed directly to your github account, where the jekyll CI/CD pipeline is doing the remaining work to recompile those and have them exposed as your blog entries. Straightforward, and very convinient.
+It's very convinient to take the benefit of jekyll engine to manage the content in your blog. Posts along with the whole structure, can be developed within the Vistual Studio Code and the blog posts are constructed in the markdown language, pushed directly to your github account, where the jekyll CI/CD pipeline is doing the remaining work to recompile those and have them exposed as your blog entries. Straightforward, and very usefull.
 
 ## Prerequisites
 + Github account
@@ -30,4 +30,4 @@ It's very convinient to take the benefit of jekyll engine to manage the content 
 
 ## Summary
 That's it.<br>
-Last update: 2022.04.05
+Last update: 2022.04.06
