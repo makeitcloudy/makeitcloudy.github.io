@@ -16,7 +16,7 @@ RouterBoard is sufficient for most use cases. It can be the heart of your home l
 
 ## Rules
 + There is great change you will cut off yourself from the device, if you do not take care about the order. Comparing to the CCR or CRS series, you have to be much carefull with the configuration steps. Use the safe mode within winbox, save the configuration frequently, when you progress with it, so it is easily possible to revert to it's previous state when you make the pitfall. There is no serial port, sometimes your only option is to reset the config to it's defaults and restore the configuration from backup, to it's previous state.
-+ When you reset the device to its default configuration, and you apply the initial configuration comming from the vendor, it applies the firewall configuration. Bare in mind that within the configuration showed in this blog post, you need to take care about the Interface list assignments. This configuration will guarantee that you get access to manage the device from the vlan1342 and vlan1345, which are bound to the ether2 and ether5. If this is not in place then the firewall rule which is assigned by default to the device, will drop those frames, and you won't get access.
++ When you reset the device to its default configuration, and you apply the initial configuration comming from the vendor, it applies the firewall configuration. Bare in mind that within the configuration showed in this blog post, you need to take care about the Interface list assignments. This configuration will guarantee that you get access to manage the device from the vlan1342 and vlan1345, which are bound to the ether2 and ether5. If this is not in place then the firewall rule which is assigned by default to the device, will drop those frames, and you won't get access.<br>
 By default you can see that someone who wrote the initial script which is being served to you takes care about the bridge level access, so you are save until the point of time, when you get rid of the PVID1 from the bridge. Frequenly, those devices are just plugged in, and someone assign the DHCP on top of the bridge (which also seems to be the default configuration), and all devices connected to the RouterBoard via the ethernet ports are within the same broadcast domain, and you can manage the device via winbox, when you are connected to any of the RB ports within that bridge.
 ```bash
 [user@rb951-2n] /interface list> export 
@@ -57,7 +57,7 @@ set api-ssl disabled=yes
 [user@rb951-2n] /interface list>/ip dhcp-server network export 
 add address=10.5.134.0/24 dns-server=1.1.1.1,1.1.1.2 gateway=10.5.134.254 netmask=24
 ```
-+ Strive towards the configuration where you get the access to manage the device over winbox or ssh, from one of the VLANS, once you get there, you are good to go with getting rid of the PVID 1 from the bridge, and configure the VLAN on the last interface which gave you control to manage the device. (This condition applies when you are connecting to the mikrotik device, using the IP, not MAC - with MAC connectivity, there is some tip to prevent from frequent disconnections, somewhere on the NetworkBerg channel can not recall the fix now).
++ Strive towards the configuration where you get the access to manage the device over winbox or ssh, from one of the VLANS, once you get there, you are good to go with getting rid of the PVID 1 from the bridge, and configure the VLAN on the last interface which gave you control to manage the device. *(This condition applies when you are connecting to the mikrotik device, using the IP, not MAC - with MAC connectivity, there is some tip to prevent from frequent disconnections, somewhere on the NetworkBerg channel can not recall the fix now)*.
 + When you run PVID 1 on your bridge, then one of the DHCP servers is running on the bridge Interface as well, and all remainig DHCP servers which are meant to serve the clients connected to the ethernet interfaces of the device runs on top of VLAN interfaces.
 + The modification of the bridge PVID needs to be done last, otherwise there is great chance of a cut off.
 + Correct me if I am wrong, never the less the hardware offloading with VLANs wont work with RB series, when it acts as L3 device. This assumption comes from the Mikrotik [table](https://wiki.mikrotik.com/wiki/Manual:Interface/Bridge#Bridge_Hardware_Offloading) and Bridge VLAN Filtering column
@@ -96,12 +96,12 @@ add bridge=bridge-all-vlans comment=defconf interface=ether5 pvid=1345
 add bridge=bridge-all-vlans comment=defconf disabled=yes interface=wlan1
 add bridge=bridge-all-vlans comment=uplink hw=no interface=ether1 pvid=70
 ```
-+ if you are interested about the CPU utilization it can be quickly checked, by making use of tools -> profile, it is much more specific that the system resource
++ if you are interested about the CPU utilization it can be quickly checked, by making use of tools -> profile, it is much more specific that the system resource.
 ```bash
 /tools profile duration=30
 /system resource print
 ```
-+ ip routes - I've stumble upon some quirks that the gateway for the Dynamic route was not correct, for some reason it was automatically pointing to the .1 when in my network topology it was .254. 
++ ip routes - I've stumble upon some quirks that the gateway for the Dynamic route was not correct, for some reason it was automatically pointing to the .1 when in my network topology it was .254.
 ```bash
 [user@rb951-2n] > /ip route print 
 Flags: X - disabled, A - active, D - dynamic, C - connect, S - static, r - rip, b - bgp, o - ospf, m - mme, B - blackhole, U - unreachable, P - prohibit 
@@ -125,8 +125,8 @@ add comment="network which due to the topology can not be recognized automatical
 + once you have a running configuration, it is a great material to study which elements are the prerequisites for the further blocks built on top of that. If you try configuring things the other way around, or you simply do know the relations between those, it's much harder to progress.
 ## Howto
 I'm sure there better ways achieving this result, never the less this configuration worked for me.
-+ on top of it you can put your firewall rules, as well as try to harden the device configuration, as per the best practices shared on the Internet
-+ apart from vlans there are also other virtual interface which can be configured on the device like ppoe, ovpn
++ on top of it you can put your firewall rules, as well as try to harden the device configuration, as per the best practices shared on the Internet.
++ apart from vlans there are also other virtual interface which can be configured on the device like ppoe, ovpn.
 
 ```bash
 [user@rb951-2n] > /export 
@@ -260,8 +260,7 @@ set allowed-interface-list=LAN
 ```
 
 ## Summary
-This was tested on RouterOS 6.48.6.
+This was tested on RouterOS 6.48.6.<br>
 Device model 951-2n.
-
-That's it.
+That's it.<br>
 Last update: 2022.04.13
