@@ -11,7 +11,7 @@ categories: [Audio ,Misc, Legacy]
 ---
 It's a pity that this line is not supported anymore on Windows, thankfully it's trivial to make use of it under linux.
 
-## Prerequisities
+## Prerequisites
 Apart from windows you'll need linux vm or a physical device, unless there is a way to run gnomad2 on windows (have not been investigating this)
 + Creative a Zen Micro
 + Some linux OS
@@ -28,6 +28,5 @@ Then connect your mp3 player, and share data back na forth. The user interface l
 Make use of [powershell-taglib](https://github.com/illearth/powershell-taglib)
 
 ## Summary
-That's it.
-
+That's it.<br>
 Last update: 2022.04.08

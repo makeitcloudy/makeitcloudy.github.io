@@ -11,7 +11,7 @@ categories: [Wireless ,Networking ,Misc]
 ---
 In case you are interested in lowering the amount of wireless traffic in your nearby, there is an option.
 
-## Prerequisities
+## Prerequisites
 I was testing this with following devices:
 + Asus Google Nexus 7 tablet 2017
 + LG Nexus 5 with GEMBIRD (P/N: NIC-mU2-01, EAN: 8716309090421)

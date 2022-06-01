@@ -11,8 +11,7 @@ categories: [Audio ,Misc]
 ---
 In case you are interested on listening your favourite podcasts without generating LTE/wireless traffic, when commuting or resting.
 
-## Prerequisities
-
+## Prerequisites
 + Download and install [ffmpeg](https://ffmpeg.org/)
 + Configure environmental variables so the ffmpeg and yt-dlp are directly available for your convinience
 ```powershell
@@ -20,19 +19,16 @@ $env:PATH
 ```
 
 ## Howto
-
 This can be used for youtube, but also for other network streams, provided you know the path of the media stream, which can quite easily be identified with developer tools comming from the web browser.
 
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
 ## Where to find some usefull details
-
 + Github and [stackoverflow](https://stackoverflow.com/questions/tagged/yt-dlp)
 + [corbpie blog](https://write.corbpie.com/downloading-youtube-videos-and-playlists-with-yt-dlp/)
 
 ## Saving video as mp3 file
-
 ```bash
 yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=tJx7LbH_GwE'  -o '%(id)s.%(ext)s'
 yt-dlp -f 'ba' -x --audio-format mp3 'https://www.youtube.com/watch?v=SWnfGJ36gpQ&list=PLuF78wm0RiGbo4vZ2eqgicrKkZDq3BCkH' -o '%(title)s.%(ext)s' 

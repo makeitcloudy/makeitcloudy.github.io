@@ -11,7 +11,7 @@ categories: [HomeLab ,Networking]
 ---
 Asus RT-N series is affortable and reliable piece of hardware, which can serve your home network already. The original firmware, can left much to be desired and it may not be very up to date, that's why there are some end users, who decide to flash the device with another piece of firmware, being built by enthusiasts. There are also other devices brands which can digest it, for freshTomato, the Hardware Compatibility List (HCL) is available [here](https://wiki.freshtomato.org/doku.php/hardware_compatibility).
 
-## Prerequisities
+## Prerequisites
 + Your device on the HCL
 + Some carefull planning, to check which version is compatible with your device, by prism of available storage and nvram
 + Windows device (preferably physical one), to run the Asus Restoration Utility

@@ -11,7 +11,7 @@ categories: [HomeLab ,Networking ,Mikrotik]
 ---
 *As of 2022.05.26 - it is draft due to the fact that there are just too many ways of setting up VLANs on mikrotik, and I'm still working on testing the configurations with specific usecases*
 
-## Prerequisite
+## Prerequisites
 .
 ## Howto
 .

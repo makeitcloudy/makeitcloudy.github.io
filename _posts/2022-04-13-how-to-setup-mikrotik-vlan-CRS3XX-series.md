@@ -11,7 +11,7 @@ categories: [HomeLab ,Networking ,Mikrotik]
 ---
 This series of mikrotik devices, can handle your regular VM traffic, as well as your storage traffic. Never the less 10G devices seems to be a better fit for homelab usecase. Not perfect, but good enough.
 
-## Prerequisite
+## Prerequisites
 + CRS3XX device
 + a bit of mikrotik knowledge
 

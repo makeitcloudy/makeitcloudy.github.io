@@ -11,7 +11,7 @@ categories: [HomeLab ,Networking ,Mikrotik]
 ---
 RouterBoard is sufficient for most use cases. It can be the heart of your home lab, unless you pass great amount of traffic which utilize the who throughput of the wires, then there are better product series, like CCR or CRSXXX.
 
-## Prerequisite
+## Prerequisites
 + Mikrotik device from RouterBoard series - in this case RB951-2n (the configuration won't change if one use another product from RB series)
 
 ## Rules

@@ -10,7 +10,7 @@ tags: [Github ,Blog]
 categories: [Github, Blog]
 ---
 It's very convinient to take the benefit of jekyll engine to manage the content in your blog.
-## Prerequisities
+## Prerequisites
 Prerequisities section
 ## Howto
 Howto section
@@ -20,7 +20,5 @@ Howto section
 + [Building a Free Blog with Github Pages in Minutes](https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html)
 
 ## Summary
-
-Summary section
-
+That's it.<br>
 Last update: 2022.04.05
