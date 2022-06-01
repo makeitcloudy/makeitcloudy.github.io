@@ -13,6 +13,7 @@ RouterBoard is sufficient for most use cases. It can be the heart of your home l
 
 ## Prerequisites
 + Mikrotik device from RouterBoard series - in this case RB951-2n (the configuration won't change if one use another product from RB series)
++ There is also an option to virtualize your networking layer by setting up EVE-NG, TheNetworkBerg is detailing the setup on his [youtube](https://www.youtube.com/watch?v=Nl0xKw7RGww) video.
 
 ## Rules
 + There is great change you will cut off yourself from the device, if you do not take care about the order. Comparing to the CCR or CRS series, you have to be much carefull with the configuration steps. Use the safe mode within winbox, save the configuration frequently, when you progress with it, so it is easily possible to revert to it's previous state when you make the pitfall. There is no serial port, sometimes your only option is to reset the config to it's defaults and restore the configuration from backup, to it's previous state.
