@@ -9,7 +9,7 @@ share-img: /assets/img/how-to-setup-freshtomato-as-open-vpn-client/img-cover.jpg
 tags: [HomeLab ,Networking ,OpenVPN]
 categories: [HomeLab ,Networking ,OpenVPN]
 ---
-*As of 2022.04.14 - it is still in draft*
+*As of 2022.04.15 - draft*
 
 ## Prerequisites
 + OpenVPN server (in this scenario Mikrotik device is the VPN server)

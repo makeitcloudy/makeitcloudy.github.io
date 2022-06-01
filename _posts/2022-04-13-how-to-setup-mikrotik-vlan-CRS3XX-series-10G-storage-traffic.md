@@ -13,7 +13,7 @@ This series of mikrotik devices, can handle your regular VM traffic, as well as 
 
 ## Prerequisites
 + CRS3XX 10G device
-+ a bit of mikrotik knowledge
++ a bit of Mikrotik knowledge
 
 ## Configure CRS3XX as L2 switch
 CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your storage traffic, between all your nodes which serves the virtualization layer. The overall gain is very much visible, when you provision the machines with Citrix MCS (Machine Creation Services), or take benefit from the shared storage.
@@ -86,5 +86,5 @@ set allowed-interface-list=none
 ```
 
 ## Summary
-That's it.
+That's it.<br>
 Last update:2022.04.13

@@ -9,7 +9,7 @@ share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 ---
-*draft*
+*As of 2022.04.13 - draft*
 
 ## Prerequisites
 + Routerboard/CCR device

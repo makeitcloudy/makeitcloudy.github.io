@@ -9,7 +9,7 @@ share-img: /assets/img/how-to-compile-open-ssl-from-sources/img-cover.jpg
 tags: [HomeLab ,Certificates ,SSL]
 categories: [HomeLab ,Certificates ,SSL]
 ---
-*draft*
+*As of 2022.04.12 - draft*
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
 
 ## Prerequisites

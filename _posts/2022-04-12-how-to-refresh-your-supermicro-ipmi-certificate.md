@@ -9,7 +9,7 @@ share-img: /assets/img/how-to-refresh-your-supermicro-ipmi-certificate/img-cover
 tags: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 categories: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 ---
-*draft*
+*As of 2022.04.12 - draft*
 Self signed certificates on supermicro differs between the SM IPMI releases, by format, and the key lenght.
 
 ## Refresh Superimcro IPMI certificate - newer firmware - motherboard of X9 series

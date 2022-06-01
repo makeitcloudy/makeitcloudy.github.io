@@ -54,7 +54,6 @@ Starting this point of time your local repository is your single source of truth
 12. Then stage, commit and sync changes.
 
 ## Summary
-That's it.
-Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.
-
+That's it.<br>
+Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.<br>
 Last update: 2022.04.03
