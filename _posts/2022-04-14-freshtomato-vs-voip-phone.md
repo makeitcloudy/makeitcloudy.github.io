@@ -6,8 +6,8 @@ subtitle: "A bit of a hussle, never less made it work"
 cover-img: /assets/img/freshtomato-vs-voip-phone/img-cover.jpg
 thumbnail-img: /assets/img/freshtomato-vs-voip-phone/img-thumb.jpg
 share-img: /assets/img/freshtomato-vs-voip-phone/img-cover.jpg
-tags: [Networking ,VoIP]
-categories: [Networking ,VoIP]
+tags: [Networking ,FreshTomato ,VoIP]
+categories: [Networking ,FreshTomato ,VoIP]
 ---
 Even though it is not very popular in 2022, some still make use of VoIP phones, which are reliable as tanks unless configured properly. Even though previously it was working flawlessly, this time it cost me a bit of time to make it work.
 
@@ -22,12 +22,22 @@ The VoIP device interface, does not differ much between each other, if you have 
 
 ## Howto
 + Configure your router, that it assign an IP address and DNS servers to the phone
-+ **SIP-ALG** - here the confusion comes, plenty threads are suggesting that you need to disable this, by unchecking it within the interface of your router in the Advanced tab -> Contrack/NetFilter -> Tracking/NAT Helpers - uncheck SIP. This is what people in those treads are suggesting. Here I'm confirming that for instance for Mikrotik it indeed do it's trick. Never the less for some reason (uknown to me), O was not very succesfull with such config when on the other side of the wire there is SPA502G. **That's why I left it checked**. All other options FTP, GRE/PPTP, H.323, RTSP are unchecked.
++ **SIP-ALG** - here the confusion comes, plenty threads are suggesting that you need to disable this, by unchecking it within the interface of your router in the Advanced tab -> Contrack/NetFilter -> Tracking/NAT Helpers - uncheck SIP.<br>
+On Mikrotik it indeed do it's trick and the phone registers to the VoIP provider, as well as it immediatelly allows incoming calls. The overall experience if seamless.<br>
+```bash
+# regardless of the mikrotik series, the SIP-ALG once disabled, causes the your VoIP phone works flawlessly
+[user@rb951-2n] > /ip firewall service-port export 
+/ip firewall service-port
+set sip sip-direct-media=no
+```
+
++ Maybe I need more testing, never the less on FreshTomato (2021.8 release), for some reason (uknown to me), I was not very succesfull with combination of Cisco SPA502G. The overall experience was not that seamless as it was on Mikrotik.
++ Even though users are reporting (uncheking SIP) did the trick for them it did not for me. **That's why on FreshTomato, I left it checked**. All other options FTP, GRE/PPTP, H.323, RTSP are unchecked.
 + Port forwarding - not configured. Even though I have been trying with the 5060, 16384-16583 (some says that RTP requires two ports being open for one device to pass the connection stream)
 ```bash
 #EXT tab
-+ VoIP device, configured as per your VoIP provider suggestions
-+ NAT Settings on the VoIP device - 
+* VoIP device, configured as per your VoIP provider suggestions
+* NAT Settings on the VoIP device - 
 1. NAT Keep Alive: Enable (here I am not 100% sure whether it really have to be set, and some says that it cause the SPA502G to hung - will observe that)
 2. NAT Keep Alive Dest: $PROXY
 3. SIP Transport: UDP
@@ -39,6 +49,8 @@ The VoIP device interface, does not differ much between each other, if you have 
 9. DNS SRV Auto Prefix: No
 10. Proxy Fallback Interval: 900
 ```
++ The intresting thing is that with abovementioned configuration, when your FreshTomato is the router which serves you the Internet, then you connect your Mikrotik to it and to your Mikrotik router you plug the phone, it just works and the incomming calls are working just fine. The topology looks like this: INTERNET -> FRESHTOMATO -> MIKROTIK -> PHONE.
+
 ## Summary
-This was tested with FreshTomato 2021.8, there is great chance it will also work with other releases of the firmware.
-Last update: 2022.04.11
+This was tested with FreshTomato 2021.8, there is great chance it will also work with other releases of the firmware.<br>
+Last update: 2022.04.14

@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "How to setup mikrotik vlan - RouterBoard series"
-permalink: "/how-to-setup-mikrotik-vlan-routerboard-series/"
-subtitle: "There are plenty of alternative ways reaching this, but still mikrotik it's cost effective"
+title: "How to setup mikrotik vlan - RouterBoard and CCR series"
+permalink: "/how-to-setup-mikrotik-vlan-routerboard-and-CCR-series/"
+subtitle: "There are plenty of alternative vendors, but still as of now, mikrotik it's cost effective"
 cover-img: /assets/img/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-series/img-thumb.jpg
+thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-and-ccr-series/img-thumb.jpg
 share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
-RouterBoard is sufficient for most use cases. It can be the heart of your home lab, unless you pass great amount of traffic which utilize the who throughput of the wires, then there are better product series, like CCR or CRSXXX.
+RouterBoard is sufficient for most use cases. It can be the heart of your home lab, unless you pass great amount of traffic which utilize the who throughput of the wires, then there are better product series, like CCR or CRSXXX.<br>
+The logic mentioned within this article also applies to CCR series (at least as it goes for the VLAN configuration).
 
 ## Prerequisites
 + Mikrotik device from RouterBoard series - in this case RB951-2n (the configuration won't change if one use another product from RB series)
@@ -206,7 +207,10 @@ add bridge=bridge-all-vlans comment=uplink hw=no interface=ether1 pvid=70
 set discover-interface-list=LAN
 /interface bridge vlan
 add bridge=bridge-all-vlans disabled=yes untagged=bridge-all-vlans,ether4 vlan-ids=404
-add bridge=bridge-all-vlans tagged=bridge-all-vlans,vlan70uplink vlan-ids=70
+#vlan70 is tagged on ether1 which is the uplink
+add bridge=bridge-all-vlans tagged=bridge-all-vlans,ether1 vlan-ids=70
+#if the uplink is untagged then the ether1 should be untagged
+#add bridge=bridge-all-vlans tagged=bridge-all-vlans untagged=ether1 vlan-ids=70
 add bridge=bridge-all-vlans tagged=bridge-all-vlans untagged=ether2 vlan-ids=1342
 add bridge=bridge-all-vlans tagged=bridge-all-vlans untagged=ether3 vlan-ids=1343
 add bridge=bridge-all-vlans tagged=bridge-all-vlans untagged=ether4 vlan-ids=1344

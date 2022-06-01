@@ -6,8 +6,8 @@ subtitle: "FreshTomato, Tomato, Open/DD-WRT, Gargoyle, LEDE is popular alternati
 cover-img: /assets/img/how-to-flash-asus-rt-n-device-with-freshtomato/img-cover.jpg
 thumbnail-img: /assets/img/how-to-flash-asus-rt-n-device-with-freshtomato/img-thumb.jpg
 share-img: /assets/img/how-to-flash-asus-rt-n-device-with-freshtomato/img-cover.jpg
-tags: [HomeLab ,Networking]
-categories: [HomeLab ,Networking]
+tags: [HomeLab ,Networking ,FreshTomato]
+categories: [HomeLab ,Networking ,FreshTomato]
 ---
 Asus RT-N series is affortable and reliable piece of hardware, which can serve your home network already. The original firmware, can left much to be desired and it may not be very up to date, that's why there are some end users, who decide to flash the device with another piece of firmware, being built by enthusiasts. There are also other devices brands which can digest it, for freshTomato, the Hardware Compatibility List (HCL) is available [here](https://wiki.freshtomato.org/doku.php/hardware_compatibility).
 
@@ -45,4 +45,4 @@ Start the device configuration according to your needs.
 + Bare in mind to erase NVRAM, if this it not done, there are chances for quirks.
 That's it.
 
-Last update: 2022.04.11
+Last update: 2022.04.14

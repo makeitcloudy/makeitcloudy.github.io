@@ -89,14 +89,10 @@ add bridge=bridge-all-vlans interface=bond-20-19-18-17 pvid=404
 /ip neighbor discovery-settings
 set discover-interface-list=!none
 /interface bridge vlan
-add bridge=bridge-all-vlans comment="bridge vlan4008 - node 4th int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether24,ether16,ether12,ether8,ether4 \
-    vlan-ids=4008
-add bridge=bridge-all-vlans comment="bridge vlan3007 - node 3rd int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether23,ether15,ether11,ether7,ether3 \
-    vlan-ids=3007
-add bridge=bridge-all-vlans comment="bridge vlan2006 - node 2nd int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether22,ether14,ether10,ether6,ether2 \
-    vlan-ids=2006
-add bridge=bridge-all-vlans comment="bridge vlan1005 - node 1st int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether21,ether13,ether9,ether5,ether1 \
-    vlan-ids=1005
+add bridge=bridge-all-vlans comment="bridge vlan4008 - node 4th int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether24,ether16,ether12,ether8,ether4 vlan-ids=4008
+add bridge=bridge-all-vlans comment="bridge vlan3007 - node 3rd int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether23,ether15,ether11,ether7,ether3 vlan-ids=3007
+add bridge=bridge-all-vlans comment="bridge vlan2006 - node 2nd int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether22,ether14,ether10,ether6,ether2 vlan-ids=2006
+add bridge=bridge-all-vlans comment="bridge vlan1005 - node 1st int" tagged=bridge-all-vlans,bond-20-19-18-17 untagged=ether21,ether13,ether9,ether5,ether1 vlan-ids=1005
 add bridge=bridge-all-vlans comment="bridge vlan404 - mgmt - it transports the mgmt IP address of the CRS3XX switch" tagged=bridge-all-vlans,bond-20-19-18-17 vlan-ids=404
 add bridge=bridge-all-vlans comment="bridge vlan2010 - maybe some storage traffic - nothing connected" disabled=yes tagged=bond-20-19-18-17 untagged=sfp-sfpplus2 vlan-ids=4094
 add bridge=bridge-all-vlans comment="bridge vlan1010 - maybe some storage traffic - nothing connected" disabled=yes tagged=bond-20-19-18-17 untagged=sfp-sfpplus1 vlan-ids=4093
@@ -197,5 +193,5 @@ set allowed-interface-list=none
 ```
 
 ## Summary
-That's it.
+That's it.<br>
 Last update: 2022.04.13
