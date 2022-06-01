@@ -9,7 +9,7 @@ share-img: /assets/img/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
-*As of 2022.05.26 - it is draft due to the fact that there are just too many ways of setting up VLANs on mikrotik, and I'm still working on testing the configurations with specific usecases*
+RouterBoard is sufficient for most use cases. It can be the heart of your home lab, unless you pass great amount of traffic which utilize the who throughput of the wires, then there are better product series, like CCR or CRSXXX.
 
 ## Prerequisite
 + Mikrotik device from RouterBoard series - in this case RB951-2n (the configuration won't change if one use another product from RB series)
