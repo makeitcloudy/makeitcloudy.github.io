@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to setup mikrotik openvpn server"
+title: "How to setup OpenVPN Server on Mikrotik"
 permalink: "/how-to-setup-mikrotik-openvpn-server/"
 subtitle: "CCR just works, until you break something"
 cover-img: /assets/img/img-cover-mikrotik.jpg
