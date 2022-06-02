@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to setup mikrotik vlan - CRS3XX series"
+title: "How to setup vlan - Mikrotik CRS3XX series"
 permalink: "/how-to-setup-mikrotik-vlan-crs3xx-series/"
 subtitle: "CRS3XX just do it's job pretty well, when it goes for switching"
 cover-img: /assets/img/img-cover-mikrotik.jpg

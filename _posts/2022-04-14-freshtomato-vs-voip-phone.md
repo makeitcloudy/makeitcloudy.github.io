@@ -21,9 +21,12 @@ The VoIP device interface, does not differ much between each other, if you have 
 + VoIP phone (Cisco SPA502G, firmware 7.5.2 - there is 7.5.5 available, it was even uploaded as per the firmware update software to the device, never the less for some reason it could not get flashed. Remeber to set the option 'Upgrade Enable' to yes, to make it even possible). As an alternative you can also use the Grandstream or Cisco SPA gateway.
 
 ## Howto
-+ Configure your router, that it assign an IP address and DNS servers to the phone
++ Configure your router, so it assigns an IP address and DNS servers to the phone
++ Was not very succesful for some reason with some cloud flare dns servers, that's why the voip phone is using the OpenDNS servers
++ Once the router configuration is in place, just to be on the safe side, perform the backup of it's configuration and restart the device, then plug the phone and wait for it's registration. If everything is fine, then it should let's you establish an incoming call to it's number which may be comming from your VoIP provider or your own PBX system.
 + **SIP-ALG** - here the confusion comes, plenty threads are suggesting that you need to disable this, by unchecking it within the interface of your router in the Advanced tab -> Contrack/NetFilter -> Tracking/NAT Helpers - uncheck SIP.<br>
 On Mikrotik it indeed do it's trick and the phone registers to the VoIP provider, as well as it immediatelly allows incoming calls. The overall experience if seamless.<br>
+
 ```bash
 # regardless of the mikrotik series, the SIP-ALG once disabled, causes the your VoIP phone works flawlessly
 [user@rb951-2n] > /ip firewall service-port export 
@@ -31,7 +34,6 @@ On Mikrotik it indeed do it's trick and the phone registers to the VoIP provider
 set sip sip-direct-media=no
 ```
 
-+ Maybe I need more testing, never the less on FreshTomato (2021.8 release), for some reason (uknown to me), I was not very succesfull with combination of Cisco SPA502G. The overall experience was not that seamless as it was on Mikrotik.
 + Even though users are reporting (uncheking SIP) did the trick for them it did not for me. **That's why on FreshTomato, I left it checked**. All other options FTP, GRE/PPTP, H.323, RTSP are unchecked.
 + Port forwarding - not configured. Even though I have been trying with the 5060, 16384-16583 (some says that RTP requires two ports being open for one device to pass the connection stream)
 ```bash
