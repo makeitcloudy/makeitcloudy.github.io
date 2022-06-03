@@ -3,7 +3,7 @@ layout: post
 title: "How to flash Asus rt-n device with freshtomato"
 permalink: "/how-to-flash-asus-rt-n-device-with-freshtomato/"
 subtitle: "FreshTomato, Tomato, Open/DD-WRT, Gargoyle, LEDE is popular alternative for SOHO"
-cover-img: /assets/img/_over/img-cover-tomato.jpg
+cover-img: /assets/img/cover/img-cover-tomato.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
 share-img: /assets/img/cover/img-cover-tomato.jpg
 tags: [HomeLab ,Networking ,FreshTomato]
