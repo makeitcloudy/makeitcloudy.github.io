@@ -4,7 +4,7 @@ title: Flake it till you make it
 permalink: "/flake-it-till-you-make-it/"
 subtitle: Excerpt from Soulshaping by Jeff Brown
 cover-img: /assets/img/cover/img-cover-path.jpg
-thumbnail-img: /assets/flake-it-till-you-make-it/img-thumb-flake.png
+thumbnail-img: /assets/img/flake-it-till-you-make-it/img-thumb-flake.png
 share-img: /assets/img/cover/img-cover-path.jpg
 tags: [Development ,Books, Test]
 categories: [Development ,Books, Test]
