@@ -12,6 +12,12 @@ categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and do [puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.
 
+## PowerShell
+It's essential get comfortable with PowerShell, it will help you switch from imperative style of work towards declarative, when you get some hands on experience with DSC and Bicep. There are few great books about PowerShell as well as great quality content on the PowerShell advocates blogs.
++ Kevin Marquette - [blog](https://powershellexplained.com/)
++ Jeff Hicks - [blog](https://jdhitsolutions.com/blog/), [github](https://github.com/jdhitsolutions)
++ Mike F Robbins - [blog](https://mikefrobbins.com/)
+
 ## On-Premises
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
