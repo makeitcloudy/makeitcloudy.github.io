@@ -37,6 +37,9 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools
++ Aaron Parker - EvenrGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen)
++ Deyda - EverGreen - [docs](https://www.deyda.net/index.php/en/evergreen-script/). [github](https://github.com/Deyda/Evergreen-Script)
++ Aaron Parker - vcRedist - [github](https://github.com/aaronparker/vcredist)
 + [EUCMonitoringRedux](https://github.com/littletoyrobots/EUCMonitoringRedux) - End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community.
 + Windows Event Log Analyzer - WELA [github](https://github.com/Yamato-Security/WELA)
 + Logging me easy [github](https://github.com/ukncsc/lme/)
