@@ -14,17 +14,13 @@ author: Piotr Ostrowski
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  Community:
-    - Carl Stalhood: "https://carlstalhood.com/"
-    - Freek Berson: "https://microsoftplatform.blogspot.com/"
-    - James Kindon: "https://jkindon.com/"
-    - Dennis Span : "https://dennisspan.com/"
-    - Julian Mooren: "https://citrixguyblog.com/"
-    - Bas Van Kaam: "https://www.basvankaam.com/"
-    - Aaron Parker: "https://aaronparker.github.io/"
-    - Ryan Mangan: "https://ryanmangansitblog.com/"
-    - World of EUC: "https://worldofeuc.github.io/Website/"
-    - CUGC: "https://www.mycugc.org/page/home-cugc"
+  EUC:
+    - Community: "https://makeitcloudy.pl/euc-valueable-online-content/"
+    - Books and Tools: "https://makeitcloudy.pl/euc-books-and-toolset/"
+  OpenVPN:
+    - Mikrotik: "https://makeitcloudy.pl/how-to-setup-mikrotik-openvpn-server/"
+#    - FreshTomato: ""
+#    - DesktopOS: ""
   Toolbox:
     - Bicep: "https://runasradio.com/Shows/Show/822"
     - Nerdio: "https://getnerdio.com/"
