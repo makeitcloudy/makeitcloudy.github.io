@@ -3,9 +3,9 @@ layout: post
 title: "How to setup Desktop OS as OpenVPN client"
 permalink: "/how-to-setup-desktop-os-as-open-vpn-client/"
 subtitle: "OpenVPN tunnel between your desktop Operating system and OpenVPN server"
-cover-img: /assets/img/_cover/img-cover-tunnel.jpg
-thumbnail-img: /assets/img/_cover/img-thumb-openvpn.png
-share-img: /assets/img/_cover/img-cover-tunnel.jpg
+cover-img: /assets/img/cover/img-cover-tunnel.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
+share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,OpenVPN]
 categories: [HomeLab ,Networking ,OpenVPN]
 ---

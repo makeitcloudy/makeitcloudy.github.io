@@ -3,9 +3,9 @@ layout: post
 title: "FreshTomato versus voip phone"
 permalink: "/freshtomato-vs-voip-phone/"
 subtitle: "A bit of a hussle, never less made it work"
-cover-img: /assets/img/_cover/img-cover-phone.jpg
-thumbnail-img: /assets/img/_thumb/img-thumb-tomato.jpg
-share-img: /assets/img/_cover/img-cover-phone.jpg
+cover-img: /assets/img/cover/img-cover-phone.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
+share-img: /assets/img/cover/img-cover-phone.jpg
 tags: [Networking ,FreshTomato ,VoIP]
 categories: [Networking ,FreshTomato ,VoIP]
 ---

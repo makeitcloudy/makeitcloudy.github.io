@@ -3,9 +3,9 @@ layout: post
 title: "How to grab content from youtube for offline listening"
 permalink: "/how-to-grab-content-from-youtube-for-offline-listening/"
 subtitle: "You don't need to have premium plan"
-cover-img: /assets/img/_cover/img-cover-offline.jpg
-thumbnail-img: /assets/img/_thumb/img-thumb-youtube.jpg
-share-img: /assets/img/_cover/img-cover-offline.jpg
+cover-img: /assets/img/cover/img-cover-offline.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-youtube.jpg
+share-img: /assets/img/cover/img-cover-offline.jpg
 tags: [Audio ,Misc]
 categories: [Audio ,Misc]
 ---

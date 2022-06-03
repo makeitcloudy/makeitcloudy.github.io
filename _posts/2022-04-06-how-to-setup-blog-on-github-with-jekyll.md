@@ -3,9 +3,9 @@ layout: post
 title: "How to setup a blog on github with jekyll"
 permalink: "/how-to-setup-blog-on-github-with-jekyll/"
 subtitle: "How to take the benefit of jekyll engine to create your blog in 10minutes"
-cover-img: /assets/img/_cover/img-cover-git.jpg
-thumbnail-img: /assets/img/_thumb/img-thumb-typewriter.jpg
-share-img: /assets/img/_cover/img-cover-git.jpg
+cover-img: /assets/img/cover/img-cover-git.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-typewriter.jpg
+share-img: /assets/img/cover/img-cover-git.jpg
 tags: [Github ,Blog]
 categories: [Github, Blog]
 ---

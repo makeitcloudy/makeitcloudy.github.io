@@ -3,9 +3,9 @@ layout: post
 title: "How to setup OpenVPN Server on Mikrotik"
 permalink: "/how-to-setup-mikrotik-openvpn-server/"
 subtitle: "CCR just works, until you break something"
-cover-img: /assets/img/_cover/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/_thumb/img-thumb-openvpn.png
-share-img: /assets/img/_cover/img-cover-mikrotik.jpg
+cover-img: /assets/img/cover/img-cover-mikrotik.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
+share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 ---

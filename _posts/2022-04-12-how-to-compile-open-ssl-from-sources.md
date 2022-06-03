@@ -3,9 +3,9 @@ layout: post
 title: "How to compile OpenSSL from sources"
 permalink: "/how-to-compile-open-ssl-from-sources/"
 subtitle: "OpenSSL will bring some grip, here and there"
-cover-img: /assets/img/_cover/img-cover-padlock.jpg
-thumbnail-img: /assets/img/_thumb/img-thumb-open.jpg
-share-img: /assets/img/_cover/img-cover-padlock.jpg
+cover-img: /assets/img/cover/img-cover-padlock.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
+share-img: /assets/img/cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates ,SSL]
 categories: [HomeLab ,Certificates ,SSL]
 ---
