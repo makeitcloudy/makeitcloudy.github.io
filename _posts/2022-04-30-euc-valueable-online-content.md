@@ -117,7 +117,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
 + RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
-+ MyCugc with it's recoreded webinars [webpage](https://www.mycugc.org/events/webinars)
++ MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
 + Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
 + VirtualExpo [blog](https://xenappblog.com/agenda/)
 + Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
