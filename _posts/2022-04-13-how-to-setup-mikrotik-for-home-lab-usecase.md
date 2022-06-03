@@ -4,7 +4,7 @@ title: "How to setup mikrotik for home lab usecase"
 permalink: "/how-to-setup-mikrotik-for-home-lab-usecase/"
 subtitle: "There are plenty of alternative ways reaching this, but still mikrotik it's cost effective"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking]
 categories: [HomeLab ,Networking]
