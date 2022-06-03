@@ -3,9 +3,9 @@ layout: post
 title: "How to setup freshtomato as OpenVPN client"
 permalink: "/how-to-setup-freshtomato-as-open-vpn-client/"
 subtitle: "Setup your freshTomato router as OpenVPN client"
-cover-img: /assets/img/how-to-setup-freshtomato-as-open-vpn-client/img-cover.jpg
-thumbnail-img: /assets/img/how-to-setup-freshtomato-as-open-vpn-client/img-thumb.jpg
-share-img: /assets/img/how-to-setup-freshtomato-as-open-vpn-client/img-cover.jpg
+cover-img: /assets/img/_cover/img-cover-tunnel.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb-openvpn.png
+share-img: /assets/img/_cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,OpenVPN]
 categories: [HomeLab ,Networking ,OpenVPN]
 ---

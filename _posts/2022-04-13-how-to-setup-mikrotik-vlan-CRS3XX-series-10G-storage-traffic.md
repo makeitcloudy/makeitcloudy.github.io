@@ -3,9 +3,9 @@ layout: post
 title: "How to setup vlan - Mikrotik CRS3XX series - 10G storage traffic"
 permalink: "/how-to-setup-mikrotik-vlan-crs3xx-series-10G-storage-traffic/"
 subtitle: "10G series CRS3XX just do it's job pretty well, when it goes for switching, also for storage traffic"
-cover-img: /assets/img/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-crs3xx-series-10G-storage-traffic/img-thumb.jpg
-share-img: /assets/img/img-cover-mikrotik.jpg
+cover-img: /assets/img/_cover/img-cover-mikrotik.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb_mikrotik.jpg
+share-img: /assets/img/_cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---

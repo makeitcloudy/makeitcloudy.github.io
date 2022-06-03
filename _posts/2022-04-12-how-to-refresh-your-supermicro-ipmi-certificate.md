@@ -3,9 +3,9 @@ layout: post
 title: "Supermicro IPMI self signed certificates"
 permalink: "/how-to-refresh-your-supermicro-ipmi-certificate/"
 subtitle: "OpenSSL will bring some grip, here and there"
-cover-img: /assets/img/img-cover-certificate.jpg
-thumbnail-img: /assets/img/how-to-refresh-your-supermicro-ipmi-certificate/img-thumb.jpg
-share-img: /assets/img/img-cover.jpg
+cover-img: /assets/img/_cover/img-cover-padlock.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb-padlock.jpg
+share-img: /assets/img/_cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 categories: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 ---

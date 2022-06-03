@@ -3,9 +3,9 @@ layout: post
 title: "EUC books and toolset"
 permalink: "/euc-books-and-toolset/"
 subtitle: "Bunch of usefull books and tools"
-cover-img: /assets/img/euc-books-and-toolset/img-cover.png
-thumbnail-img: /assets/img/euc-books-and-toolset/img-thumb.png
-share-img: /assets/img/euc-books-and-toolset/img-cover.png
+cover-img: /assets/img/_cover/img-cover-lab.png
+thumbnail-img: /assets/img/_thumb/img-thumb-library.png
+share-img: /assets/img/_cover/img-cover-lab.png
 tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
 categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 ---
@@ -37,7 +37,7 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools
-+ Aaron Parker - EvenrGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen)
++ Aaron Parker - EverGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen)
 + Deyda - EverGreen - [docs](https://www.deyda.net/index.php/en/evergreen-script/). [github](https://github.com/Deyda/Evergreen-Script)
 + Aaron Parker - vcRedist - [github](https://github.com/aaronparker/vcredist)
 + [EUCMonitoringRedux](https://github.com/littletoyrobots/EUCMonitoringRedux) - End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community.

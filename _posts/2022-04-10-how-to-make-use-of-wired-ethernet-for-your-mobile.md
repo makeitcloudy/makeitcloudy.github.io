@@ -3,9 +3,9 @@ layout: post
 title: "How to make use of wired ethernet for your mobile"
 permalink: "/how-to-make-use-of-wired-ethernet-for-your-mobile/"
 subtitle: "Provided you have a combination of products which brings that functinality"
-cover-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-cover.jpg
-thumbnail-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-thumb.jpg
-share-img: /assets/img/how-to-make-use-of-wired-ethernet-for-your-mobile/img-cover.jpg
+cover-img: /assets/img/_cover/img-cover-radio.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb-wire.jpg
+share-img: /assets/img/_cover/img-cover-radio.jpg
 tags: [Wireless ,Networking ,Misc]
 categories: [Wireless ,Networking ,Misc]
 ---

@@ -3,9 +3,9 @@ layout: post
 title: "How to configure your visual studio code to make use of github"
 permalink: "/how-to-configure-your-visual-studio-code-to-make-use-of-github/"
 subtitle: "How to configure git"
-cover-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-cover.jpg
-thumbnail-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-thumb.jpg
-share-img: /assets/img/how-to-configure-your-visual-studio-code-to-make-use-of-github/img-cover.jpg
+cover-img: /assets/img/_cover/img-cover-git.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb-repairs.jpg
+share-img: /assets/img/_cover/img-cover-git.jpg
 tags: [ReadmeFirst ,Github ,IaC]
 categories: [ReadmeFirst ,Github ,IaC]
 ---

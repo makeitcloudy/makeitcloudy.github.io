@@ -4,10 +4,9 @@ title: About me
 subtitle:
 ---
 
-My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer for [Atos](https://atos.net/en/) in Poland. For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards cloud and serverless.
+My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer for [Atos](https://atos.net/en/) in Poland. For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards azure. This blog is a gave back to the community, to share the experience with people who may be seeking for the topics share here.
 
 ### A bit about me
-
 - husband
 - proud Father
 - homelabber
@@ -19,7 +18,6 @@ My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer fo
 - combine people together
 
 ### Technical Certifications
-
 * Citrix Certified: Associate – Virtualization (CCA-V)
 * Citrix Certified: Professional – Virtualization (CCP-V)
 

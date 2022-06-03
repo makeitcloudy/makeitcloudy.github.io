@@ -3,9 +3,9 @@ layout: post
 title: "How to setup vlan - Mikrotik RouterBoard and CCR series"
 permalink: "/how-to-setup-mikrotik-vlan-routerboard-and-CCR-series/"
 subtitle: "There are plenty of alternative vendors, but still as of now, mikrotik it's cost effective"
-cover-img: /assets/img/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-routerboard-and-ccr-series/img-thumb.jpg
-share-img: /assets/img/img-cover-mikrotik.jpg
+cover-img: /assets/img/_cover/img-cover-mikrotik.jpg
+thumbnail-img: /assets/img/_thumb/img-thumb-mikrotik.jpg
+share-img: /assets/img/_cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
