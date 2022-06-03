@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "How to setup OpenVPN Server on Mikrotik"
+title: "How to setup Mikrotik OpenVPN Server"
 permalink: "/how-to-setup-mikrotik-openvpn-server/"
-subtitle: "CCR just works, until you break something"
+subtitle: "When you are properly equipped, it's quite straighforward"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -19,5 +19,6 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 ## Howto
 .
 ## Summary
-.
+I'm sure there are better ways doing it, but still it's a good starting point.<br>
+It was tested on RouterBoard and CCR.<br>
 Last update: 2022.04.15
