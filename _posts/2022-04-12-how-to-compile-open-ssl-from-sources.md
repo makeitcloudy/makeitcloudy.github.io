@@ -9,7 +9,6 @@ share-img: /assets/img/cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates ,SSL]
 categories: [HomeLab ,Certificates ,SSL]
 ---
-*As of 2022.04.12 - draft*
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
 
 ## Prerequisites
@@ -26,6 +25,9 @@ Once the OpenSSL library is installed, you can make use of it, for preparing sel
 sudo mount /dev/cdrom /mnt
 sudo bash /mnt/Linux/install.sh -d rhel -m 8
 sudo umount /dev/cdrom
+```
+3. Compile OpenSSL from sources
+```bash
 # Install prereq packages and libraries
 yum group install 'Development Tools'
 yum install perl-core zlib-devel -y
