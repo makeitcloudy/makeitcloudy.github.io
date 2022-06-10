@@ -2,7 +2,7 @@
 layout: post
 title: "How to compile OpenSSL from sources"
 permalink: "/how-to-compile-open-ssl-from-sources/"
-subtitle: "OpenSSL will bring some grip, here and there"
+subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
@@ -20,52 +20,59 @@ Once the OpenSSL library is installed, you can make use of it, for preparing sel
 + All releases can be found [here](https://www.openssl.org/source/old/)
 + Some useful script can be found on [github](https://gist.github.com/HQJaTu/963db9af49d789d074ab63f52061a951)
 
+1. Install Centos
+2. Install Management tools
 ```bash
-#here it is done on debian
-sudo apt update
-sudo apt upgrade
-openssl help
-openssl version
-sudo apt install make
-sudo apt install gcc
-sudo apt install zlib
-sudo apt-get install libz-dev
-sudo apt-get install lib1g-dev
-sudo apt-get install zlib1g-dev
-sudo apt install build-essential checkinstall zlib1g-dev -y
-cd /usr/local/src/
-sudo wget https://www.openssl.org/source/old/1.1.1/openssl-1.1.1n.tar.gz
-sudo chmod +x openssl-1.1.1n.tar.gz
-sudo tar -xf openssl-1.1.1n.tar.gz
-cd openssl-1.1.1n/
+sudo mount /dev/cdrom /mnt
+sudo bash /mnt/Linux/install.sh -d rhel -m 8
+sudo umount /dev/cdrom
+# Install prereq packages and libraries
+yum group install 'Development Tools'
+yum install perl-core zlib-devel -y
+#download openssl - at this point of time 1.1.1n
+wget https://www.openssl.org/source/old/1.1.1/openssl-1.1.1n.tar.gz
+tar -xf openssl-1.1.1n.tar.gz
+cd openssl-1.1.1n
 openssl version -a
-# --prefix and --openssldir = Set the output path of the OpenSSL.
-# shared = force to create a shared library.
-# zlib = enable the compression using zlib library.
-sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
-sudo make
-sudo make test
-sudo make install
+# 1.1.1k in the system
+# now the existing version is replaced by the one downloaded
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+make
+make test
+# wait until the compilation process ends
+# once completed, install OpenSSL
+make install
+# configure shared libraries for OpenSSL
 cd /etc/ld.so.conf.d/
-sudo nano openssl-1.1.1n.conf
-# paste the following content into the file: /usr/local/ssl/lib
+nano openssl-1.1.1n.conf
+# paste the openssl library path directory
+/usr/local/ssl/lib
+# reload dynamic link
+ldconfig -v
+# configure openSSL binary, to have it linked with the version compiled
+mv /bin/openssl /bin/openssl.org
+# create new environment for OpenSSL
+nano /etc/profile.d/openssl.sh
+# paste following content
+#Set OPENSSL_PATH
+OPENSSL_PATH="/usr/local/ssl/bin"
+export OPENSSL_PATH
+PATH=$PATH:$OPENSSL_PATH
+export PATH
 # save and exit
-sudo ldconfig -v
-# configure OpenSSL library
-sudo mv /usr/bin/c_rehash /usr/bin/c_rehash.bkp
-sudo mv /usr/bin/openssl /usr/bin/openssl.bkp
-sudo nano /etc/environment
-# add new OpenSSL binary directory as below
-# PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/ssl/bin"
-# reload the environment file and test the $PATH
-source /etc/environment
+# add execute permissions to openssl.sh
+chmod +x /etc/profile.d/openssl.sh
+# load OpenSSL environment and check the PATH bin directory
+source /etc/profile.d/openssh.sh
 echo $PATH
-# check again the OpenSSL file
 which openssl
-# at this point you should see the downloaded version of the OpenSSL binary
+# should result as /usr/local/ssl/bin/openssl
+# it would mean thatn OpenSSL on CentOS has been updated
 openssl version
+# should result with 1.1.1n
 ```
 
 ## Summary
-It may be far from being perfect, please use this only for a home lab.<br>
+It may be far from being perfect, never the less good enough for a home lab.<br>
+Tested on Cento8 Stream. OpenSSL 1.1.1n.<br>
 Last update: 2022.04.12
