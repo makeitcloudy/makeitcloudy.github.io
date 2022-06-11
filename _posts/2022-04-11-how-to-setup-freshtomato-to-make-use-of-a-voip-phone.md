@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "FreshTomato versus voip phone"
-permalink: "/freshtomato-vs-voip-phone/"
+title: "How to setup FreshTomato to make use of a voip phone"
+permalink: "/how-to-setup-freshtomato-to-make-use-of-a-voip-phone/"
 subtitle: "A bit of a hussle, never less made it work"
 cover-img: /assets/img/cover/img-cover-phone.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
