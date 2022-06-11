@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to compile OpenSSL from sources"
-permalink: "/how-to-compile-open-ssl-from-sources/"
+permalink: "/how-to-compile-openssl-from-sources/"
 subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
