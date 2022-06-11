@@ -55,4 +55,4 @@ set sip sip-direct-media=no
 
 ## Summary
 This was tested with FreshTomato 2021.8, there is great chance it will also work with other releases of the firmware.<br>
-Last update: 2022.04.14
+Last update: 2022.04.11

@@ -87,4 +87,5 @@ set allowed-interface-list=none
 
 ## Summary
 That's it.<br>
+It works on 6.4X firmware as well as on 7.3.1.<br>
 Last update:2022.04.13

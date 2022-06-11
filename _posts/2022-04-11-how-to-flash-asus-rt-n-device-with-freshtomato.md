@@ -49,4 +49,4 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 + Bare in mind to erase NVRAM, if this it not done, there are chances for quirks.
 <br>
 That's it.<br>
-Last update: 2022.04.14
+Last update: 2022.04.11

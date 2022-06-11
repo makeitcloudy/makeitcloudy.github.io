@@ -6,8 +6,8 @@ subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
-tags: [HomeLab ,Certificates ,SSL]
-categories: [HomeLab ,Certificates ,SSL]
+tags: [HomeLab ,Certificates , SSL]
+categories: [HomeLab ,Certificates , SSL]
 ---
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
 
@@ -77,4 +77,4 @@ openssl version
 ## Summary
 It may be far from being perfect, never the less good enough for a home lab.<br>
 Tested on Cento8 Stream. OpenSSL 1.1.1n.<br>
-Last update: 2022.04.12
+Last update: 2022.04.16

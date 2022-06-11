@@ -16,7 +16,8 @@ This series of mikrotik devices, can handle your regular VM traffic, as well as 
 + a bit of mikrotik knowledge
 
 ## Configure CRS3XX as L2 switch
-CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your virtualization layer for the communication on the OS level, between all your boxes which constitutes your lab usecase and it's deployment. 
+CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your virtualization layer for the communication on the OS level, between all your boxes which constitutes your lab usecase and it's deployment.
+
 ```bash
 /interface bridge
 add admin-mac=(MAC-ADDRESS) auto-mac=no name=bridge-all-vlans pvid=404 vlan-filtering=yes
@@ -194,4 +195,5 @@ set allowed-interface-list=none
 
 ## Summary
 That's it.<br>
+It works on 6.4X firmware as well as on 7.3.1.<br>
 Last update: 2022.04.13

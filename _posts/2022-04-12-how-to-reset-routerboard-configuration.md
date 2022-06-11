@@ -37,5 +37,5 @@ Run following command from the terminal
 ```
 
 Login to the device via mac or IP address, as the DHCP server is bind to the brige, so ports 2-5 should bring the IP for your device. Ether 1 with default config is being used as your WAN.
-
+<br>
 Last update: 2022.04.12

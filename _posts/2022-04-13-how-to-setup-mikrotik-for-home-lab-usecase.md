@@ -187,6 +187,5 @@ Resetting the board to the factory defaults with making use of the physical butt
 + [Enable OpenVPN Server on Mikrotik RouterOS](https://lunar.computer/posts/mikrotik-routeros-openvpn/)
 
 ## Summary
-That's it.
-
+That's it.<br>
 Last update: 2022.04.13
