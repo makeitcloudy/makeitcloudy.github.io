@@ -35,9 +35,9 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 8. reconfigure the network interface of your endpoint, set the static IP address 192.168.1.10/24. You do not need to set the default gateway.
 9. run Asus Restoration Utility (the version should match the router model, from what I recall I was not fortunate with using restoration utility of rtn-16u with rtn-18u device) and use it to send the freshTomato image to the device.
 10. the image should be sent, roughly in 20s, at the end of the overall process the Firmware Restoration utility will report the following status: Successfully recovered the system. Please wait for the system to reboot.
-11. wait until the device gets restarted and load the newest firmware, roughly 90s
-12. login to the device http://192.168.1.1 via web browser, login:root password:admin
-13. erase NVRAM: Administration -> Configuration -> Restore Default Configuration -> Erase all data in NVRAM memory (thorough). After proceeding with this step, the total amount of Free NVRAM is 55.65% - 35.62KB/64K.00B
+11. wait until the device gets restarted and load the newest firmware, roughly 90s (again your wifi led indicator will indicate the device is up again)
+12. login to the device http://192.168.1.1 via web browser, login:root password:admin (in case you can not get there, and the initial 90s already past, unplug the power cord from the device, and power it up again - I have not noticed any pattern with that, never the less it happens)
+13. erase NVRAM: Administration -> Configuration -> Restore Default Configuration -> Erase all data in NVRAM memory (thorough). After proceeding with this step, the total amount of Free NVRAM is 55.65% - 35.62KB/64K.00B (never the less for some reason this might slightly differ between devices)
 14. wait while the default are restored (90s)
 15. login back to device http://192.168.1.1 via web browser and restore the configuration or start configuring the device according to your needs.
 16. reconfigure the network interface of your endpoint, so the network subnets matches
