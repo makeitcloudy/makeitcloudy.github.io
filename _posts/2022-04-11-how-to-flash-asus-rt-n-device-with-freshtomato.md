@@ -25,7 +25,8 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 + Asus webpage details, [how to use rescue mode](https://www.asus.com/en/support/FAQ/1000814/)
 + This video also brings a lot of detail, [youtube](https://www.youtube.com/watch?v=_b039vim0Jk) - Update OPENWRT 19.07 to ASUS RT-N16 and bypass ASUS' Firmware Check
 
-1. unplug the device from t he power cord
+0. unplug all devices from the router (ethernet and usb)
+1. unplug the router from t he power cord
 2. press WPS button, and keep it pressed until the led indicating that the device is up, start to blink (it will blink fast like 2/3 times per second)
 3. roughly after 20s release the WPS button
 4. wait until the device restars, and boot up again - the wifi control led may be used as your indicator that the device is up again (at this stage the device won't have the class C IP address assigned to it anymore)
@@ -33,7 +34,7 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 6. press the reset button (depending from the device it's location may differ, for the RTN-18 it is located between the WAN link and the rear USB port)
 7. keep the reset button pressed and at the same time plug the power cord of the device (keep it pressed for around 20s and the device will start blinking with the power led - for 15s led is on and then off for the next 15s, this should be an indicator that you can continue. When the router is in this state it should assign to your device, an IP address from class C)
 8. reconfigure the network interface of your endpoint, set the static IP address 192.168.1.10/24. You do not need to set the default gateway.
-9. run Asus Restoration Utility (the version should match the router model, from what I recall I was not fortunate with using restoration utility of rtn-16u with rtn-18u device) and use it to send the freshTomato image to the device.
+9. run Firmware Restoration aka Asus Restoration Utility (the version should match the router model, from what I recall I was not fortunate with using restoration utility of rtn-16u with rtn-18u device) and use it to send the freshTomato image to the device.
 10. the image should be sent, roughly in 20s, at the end of the overall process the Firmware Restoration utility will report the following status: Successfully recovered the system. Please wait for the system to reboot.
 11. wait until the device gets restarted and load the newest firmware, roughly 90s (again your wifi led indicator will indicate the device is up again)
 12. login to the device http://192.168.1.1 via web browser, login:root password:admin (in case you can not get there, and the initial 90s already past, unplug the power cord from the device, and power it up again - I have not noticed any pattern with that, never the less it happens)
