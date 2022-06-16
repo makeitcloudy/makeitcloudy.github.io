@@ -9,10 +9,10 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
-It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client.
+It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mobile is your hotspot, RouterBoard is wifi client.
 
 ## Prerequisites
-From what can be read on Mikrotik [forum](https://forum.mikrotik.com/viewtopic.php?t=120218) thread there are some caveats with the mixture of mikrotik and iphone worh exploring.
+From what can be read on Mikrotik [forum](https://forum.mikrotik.com/viewtopic.php?t=120218) thread there are some caveats with the mixture of mikrotik and iphone worh exploring.<br>
 As it goes for tethering, please have a look into [this](https://forum.mikrotik.com/viewtopic.php?t=79320) thread.
 
 ## Rules
@@ -24,7 +24,7 @@ The solution for this is to increase the DHCP Server lease time to a lot longer 
 + (with the usecase where the Mikrotik is the client for the iphone which is serving the wireless hotspot) I was not very succesfull with the first searches for the wifi. When I enabeld the screen of the device, the scan suddently turned out to be succesfull.
 + once connected, regardless of the state of the screen of the iphone the communication was still in place until the full drain of the battery
 + change your dns settings on the IP -> DNS and on your IP -> DHCP Server -> Networks so you use altenrative to those which your ISP provides you
-
++ Iphone6S DHCP server, distributes the IP addresses with an expiration time of 24h, from the network range 172.20.10.0/28 - I have not ever tried connecting more than 16 devices, so the result is unknown. During my testing it is the RouterBoard which is having it's own DHCP server, serving all the clients connected over wired network, Iphone is just converting the LTE to wifi and bring the NAT functionality
 ## Howto
 0. plug in the power cord to your device and plug the ethernet cable to one of the ports of the device
 1. connect to it via winbox, apply the stock configuration (all your ports will end up on the same LAN bridge, so regardless which ethernet you will be connected to the Mikrotik, management should be in place)
