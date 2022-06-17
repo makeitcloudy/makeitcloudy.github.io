@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to setup mikrotik as wifi client with iphone hotspot"
-permalink: "/how-to-setup-mikrotik-as-wifi-client-with-iphone-hotspot/"
+title: "How to configure mikrotik as wifi client with iphone hotspot"
+permalink: "/how-to-configure-mikrotik-as-wifi-client-with-iphone-hotspot/"
 subtitle: "When you are roaming or need a quick backup for your main Internet wire"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
@@ -25,6 +25,7 @@ The solution for this is to increase the DHCP Server lease time to a lot longer 
 + once connected, regardless of the state of the screen of the iphone the communication was still in place until the full drain of the battery
 + change your dns settings on the IP -> DNS and on your IP -> DHCP Server -> Networks so you use altenrative to those which your ISP provides you
 + Iphone6S DHCP server, distributes the IP addresses with an expiration time of 24h, from the network range 172.20.10.0/28 - I have not ever tried connecting more than 16 devices, so the result is unknown. During my testing it is the RouterBoard which is having it's own DHCP server, serving all the clients connected over wired network, Iphone is just converting the LTE to wifi and bring the NAT functionality
+
 ## Howto
 0. plug in the power cord to your device and plug the ethernet cable to one of the ports of the device
 1. connect to it via winbox, apply the stock configuration (all your ports will end up on the same LAN bridge, so regardless which ethernet you will be connected to the Mikrotik, management should be in place)
