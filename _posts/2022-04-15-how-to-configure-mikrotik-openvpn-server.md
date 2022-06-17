@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to setup Mikrotik OpenVPN Server"
-permalink: "/how-to-setup-mikrotik-openvpn-server/"
+title: "How to configure Mikrotik OpenVPN Server"
+permalink: "/how-to-configure-mikrotik-openvpn-server/"
 subtitle: "When you are properly equipped, it's quite straighforward"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png

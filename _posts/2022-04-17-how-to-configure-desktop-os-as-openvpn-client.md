@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to setup Desktop OS as OpenVPN client"
-permalink: "/how-to-setup-desktop-os-as-openvpn-client/"
+title: "How to configure Desktop OS as OpenVPN client"
+permalink: "/how-to-configure-desktop-os-as-openvpn-client/"
 subtitle: "OpenVPN tunnel between your desktop Operating system and OpenVPN server"
 cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
