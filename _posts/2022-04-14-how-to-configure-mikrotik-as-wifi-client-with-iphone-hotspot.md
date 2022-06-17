@@ -9,11 +9,11 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
-It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mobile is your hotspot, RouterBoard is wifi client.
+It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mobile is your hotspot, RouterBoard is wifi client. I could not make it work (951G with Iphone6 Plus) over USB tethering, some says that with Android device the USB tethering works. The Lte1 interface did not show up that's why the wifi way was the option.
 
 ## Prerequisites
 From what can be read on Mikrotik [forum](https://forum.mikrotik.com/viewtopic.php?t=120218) thread there are some caveats with the mixture of mikrotik and iphone worh exploring.<br>
-As it goes for tethering, please have a look into [this](https://forum.mikrotik.com/viewtopic.php?t=79320) thread.
+As it goes for tethering, please have a look into [this](https://forum.mikrotik.com/viewtopic.php?t=79320) thread. Reddit [thread](https://www.reddit.com/r/mikrotik/comments/k0bq7a/iphone_tethering/) is suggesting an option where the RPI can act as a bridge *'You can USB tether to RPI and then route all traffic from raspberry to mikrotik via ethernet/wireless. RPI would act as a bridge'* 
 
 ## Rules
 + when your iphone is the client for the Mikrotik (opposite usecase), read the thread, someone is mentioning really interesting thing there. *'we were able to find the problem. It is related to the DHCP lease time.<br>
@@ -57,7 +57,7 @@ add authentication-types=wpa2-psk mode=dynamic-keys name=anotherHotspot supplica
 add authentication-types=wpa2-psk mode=dynamic-keys name=iphone supplicant-identity=""
 /interface wireless
 set [ find default-name=wlan1 ] band=2ghz-b/g/n country=poland disabled=no distance=indoors installation=indoor security-profile=iphone ssid=\
-    "iPhone6S" wireless-protocol=802.11
+    "iPhone6P" wireless-protocol=802.11
 /ip pool
 add name=default-dhcp ranges=192.168.88.10-192.168.88.254
 /ip dhcp-server
@@ -143,7 +143,7 @@ the wireless interface
 ```bash
 [user@951G-2Hnd] > /interface wireless print 
 Flags: X - disabled; R - running 
- 0  R name="wlan1" mtu=1500 l2mtu=1600 mac-address=8B:B8:BB:91:1B:BC arp=enabled interface-type=Atheros AR9300 mode=station ssid="iPhone6S" 
+ 0  R name="wlan1" mtu=1500 l2mtu=1600 mac-address=8B:B8:BB:91:1B:BC arp=enabled interface-type=Atheros AR9300 mode=station ssid="iPhone6P" 
       frequency=2412 band=2ghz-b/g/n channel-width=20mhz secondary-frequency="" scan-list=default wireless-protocol=802.11 vlan-mode=no-tag vlan-id=1 
       wds-mode=disabled wds-default-bridge=none wds-ignore-ssid=no bridge-mode=enabled default-authentication=yes default-forwarding=yes 
       default-ap-tx-limit=0 default-client-tx-limit=0 hide-ssid=no security-profile=iphone compression=no 
