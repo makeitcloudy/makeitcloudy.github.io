@@ -60,12 +60,16 @@ This example shows, how to configure Mikrotik OpenVPN server it in semiautomated
 + the network ranges on the OpenVPN server side network topology and the OpenVPN client differs from each other
 + once the openVPN is configured add the correct routes on the device which plays the OpenVPN server, as well as on the OpenVPN client side (routes should dst towards the networks on the other side of the tunnel)
 + the OpenVPN network range is within the 10.0.6.0/24
+
 ## Router OS 7.3.1
 This section is dedicated for the Router OS version 7.
+
 ### Configuration - ROS 7.X - defining variables
 .
+
 ### Configuration - ROS 7.X - Execute this piece of code on the device which act as OpenVPN Server
 .
+
 ### Configuration - ROS 7.X - add user and export certificates
 .
 
