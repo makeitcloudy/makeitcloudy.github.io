@@ -9,8 +9,12 @@ share-img: /assets/img/cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 categories: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
 ---
-*As of 2022.04.16 - draft*
+*As of 2022.04.16 - draft*<br>
 Self signed certificates on supermicro differs between the SM IPMI releases, by format, and the key lenght.
+
+## Background
++ Some useful script can be found on [github](https://gist.github.com/HQJaTu/963db9af49d789d074ab63f52061a951)
++ Some useful commands can be found on [github](https://gist.github.com/makeitcloudy/e0040f9390b2cf458e95227439cd931c)
 
 ## Refresh Superimcro IPMI certificate - newer firmware - motherboard of X9 series
 This was tested on 3.48 version of the firmware.

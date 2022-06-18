@@ -14,11 +14,11 @@ Once the OpenSSL library is installed, you can make use of it, for preparing sel
 ## Prerequisites
 + preferably, machine with linux
 
-## Howto
+## Background
 + Details about OpenSSL can be found on [github](https://github.com/openssl/openssl)
 + All releases can be found [here](https://www.openssl.org/source/old/)
-+ Some useful script can be found on [github](https://gist.github.com/HQJaTu/963db9af49d789d074ab63f52061a951)
 
+## Howto
 1. Install Centos
 2. Install Management tools
 ```bash
