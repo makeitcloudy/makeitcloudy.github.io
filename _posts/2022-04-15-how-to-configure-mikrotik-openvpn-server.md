@@ -2,22 +2,23 @@
 layout: post
 title: "How to configure Mikrotik OpenVPN Server"
 permalink: "/how-to-configure-mikrotik-openvpn-server/"
-subtitle: "When you are properly equipped, it's quite straighforward"
+subtitle: "When you are properly equipped, it's quite straightforward"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 ---
-*As of 2022.04.15 - draft*
 Setting up another virtual interface on Mikrotik is not that difficult provided you know how to do it. OpenSSL installed on your Desktop can be handy to remove the password protection from key in case you are making use of it on the FreshTomato client or you don't want your OpenVPN client to provide it during the phase of establishing a connection to your VPN server.
 
 ## Prerequisites
++ DDNS configuration on top of your dynamic IP address or static IP address
 + Mikrotik Routerboard/CCR device
 + OpenSSL (not a must)
 + a bit of Mikrotik knowledge
 
 ## Background
+I'm not an expert of any means in that area, use it at your own risk.<br>
 ROS 7.3.1 offers following options which does not seem to be available with 6.48.8.
 + TLS 1.2 and Auth sha256 and sha512 for PPP OpenVPN interface
 + IPv6 for PPP profile protocols
