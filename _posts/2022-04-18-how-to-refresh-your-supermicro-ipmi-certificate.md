@@ -79,4 +79,4 @@ openssl pkcs12 -export -out node3ipmi.pfx -inkey node3ipmiKey.pem -in node3ipmiC
 
 ## Summary
 For the IPMI certificate - Something is missing, needs some further work to validate the config which was done back then.<br>
-Last update: 2022.04.16
+Last update: 2022.04.18

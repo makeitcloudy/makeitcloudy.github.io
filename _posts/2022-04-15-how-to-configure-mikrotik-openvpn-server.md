@@ -52,16 +52,28 @@ $now = get-date
 New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 (Get-Date).AddDays(945)
 ```
-## Howto
-This example shows, how to do it in semiautomated fashion.
+## Howto 
+This example shows, how to configure Mikrotik OpenVPN server it in semiautomated fashion.
 ### Assumption 
 + you start from zero, and reset the configuration of the mikrotik to it's defaults (It is not mandatory as you can make use of the commands and execute on top of your existing configuration, it should also work with some tweaks)
 + your uplink is the ether1, never the less it will also work if it is lte1 or wlan1 (If your uplink is not ether1, then you can add it into the bridge - then all 5 ether ports can connect to your devices/switches, and modify the Interface list, by pointing the WAN from ether1 to lte1 or wlan1, at the end modify the dhcp client to listen on lte1 or wlan1)
 + the network ranges on the OpenVPN server side network topology and the OpenVPN client differs from each other
 + once the openVPN is configured add the correct routes on the device which plays the OpenVPN server, as well as on the OpenVPN client side (routes should dst towards the networks on the other side of the tunnel)
 + the OpenVPN network range is within the 10.0.6.0/24
+## Router OS 7.3.1
+This section is dedicated for the Router OS version 7.
+### Configuration - ROS 7.X - defining variables
+.
+### Configuration - ROS 7.X - Execute this piece of code on the device which act as OpenVPN Server
+.
+### Configuration - ROS 7.X - add user and export certificates
+.
 
-### Configuration - defining variables
+Download the exported certificates, and make use of them on the OpenVPN client device.
+
+## Router OS 6.48.6
+This section is dedicated for the Router OS version 6.
+### Configuration - ROS 6.X - defining variables
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***
 
@@ -88,7 +100,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 :global PASSWORDCERTPASSPHRASE "12345678"
 :global PASSWORDUSERLOGIN "clientPassword"
 ```
-### Configuration - Execute this piece of code on the device which act as OpenVPN Server
+### Configuration - ROS 6.X - Execute this piece of code on the device which act as OpenVPN Server
 ```shell
 ## generate a CA certificate
 /certificate
@@ -138,7 +150,7 @@ move [find comment="Accept DNS requests from VPN clients"] 1
 ## Setup completed. Do not forget to create a user.
 ```
 
-### Configuration - add user and export certificates
+### Configuration - ROS 6.X - add user and export certificates
 ```shell
 ## add a user
 /ppp secret
@@ -167,15 +179,21 @@ set "server@$CN" trusted=yes
 export-certificate "$CN" export-passphrase=""
 export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ```
-
-Done. You will find the created certificates in Files.<br>
+The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
 cert_export_[nameOfyourMikrotikOvpnServer] - CA cert<br>
 cert_export_[nameOfyourClient].cert<br>
 cert_export_[nameOfyourClient].key<br>
+
++ nameOfyourMikrotikOvpnServer - equals
+```shell
+/system identity get name
+```
++ nameOfyourClient equals the USERNAME parameter
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
 It was tested on RB951G and CCR with ROS 6.48.6<br>
+Not tested yet with ROS 7.3.1<br>
 Last update: 2022.06.18

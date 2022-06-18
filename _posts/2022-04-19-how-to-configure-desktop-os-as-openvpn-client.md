@@ -27,4 +27,4 @@ categories: [HomeLab ,Networking ,OpenVPN]
 ## Summary
 That's it.<br>
 It was tested on Windows OS and Lubuntu 20.04.03 LTS.<br>
-Last update: 2022.04.17
+Last update: 2022.04.19

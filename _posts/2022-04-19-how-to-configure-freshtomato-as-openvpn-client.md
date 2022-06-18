@@ -29,4 +29,4 @@ categories: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 ## Summary
 That's it.<br>
 Tested on FreshTomato 2021.8 K26ARM USB VPN-64K-NOSMP. As of today, latest update for the firmware can be downloaded from [freshtomato.org](https://freshtomato.org/downloads/freshtomato-arm/2022/2022.3/K26ARM/)<br>
-Last update: 2022.04.17
+Last update: 2022.04.19
