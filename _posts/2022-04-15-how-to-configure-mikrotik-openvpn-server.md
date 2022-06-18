@@ -27,14 +27,29 @@ I'm sure there is a way to compile the OpenSSL on Windows (probably [this](https
 git --version
 git version 2.36.1.windows.1
 ```
-and it have the OpenSSL 1.1.1o
+and it contains the OpenSSL 1.1.1o
 ```bash
 openssl.exe
 OpenSSL> version
 OpenSSL 1.1.1o  3 May 2022
 ```
+Alternatively compiled version for Windows can be downloaded from [slproweb.com](https://slproweb.com/products/Win32OpenSSL.html)
+
+## Preparation - Dates
+If there is some reason that you'd like to calculate the amount of days towards specific date, when your certificates should expire, and you don't just use X years from now here is the way to count it.
+
+```powershell
+$now = get-date
+New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
+(Get-Date).AddDays(945)
+```
 ## Howto
-.
+This example shows, how to do it in semiautomated fashion.
+### Assumption 
++ you start from zero, and reset the configuration of the mikrotik to it's defaults (It is not mandatory as you can make use of the commands and execute on top of your existing configuration, it should also work with some tweaks)
++ your uplink is the ether1, never the less it will also work if it is lte1 or wlan1
+### Configuration
+
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
 It was tested on RouterBoard and CCR.<br>
