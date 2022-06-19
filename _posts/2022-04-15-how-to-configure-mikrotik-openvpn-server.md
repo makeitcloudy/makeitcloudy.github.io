@@ -183,6 +183,9 @@ set "server@$CN" trusted=yes
 /certificate
 export-certificate "$CN" export-passphrase=""
 export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
+
+## clear the console history to get rid of sensitive information
+/console clear-history
 ```
 The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
 cert_export_[nameOfyourMikrotikOvpnServer] - CA cert<br>
