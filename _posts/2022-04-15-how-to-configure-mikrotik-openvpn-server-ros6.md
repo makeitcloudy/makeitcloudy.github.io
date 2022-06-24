@@ -192,6 +192,14 @@ cert_export_[$USERNAME].key<br>
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
+### in case something goes wrong - debug
+```shell
+/system logging add topics=ovpn,debug,!packet
+/system rule print
+/system logging remove numbers=[number of the ruke]
+/system rule reset numbers=[number of the rule]
+```
+
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
 It was tested on RB951G and CCR with ROS 6.48.6<br>

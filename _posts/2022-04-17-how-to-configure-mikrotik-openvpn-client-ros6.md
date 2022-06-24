@@ -154,7 +154,7 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 ## configure PPP Interface 
 interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha1 cipher=aes256 disabled=no
 ```
-## how to debug what is going in if something goes wrong
+## in case something goes wrong - debug
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
