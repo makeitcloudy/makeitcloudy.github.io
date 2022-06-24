@@ -16,6 +16,16 @@ In this scenario the regular traffic is routed through the Internet, where the t
 + Mikrotik RB/CCR device
 + The Mikrotik OpenVPN server configured [How to configure Mikrotik OpenVPN Server - RouterOS 6](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/)
 
+## Backgroupnd
++ openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
++ the network ranges on both ends of your openVPN tunnel should differ (it's important as if you reset your devices and apply default configuration, initially on both ends there is 192.168.88.X network, it should be changed at least on one device, to make it work)
+<br>
++ [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
++ [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
++ [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
+
++ if the device is reset to it's defailt configuration apply the below settings
+
 ## Howto
 Plug the LTE stick to your Mikrotik device equipped with USB port, then connect it to the power adapter.<br>
 The procedure contains few steps which should be executed in following order
@@ -26,16 +36,8 @@ The procedure contains few steps which should be executed in following order
 5. adress lists will be created dynamically once the OpenVPN is established, no need to create it manually
 6. add routes (dst is the target network you reach over the tunnel, gateway is the ovpn interface)
 
-## Backgroupnd
-+ openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
-+ the network ranges on both ends of your openVPN tunnel should differ (it's important as if you reset your devices and apply default configuration, initially on both ends there is 192.168.88.X network, it should be changed at least on one device, to make it work)
-<br>
-+ [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
-+ [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
-+ [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
-
-+ if the device is reset to it's defailt configuration apply the below settings
-### convert signal from LTE and pass to ether ports
+### Configuration
+Convert signal from LTE and pass to ether ports
 ```shell
 ## disable wireless interface
 /interface wireless
@@ -94,6 +96,7 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 
 Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
 + Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
+
 ```shell
 [user@MikroTik] > file print 
 Columns: NAME, TYPE, SIZE, CREATION-TIME
@@ -102,7 +105,9 @@ Columns: NAME, TYPE, SIZE, CREATION-TIME
 4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      jun/18/2022 22:30:58
 5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      jun/18/2022 22:30:58
 ```
+
 Once the files are uploaded it's time to import the certificates
+
 ```shell
 ## passphrase is empty, when asked just hit enter
 [user@MikroTik] > certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
@@ -144,9 +149,11 @@ Columns: NAME, COMMON-NAME
 0  LAT CA            MikroTik             
 1 K  T ovpn-Client1  ovpn-Client1@MikroTik
 ```
+
 When certificates are imported, continue with further configuration depending from your ROS version.
 
 ### Configuration - ROS 6.X - Execute this piece of code on device which acts as OpenVPN client
+
 ```shell
 ## configure PPP Profile
 ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-ipv6=no use-mpls=no use-upnp=no
@@ -155,6 +162,7 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha1 cipher=aes256 disabled=no
 ```
 ## in case something goes wrong - debug
+
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
