@@ -2,7 +2,7 @@
 layout: post
 title: "How to configure Mikrotik OpenVPN Server"
 permalink: "/how-to-configure-mikrotik-openvpn-server-ros6/"
-subtitle: "Router OS version 6.48.6"
+subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -169,7 +169,7 @@ export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 /console clear-history
 ```
 At this stage the certificates should look like this
-```
+```shell
 /certificate print
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; I, R - REVOKED; T - TRUSTED
 Columns: NAME, COMMON-NAME, FINGERPRINT

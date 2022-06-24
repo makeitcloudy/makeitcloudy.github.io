@@ -2,7 +2,7 @@
 layout: post
 title: "How to configure mikrotik as OpenVPN client"
 permalink: "/how-to-configure-mikrotik-openvpn-client-ros6/"
-subtitle: "Router OS version 6.48.6"
+subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -29,8 +29,13 @@ The procedure contains few steps which should be executed in following order
 ## Backgroupnd
 + openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
 + the network ranges on both ends of your openVPN tunnel should differ (it's important as if you reset your devices and apply default configuration, initially on both ends there is 192.168.88.X network, it should be changed at least on one device, to make it work)
-### if the device is reset to it's default configuration apply this settings
+<br>
++ [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
++ [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
++ [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
 
++ if the device is reset to it's defailt configuration apply the below settings
+### convert signal from LTE and pass to ether ports
 ```shell
 ## disable wireless interface
 /interface wireless
@@ -66,17 +71,9 @@ set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
 ```
 In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
 
-Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
-+ Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
-```shell
-[user@MikroTik] > file print 
-Columns: NAME, TYPE, SIZE, CREATION-TIME
-#  NAME                                                TYPE       SIZE      CREATION-TIME       
-3  cert_export_MikroTik.crt                            .crt file  1188      jun/18/2022 22:30:58
-4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      jun/18/2022 22:30:58
-5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      jun/18/2022 22:30:58
-```
-Once the files are uploaded it's time to import the certificates
+### Configuration - ROS 6.X - defining variables
+At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
+**script does not work if the passwords contains \ *backslash***
 ```shell
 :global CN [/system identity get name]
 :global OVPNSERVERPORT 4911
@@ -93,7 +90,20 @@ Once the files are uploaded it's time to import the certificates
 ## 2022.04.21 - does the limit it 8character long?
 ## this is the passphrace for the private key copied from the openVPN server configuration
 :global PASSWORDCERTPASSPHRASE "12345678"
+```
 
+Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
++ Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
+```shell
+[user@MikroTik] > file print 
+Columns: NAME, TYPE, SIZE, CREATION-TIME
+#  NAME                                                TYPE       SIZE      CREATION-TIME       
+3  cert_export_MikroTik.crt                            .crt file  1188      jun/18/2022 22:30:58
+4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      jun/18/2022 22:30:58
+5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      jun/18/2022 22:30:58
+```
+Once the files are uploaded it's time to import the certificates
+```shell
 ## passphrase is empty, when asked just hit enter
 [user@MikroTik] > certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
 passphrase: 
@@ -127,7 +137,7 @@ Columns: NAME, COMMON-NAME
        decryption-failures: 0
   keys-with-no-certificate: 0
 
-[piotrek@MikroTik] > certificate print 
+[user@MikroTik] > certificate print 
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; T - TRUSTED
 Columns: NAME, COMMON-NAME
 #      NAME          COMMON-NAME          
@@ -135,16 +145,6 @@ Columns: NAME, COMMON-NAME
 1 K  T ovpn-Client1  ovpn-Client1@MikroTik
 ```
 When certificates are imported, continue with further configuration depending from your ROS version.
-
-## Router OS 6.48.6
-This section is dedicated for the Router OS version 6.
-+ [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
-+ [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
-+ [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
-
-### Configuration - ROS 6.X - defining variables
-At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
-**script does not work if the passwords contains \ *backslash***
 
 ### Configuration - ROS 6.X - Execute this piece of code on device which acts as OpenVPN client
 ```shell
@@ -162,7 +162,7 @@ interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVE
 /system rule reset numbers=[number of the rule]
 ```
 
-## routes
+## Add routes
 + On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
 + On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
 
