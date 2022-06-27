@@ -19,7 +19,7 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 
 ## Background
 This example shows how to configure the OpenVPN server in semiautomated fashion, based on the Long Term Mikrotik router OS version 6.48.6 (as for the time of writing this blog post).
-Newer releases of Router OS offers extra parameters which are not included within current 6.X version.<br>
+Newer releases of Router OS offers extra parameters which are not included within current 6.X version, configuration described within this blog post should work on ROS 7.X, never the less I'm not recommending using it that way.<br>
 Current configuration will also work on 7.X releases, never the less I'm sure that with the use of TLS 1.2 or more advanced hashing algirithms instead of sha1 it can be made more secure.<br>
 ### NAT
 Your mikrotik can be behind NAT provided the port on which your OpenVPN server is listening is forwarded on the router which your mikrotik device is connecting to, to get access to the Internet.
@@ -61,9 +61,7 @@ I'm not an expert of any means in that area, use it at your own risk.<br>
 + once the openVPN is configured *add the correct routes on the device which plays the OpenVPN server, as well as on the OpenVPN client side* (routes should dst towards the networks on the other side of the tunnel and your gateway would be your openvpn interface)
 + the OpenVPN network range is within the 10.0.6.0/24 (here I assume that your router has 5 ethernet interfaces and the virtual interface which is openVPN is the next available network range, still there is another assumption that you are using the 24 network mask here)
 
-## Router OS 6.48.6
-This section is dedicated for the Router OS version 6, it will also work on ROS 7 (I'm not recommending using it on ROS 7, it can be made more secure with extra params available on ROS 7)
-### Configuration - ROS 6.X - defining variables
+### Configuration - defining variables
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***
 
@@ -94,6 +92,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 ## it is being used to secure the private key
 :global PASSWORDCERTPASSPHRASE "12345678"
 ```
+
 ### Configuration - Certificate, Interface, Firewall
 ```shell
 ## generate a CA certificate
@@ -194,6 +193,7 @@ Download the exported certificates, and make use of them on the OpenVPN client d
 
 ### Configuration - Routes
 On top of that add the routes towards your client device, via your OpenVPN gateway Interface.
+
 ### Debug
 ```shell
 /system logging add topics=ovpn,debug,!packet
