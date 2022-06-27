@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure mikrotik as OpenVPN client"
+title: "How to configure Mikrotik OpenVPN client - ROS 6.X"
 permalink: "/how-to-configure-mikrotik-openvpn-client-ros6/"
 subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -73,7 +73,7 @@ set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
 ```
 In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
 
-### Configuration - ROS 6.X - defining variables
+### Configuration - defining variables
 At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***
 ```shell
@@ -152,7 +152,7 @@ Columns: NAME, COMMON-NAME
 
 When certificates are imported, continue with further configuration depending from your ROS version.
 
-### Configuration - ROS 6.X - Execute this piece of code on device which acts as OpenVPN client
+### Configuration - PPP Profile and Interface
 
 ```shell
 ## configure PPP Profile
@@ -161,7 +161,14 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 ## configure PPP Interface 
 interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha1 cipher=aes256 disabled=no
 ```
-## in case something goes wrong - debug
+
+## Configuration - add routes
++ On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
++ On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
+
+The traffic should be passed provided the firewall rules allows it.
+
+## Debug
 
 ```shell
 /system logging add topics=ovpn,debug,!packet
@@ -170,13 +177,7 @@ interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVE
 /system rule reset numbers=[number of the rule]
 ```
 
-## Add routes
-+ On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
-+ On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
-
-The traffic should be passed unless the firewall rules allows it.
-
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G 7.3.1 and CCR with ROS 6.48.6<br>
+It was tested on RB951G, ROS 6.48.6<br>
 Last update: 2022.06.18

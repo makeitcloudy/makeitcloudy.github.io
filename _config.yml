@@ -22,6 +22,8 @@ navbar-links:
 #    - FreshTomato: ""
 #    - DesktopOS: ""
   Toolbox:
+    - ZeroTier: "https://github.com/zerotier/"
+    - Chocolatey: "https://github.com/chocolatey/choco"
     - Bicep: "https://runasradio.com/Shows/Show/822"
     - Nerdio: "https://getnerdio.com/"
   About Me: "aboutme"

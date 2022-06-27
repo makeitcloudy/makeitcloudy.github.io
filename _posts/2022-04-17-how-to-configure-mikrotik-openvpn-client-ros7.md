@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure mikrotik as OpenVPN client"
+title: "How to configure Mikrotik OpenVPN client - ROS 7.X"
 permalink: "/how-to-configure-mikrotik-openvpn-client-ros7/"
 subtitle: "Router OS 7.3.1"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -9,7 +9,7 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
 ---
-*2022.04.17 - Draft*
+*2022.04.17 - Draft*<br>
 In this scenario the regular traffic is routed through the Internet, where the target networks defines within the routes, are traversed over the OpenVPN tunnel. The connection takes place between two Mikrotik devices, where the client reach the Internet over lte1 interface. 
 
 ## Prerequisites
@@ -67,6 +67,23 @@ set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
 ```
 In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
 
+### Configuration - defining variables
+At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
+**script does not work if the passwords contains \ *backslash***
+
+```shell
+:global CN [/system identity get name]
+## the USERNAME may go hand in hand with the USERNAME set during the configuration of the VPNServer
+:global USERNAME "Client1"
+:global PASSWORDUSERLOGIN "clientPassword"
+:global OVPNPROFILENAME "ovpn-profile"
+:global OVPNIPADDRESS "10.0.6.254"
+:global OVPNCLIENTIPADDRESS "10.0.6.253"
+## 2022.04.21 - does the limit it 8character long?
+:global PASSWORDCERTPASSPHRASE "12345678"
+```
+
+### Configuration - importing certificates
 Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
 + Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
 ```shell
@@ -121,31 +138,8 @@ Columns: NAME, COMMON-NAME
 ```
 When certificates are imported, continue with further configuration depending from your ROS version.
 
-## Router OS 7.3.1
-This section is dedicated for the Router OS version 7.
+### Configuration - final tweaking
 
-## Router OS 6.48.6
-This section is dedicated for the Router OS version 6.
-+ [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
-+ [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
-+ [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
-
-### Configuration - ROS 6.X - defining variables
-At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
-**script does not work if the passwords contains \ *backslash***
-
-```shell
-:global CN [/system identity get name]
-## the USERNAME may go hand in hand with the USERNAME set during the configuration of the VPNServer
-:global USERNAME "Client1"
-:global OVPNPROFILENAME "ovpn-profile"
-:global OVPNIPADDRESS "10.0.6.254"
-## 2022.04.21 - does the limit it 8character long?
-:global PASSWORDCERTPASSPHRASE "12345678"
-:global PASSWORDUSERLOGIN "clientPassword"
-:global OVPNCLIENTIPADDRESS "10.0.6.253"
-```
-### Configuration - ROS 6.X - Execute this piece of code on device which acts as OpenVPN client
 ```shell
 ## configure PPP Profile
 ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-ipv6=no use-mpls=no use-upnp=no
@@ -160,23 +154,8 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 ## configure PPP Interface 
 interface ovpn-client add connect-to=xxx.xxx.xxx.xxx add-default-route=no auth=sha1 certificate=client disabled=no user=vpnuser password=vpnpass name=myvpn profile=OVPN-client
 
-## ....
-
-## generate a client certificate
-/certificate
-add name=client-template-to-issue copy-from=client-template \
-  common-name="$USERNAME@$CN"
-sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
-:delay 10
-
-## export the certificate
-/certificate
-export-certificate "$CN" export-passphrase=""
-export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
-
-## 
 ```
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G 7.3.1 and CCR with ROS 6.48.6<br>
-Last update: 2022.06.18
+It was tested on RB951G, ROS 7.3.1<br>
+Last update: 2022.04.17

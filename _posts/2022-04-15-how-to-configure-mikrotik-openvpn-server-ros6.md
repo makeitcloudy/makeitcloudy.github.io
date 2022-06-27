@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure Mikrotik OpenVPN Server"
+title: "How to configure Mikrotik OpenVPN Server - ROS 6.X"
 permalink: "/how-to-configure-mikrotik-openvpn-server-ros6/"
 subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -94,7 +94,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 ## it is being used to secure the private key
 :global PASSWORDCERTPASSPHRASE "12345678"
 ```
-### Configuration - ROS 6.X - Execute this piece of code on the device which act as OpenVPN Server
+### Configuration - Certificate, Interface, Firewall
 ```shell
 ## generate a CA certificate
 /certificate
@@ -143,7 +143,7 @@ move [find comment="OpenVPN - Accept DNS requests from clients"] 1
 ## Setup completed. Do not forget to create a user.
 ```
 
-### Configuration - ROS 6.X - add user and export certificates
+### Configuration - add user, export certificates
 ```shell
 ## add a user
 /ppp secret
@@ -192,7 +192,9 @@ cert_export_[$USERNAME].key<br>
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
-### in case something goes wrong - debug
+### Configuration - Routes
+On top of that add the routes towards your client device, via your OpenVPN gateway Interface.
+### Debug
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
