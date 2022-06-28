@@ -58,6 +58,7 @@ If you are still not sure navigate to the [Support & Downloads](https://mikrotik
 ## check the version of the firmware
 /system routerboard print
 ```
+
 ## Upgrade
 This section describe how to upgrade Router OS and firmware.
 
