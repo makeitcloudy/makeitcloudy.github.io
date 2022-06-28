@@ -20,6 +20,9 @@ At the time of writing this blog post the long term release of the Router OS is 
 + users and configuration remains
 + backups of the configuration remains on the filesystem
 
+## Downgrade
+This section describes how to downgrade the Mikrotik Router OS and firmware.
+
 ### Downgrade from ROS 7.X to 6.X
 When for some reason your device should be on ROS 6.X but you aready upgraded to ROS 7.X
 1. Figure out what is the model of your mikrotik device
@@ -55,6 +58,9 @@ If you are still not sure navigate to the [Support & Downloads](https://mikrotik
 ## check the version of the firmware
 /system routerboard print
 ```
+## Upgrade
+This section describe how to upgrade Router OS and firmware.
+
 ### Upgrade to latest version in current branch
 ```shell
 /system package update print
@@ -66,6 +72,7 @@ If you are still not sure navigate to the [Support & Downloads](https://mikrotik
 ## upgrade firmware
 /system routerboard upgrade
 ```
+
 ### Upgrade from ROS 6.X to 7.X
 ```shell
 /system package update print
