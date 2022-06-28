@@ -18,15 +18,21 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 + A bit of Mikrotik knowledge
 
 ## Background
+I'm not an expert of any means in that area, use it at your own risk.<br>
 This example shows how to configure the OpenVPN server in semiautomated fashion, based on the Long Term Mikrotik router OS version 6.48.6 (as for the time of writing this blog post).
 Newer releases of Router OS offers extra parameters which are not included within current 6.X version, configuration described within this blog post should work on ROS 7.X, never the less I'm not recommending using it that way.<br>
-Current configuration will also work on 7.X releases, never the less I'm sure that with the use of TLS 1.2 or more advanced hashing algirithms instead of sha1 it can be made more secure.<br>
+Current configuration will also work on 7.X releases, I'm sure that with the use of TLS 1.2 or more advanced hashing algirithms instead of sha1 it can be made more secure.<br>
+OpenVPN tunnel can be established betwen the devices with different ROS major versions.
+
 ### NAT
 Your mikrotik can be behind NAT provided the port on which your OpenVPN server is listening is forwarded on the router which your mikrotik device is connecting to, to get access to the Internet.
+
 ### OpenSSL
 In this usecase, OpenSSL is being used to remove the password from the certificate key. This can be usefull when your client is FreshTomato based. For Mikrotik devices, it is **NOT** used. 
+
 ### OpenSSL on Linux
 This arcicle [how to compile OpenSSL from sources](https://makeitcloudy.pl/how-to-compile-openssl-from-sources/) provides the details how to compile it on a linux machine.
+
 ### OpenSSL on Windows
 I'm sure there is a way to compile the OpenSSL on Windows (seems [this](https://github.com/openssl/openssl/blob/master/NOTES-WINDOWS.md) is the way to go), never the less there is a quicker way to make use of OpenSSL on this platform as well, especially if you do a bit of coding and make use of GIT already. OpenSSL exist in the following directory *C:\Program Files\Git\usr\bin* you may use it from there, or add it to *$env:PATH* and run it directly from the commandline. At the time of writing this I'm on
 
@@ -52,8 +58,7 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 # at the time of writing this article it was 945 days left towards this date
 (Get-Date).AddDays(945)
 ```
-## Howto 
-I'm not an expert of any means in that area, use it at your own risk.<br>
+
 ### Assumption 
 + you start from zero, and reset the configuration of the Mikrotik to it's defaults (It is not mandatory as you can make use of the commands and execute on top of your existing configuration, it should also work with some tweaks)
 + your uplink is the ether1, never the less it will also work if it is lte1 or wlan1 (If your uplink is not ether1, then you can add ether1 into the bridge - then all 5 ether ports can connect to your devices/switches, and modify the Interface list, by pointing the WAN from ether1 to lte1 or wlan1, at the end modify the dhcp client to listen on lte1 or wlan1)
@@ -193,6 +198,25 @@ Download the exported certificates, and make use of them on the OpenVPN client d
 
 ### Configuration - Routes
 On top of that add the routes towards your client device, via your OpenVPN gateway Interface.
+```shell
+/ip route
+add distance=1 dst-address=192.168.33.0/24 gateway=<ovpn-ovpn-Client1>
+```
+
+### Check
+There is great chance that at this stage the openVPN client is not configured. Once it is and the tunnel is set properly, then among the IP addresses, dynamically assigned IP should arise for the openVPN traffic.
+```shell
+/ip address print 
+Flags: X - disabled, I - invalid, D - dynamic 
+ #   ADDRESS            NETWORK         INTERFACE                         
+ 0   ;;; defconf
+## IP address assigned to the bridge allows you managing the mikrotik via winbox
+     192.168.88.1/24    192.168.88.0    bridge
+## ether1 is the WAN interface, it is your uplink for the ovpn gateway
+ 1 D 172.16.253.253/24  172.16.253.0    ether1
+## here is the IP address of the openVPN interface
+ 2 D 10.0.6.254/32      10.0.6.253      <ovpn-ovpn-Client1>
+```
 
 ### Debug
 ```shell

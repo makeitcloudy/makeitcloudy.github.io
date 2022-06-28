@@ -76,9 +76,11 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 ## the USERNAME may go hand in hand with the USERNAME set during the configuration of the VPNServer
 :global USERNAME "Client1"
 :global PASSWORDUSERLOGIN "clientPassword"
-:global OVPNPROFILENAME "ovpn-profile"
+## this is the name of the ovpn interface which is the gateway role for the routes
+:global OVPNINTERFACENAME "ovpn-headquarters"
 :global OVPNIPADDRESS "10.0.6.254"
 :global OVPNCLIENTIPADDRESS "10.0.6.253"
+:global OVPNPROFILENAME "ovpn-profile"
 ## 2022.04.21 - does the limit it 8character long?
 :global PASSWORDCERTPASSPHRASE "12345678"
 ```
@@ -152,8 +154,13 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 ## service=ovpn local-address="$OVPNIPADDRESS" remote-address="$OVPNCLIENTIPADDRESS"
 
 ## configure PPP Interface 
-interface ovpn-client add connect-to=xxx.xxx.xxx.xxx add-default-route=no auth=sha1 certificate=client disabled=no user=vpnuser password=vpnpass name=myvpn profile=OVPN-client
-
+interface ovpn-client add connect-to=xxx.xxx.xxx.xxx add-default-route=no auth=sha1 certificate=client disabled=no user=vpnuser password=vpnpass name="$OVPNINTERFACENAME" profile="$OVPNPROFILENAME"
+```
+### Configuration - Routes
+```shell
+/ip route
+add disabled=no dst-address=192.168.88.0/24 gateway=ovpn-centrala routing-table=main \
+    suppress-hw-offload=no
 ```
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>
