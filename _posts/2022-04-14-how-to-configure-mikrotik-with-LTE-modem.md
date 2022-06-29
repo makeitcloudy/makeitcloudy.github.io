@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure mikrotik with LTE modem"
+title: "How to configure Mikrotik with LTE modem"
 permalink: "/how-to-configure-mikrotik-with-LTE-modem/"
 subtitle: "When you are roaming or need a quick alternative for your main Internet wire"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg

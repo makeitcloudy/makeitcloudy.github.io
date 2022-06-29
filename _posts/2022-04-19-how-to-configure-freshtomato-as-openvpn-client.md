@@ -26,6 +26,12 @@ categories: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 3. Copy the content of the cetificates to FreshTomato based router, which act as a VPN client.
 3. Test the connection
 
+## TCP
+.
+
+## UDP
+.
+
 ## Summary
 That's it.<br>
 Tested on FreshTomato 2021.8 K26ARM USB VPN-64K-NOSMP. As of today, latest update for the firmware can be downloaded from [freshtomato.org](https://freshtomato.org/downloads/freshtomato-arm/2022/2022.3/K26ARM/)<br>

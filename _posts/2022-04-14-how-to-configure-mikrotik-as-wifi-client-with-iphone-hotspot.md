@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure mikrotik as wifi client with iphone hotspot"
+title: "How to configure Mikrotik as wifi client with iphone hotspot"
 permalink: "/how-to-configure-mikrotik-as-wifi-client-with-iphone-hotspot/"
 subtitle: "When you are roaming or need a quick backup for your main Internet wire"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg

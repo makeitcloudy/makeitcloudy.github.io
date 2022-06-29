@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to setup mikrotik for home lab usecase"
+title: "How to setup Mikrotik for home lab usecase"
 permalink: "/how-to-setup-mikrotik-for-home-lab-usecase/"
 subtitle: "There are plenty of alternative ways reaching this, but still mikrotik it's cost effective"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
