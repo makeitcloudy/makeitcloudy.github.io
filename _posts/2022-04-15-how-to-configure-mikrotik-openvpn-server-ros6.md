@@ -66,6 +66,12 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 + once the openVPN is configured *add the correct routes on the device which plays the OpenVPN server, as well as on the OpenVPN client side* (routes should dst towards the networks on the other side of the tunnel and your gateway would be your openvpn interface)
 + the OpenVPN network range is within the 10.0.6.0/24 (here I assume that your router has 5 ethernet interfaces and the virtual interface which is openVPN is the next available network range, still there is another assumption that you are using the 24 network mask here)
 
+### Prerequisites
++ DDNS name or static IP address on the WAN interface
++ Mikrotik RB/CCR device
++ the NTP server configured properly, so the time and date is in sync
++ details about the network segments on the other side of the tunnel, to configure the routes properly
+
 ### Configuration - defining variables
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***
@@ -79,7 +85,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 :global DAYSVALIDSERVER 945
 :global DAYSVALIDCLIENT 365
 
-:global OVPNCLIENTCERTIFICATETEMPLATENAME "ovpnClientTemplate"
+:global OVPNCLIENTCERTIFICATETEMPLATENAME "ovpn-ClientTemplate"
 :global OVPNCLIENTCERTIFICATETEMPLATECOMMONNAME "ovpnClientTemplate"
 :global OVPNPROFILENAME "ovpn-profile"
 :global OVPNNETWORKMASK "24"
@@ -109,14 +115,14 @@ sign ca-template ca-crl-host=127.0.0.1 name="$CN"
 
 ## generate a server certificate
 /certificate
-add name=server-template common-name="server@$CN" days-valid="$DAYSVALIDSERVER" \
+add name=server-template common-name="ovpn-server@$CN" days-valid="$DAYSVALIDSERVER" \
   key-usage=digital-signature,key-encipherment,tls-server
-sign server-template ca="$CN" name="server@$CN"
+sign server-template ca="$CN" name="ovpn-server@$CN"
 :delay 10
 
 ## create a client template
 /certificate
-add name="$OVPNCLIENTCERTIFICATETEMPLATENAME" common-name="OVPNCLIENTCERTIFICATETEMPLATECOMMONNAME" \ days-valid="$DAYSVALIDCLIENT" key-usage=tls-client
+add name="$OVPNCLIENTCERTIFICATETEMPLATENAME" common-name="$OVPNCLIENTCERTIFICATETEMPLATECOMMONNAME" \ days-valid="$DAYSVALIDCLIENT" key-usage=tls-client
 :delay 5
 
 ## create IP pool
@@ -130,9 +136,13 @@ add local-address="$OVPNIPADDRESS" name="$OVPNPROFILENAME" \
 
 ## setup OpenVPN server
 /interface ovpn-server server
-set auth=sha1 certificate="server@$CN" cipher=aes128,aes192,aes256 \
+set auth=sha1 certificate="ovpn-server@$CN" cipher=aes128,aes192,aes256 \
   default-profile="$OVPNPROFILENAME" mode=ip netmask="$OVPNNETWORKMASK" port="$PORT" \
   enabled=yes require-client-certificate=yes
+
+## setup OpeVPN interface binding
+/interface ovpn-server
+add name="$USERNAME" user="$USERNAME"
 
 ## add a firewall rule
 /ip firewall filter
@@ -156,13 +166,13 @@ add local-address="$OVPNIPADDRESS" name="$USERNAME" \
 
 ## generate a client certificate
 /certificate
-add name=client-template-to-issue copy-from=client-template \
+add name=client-template-to-issue copy-from="$OVPNCLIENTCERTIFICATETEMPLATENAME" \
   common-name="$USERNAME@$CN"
 sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
 :delay 10
 
 /certificate
-set "server@$CN" trusted=yes
+set "ovpn-server@$CN" trusted=yes
 
 ## export the CA, client certificate, and private key
 /certificate
@@ -179,8 +189,8 @@ Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; I, R - REVOKED; T - TRUSTED
 Columns: NAME, COMMON-NAME, FINGERPRINT
 #       NAME                   COMMON-NAME            FINGERPRINT                                                     
 0 KLA T MikroTik               MikroTik               thumbprint
-1 K  IT server@MikroTik        server@MikroTik        thumbprint
-2       client-template        ovpnClientTemplate
+1 K  IT ovpn-server@MikroTik        ovpn-server@MikroTik   thumbprint
+2       ovpn-ClientTemplate        ovpnClientTemplate
 3 K  I  ovpn-Client1@MikroTik  ovpn-Client1@MikroTik  thumbprint
 
 ```
@@ -196,12 +206,14 @@ cert_export_[$USERNAME].key<br>
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
-### Configuration - Routes
-On top of that add the routes towards your client device, via your OpenVPN gateway Interface.
+### Configuration - add static routes
+Add static routes towards your client device, via your OpenVPN gateway Interface.
 ```shell
 /ip route
-add distance=1 dst-address=192.168.33.0/24 gateway=<ovpn-ovpn-Client1>
+add distance=1 dst-address=192.168.33.0/24 gateway="$USERNAME"
 ```
+
+On top of that **bring your firewall rules**.
 
 ### Check
 There is great chance that at this stage the openVPN client is not configured. Once it is and the tunnel is set properly, then among the IP addresses, dynamically assigned IP should arise for the openVPN traffic.
@@ -225,6 +237,71 @@ Flags: X - disabled, I - invalid, D - dynamic
 /system logging remove numbers=[number of the ruke]
 /system rule reset numbers=[number of the rule]
 ```
+
+## Configuration - add another OpenVPN client
+With the abovementioned configuration there is one server and one client, 1:1 approach. If the goal is to have more clients, 1:n approach then repeat the steps described below for the OpenVPN server configuration and customize each OpenVPN client individually once the configuration on the server side.
+
+```shell
+:global CN [/system identity get name]
+
+:global OVPNCLIENTCERTIFICATETEMPLATENAME "ovpn-ClientTemplate"
+## :global OVPNCLIENTCERTIFICATETEMPLATENAME "client-template"
+##:global OVPNCLIENTCERTIFICATETEMPLATENAME "ovpn-ClientTemplate"
+:global OVPNCLIENTCERTIFICATETEMPLATECOMMONNAME "ovpnClientTemplate"
+
+:global OVPNPROFILENAME "ovpn-profile"
+:global OVPNIPADDRESS "10.0.6.254"
+:global OVPNCLIENTIPADDRESS "10.0.6.252"
+
+## those parameters are being used in PPP Secrets configuration
+:global USERNAME "ovpn-Client2"
+:global PASSWORDUSERLOGIN "ovpn-Client2-Password"
+
+## 2022.04.21 - should it be 8character long
+## it is being used to secure the private key
+## it is provided during the phase of setting up connection from the client
+## unless it is removed with openssl, so the user does not have to put the password
+## it applies to Desktop OS or FreshTomato, as up to my knowledge Mikrotik requires
+## the password to be in place
+:global PASSWORDCERTPASSPHRASE "87654321"
+```
+
+```shell
+## add interface binding
+/interface ovpn-server
+add name="$USERNAME" user="$USERNAME"
+
+## add a user
+/ppp secret
+add name=$USERNAME password="$PASSWORDUSERLOGIN" profile="$OVPNPROFILENAME" service=ovpn \
+local-address="$OVPNIPADDRESS" remote-address="$OVPNCLIENTIPADDRESS"
+
+## generate a client certificate
+/certificate
+add name=client-template-to-issue copy-from="$OVPNCLIENTCERTIFICATETEMPLATENAME" \
+  common-name="$USERNAME@$CN"
+sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
+:delay 10
+
+#export the certificate
+/certificate
+## it is not needed to export the CA cert again
+## export-certificate "$CN" export-passphrase=""
+export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
+```
+Once certificates are exported 
+```shell
+/file print
+# at this moment you should see
+# those are the CA certificate and the certificate which should be bound with client's openVPN configuration
+3 cert_export_MikroTik.crt               .crt  file     1188 
+4 cert_export_ovpn-Client2@MikroTik.key  .key  file     1858 
+5 cert_export_ovpn-Client2@MikroTik.crt  .crt  file     1168 
+6 cert_export_ovpn-Client2@MikroTik.key  .key  file     1858 
+7 cert_export_ovpn-Client2@MikroTik.crt  .crt  file     1168 
+```
+
+Download the exported certificates, for the another user, and make use of them on the OpenVPN client device.
 
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>

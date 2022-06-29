@@ -37,6 +37,16 @@ If the ssh, L2 or winbox access is there, run following command from the termina
 ```
 Login to the device via mac or IP address, as the DHCP server is bind to the brige, so ports 2-5 should bring the IP for your device. Ether 1 with default config is being used as your WAN.
 
+## backup existing configuration
+```shell
+/system backup save name=20220629_mkt951G_config.backup
+```
+
+## restore existing configuration
+```shell
+/system backup load name=20220629_mkt951G_config.backup
+```
+
 ## Summary
 If your Mikrotik has console or serial port, then all what you need is appropriate cable, and usb converter if your device is not equipped with serial port.<br>
 Last update: 2022.04.12

@@ -9,8 +9,10 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
 ---
-*2022.04.17 - Draft*<br>
-In this scenario the regular traffic is routed through the Internet, where the target networks defines within the routes, are traversed over the OpenVPN tunnel. The connection takes place between two Mikrotik devices, where the client reach the Internet over lte1 interface. 
+This blog post is a follow-up of another blog post which was describing [how to configure Mikrotik OpenVPN client on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-client-ros6/)
+
+## To Do
++ make the UDP work, as at this stage it only works over TCP
 
 ## Prerequisites
 + DNS alias or IP address of your OpenVPN server
@@ -18,70 +20,24 @@ In this scenario the regular traffic is routed through the Internet, where the t
 + OpenVPN Server configured
 + The Mikrotik OpenVPN server configured [How to configure Mikrotik OpenVPN Server](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server/)
 
-## Howto
-Plug the LTE stick to your Mikrotik device equipped with USB port, then connect it to the power adapter.<br>
-The procedure contains few steps which should be executed in following order
-1. import the files exported during the OpenVPN server configuration (File -> Upload)
-2. import the certificates
-3. adress lists will be created dynamically once the OpenVPN is established, no need to create it manually
-4. create PPP Profile
-5. (not needed) create PPP Secret
-5. create PPP Interface
-6. add routes (dst is the target network you reach over the tunnel)
-
-+ openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
-### Configuration - client preparation
-If you start from zero, with Mikrotik configuration reset back to it's defaults (on both sides VPN Server and Client), then the network range for those destinations should differ. Initially, when the Mikrotik configuration is reset it assigns the 192.168.88.0/24 network on top of the bridge. It needs to be changed
-```shell
-## disable wireless interface
-/interface wireless
-set [ find default-name=wlan1 ] band=2ghz-b/g/n channel-width=20/40mhz-XX country=poland distance=indoors frequency=auto installation=indoor mode=ap-bridge \
-    ssid=951G wireless-protocol=802.11
-## modify the ip pool range
-/ip pool
-add name=default-dhcp ranges=192.168.33.10-192.168.33.254
-## add the ether1 to the bridge, this give you 5 operational ports within the abovemention network range
-/interface bridge port
-add bridge=bridge comment=defconf ingress-filtering=no interface=ether1
-add bridge=bridge comment=defconf ingress-filtering=no interface=ether2
-add bridge=bridge comment=defconf ingress-filtering=no interface=ether3
-add bridge=bridge comment=defconf ingress-filtering=no interface=ether4
-add bridge=bridge comment=defconf ingress-filtering=no interface=ether5
-add bridge=bridge comment=defconf ingress-filtering=no interface=wlan1
-## set the lte1 as WAN interface
-/interface list member
-add comment=defconf interface=lte1 list=WAN
-## set IP Address on the bridge
-/ip address
-add address=192.168.33.1/24 comment=defconf interface=bridge network=192.168.33.0
-## disable dhcp-client on the ether1 interface, the dhcp-client on lte1 will be created dynamically for you
-/ip dhcp-client
-add comment=defconf disabled=yes interface=ether1
-## define the range for the dhcp-server along with your DNS servers
-/ip dhcp-server network
-add address=192.168.33.0/24 comment=defconf dns-server=1.1.1.2,1.1.1.1 gateway=\
-    192.168.33.1 netmask=24
-## set the dns server globally on the device as well
-/ip dns
-set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
-```
-In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
-
 ### Configuration - defining variables
 At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***
-
 ```shell
 :global CN [/system identity get name]
-## the USERNAME may go hand in hand with the USERNAME set during the configuration of the VPNServer
-:global USERNAME "Client1"
-:global PASSWORDUSERLOGIN "clientPassword"
-## this is the name of the ovpn interface which is the gateway role for the routes
-:global OVPNINTERFACENAME "ovpn-headquarters"
-:global OVPNIPADDRESS "10.0.6.254"
-:global OVPNCLIENTIPADDRESS "10.0.6.253"
+:global OVPNSERVERPORT 4911
+:global OVPNSERVERFQDN "XXX.YYY.ZZZ"
+
+## the USERNAME goes hand in hand with the OpenVPN PPP Secret
+:global USERNAME "ovpn-Client1"
+:global PASSWORDUSERLOGIN "ovpn-Client1-Password"
+
+:global OVPNCLIENTINTERFACENAME "ovpn-centrala"
 :global OVPNPROFILENAME "ovpn-profile"
+##:global OVPNIPADDRESS "10.0.6.254"
+:global OVPNCLIENTIPADDRESS "10.0.6.253"
 ## 2022.04.21 - does the limit it 8character long?
+## this is the passphrace for the private key copied from the openVPN server configuration
 :global PASSWORDCERTPASSPHRASE "12345678"
 ```
 
@@ -89,7 +45,7 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
 + Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
 ```shell
-[user@MikroTik] > file print 
+/file print 
 Columns: NAME, TYPE, SIZE, CREATION-TIME
 #  NAME                                                TYPE       SIZE      CREATION-TIME       
 3  cert_export_MikroTik.crt                            .crt file  1188      jun/18/2022 22:30:58
@@ -99,7 +55,7 @@ Columns: NAME, TYPE, SIZE, CREATION-TIME
 Once the files are uploaded it's time to import the certificates
 ```shell
 ## passphrase is empty, when asked just hit enter
-[user@MikroTik] > certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
+/certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
 passphrase: 
      certificates-imported: 1
      private-keys-imported: 0
@@ -108,14 +64,14 @@ passphrase:
   keys-with-no-certificate: 0
 
 ## passphrase is empty, when asked just hit enter
-[user@MikroTik] > certificate import name="ovpn-Client1" file-name=cert_export_ovpn-Client1@MikroTik.crt
+/certificate import name="ovpn-Client1" file-name=cert_export_ovpn-Client1@MikroTik.crt
      certificates-imported: 1
      private-keys-imported: 0
             files-imported: 1
        decryption-failures: 0
   keys-with-no-certificate: 0
 
-[user@MikroTik] > certificate print 
+/certificate print 
 Flags: L - CRL; A - AUTHORITY; T - TRUSTED
 Columns: NAME, COMMON-NAME
 #     NAME          COMMON-NAME          
@@ -124,14 +80,14 @@ Columns: NAME, COMMON-NAME
 
 ## import private key
 ## passphrase equals the one set during the openVPN server configuration
-[user@MikroTik] > certificate import name="ovpn-Client1-key" file-name=cert_export_ovpn-Client1@MikroTik.key passphrase="$PASSWORDCERTPASSPHRASE"
+/certificate import name="ovpn-Client1-key" file-name=cert_export_ovpn-Client1@MikroTik.key passphrase="$PASSWORDCERTPASSPHRASE"
      certificates-imported: 0
      private-keys-imported: 1
             files-imported: 1
        decryption-failures: 0
   keys-with-no-certificate: 0
 
-[piotrek@MikroTik] > certificate print 
+/certificate/print 
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; T - TRUSTED
 Columns: NAME, COMMON-NAME
 #      NAME          COMMON-NAME          
@@ -144,7 +100,7 @@ When certificates are imported, continue with further configuration depending fr
 
 ```shell
 ## configure PPP Profile
-ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-ipv6=no use-mpls=no use-upnp=no
+/ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-ipv6=no use-mpls=no use-upnp=no
 
 # this can be skipped as secret is not needed with the certificate based authentication
 ## configure PPP Secret (add a user)
@@ -154,13 +110,14 @@ ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-comp
 ## service=ovpn local-address="$OVPNIPADDRESS" remote-address="$OVPNCLIENTIPADDRESS"
 
 ## configure PPP Interface 
-interface ovpn-client add connect-to=xxx.xxx.xxx.xxx add-default-route=no auth=sha1 certificate=client disabled=no user=vpnuser password=vpnpass name="$OVPNINTERFACENAME" profile="$OVPNPROFILENAME"
+/interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" protocol=tcp tls-version=only-1.2 use-peer-dns=no certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha512 cipher=aes256 disabled=no verify-server-certificate=yes
 ```
+
+Routes should be added dynamically once the tunnel is established. In case for some reason are not, static routes can be added.
 ### Configuration - Routes
 ```shell
 /ip route
-add disabled=no dst-address=192.168.88.0/24 gateway=ovpn-centrala routing-table=main \
-    suppress-hw-offload=no
+add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" routing-table=main suppress-hw-offload=no
 ```
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>

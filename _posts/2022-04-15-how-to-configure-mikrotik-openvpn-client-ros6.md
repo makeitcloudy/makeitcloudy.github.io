@@ -14,7 +14,9 @@ In this scenario the regular traffic is routed through the Internet, where the t
 ## Prerequisites
 + DNS alias or IP address of your OpenVPN server
 + Mikrotik RB/CCR device
++ NTP server configured properly, so the time and date is in sync
 + The Mikrotik OpenVPN server configured [How to configure Mikrotik OpenVPN Server - RouterOS 6](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/)
+
 
 ## Backgroupnd
 + openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
@@ -74,8 +76,7 @@ set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
 In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
 
 ### Configuration - defining variables
-At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
-**script does not work if the passwords contains \ *backslash***
+Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.**The overall logic does not work if the passwords contains \ *backslash***
 ```shell
 :global CN [/system identity get name]
 :global OVPNSERVERPORT 4911
@@ -98,19 +99,19 @@ Now it's time to upload the certificates which was prepared for the client durin
 + Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
 
 ```shell
-[user@MikroTik] > file print 
+/file print 
 Columns: NAME, TYPE, SIZE, CREATION-TIME
 #  NAME                                                TYPE       SIZE      CREATION-TIME       
-3  cert_export_MikroTik.crt                            .crt file  1188      jun/18/2022 22:30:58
-4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      jun/18/2022 22:30:58
-5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      jun/18/2022 22:30:58
+3  cert_export_MikroTik.crt                            .crt file  1188      apr/15/2022 22:30:58
+4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      arp/15/2022 22:30:58
+5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      apr/15/2022 22:30:58
 ```
 
 Once the files are uploaded it's time to import the certificates
 
 ```shell
 ## passphrase is empty, when asked just hit enter
-[user@MikroTik] > certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
+/certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
 passphrase: 
      certificates-imported: 1
      private-keys-imported: 0
@@ -119,61 +120,70 @@ passphrase:
   keys-with-no-certificate: 0
 
 ## passphrase is empty, when asked just hit enter
-[user@MikroTik] > certificate import name="ovpn-Client1" file-name=cert_export_ovpn-Client1@MikroTik.crt
+/certificate import name="ovpn-Client1" file-name=cert_export_ovpn-Client1@MikroTik.crt
      certificates-imported: 1
      private-keys-imported: 0
             files-imported: 1
        decryption-failures: 0
   keys-with-no-certificate: 0
 
-[user@MikroTik] > certificate print 
+/certificate print 
 Flags: L - CRL; A - AUTHORITY; T - TRUSTED
 Columns: NAME, COMMON-NAME
-#     NAME          COMMON-NAME          
-0 LAT CA            MikroTik             
-1   T ovpn-Client1  ovpn-Client1@MikroTik
+#     NAME           COMMON-NAME          
+0 LAT ovpn-server-CA MikroTik             
+1   T ovpn-Client1   ovpn-Client1@MikroTik
 
 ## import private key
 ## passphrase equals the one set during the openVPN server configuration
-[user@MikroTik] > certificate import name="ovpn-Client1-key" file-name=cert_export_ovpn-Client1@MikroTik.key passphrase="$PASSWORDCERTPASSPHRASE"
+/certificate import name="ovpn-Client1-key" file-name=cert_export_ovpn-Client1@MikroTik.key passphrase="$PASSWORDCERTPASSPHRASE"
      certificates-imported: 0
      private-keys-imported: 1
             files-imported: 1
        decryption-failures: 0
   keys-with-no-certificate: 0
 
-[user@MikroTik] > certificate print 
+/certificate print 
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; T - TRUSTED
 Columns: NAME, COMMON-NAME
-#      NAME          COMMON-NAME          
-0  LAT CA            MikroTik             
-1 K  T ovpn-Client1  ovpn-Client1@MikroTik
+#      NAME           COMMON-NAME          
+0  LAT ovpn-server-CA MikroTik             
+1 K  T ovpn-Client1   ovpn-Client1@MikroTik
 ```
-
-When certificates are imported, continue with further configuration depending from your ROS version.
+When certificates are imported, continue with further configuration .
 
 ### Configuration - PPP Profile and Interface
 
 ```shell
 ## configure PPP Profile
-ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-ipv6=no use-mpls=no use-upnp=no
+/ppp profile add name="$OVPNPROFILENAME" change-tcp-mss=yes only-one=yes use-compression=no use-encryption=yes use-mpls=no use-upnp=no
 
 ## configure PPP Interface 
-interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha1 cipher=aes256 disabled=no
+/interface ovpn-client add name="$OVPNCLIENTINTERFACENAME" connect-to="$OVPNSERVERFQDN" port="$OVPNSERVERPORT" profile="$OVPNPROFILENAME" certificate="$USERNAME" user="$USERNAME" password="$PASSWORDUSERLOGIN" add-default-route=no auth=sha1 cipher=aes256 disabled=no verify-server-certificate=yes
 ```
 
-## Configuration - add routes
+The traffic should be passed provided the firewall rules allows it.
+In case the routes for some reason are not configured dynamically, add static routes
+
+### Configuration - add static routes
 + On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
 + On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
 
-The traffic should be passed provided the firewall rules allows it.
+```shell
+## dst-address is the network on the other side of the tunnel
+/ip route
+add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" routing-table=main suppress-hw-offload=no
+## add any extra network you'd like to reach via the tunnel
+```
+
+On top of that **bring your firewall rules**.
 
 ## Debug
 
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
-/system logging remove numbers=[number of the ruke]
+/system logging remove numbers=[number of the rule]
 /system rule reset numbers=[number of the rule]
 ```
 

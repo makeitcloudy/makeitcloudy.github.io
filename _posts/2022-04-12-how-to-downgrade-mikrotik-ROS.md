@@ -83,7 +83,9 @@ This section describe how to upgrade Router OS and firmware.
 ## the update process last ~1min and should end with a reboot in case it is not
 /system reboot
 ## upgrade firmware
-/system routerboard upgrade
+/system/routerboard/print
+/system/routerboard/upgrade
+/system/reboot
 ```
 
 ## Summary
