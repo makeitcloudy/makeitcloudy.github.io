@@ -54,7 +54,9 @@ Columns: NAME, TYPE, SIZE, CREATION-TIME
 4  cert_export_ovpn-Client1@MikroTik.crt               .crt file  1168      jun/18/2022 22:30:58
 5  cert_export_ovpn-Client1@MikroTik.key               .key file  1858      jun/18/2022 22:30:58
 ```
+
 Once the files are uploaded it's time to import the certificates
+
 ```shell
 ## passphrase is empty, when asked just hit enter
 /certificate import name="ovpn-server-CA" file-name=cert_export_MikroTik.crt
@@ -96,6 +98,7 @@ Columns: NAME, COMMON-NAME
 0  LAT ovpn-server-CA MikroTik             
 1 K  T ovpn-Client1   ovpn-Client1@MikroTik
 ```
+
 When certificates are imported, continue with further configuration depending from your ROS version.
 
 ### Configuration - final tweaking
