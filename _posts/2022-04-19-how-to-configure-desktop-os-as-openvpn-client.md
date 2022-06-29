@@ -11,17 +11,21 @@ categories: [HomeLab ,Networking ,OpenVPN]
 ---
 *As of 2022.04.17 - draft*
  In this example the OpenVPN tunnel is set up between the Mikrotik OpenVPN server and the OpenVPN client installed on Linux or Windows Desktop Operating system. It's the protocol which should match, it does not matter on top of what compute layer it operates on unless both ends can talk it's language.
+
 ## Prerequisites
 + Desktop operating system (Linux / Windows )
 + Certificates from the OpenVPN configuration
 
 ## Linux
 .
+
 ### Howto configure the OpenVPN-GUI on Desktop OS
 .
 
+
 ### How to set up the VPN tunnel from the console
 .
+
 
 ### How to set the VPN tunnel connection from GUI
 .

@@ -13,7 +13,7 @@ Those advises are not mine, but supporting them very much. I wish I knew them ea
 
 Here comes the quote from his guide:
 
-## Advice
+## Advise
 1. Always learn.
 2. Always improve yourself.
 3. Be a better person today than you were yesterday.
@@ -84,6 +84,6 @@ don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
 
 **2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
-+ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.
++ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.<br>
 
 Last update: 2022.05.30

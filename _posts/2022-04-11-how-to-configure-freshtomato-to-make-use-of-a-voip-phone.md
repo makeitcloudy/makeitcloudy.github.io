@@ -17,7 +17,7 @@ There is ton of contradictory information in the internet, some of those are com
 The VoIP device interface, does not differ much between each other, if you have a spare analog phone laying somewhere and would like to give it a spin and second life, provided it send the digits with DTMF. If you like go the true geek way, there are also transceivers which can transpond the analog signals (pre DTMF - can not recall the acronym at the moment) to DTMF, and you can plug the phone from early 50ties of XX century to the VoIP gateway via the FXS port.
 
 ## Prerequisites
-+ FreshTomato (in my case it was 2021.8)
++ FreshTomato (in my case it was 2022.3)
 + VoIP phone (Cisco SPA502G, firmware 7.5.2 - there is 7.5.5 available, it was even uploaded as per the firmware update software to the device, never the less for some reason it could not get flashed. Remeber to set the option 'Upgrade Enable' to yes, to make it even possible). As an alternative you can also use the Grandstream or Cisco SPA gateway.
 
 ## Howto
@@ -54,5 +54,5 @@ set sip sip-direct-media=no
 + The intresting thing is that with abovementioned configuration, when your FreshTomato is the router which serves you the Internet, then you connect your Mikrotik to it and to your Mikrotik router you plug the phone, it just works and the incomming calls are working just fine. The topology looks like this: INTERNET -> FRESHTOMATO -> MIKROTIK -> PHONE.
 
 ## Summary
-This was tested with FreshTomato 2021.8, there is great chance it will also work with other releases of the firmware.<br>
-Last update: 2022.04.11
+This was tested with FreshTomato 2022.3, there is great chance it will also work with other releases of the firmware.<br>
+Last update: 2022.06.29

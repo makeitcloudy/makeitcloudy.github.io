@@ -26,7 +26,7 @@ The solution for this is to increase the DHCP Server lease time to a lot longer 
 + change your dns settings on the IP -> DNS and on your IP -> DHCP Server -> Networks so you use altenrative to those which your ISP provides you
 + Iphone6S DHCP server, distributes the IP addresses with an expiration time of 24h, from the network range 172.20.10.0/28 - I have not ever tried connecting more than 16 devices, so the result is unknown. During my testing it is the RouterBoard which is having it's own DHCP server, serving all the clients connected over wired network, Iphone is just converting the LTE to wifi and bring the NAT functionality
 
-## Howto
+## Configuration
 0. plug in the power cord to your device and plug the ethernet cable to one of the ports of the device
 1. connect to it via winbox, apply the stock configuration (all your ports will end up on the same LAN bridge, so regardless which ethernet you will be connected to the Mikrotik, management should be in place)
 2. Exclude the Wi-Fi interface from the bridge - Bridge -> Ports -> Delete the Wi-Fi interface (wlan1)
@@ -41,7 +41,7 @@ The solution for this is to increase the DHCP Server lease time to a lot longer 
 If everything is OK with the security settings your Mikrotik will connect to the hotspot and the Internet should be reachable.<br>
 You can apply further configs on top of that starting for here.
 
-```bash
+```shell
 [user@951G-2Hnd] > /export 
 # apr/14/2022 22:49:43 by RouterOS 7.3.1
 #
@@ -138,9 +138,9 @@ set allowed-interface-list=LAN
 set allowed-interface-list=LAN
 ```
 
-the wireless interface
+## Configuration - wireless interface
 
-```bash
+```shell
 [user@951G-2Hnd] > /interface wireless print 
 Flags: X - disabled; R - running 
  0  R name="wlan1" mtu=1500 l2mtu=1600 mac-address=8B:B8:BB:91:1B:BC arp=enabled interface-type=Atheros AR9300 mode=station ssid="iPhone6P" 
@@ -149,9 +149,9 @@ Flags: X - disabled; R - running
       default-ap-tx-limit=0 default-client-tx-limit=0 hide-ssid=no security-profile=iphone compression=no 
 ```
 
-the security profiles
+## Configuration - security profiles
 
-```bash
+```shell
 [user@951G-2Hnd] > /interface wireless security-profiles print 
 Flags: * - default 
  0 * name="default" mode=none authentication-types="" unicast-ciphers=aes-ccm group-ciphers=aes-ccm wpa-pre-shared-key="" wpa2-pre-shared-key="" 

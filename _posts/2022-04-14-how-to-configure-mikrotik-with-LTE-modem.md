@@ -25,7 +25,7 @@ It's not the most secure way, but can be used as a good starting point for furth
 
 At this point the Lte1 interface should get the IP address and dynamic route should be created.
 
-```bash
+```shell
 [user@951G] > /export 
 # apr/14/2022 20:58:58 by RouterOS 7.3.1
 #
