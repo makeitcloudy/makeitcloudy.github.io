@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure Mikrotik OpenVPN Server - ROS 6.X"
+title: "How to configure Mikrotik OpenVPN Server - ROS 6.X - TCP"
 permalink: "/how-to-configure-mikrotik-openvpn-server-ros6/"
 subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -14,6 +14,7 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 ## Prerequisites
 + DDNS configuration on top of your dynamic IP address or static IP address
 + Mikrotik Routerboard/CCR device
++ NTP server configured properly, so the time and date is in sync
 + OpenSSL (not a must)
 + A bit of Mikrotik knowledge
 

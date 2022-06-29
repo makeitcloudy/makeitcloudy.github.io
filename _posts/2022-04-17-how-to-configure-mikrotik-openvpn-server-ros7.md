@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure Mikrotik OpenVPN Server - ROS 7.X"
+title: "How to configure Mikrotik OpenVPN Server - ROS 7.X - UDP"
 permalink: "/how-to-configure-mikrotik-openvpn-server-ros7/"
 subtitle: "Router OS 7.3.1"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -9,7 +9,27 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 ---
-This is an updated version of previous blog post which was describing [how to configure OpenVPN server on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/), which brings the updates towards ROS 7.X. Please read this post before applying those settings, unless you can ammend current configuration accordingly to suit your needs.
+This is an updated version of previous blog post which was describing [how to configure OpenVPN server on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/), which brings the updates towards ROS 7.X. Please read this post before applying those settings, unless you can ammend current configuration accordingly to suit your needs.<br>
+When you have a working OpenVPN on TCP, switching to UDP is like turning the Protocol switch from one to another, and modifying the firewall rules on the device acting as Mikrotik OpenVPN Server, and if it is the case on the router in front of your Mikrotik which may be performing another NAT, as OpenVPN (especially if you work with thin protocols, performs well enough to serve such scenarios).
+
+## Prerequisites
++ DDNS configuration on top of your dynamic IP address or static IP address
++ Mikrotik Routerboard/CCR device
++ NTP server configured properly, so the time and date is in sync
++ OpenSSL (not a must)
++ A bit of Mikrotik knowledge
+
+## Background
++ when your Mikrotik Router which plays the OpenVPN server role is behind nat, make sure the UDP port is forwarded accordingly, especially if you make a switch from previous releases
++ one of the easiest way whether there are any packets knocking to the port (OpenVPN service) is on firewall level by the amount of Bytes received. In case the port is not forwarded accordingly then it will show 0
++ TLS handshake failure at least happens when the Auth parameter on the OVPN Server Interface, does not go hand in hand between the client and the server or the port forwarding on the NAT is not configured propely or using wrong protcol TCP instead of UDP or vice versa
+
+## Features availbale in ROS 7.X which was not exposed before
+1. UDP procol (since 7.0beta3), UDP is being used by L2TP or Wireguard
+2. IPv6
+3. LZO compression
+4. Authentication without username and password
+
 
 ### Configuration - defining variables
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
@@ -71,13 +91,13 @@ add name="$OVPNDHCPPOOLNAME" ranges="$OVPNDHCPPOOLRANGE"
 ## add VPN profile
 /ppp profile
 add local-address="$OVPNIPADDRESS" name="$OVPNPROFILENAME" \
-  remote-address="$OVPNDHCPPOOLNAME" change-tcp-mss=yes use-encryption=yes use-ipv6=no use-mpls=no use-compression=no use-upnp=no only-one=yes
+  remote-address="$OVPNDHCPPOOLNAME" use-ipv6=no use-upnp=no use-compression=no use-mpls=no use-encryption=yes only-one=yes
 
 ## setup OpenVPN server
 /interface ovpn-server server
 set auth=sha512 certificate="ovpn-server@$CN" cipher=aes128,aes192,aes256 \
   default-profile="$OVPNPROFILENAME" mode=ip netmask="$OVPNNETWORKMASK" port="$PORT" \
-  protocol=tcp enabled=yes require-client-certificate=yes tls-version=only-1.2
+  protocol=udp enabled=yes require-client-certificate=yes tls-version=only-1.2
 
 ## setup OpeVPN interface binding
 /interface ovpn-server
@@ -85,7 +105,7 @@ add name="$USERNAME" user="$USERNAME"
 
 ## add a firewall rule
 /ip firewall filter
-add chain=input action=accept dst-port="$PORT" protocol=tcp comment="OpenVPN - Allow"
+add chain=input action=accept dst-port="$PORT" protocol=udp comment="OpenVPN - Allow"
 add chain=input action=accept dst-port=53 protocol=udp src-address="$OVPNNETWORK" \
   comment="OpenVPN - Accept DNS requests from clients"
 ## the movement of the rules may not work in case there are default firewall rules
@@ -150,8 +170,8 @@ Add static routes towards your client device, via your OpenVPN gateway Interface
 ```shell
 /ip route
 add distance=1 dst-address=192.168.33.0/24 gateway="$USERNAME"
+## add any extra routes towards the networks available behind the tunnel
 ```
-
 On top of that **bring your firewall rules**.
 
 ### Check
@@ -240,7 +260,7 @@ Once certificates are exported
 7 cert_export_ovpn-Client2@MikroTik.crt  .crt  file     1168 
 ```
 
-Download the exported certificates, for the another user, and make use of them on the OpenVPN client device.
+Download the exported certificates, for the another user, and make use of them on subsequent OpenVPN client device.
 
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>

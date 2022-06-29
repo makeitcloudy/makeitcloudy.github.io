@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure Mikrotik OpenVPN client - ROS 6.X"
+title: "How to configure Mikrotik OpenVPN client - ROS 6.X - TCP"
 permalink: "/how-to-configure-mikrotik-openvpn-client-ros6/"
 subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
