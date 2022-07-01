@@ -44,27 +44,27 @@ Start-Process "ssh" -ArgumentList "root@$freshTomatoMgmtIPAddress -p $freshTomat
 VPN Tunneling -> OpenVPN Server -> Basic
 
 ```shell
-Start with WAN     - checked
-Interface Type     - TUN
-Protocol	       - UDP
-Port               - [OVPNSERVERPORTNUMBER]
-Firewall           - Automatic
-Authorization Mode - TLS
+Start with WAN                  - checked
+Interface Type                  - TUN
+Protocol                        - UDP
+Port                            - [OVPNSERVERPORTNUMBER]
+Firewall                        - Automatic
+Authorization Mode              - TLS
  
 TLS control channel security - Disabled
 (tls-auth/tls-crypt)	
 
-Auth digest	       - SHA512
-VPN subnet/netmask - 10.0.6.240 | 255.255.255.240
+Auth digest	                    - SHA512
+VPN subnet/netmask              - 10.0.6.240 | 255.255.255.240
 ```
 ## FreshTomato - Configuration - Advanced Settings
 VPN Tunneling -> OpenVPN Server -> Advanced
 ```shell
 Poll Interval - 0  (in minutes, 0 to disable)
-Push LAN0 (br0) to clients	    - checked
-Push LAN1 (br1) to clients	    - grayed out
-Push LAN2 (br2) to clients	    - grayed out
-Push LAN3 (br3) to clients	    - grayed out
+Push LAN0 (br0) to clients      - checked
+Push LAN1 (br1) to clients      - grayed out
+Push LAN2 (br2) to clients      - grayed out
+Push LAN3 (br3) to clients      - grayed out
 Direct clients to               - unchecked
 redirect Internet traffic
 Respond to DNS                  - unchecked
@@ -175,7 +175,7 @@ At this stage you have
 It's time to generate OpenVPN Server certificate.
 + once you are asked for the PEM pass phrase, put the same passphrase which was used during the CA certificate creation
 
-```powershell
+```shell
 #EasyRSA Shell
 # ./easyrsa build-server-full FreshTomato
 #* Notice:
@@ -213,7 +213,7 @@ It's time to generate OpenVPN Server certificate.
 
 ## FreshTomato - Configuration - EasyRSA - Remove password from Server Certificate
 
-```powershell
+```shell
 #EasyRSA Shell
 cd pki/private
 #EasyRSA Shell
@@ -231,7 +231,7 @@ ls
 
 ## FreshTomato - Configuration - EasyRSA - Generate DH
 Diffie Helman is being used for the safe key exchange
-```powershell
+```shell
 # Need to go out from pki/private to the original location where the easyrsa is located
 #EasyRSA Shell
 cd ../..
@@ -298,6 +298,56 @@ tun21      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-0
            collisions:0 txqueuelen:1000
            RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 ## this will confirm that at least another virtual interface arose, and  it's IP comes from the VPN Subnet in VPN Tunneling Basic settings configuration pane.
+```
+
+## FreshTomato - Configuration - Generating Client Certificate and key
+
+```shell
+#EasyRSA Shell
+./easyrsa build-client-full ovpn-Client1
+#* Notice:
+#Using Easy-RSA configuration from: C:/Program Files/EasyRSA-3.1.0/pki/vars
+
+#* Notice:
+#Using SSL: openssl OpenSSL 3.0.3 3 May 2022 (Library: OpenSSL 3.0.3 3 May 2022)
+
+#.+...+......+++++++++++++....+
+#+++++++++++++++++++++++*...++++++
+#Enter PEM pass phrase: [CLIENT_PEM_PASSPHRASE]
+#Verifying - Enter PEM pass phrase: [CLIENT_PEM_PASSPHRASE]
+#-----
+#* Notice:
+
+#Keypair and certificate request completed. Your files are:
+#req: C:/Program Files/EasyRSA-3.1.0/pki/reqs/ovpn-Client1.req
+#key: C:/Program Files/EasyRSA-3.1.0/pki/private/ovpn-Client1.key
+
+#Using configuration from C:/Program Files/EasyRSA-3.1.0/pki/safessl-easyrsa.cnf.init-tmp
+#Enter pass phrase for C:/Program Files/EasyRSA-3.1.0/pki/private/ca.key: [CA_KEY_PASSPHRASE]
+#Check that the request matches the signature
+#Signature ok
+#The Subject's Distinguished Name is as follows
+#commonName            :ASN.1 12:'ovpn-Client1'
+#Certificate is to be certified until Oct  3 22:10:18 2024 GMT (825 days)
+
+#Write out database with 1 new entries
+#Data Base Updated
+
+#* Notice:
+#Certificate created at: C:/Program Files/EasyRSA-3.1.0/pki/issued/ovpn-Client1.crt
+#EasyRSA Shell
+#
+```
+
+## Final thoughts
++ ca.crt is common for the clients, until it gets renewed on the OpenVPN server device
++ ovpn-ClientX.crt and ovpn-ClientX.key is generaged individually for each OpenVPN client and separatelly shared with anyone you'd like to share your VPN with
++ Following files are shared with each client (those ).
+```shell
+C:/Program Files/EasyRSA-3.1.0/pki/ca.crt #it's the same for each client
+#those two goes in pair and are uniques for each client
+C:/Program Files/EasyRSA-3.1.0/pki/issued/ovpn-Client1.crt
+C:/Program Files/EasyRSA-3.1.0/pki/private/ovpn-Client1.key
 ```
 
 ## Links
