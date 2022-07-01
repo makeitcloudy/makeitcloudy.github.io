@@ -30,7 +30,6 @@ When you have a working OpenVPN on TCP, switching to UDP is like turning the Pro
 3. LZO compression
 4. Authentication without username and password
 
-
 ### Configuration - defining variables
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
 **script does not work if the passwords contains \ *backslash***

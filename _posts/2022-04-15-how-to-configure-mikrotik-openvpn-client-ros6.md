@@ -173,13 +173,13 @@ In case the routes for some reason are not configured dynamically, add static ro
 ## dst-address is the network on the other side of the tunnel
 /ip route
 add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" routing-table=main suppress-hw-offload=no
-## add any extra network you'd like to reach via the tunnel
+## add any extra routes towards networks which should be made reachable through the VPN tunnel
 ```
 
 On top of that **bring your firewall rules**.
 
 ## Debug
-
+In case something does not work, or you get the TLS error, [check this first(https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print

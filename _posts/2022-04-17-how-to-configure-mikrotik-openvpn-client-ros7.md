@@ -27,7 +27,11 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 
 ```shell
 :global CN [/system identity get name]
+## OVPNSERVERPORT variable is the port number on which the OpenVPN Server is listening
+## it goes hand in hand with the PORT variable being used during the OpenVPN Server config
 :global OVPNSERVERPORT 4911
+## OVPNSERVERFQDN is the Fully Qualified domain name of the OpenVPN Server interface
+## most propably this is just the WAN link of the device playing that role
 :global OVPNSERVERFQDN "XXX.YYY.ZZZ"
 
 ## the USERNAME goes hand in hand with the OpenVPN PPP Secret
@@ -39,7 +43,9 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 ##:global OVPNIPADDRESS "10.0.6.254"
 :global OVPNCLIENTIPADDRESS "10.0.6.253"
 ## 2022.04.21 - does the limit it 8character long?
-## this is the passphrace for the private key copied from the openVPN server configuration
+## PASSWORDCERTPASSPHRASE is the passphrase for the private key copied from the openVPN server
+## configuration - it is used during the phase of establishing the connection between the client
+## and the server
 :global PASSWORDCERTPASSPHRASE "12345678"
 ```
 
@@ -126,12 +132,24 @@ When certificates are imported, continue with further configuration depending fr
 
 Routes should be added dynamically once the tunnel is established. In case for some reason are not, static routes can be added.
 ### Configuration - Routes
++ On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
++ On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
 ```shell
 /ip route
 add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" routing-table=main suppress-hw-offload=no
 ## add any extra routes towards networks which should be made reachable through the VPN tunnel
 ```
+
 On top of that **bring your firewall rules**.
+
+## Debug
+In case something does not work, or you get the TLS error, [check this first(https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
+```shell
+/system logging add topics=ovpn,debug,!packet
+/system rule print
+/system logging remove numbers=[number of the rule]
+/system rule reset numbers=[number of the rule]
+```
 
 ## Summary
 I'm sure there are better ways doing it, but still it's a good starting point.<br>

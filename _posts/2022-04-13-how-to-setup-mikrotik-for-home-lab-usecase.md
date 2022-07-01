@@ -31,19 +31,20 @@ You need the following:
 + it will be beneficial if you have some networking backgorund
 + need to spend some money on physical appliance, especially for the homelab usecase it is beneficial to have equippement which is not virutalized, it will pay off (ofcourse Eve-NG or GNS can also work)
 + depending from the firmware version being installed on your device, you may need an newer or older winbox version, unless for the older version of the firmware you choose 'legacy mode' inside wine.
++ CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting network architectures can be built on top of that.
 
 ## Where to find knowledge
-There in incredible youtube channel worth donating created by [The Network Berg](https://www.youtube.com/c/TheNetworkBerg). 
-The Author of the channel, provides free MCTNA and more advanced trainings, bringing such level of detail which is enough for configuring your network device up to this extend that it can easily support your virtualized infrastructure or provide the service for your SOHO (small office home office) deployment.
++ Mikrotik products can be found on [mikrotik.com](https://mikrotik.com/products/) webpage
++ Mikrotik academy [blog](https://mikrotikacademy.pl/)
++ Mikrotikon.pl [blog](https://mikrotikon.pl/)
++ There in incredible youtube channel worth donating created by [The Network Berg](https://www.youtube.com/c/TheNetworkBerg).<br>
+The Author of the channel, provides free MCTNA and more advanced trainings, bringing such level of detail which is enough for configuring your network device up to this extend that it can easily support your virtualized infrastructure or provide the service for your SOHO (small office home office) deployment.<br>
 The fact is that for the home lab, you do not need that great amount of routing, unless you are configuring a specific usecase, never the less for simple scenarios, products like RB951 series should be more than enough.
-
-+ Srdjan Stanisic [blog](https://mivilisnet.wordpress.com)
-+ Mikrotik products can be found on their [webpage](https://mikrotik.com/products/)
 + Mikrotik free MCTNA training provided by TheNetworkBerg can be found on [youtube](https://www.youtube.com/playlist?list=PLJ7SGFemsLl3XQhO8g0hHCrKnC6J3KURk). Please support his efforts of sharing the knowledge.
-+ CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting architectures can be built on top of that.
++ Srdjan Stanisic [blog](https://mivilisnet.wordpress.com)
 
 ## Connect via the serial console
-If your device (laptop, desktop) is not equipped with serial port (which is not very common these days), then you should buy the USB to serial converter. I'm using (Unitek USB to Serial Converter DB9F to DB25M Adaptor (Y-105A)) and then you stick into it the correct cable, which goes hand in hand with the device. Console cable for CRS309 is the same type as for CCR's, CRS3XX has RJ45 to DB9, so you need to be equipped with another one. But still all devices can be reached with the Unitek converter.
+If your device (laptop, desktop) is not equipped with serial port (which is not very common these days), then you should buy the USB to serial converter. I'm using (Unitek USB to Serial Converter DB9F to DB25M Adaptor (Y-105A)) and then you stick into it the correct cable, which goes hand in hand with the device. Console cable for CRS309 is the same type as for CCR's, CRS3XX has RJ45 to DB9, so you need to be equipped with another one. But still all devices can be reached with the Unitek converter.<br>
 On the endpoint, depending from the operating system, you need putty or minicom.
 ```bash
 # it shows you baud-rate of the serial port wich should to be aligned with the client's configuration
