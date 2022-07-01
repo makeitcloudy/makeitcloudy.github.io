@@ -31,7 +31,9 @@ nano secret
 ## PASSWORDUSERLOGIN
 # .ovpn contains your OpenVPN client configuration
 ```
+
 2. Edit .ovpn file
+
 ```shell
 client
 dev tun
@@ -73,6 +75,7 @@ ping 192.168.88.1
 
 ## Windows
 1. Install [OpenVPN client](https://openvpn.net/community-downloads/)
+
 ```powershell
 # here is the location where the configuration files are stored
 Set-Location -Path $env:USERPROFILE\OpenVPN\config
@@ -94,6 +97,7 @@ Mode                 LastWriteTime         Length Name
 -a----         4/19/2022  10:03 PM             27 secret
 ```
 2. Once the certificates are put into abovementioned directory, go ahead and edit the .ovpn file
+
 ```shell
 client
 dev tun
@@ -132,6 +136,7 @@ route 10.0.5.0 255.255.255.0 10.0.6.254
 The tunnel can be established without routes, but then there won't be any traffic between the device which are supposed to use the tunnel. Please remember about it, when you are not a network guy, it can be easily forgotten.
 
 3. The OpenVPN GUI should be located next to the clock within the start menu, when you right click on it, and type the *PASSWORDCERTPASSPHRASE* for the private key of the certificate which is in use, then you should be successfully logged in.
+
 ```powershell
 ## this can be easily proofed by
 ipconfig
