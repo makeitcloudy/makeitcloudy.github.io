@@ -183,7 +183,9 @@ export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ## clear the console history to get rid of sensitive information
 /console clear-history
 ```
+
 At this stage the certificates should look like this
+
 ```shell
 /certificate print
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; I, R - REVOKED; T - TRUSTED
@@ -195,10 +197,13 @@ Columns: NAME, COMMON-NAME, FINGERPRINT
 3 K  I  ovpn-Client1@MikroTik  ovpn-Client1@MikroTik  thumbprint
 
 ```
+
 NameOfyourMikrotikDevice - equals
+
 ```shell
 /system identity get name
 ```
+
 USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)<br><br>
 The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
 cert_export_[nameOfyourMikrotikDevice] - CA cert<br>
@@ -267,6 +272,8 @@ With the abovementioned configuration there is one server and one client, 1:1 ap
 :global PASSWORDCERTPASSPHRASE "87654321"
 ```
 
+Add interface binding, generate and export the certificates
+
 ```shell
 ## add interface binding
 /interface ovpn-server
@@ -290,7 +297,9 @@ sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
 ## export-certificate "$CN" export-passphrase=""
 export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ```
+
 Once certificates are exported 
+
 ```shell
 /file print
 # at this moment you should see

@@ -9,7 +9,7 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
-It's not the most secure way, but can be used as a good starting point for further improvements. It works with LTE USB stick Huawei 3372, which is also doing it's job on FreshTomato. This examples shows how to distribute the LTE via the regular ethernet ports, not the wifi of your device.
+This examples shows how to distribute the LTE via the regular ethernet ports, wifi is disabled here. It works with LTE USB stick Huawei 3372, which is also doing it's job on FreshTomato.
 
 ## Prerequisites
 + Mikrotik router with USB port

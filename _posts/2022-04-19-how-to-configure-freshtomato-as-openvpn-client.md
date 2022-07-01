@@ -80,7 +80,7 @@ Poll Interval                    - 0
 Redirect Internet traffic        - Routing Policy
 Accept DNS configuration         - Disabled
 Data ciphers                     - AES-256-CBC
-Compression	                     - Disabled
+Compression                      - Disabled
 TLS Renegotiation Time           - -1
 Connection retry                 - 30
 Verify Certificate
@@ -172,7 +172,7 @@ Poll Interval                    - 0
 Redirect Internet traffic        - Routing Policy
 Accept DNS configuration         - Disabled
 Data ciphers                     - AES-256-CBC
-Compression	                     - Disabled
+Compression                      - Disabled
 TLS Renegotiation Time           - -1
 Connection retry                 - 30
 Verify Certificate
