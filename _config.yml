@@ -14,18 +14,24 @@ author: Piotr Ostrowski
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  EUC:
-    - Community: "https://makeitcloudy.pl/euc-valueable-online-content/"
-    - Books and Tools: "https://makeitcloudy.pl/euc-books-and-toolset/"
-  OpenVPN:
-    - Mikrotik: "https://makeitcloudy.pl/how-to-setup-mikrotik-openvpn-server/"
-#    - FreshTomato: ""
-#    - DesktopOS: ""
+#  Automation:
+#    - DSC: ""
+#    - Bicep: ""
+#    - PowerShell: ""
+  Topics:
+    - FreshTomato: "https://makeitcloudy.pl/tags/#FreshTomato"
+    - Mikrotik: "https://makeitcloudy.pl/tags/#Mikrotik"
+    - OpenVPN: "https://makeitcloudy.pl/tags/#OpenVPN"
+#    - RDS: ""    
+
   Toolbox:
+    - EUC community: "https://makeitcloudy.pl/euc-valueable-online-content/"
+    - EUC tools: "https://makeitcloudy.pl/euc-books-and-toolset/"
     - ZeroTier: "https://github.com/zerotier/"
     - Chocolatey: "https://github.com/chocolatey/choco"
     - Bicep: "https://runasradio.com/Shows/Show/822"
     - Nerdio: "https://getnerdio.com/"
+  
   About Me: "aboutme"
   #Author's home: "https://makeitcloudy.pl/#"
 

@@ -20,6 +20,7 @@ categories: [HomeLab ,Networking ,OpenVPN]
 
 ## Linux
 1. Install OpenVPN client
+
 ```shell
 ## copy into the /etc/openvpn/client/
 ## Mikrotik.crt
