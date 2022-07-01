@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "How to configure freshtomato openvpn server"
-permalink: "/how-to-flash-asus-rt-n-device-with-freshtomato/"
+title: "How to configure FreshTomato OpenVPN server"
+permalink: "/how-to-configure-freshtomato-openvpn-server/"
 subtitle: "EasyRSA 3.1.0, OpenSSL 3.0.3, FreshTomato 2022.3"
-cover-img: /assets/img/cover/img-cover-tomato.jpg
+cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
-share-img: /assets/img/cover/img-cover-tomato.jpg
-tags: [HomeLab ,Networking ,OpenSSL ,FreshTomato]
-categories: [HomeLab ,Networking ,OpenSSL ,FreshTomato]
+share-img: /assets/img/cover/img-cover-tunnel.jpg
+tags: [HomeLab ,Networking ,OpenVPN ,FreshTomato]
+categories: [HomeLab ,Networking ,OpenVPN ,FreshTomato]
 ---
 This post describe how to setup OpenVPN server on Freshtomato.
 
@@ -283,7 +283,8 @@ Server Key                - paste FresTomatoNoPass.key, including -----BEGIN PRI
 Diffie Helman Parameters  - paste dh.pem, uncluding -----BEGIN DH PARAMETERS----- and -----END DH PARAMETERS-----
 ```
 
-At this point of time, press the *Start Now* button and within the Status section, you should be shown with new elements like, Current List, Routing Table, General Statistics.
+Save configuration. At this stage the NVRAM consumption should increase, in my case 61% of NVRAM is utilized.<br>
+Press the *Start Now* button and within the Status section, you should be shown with new elements like, Current List, Routing Table, General Statistics.
 In order to really proof that the tunnel has been set up, go to your SSH session which you established at the very beggining and execute
 
 ```shell
