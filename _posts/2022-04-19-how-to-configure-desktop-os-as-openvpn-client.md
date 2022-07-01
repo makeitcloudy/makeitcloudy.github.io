@@ -9,7 +9,6 @@ share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,OpenVPN]
 categories: [HomeLab ,Networking ,OpenVPN]
 ---
-*As of 2022.04.17 - draft*
  In this example the OpenVPN tunnel is set up between the Mikrotik OpenVPN server and the OpenVPN client installed on Linux or Windows Desktop Operating system. It's the protocol which should match, it does not matter on top of what compute layer it operates on unless both ends can talk it's language.
 
 ## Prerequisites
@@ -64,7 +63,7 @@ route 192.168.88.0 255.255.255.0 10.0.6.254
 ## is located and prepare the route upfornt the tunnel is established.
 ```
 
-Proof that it it can be established
+Proof that it can be established
 
 ```shell
 sudo openvpn --config /etc/openvpn/client/ovpn-Client1.ovpn
@@ -149,5 +148,6 @@ Unknown adapter OpenVPN:
 ## Summary
 That's it.<br>
 It was tested on Windows OS and Lubuntu 20.04.03 LTS.<br>
-OpenVPN 2.5.6-I601, Router OS 6.48.6 and 7.3.1<br>
+OpenSSL 1.1.1o, OpenVPN 2.5.6-I601, Router OS 6.48.6<br>
+OpenSSL 1.1.1f, OpenVPN 2.4.7, Router OS 7.3.1<br>
 Last update: 2022.05.19
