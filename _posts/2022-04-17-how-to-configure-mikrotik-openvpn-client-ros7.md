@@ -143,7 +143,7 @@ add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" r
 On top of that **bring your firewall rules**.
 
 ## Debug
-In case something does not work, or you get the TLS error, [check this first(https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
+In case something does not work, or you get the TLS error, [check this first](https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print

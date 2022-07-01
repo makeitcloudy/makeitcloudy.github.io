@@ -308,7 +308,6 @@ Once certificates are exported
 4 cert_export_ovpn-Client2@MikroTik.key  .key  file     1858 
 5 cert_export_ovpn-Client2@MikroTik.crt  .crt  file     1168 
 6 cert_export_ovpn-Client2@MikroTik.key  .key  file     1858 
-7 cert_export_ovpn-Client2@MikroTik.crt  .crt  file     1168 
 ```
 
 Download the exported certificates, for the another user, and make use of them on the OpenVPN client device.
