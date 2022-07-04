@@ -29,7 +29,7 @@ OpenVPN tunnel can be established betwen the devices with different ROS major ve
 Your mikrotik can be behind NAT provided the port on which your OpenVPN server is listening is forwarded on the router which your mikrotik device is connecting to, to get access to the Internet.
 
 ### OpenSSL
-In this usecase, OpenSSL is being used to remove the password from the certificate key. This can be usefull when your client is FreshTomato based. For Mikrotik devices, it is **NOT** used. 
+In this usecase, OpenSSL is being used to remove the password from the certificate key. This can be usefull when your client is FreshTomato based. For Mikrotik devices, password removal from the private key is **NOT** needed. Certificates are generated on the Mikrotik device itself, no need for EeasyRSA or OpenSSL being compiled or installed.
 
 ### OpenSSL on Linux
 This arcicle [how to compile OpenSSL from sources](https://makeitcloudy.pl/how-to-compile-openssl-from-sources/) provides the details how to compile it on a linux machine.
@@ -49,6 +49,18 @@ OpenSSL 1.1.1o  3 May 2022
 ```
 Alternatively compiled version for Windows can be downloaded from [slproweb.com](https://slproweb.com/products/Win32OpenSSL.html)
 
+## Auth and Ciphers
+Mikrotik equipped with RouterOS long term release 6.48.6, supports SHA1 or MD5 for Auth, as it goes for Ciphers it is blowfish 128 or AES128-256 as the cipher. If another types are needed, it should be updated to 7.X.
+
+```shell
+ #CCR 6.48.6
+ /system logging add topics=ovpn,!debug
+ /log print
+ #ovpn,info : using encoding - AES-256-CBC/SHA1
+ #when you finished disable ovpn logging
+ /system logging add topics=ovpn,!debug disabled=yes
+```
+
 ## Preparation - Dates
 If the goal is that your self signed certificates expires in the same period of time, you may want a align with those which are alreay in place, and for that you may need to calculate amount of days remaining towards particular date. This is the way to count it, provided you have PowerShell in hand.
 
@@ -60,7 +72,7 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 (Get-Date).AddDays(945)
 ```
 
-### Assumption 
+### Assumptions
 + you start from zero, and reset the configuration of the Mikrotik to it's defaults (It is not mandatory as you can make use of the commands and execute on top of your existing configuration, it should also work with some tweaks)
 + your uplink is the ether1, never the less it will also work if it is lte1 or wlan1 (If your uplink is not ether1, then you can add ether1 into the bridge - then all 5 ether ports can connect to your devices/switches, and modify the Interface list, by pointing the WAN from ether1 to lte1 or wlan1, at the end modify the dhcp client to listen on lte1 or wlan1)
 + the network ranges on the OpenVPN server side and the OpenVPN client *differs from each other* it may have an issue to work if both subnets are the same

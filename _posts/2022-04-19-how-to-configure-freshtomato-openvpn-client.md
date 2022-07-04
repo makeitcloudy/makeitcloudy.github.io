@@ -9,7 +9,7 @@ share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 categories: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 ---
-This example describes how to setup the TCP or UDP OpenVPN tunnel between your FreshTomato client and Mikrotik Server. It bases on lastest available releases of the software at the time of writing this post. If you decide to make use of it from the begging up to the end you will end up with working OpenVPN tunnel.
+This example is divided into three pieces. First two describes how to setup the TCP or UDP OpenVPN tunnel between your FreshTomato client and Mikrotik Server, Router OS 6 and Router OS 7. The third section focuses on the tunnel between FreshTomato flashed devices. It bases on lastest available releases of the software at the time of writing this post. If you decide to make use of it, following along from the begging up to the end you will end up with working OpenVPN tunnel.
 
 ## Prerequisites
 + Device with OpenVPN server (in this scenario Mikrotik device is the VPN server)
@@ -18,6 +18,11 @@ This example describes how to setup the TCP or UDP OpenVPN tunnel between your F
 + OpenSSL library compiled/installed on your linux/windows device, or one of your network appliances
 + Preferably router flashed with alternative firmware (in this scenario FreshTomato is being used), alternativelly it can be any Desktop Operating System (then the scenario will vary, as you may be using vnet to vnet or vnet to peer) with [OpenVPN](https://openvpn.net/download-open-vpn/) software installed.
 + In order for the tunnel to work properly, proper routes along with firewall rules needs to be set on both ends. On FreshTomato, the routes are specified within the custom configuration.
+
+## Background
++ The overall configuration by prism of the configuration caveats like Auth or Ciphers will vary depending from what is the device playing the OpenVPN server role
++ Does the FreshTomato flashed devices supports AES-NI ? It depends from the processor architectures, looks that the devices equipped with ARMv7, does not support it, that's why for the data ciphers it might be wise using something [lighter](https://thehftguy.com/2020/04/20/what-aes-ciphers-to-use-between-cbc-gcm-ccm-chacha-poly/) like POLY-1305, if this is the throughput which is your main concern, if you pass the thin protocols over your OpenVPN tunnel, then there is enough compute power to digest AES-GCM as well.
++ ARMv8 added support for AES-NI, more about this can be read [here](https://cs140e.sergio.bz/docs/ARMv8-A-Programmer-Guide.pdf), page 89
 
 ## Introduction
 At this stage it is assumed that the certificates has been already exported form the OpenVPN server. The initial steps are the same regardless of the protocol which is being used as transportation layer. 
@@ -47,7 +52,7 @@ There is following assumption that the openssl.exe directory is already within t
 openssl rsa -passin pass:[$PASSWORDCERTPASSPHRASE] -in cert_export_[$USERNAME]$[$CN].key -out cert_export_[$USERNAME]$[$CN]_NoPass.key
 ```
 
-### OpenVPN Server is Mikrotik ROS 6.X - TCP based tunnel
+## OpenVPN Server is Mikrotik ROS 6.X - TCP based tunnel
 Another blog post [How to configure Mikrotik OpenVPN server on RouterOS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/) explains how to set it up, where this section specify the Freshtomato OpenVPN client configuration.
 
 ### FreshTomato OpenVPN Client - Basic Tab
@@ -69,6 +74,7 @@ UserName/Password Authentication - checked
 UserName                         - USERNAME
 Password                         - PASSWORDUSERLOGIN
 UserName Authen. Only            - unchecked
+# SHA1 is being used for the compatibility with RouterOS 6
 Auth Digest                      - SHA1
 ```
 
@@ -79,6 +85,10 @@ It's suplementary for the Basic settings.
 Poll Interval                    - 0
 Redirect Internet traffic        - Routing Policy
 Accept DNS configuration         - Disabled
+# Data ciphers parameter may vary depending what is your choice for the OpenVPN server
+# If you set it up in your home lab, and SOHO router equipped with FreshTomato is what
+# you have in your disposal then CHACHA20-POLY1305 or AES-256-GCM maybe your choice of
+# preference
 Data ciphers                     - AES-256-CBC
 Compression                      - Disabled
 TLS Renegotiation Time           - -1
@@ -138,7 +148,7 @@ you put it all together within BEGIN and END certificate sections
 
 This concludes the Freshtomato configuration, for the TCP tunnel towards RouterOS 6.X.
 
-### OpenVPN Server is Mikrotik ROS 7.X - UDP based tunnel
+## OpenVPN Server is Mikrotik ROS 7.X - UDP based tunnel
 Another blog post [How to configure Mikrotik OpenVPN server on Router OS 7.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros7/) explains how to set it up, where this section specify the Freshtomato OpenVPN client configuration.<br>
 FreshTomato 2022.3 cooperates with OpenVPN server interface restricted to tls-version=1.2 only.
 
@@ -201,7 +211,7 @@ tls-client
 remote-cert-tls server
 # cipher AES-256-CBC needs to go hand in hand with the available ciphers on the OpenVPN server interface
 cipher AES-256-CBC
-# auth SHA1 should be aligned with the auth on the OpenVPN server interface
+# auth parameter should be aligned with the auth on the OpenVPN server interface
 auth SHA512
 auth-nocache
 resolv-retry infinite
@@ -231,8 +241,17 @@ you put it all together within BEGIN and END certificate sections
 This concludes the FreshTomato configuration, for the UDP tunnel towards RouterOS 7.X.
 It looks that every time you chance something within your configuration, the tunnel is dropped and established from scratch.
 
+## OpenVPN Server is FreshTomato 2022.3 - UDP based tunnel
+Comming soon.
+### FreshTomato OpenVPN Client - Basic Tab
+.
+### FreshTomato OpenVPN Client - Advanced Tab
+.
+### FreshTomato OpenVPN Client - Advanced Tab - Custom Configuration
+.
+
 ## Links
-+ OpenVPN community [resources](https://openvpn.net/community-resources/how-to/)
++ OpenVPN [community resources](https://openvpn.net/community-resources/how-to/)
 + FreshTomato [Hardware Compatibility](https://wiki.freshtomato.org/doku.php/hardware_compatibility)
 + FreshTomato [Changelog](https://bitbucket.org/pedro311/freshtomato-arm/src/arm-master/CHANGELOG)
 + As of today, latest FreshTomato firmware can be downloaded from [freshtomato.org](https://freshtomato.org/downloads/freshtomato-arm/2022/2022.3/K26ARM/)

@@ -30,9 +30,26 @@ When you have a working OpenVPN on TCP, switching to UDP is like turning the Pro
 3. LZO compression
 4. Authentication without username and password
 
+## Auth and Ciphers
++ It seems that the AES-NI instructions are hardware accelerated (here I'm not completelly sure), but on an example of [IPSEC](https://wiki.mikrotik.com/wiki/Manual:IP/IPsec) it looks that on some devices AES128,256 are, where 512 are not
++ I could not find the exact details within the documentation whether the AES-GCM is being use with ROS 7, or it is CBC - probably again it may vary on the device, but I'm not sure. (Hopefull debug log will reveal that detail, comparing the RouterBoards and CCR/CRS)
+
+```shell
+ #RB951G 7.3.1
+ /system logging add topics=ovpn,!debug
+ /log print
+ #ovpn,info : using encoding - ......
+ #when you finished disable ovpn logging
+ /system logging add topics=ovpn,!debug disabled=yes
+```
+
++ Some says that, OpenVPN is only a toy and the [IPSec](https://wiki.mikrotik.com/wiki/Manual:IP/IPsec) is the way to go
++ Why even bother about few strings CBC/GCM is explained [here](https://alicegg.tech/2019/06/23/aes-cbc.html)
+
+
 ### Configuration - defining variables
-Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
-**script does not work if the passwords contains \ *backslash***
+Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window. As per Mikrotik [documentation](https://help.mikrotik.com/docs/display/ROS/OpenVPN) password is limited to 233, where the username can have up to 27 characters.
+**passwords can not contain \ *backslash***
 
 ```shell
 :global CN [/system identity get name]
