@@ -2,14 +2,15 @@
 layout: post
 title: "How to configure FreshTomato as OpenVPN client"
 permalink: "/how-to-configure-freshtomato-openvpn-client/"
-subtitle: "Paired with Mikrotik it uses TLS1.2, paired with FreshTomato TLS1.3"
+subtitle: "Paired with FreshTomato it is based on TLS1.3, Mikrotik - TLS1.2"
 cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 categories: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
 ---
-This example is divided into three pieces. First two describes how to setup the TCP or UDP OpenVPN tunnel between your FreshTomato client and Mikrotik Server, Router OS 6 and Router OS 7. The third section focuses on the tunnel between FreshTomato flashed devices. It bases on lastest available releases of the software at the time of writing this post, which is 2022.3. If you decide to make use of it, following along from the begging up to the end you will end up with working OpenVPN tunnel.
+This example is divided into three pieces. First describes the configuration for the tunnel between two FreshTomato flashed devices, next two sections combines FreshTomato client and Mikrotik Server, Router OS 7 and Router OS 6. It bases on lastest available releases of the software at the time of writing this post, which is 2022.3, Router OS 6.48.6 and 7.3.1.<br>
+If you decide to follow along, you will end up with working OpenVPN tunnel.
 
 ## Prerequisites
 + Device with OpenVPN server (in this scenario Mikrotik device is the VPN server) or Device compatible with FreshTomato firmware (RT-N18U is K26ARM, 64K-NOSMP), alternativelly it can be any Desktop Operating System (then the scenario will vary, as you may be using vnet to vnet or vnet to peer) with [OpenVPN](https://openvpn.net/download-open-vpn/) software installed
