@@ -104,8 +104,9 @@ Auth digest	                    - SHA512
 # netmask is defining the amount of devices, here you have 14 which with this protocol will exagerate the CPU anyway
 VPN subnet/netmask              - 10.0.6.240 | 255.255.255.240
 ```
+
 ## FreshTomato - Configuration - Advanced Settings
-Chacha is less CPU intensive
+Chacha is more optimized towards ARM architecture
 + [Do the Chacha](https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/) - better mobile performance with cryptography
 + [It takes two to Chacha](https://blog.cloudflare.com/it-takes-two-to-chacha-poly/)
 VPN Tunneling -> OpenVPN Server -> Advanced
@@ -171,6 +172,7 @@ route 192.168.28.0 255.255.255.0 vpn_gateway
 ## FreshTomato - Configuration - SSL certificates and keys
 Apart from the UserName and Password, the certificates are also to be used. FreshTomato 2022.3 uses OpenVPN 2.5.6 along with OpenSSL 1.1.1o.<br>
 TLS Authorization Mode which was picked, requires certificates. In order to met that requirement following elements are needed (on VPN server those are stored in NVRAM)
+
 ```shell
 FileName    Keep it private Purpose                                     Usedby
 ca.crt      No              Root CA Certificate (Certificate Authority) Server,Client (it signs the certificates)
@@ -212,7 +214,7 @@ OpenSSL 3.0.3 3 May 2022 (Library: OpenSSL 3.0.3 3 May 2022)
 
 Generate folder structure for certificates. Remember that OpenVPN 2.4 bring the requirement for the minimum key size of 2048, so older keys with lower size will not work.
 
-```powershell
+```shell
 # EasyRSA Shell
 ./easyrsa init-pki
 #* Notice:
@@ -397,6 +399,7 @@ openssl rsa -passin pass:[SERVER_PEM_PASSPHRASE] -in FreshTomato.key -out FreshT
 ### FreshTomato - Configuration - EasyRSA 3 - Sign the CSR of the Client Certificate
 Create the OpenVPN Client certificate, it is being used on the OpenVPN Client configuration and identifies particular client.
 + Common Name - is the identificator of the connected client
+
 ```shell
 #EasyRSA Shell
 ./easyrsa sign-req client ovpn-Client1
@@ -497,7 +500,6 @@ Server Key                - paste FreshTomato-ovpnServer.key, including -----BEG
 # Diffie Helman Parameters are left blank within the FreshTomato GUI
 #Diffie Helman Parameters  - paste dh.pem, uncluding -----BEGIN DH PARAMETERS----- and -----END DH PARAMETERS-----
 ```
-
 
 1. Save configuration. At this stage the NVRAM consumption should increase, in my case 60,49% of NVRAM is utilized.
 2. Press the *Start Now* button and within the *Status* section, you should be shown with new elements like, Current List, Routing Table, General Statistics.

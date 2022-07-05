@@ -29,6 +29,7 @@ If you decide to follow along, you will end up with working OpenVPN tunnel.
 + Does the FreshTomato flashed devices supports AES-NI ? It depends from the processor architectures, looks that the devices equipped with ARMv7, does **not** support it, that's why for the data ciphers it might be wise using something [lighter](https://thehftguy.com/2020/04/20/what-aes-ciphers-to-use-between-cbc-gcm-ccm-chacha-poly/) like POLY-1305. Lighter ciphers makes sense, if this is the throughput which is your main concern. If you pass the thin protocols over your OpenVPN tunnel, then there is enough compute power to digest AES-GCM, with sufficient end user experience.
 + ARMv8 added support for AES-NI, more about this can be read [here](https://cs140e.sergio.bz/docs/ARMv8-A-Programmer-Guide.pdf), page 89
 + some says that overfilling the NVRAM can brick your router
+
 ```shell
 # here is the way how to check how much is left
 nvram show | grep size
@@ -55,6 +56,7 @@ At this stage it is assumed that the certificates has been already exported form
 ## Before you begin
 Correct me if I'm wrong, never the less up to my experience in order let the FreshTomato establish the OpenVPN tunnel, password needs to be remove from the private key. OpenSSL is the tool to make this happen. The [OpenSSL section](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/) of the blog post describes how to get it.<br>
 There is following assumption that the openssl.exe directory is already within the environmental paths so it is possible to execute it from the directory where the actual key is located.
+
 ```shell
 # USERNAME - is the username which can be aligned with the PPP section on the Mikrotik OpenVPN server
 # CN - is the name of the mikrotik device where the key has been generated
@@ -75,6 +77,7 @@ Routers within the point to point connection could see each other, tunnel were e
 
 ### FreshTomato OpenVPN Client - Basic Tab
 This section is aligned with the OpenVPN server configuration described in abovementioned blogpost for FreshTomato OpenVPN Server. Both sides needs to fit within each other.
+
 ```shell
 Start with WAN                   - checked
 Interface Type                   - TUN
@@ -96,6 +99,7 @@ Auth Digest                      - SHA512
 ```
 
 ### FreshTomato OpenVPN Client - Advanced Tab
+Prepare the further details of the overall config
 
 ```shell
 Poll Interval                    - 0
@@ -118,6 +122,7 @@ Verify Server Certificate Name
 
 ### FreshTomato OpenVPN Client - Advanced Tab - Custom Configuration
 There is no need to pass any extra parameters here, as all of them apart from the ones mentioned below has been already defined within the configuration. To let the tunnel communicate and set the verbosity level put following parameters.
+
 ```shell
 verb 4
 mute 10
@@ -154,7 +159,7 @@ Auth Digest                      - SHA512
 ```
 
 ### FreshTomato OpenVPN Client - Advanced Tab
-It suplements the Basic settings.
+It suplements the Basic settings
 
 ```shell
 Poll Interval                    - 0
@@ -173,6 +178,7 @@ Verify Server Certificate Name
 
 ### FreshTomato OpenVPN Client - Advanced Tab - Custom Configuration
 Let's repeat it again, similarly as it was for ROS 6.X, the password has been already removed from the private key and within the configuration the _NoPass.key content is being used, which is pasted between the *key* of the custom configuration section.
+
 ```shell
 # the CN parameter which is used within the certicates and key section is the name of the Mikrotik Device
 # which is being used to generate the certificates for the OpenVPN client
