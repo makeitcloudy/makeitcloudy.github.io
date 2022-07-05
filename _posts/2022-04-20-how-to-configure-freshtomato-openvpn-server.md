@@ -14,6 +14,7 @@ This post describe how to setup OpenVPN server on Freshtomato. There are so many
 ## Prerequisites
 + FreshTomato VPN compatible device, version [2022.3](https://freshtomato.org/downloads/freshtomato-arm/2022/2022.3/K26ARM/)
 + Worth to mention that devices behind the tunnel should be in different subnets, otherwise there may be routing issues with the regular configuration. Here the 172.16.88.0 subnet is being used for the LAN bridge on the device playing OpenVPN server role
++ Time should be in sync for the OpenVPN server and clients (make use of NTP)
 
 ## Background
 At lot is going on in security area. It seems that this blog post will be obsolete soon, never the less at least for home lab usecase it may bring some value, apart from being educational.
@@ -29,6 +30,7 @@ At lot is going on in security area. It seems that this blog post will be obsole
 + OpenVPN [forum](https://forums.openvpn.net/viewforum.php?f=31)
 + DD-WRT [wiki](https://wiki.dd-wrt.com/wiki/index.php/OpenVPN)
 + DD-WRT [OpenVPN Server setup guide](https://forum.dd-wrt.com/phpBB2/viewtopic.php?t=318795) - you need an account on the forum to see the guide. This entry was one of the major source of knowledge for the post.
++ DD-WRT [youtube](https://www.youtube.com/watch?v=dwrR18_xO_Q) - which is following along the abovementioned guide, it's really helpfull as well
 + DD-WRT [VPN Easy Way V24+](https://wiki.dd-wrt.com/wiki/index.php/VPN_(the_easy_way)_v24+)
 + FreshTomato [wiki](https://wiki.freshtomato.org/doku.php/openvpn_server)
 + Sekurak [OpenVPN practical implementation](https://sekurak.pl/praktyczna-implementacja-sieci-vpn-na-przykladzie-openvpn/)
