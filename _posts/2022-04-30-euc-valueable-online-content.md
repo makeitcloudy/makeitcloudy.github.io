@@ -23,6 +23,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
 
 ## On-Premises - Automated lab provisioning
++ GO-EUC [github](https://github.com/GO-EUC/go-euc-lab)
 + Citrix-VAD-LAB [github](https://github.com/ryancbutler/Citrix-VAD-LAB) - quickly deploy a full CVAD environment on vCenter with ansible and terraform
 + XenDesktop7Lab [github](https://github.com/VirtualEngine/XenDesktop7Lab)
 + LabBuilder [github](https://github.com/PlagueHO/LabBuilder)
@@ -107,6 +108,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
 
+## Azure - Virtual Desktop - lab - IaC
++ Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep
++ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
++ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 
 ## Azure - Virtual Desktop
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/c/TravisRoberts/playlists) and his AVD playlist on [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
@@ -222,6 +227,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Jarek Sobel [github](https://github.com/jareksobel)
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
++ Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
 
 ### Other
 + Josh Duffney [blog](https://duffney.io/)
