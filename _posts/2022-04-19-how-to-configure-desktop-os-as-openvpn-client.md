@@ -18,7 +18,14 @@ categories: [HomeLab ,Networking ,OpenVPN]
 + Private keys are password protected here, so during establishing the connection, the end user will have to put the PASSWORDCERTPASSPHRASE defined during the abovementioned configuration
 + Both operating systems can set the UDP or TCP tunnels, still in this blog post the UDP will be depicted on the example of linux, where TCP on windows.
 
-## Linux
+## Links
++ OpenVPN [wiki](https://community.openvpn.net/openvpn/wiki/GettingStartedwithOVPN) - Getting Started with OpenVPN
+
+## ToDo
++ modify the client configuration to make use of udp4 or tcp4-client
++ add the client configuration for FreshTomato based OpenVPN server
+
+## Linux - UDP based client
 1. Install OpenVPN client
 
 ```shell
@@ -74,7 +81,7 @@ ping 192.168.88.1
 ## you should get reply provided the firewall allows such traffic
 ```
 
-## Windows
+## Windows - TCP based tunnel
 1. Install [OpenVPN client](https://openvpn.net/community-downloads/)
 
 ```powershell

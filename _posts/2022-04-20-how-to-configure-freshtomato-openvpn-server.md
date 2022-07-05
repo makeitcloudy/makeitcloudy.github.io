@@ -24,8 +24,11 @@ At lot is going on in security area. It seems that this blog post will be obsole
 3. Routers which are short with NVRAM, are not a limitation, you can make use of JFFS or other mounted storage on your router to store them. Typically devices with 32KB of NVRAM may encounter this issue, as certificates can consume 14KB of space. This means you can still make use of RT-N16U if you have one somewhere in your wardrobe.
 4. It looks that SHA1 has been cracked since early 2019, this is one of the reasons here within FreshTomato SHA256/SHA512 has been used. Mikrotik with RouterOS 7 also gives that option. It seems that FreshTomato is using SHA1 to hash the passwords for the openVPN usernames.
 5. TCP tunnels requires MTU settings, UDP tunnels can make use of mssfix option. Small amount of fragmentations should increase the overall thorughput of the tunnel. Within this configuration mssfix is not being used.
-6. Start with some reading first. It will make your life much easier.
+6. CBC ciphers are more legacy than GCM, CHACHA brings optimizations for ARM based devices
+7. Start with some reading first. It will make your life much easier.
++ OpenVPN [wiki](https://community.openvpn.net/openvpn/wiki/GettingStartedwithOVPN) - Getting Started with OVPN
 + OpenVPN [wiki](https://openvpn.net/community-resources/how-to/#pki) - definitelly worth reading
++ OpenVPN [bridging and routing](https://community.openvpn.net/openvpn/wiki/BridgingAndRouting#Usingrouting)
 + OpenVPN [Custom Configuration](https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/) parameters
 + OpenVPN [forum](https://forums.openvpn.net/viewforum.php?f=31)
 + DD-WRT [wiki](https://wiki.dd-wrt.com/wiki/index.php/OpenVPN)
@@ -42,7 +45,16 @@ At lot is going on in security area. It seems that this blog post will be obsole
 ## ToDo
 This blog post is far from being perfect, I'm not an expert in any means in those areas.
 + aside from cetrificate authentication add the [username and password](https://wiki.dd-wrt.com/wiki/index.php/OpenVPN)
-+ CRL - how to generate and make it work
++ CRL - test it and ammend the custom configuration accordingly
+
+```shell
+easyrsa revoke client1
+easyrsa gen-crl
+# transfer the file to the openVPN server to the location mentioned
+# within the custom configuration
+```
++ "Extended Key Usage" and "Key Usage" aka ( Client ) --remote-cert-ku --remote-cert-eku "TLS Web Server Authentication | ( Server )"TLS Web Client Authentication"
++ -tls-server and --tls-client options
 + kill switch in case of VPN dropout like [here](https://protonvpn.com/support/vpn-freshtomato-router/) - this is especially usefull when the vpn connection is your default gateway for the client.
 + set the firewall rules, that traffic is allowed or denied based on the ovpn USERNAME
 
@@ -77,6 +89,7 @@ VPN Tunneling -> OpenVPN Server -> Basic
 
 ```shell
 Start with WAN                  - checked
+# TUN passes TCP/IP traffic, TAP transports ethernet frames and allows for broadcasts
 Interface Type                  - TUN
 Protocol                        - UDP
 # by default the Port number is 1149
@@ -131,10 +144,10 @@ Paste following content into the Custom Configuration. Some says that since Open
 + Remember about adding routes towards the networks on the other side of the VPN tunnel
 
 ```shell
-# TODO: check how to generate the CRL
+# TODO: upload the crl to the OpenVPN server filesystem
 # CRL is not configured yet
 # using the CA management of your choice, generate a Certificate Revocation List
-# store the file somewhere on the OpenVPN server filesystem and point to it with the configuration
+# store the file somewhere on the OpenVPN server filesystem and point to it, with the custom configuration
 # crl /full/path/to/crl.pem
 
 dh none
