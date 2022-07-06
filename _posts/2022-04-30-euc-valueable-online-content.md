@@ -109,7 +109,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
 
 ## Azure - Virtual Desktop - lab - IaC
-+ Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep
++ Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 
@@ -180,6 +180,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jonathon Poling - Ponder the Bits [webpage](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/) - rdp related event logs
 + Freek Berson [github](https://github.com/fberson) and his [blog](https://microsoftplatform.blogspot.com/) - his blog post are great to lay down the foreground for Citrix which is nothing else than RDS (Remote Desktop Services), it seems to be good idea to start with Terminal Services and RDS which help structualize knowledge needed for a Citrix guy
 + MsFreaks [blog](https://msfreaks.wordpress.com/)
++ Arjan Mensch [github](https://github.com/msfreaks)
 + Kristin Griffin [webpage](https://www.rdsgurus.com/author/grokker99/) - her contribution in RDS area seems to be not that well known, but still she brought added value value to the EUC community
 + Devolutions [blog](https://blog.devolutions.net/2022/04/a-closer-look-at-devolutions-gateway/?utm_source=social_share&utm_medium=twitter_devolutions), [github](https://github.com/Devolutions/sspi-rs)
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
