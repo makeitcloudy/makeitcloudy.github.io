@@ -66,6 +66,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
 
 ## Remote Desktop Services
++ Microsoft [RDS Migration Guide towards AVD](https://twitter.com/fberson/status/1341039339929821184)
 + Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/) - RDS with DSC
 + Simon [Another Windows Blog](https://www.anotherwindowsblog.com/2018/02) - RDS farm behind NetScaler
 + Julian Mooren - [RDS powered by PVS](https://citrixguyblog.com/2021/10/07/citrix-pvs-deploy-microsoft-remote-desktop-session-hosts-with-citrix-provisioning-services/) - RDS session host on PVS steroids
@@ -125,6 +126,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
 + Bicep [github](https://github.com/Azure/bicep/)
++ Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
 ## Community shares
@@ -165,6 +167,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ### Azure Virtual Desktop
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
++ AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
 + Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
 + Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
 + Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG)
