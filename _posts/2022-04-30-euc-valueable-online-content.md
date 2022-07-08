@@ -29,6 +29,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + GO-EUC [github](https://github.com/GO-EUC/go-euc-lab)
 + Citrix-VAD-LAB [github](https://github.com/ryancbutler/Citrix-VAD-LAB) - quickly deploy a full CVAD environment on vCenter with ansible and terraform
++ Steven Noel [github](https://github.com/StevenNoel/Citrix-VAD-LAB-Single) - Citrix VAD LAB Single
 + XenDesktop7Lab [github](https://github.com/VirtualEngine/XenDesktop7Lab)
 + LabBuilder [github](https://github.com/PlagueHO/LabBuilder)
 + Lability [github](https://github.com/VirtualEngine/Lability)
