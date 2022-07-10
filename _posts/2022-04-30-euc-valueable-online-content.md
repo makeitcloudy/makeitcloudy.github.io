@@ -145,12 +145,13 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - Virtual Desktop
 
-+ Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/c/TravisRoberts/playlists) and his AVD playlist on [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1)
++ Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1), [blog](https://www.ciraltos.com)
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
-+ Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment)
++ Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
++ Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI)
 
 ## Azure - Bicep
 
@@ -241,6 +242,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Aaron Parker [blog](https://stealthpuppy.com/posts/),[github](https://github.com/aaronparker/VcRedist)
 + Steven Noel [blog](https://verticalagetechnologies.com/) and [github](https://github.com/StevenNoel) - waiting for his VIAB module which will be suplementary for Ryan's C Bulter [Citrix-VAD-LAB](https://github.com/ryancbutler/Citrix-VAD-LAB)
 + Ryan C Bulter [github](https://github.com/ryancbutler)
++ Thomas Preischl [blog](https://www.thomaspreischl.de)
 + Martin Therkelsen [blog](https://www.cloudninja.nu/), [github](https://github.com/mracket)
 + Dennis Mohrmann [github](https://github.com/Mohrpheus78/)
 + Julien Mooren [blog](https://citrixguyblog.com),[github](https://github.com/citrixguyblog) - he was my inspiration to fork his AutomatedRDS release back in 2017
