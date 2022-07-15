@@ -193,6 +193,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ### EUC
 
++ Virtual Desktops Community [blog](https://virtualdesktops.community/)
 + Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
 + Matthias Schlimm [blog](https://eucweb.com/) and [github](https://github.com/EUCweb)
 + Trond Erik Haavarstein [blog](https://xenappblog.com/) and [github](https://github.com/Haavarstein/Applications), Trond is an founder of VirtualExpo.
