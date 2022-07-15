@@ -138,16 +138,17 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - Virtual Desktop - lab - IaC
 
-+ Tor Ivar Asbolmo [youtube](https://www.youtube.com/watch?v=qSKRGSYsdLY) - The ABC of IaC
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
+
 
 ## Azure - Virtual Desktop
 
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1), [blog](https://www.ciraltos.com)
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
++ + Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
