@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "How to setup mikrotik for home lab usecase"
+title: "How to setup Mikrotik for home lab usecase"
 permalink: "/how-to-setup-mikrotik-for-home-lab-usecase/"
 subtitle: "There are plenty of alternative ways reaching this, but still mikrotik it's cost effective"
-cover-img: /assets/img/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/how-to-setup-mikrotik-for-home-lab-usecase/img-thumb.jpg
-share-img: /assets/img/img-cover-mikrotik.jpg
+cover-img: /assets/img/cover/img-cover-mikrotik.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
+share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking]
 categories: [HomeLab ,Networking]
 ---
@@ -13,7 +13,7 @@ categories: [HomeLab ,Networking]
 
 Your homelab can be powered from the network angle by different vendors, never the less for the price Mikrotik brings buch of functionalities which is worth the money. The interface may push you away a bit a first glimpse, but still it's worth investing a bit of time for the learning curve, especially being equipped with structualized content comming the TheNetworkBerg.
 
-## Advise
+## Advice
 1. Sit down, bring some calm and relax. Then perform the study over the Mikrotik documentation in context of the hardware which you have, and understand what are the differences between them from the prism of switch chip features being built in within the device. In simple words - each series of the devices, depending from the pricing range have different set of features. Rule is simple - the more you pay, more you get.
 ```bash
 /interface ethernet switch print 
@@ -31,27 +31,27 @@ You need the following:
 + it will be beneficial if you have some networking backgorund
 + need to spend some money on physical appliance, especially for the homelab usecase it is beneficial to have equippement which is not virutalized, it will pay off (ofcourse Eve-NG or GNS can also work)
 + depending from the firmware version being installed on your device, you may need an newer or older winbox version, unless for the older version of the firmware you choose 'legacy mode' inside wine.
++ CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting network architectures can be built on top of that.
 
 ## Where to find knowledge
-There in incredible youtube channel worth donating created by [The Network Berg](https://www.youtube.com/c/TheNetworkBerg). 
-The Author of the channel, provides free MCTNA and more advanced trainings, bringing such level of detail which is enough for configuring your network device up to this extend that it can easily support your virtualized infrastructure or provide the service for your SOHO (small office home office) deployment.
++ Mikrotik products can be found on [mikrotik.com](https://mikrotik.com/products/) webpage
++ Mikrotik academy [blog](https://mikrotikacademy.pl/)
++ Mikrotikon.pl [blog](https://mikrotikon.pl/)
++ There in incredible youtube channel worth donating created by [The Network Berg](https://www.youtube.com/c/TheNetworkBerg).<br>
+The Author of the channel, provides free MCTNA and more advanced trainings, bringing such level of detail which is enough for configuring your network device up to this extend that it can easily support your virtualized infrastructure or provide the service for your SOHO (small office home office) deployment.<br>
 The fact is that for the home lab, you do not need that great amount of routing, unless you are configuring a specific usecase, never the less for simple scenarios, products like RB951 series should be more than enough.
-
++ Mikrotik free MCTNA training provided by TheNetworkBerg can be found on [youtube](https://www.youtube.com/playlist?list=PLJ7SGFemsLl3XQhO8g0hHCrKnC6J3KURk). Please support his efforts of sharing the knowledge.
 + Srdjan Stanisic [blog](https://mivilisnet.wordpress.com)
 
-+ Mikrotik products can be found on thir [webpage](https://mikrotik.com/products/)
-+ Mikrotik free MCTNA training provided by TheNetworkBerg can be found on [youtube](https://www.youtube.com/playlist?list=PLJ7SGFemsLl3XQhO8g0hHCrKnC6J3KURk). Please support his efforts of sharing the knowledge.
-+ CCR series will definitelly bring great benefit for the overall configuration, never the less combination of RB and a CRS switch which will act as a L2 device will also suffice up to this extend that some interesting architectures can be built on top of that.
-
-# Connect via the serial console
-If your device (laptop, desktop) is not equipped with serial port (which is not very common these days), then you should buy the USB to serial converter. I'm using (Unitek USB to Serial Converter DB9F to DB25M Adaptor (Y-105A)) and then you stick into it the correct cable, which goes hand in hand with the device. Console cable for CRS309 is the same type as for CCR's, CRS3XX has RJ45 to DB9, so you need to be equipped with another one. But still all devices can be reached with the Unitek converter.
+## Connect via the serial console
+If your device (laptop, desktop) is not equipped with serial port (which is not very common these days), then you should buy the USB to serial converter. I'm using (Unitek USB to Serial Converter DB9F to DB25M Adaptor (Y-105A)) and then you stick into it the correct cable, which goes hand in hand with the device. Console cable for CRS309 is the same type as for CCR's, CRS3XX has RJ45 to DB9, so you need to be equipped with another one. But still all devices can be reached with the Unitek converter.<br>
 On the endpoint, depending from the operating system, you need putty or minicom.
 ```bash
 # it shows you baud-rate of the serial port wich should to be aligned with the client's configuration
 /system routerboard settings print
 ```
 
-# Downgrade mikrotik firmware
+## Downgrade mikrotik firmware
 What's the usecase for downgrading the firmware? You'd like to downgrade from 7.x to 6.x, or if you are on 6.x you decided to change the branches and from stable to long term.
 ```bash
 /system package update print
@@ -65,7 +65,8 @@ What's the usecase for downgrading the firmware? You'd like to downgrade from 7.
 # upgrade the firmware
 /system routerboard upgrade
 ```
-# Upgrade mikrotik firmware
+
+## Upgrade mikrotik firmware
 The upgrade is done the same way as the downgrade, apart from the step of changing branches, or changing the stable to long term, here it would be the oposite.
 ```bash
 /system package update check-for-updates
@@ -83,10 +84,12 @@ The overal process for configuring the VLAN on CRS3XXX looks this way:
 3. Create VLAN Table: tagged & untagged ports
 4. Add Mgmt VLAN (assign it to the )
 5. Activate VLAN filtering
-# Software defined vlans (router scenario)
+
+### Software defined vlans (router scenario)
 1. VLANs relate to Interfaces - you can bind VLAN to interfaces for instance: (ether2-ether5) - once this is done on two sides of the wire, the devices (if you have not disabled this) can see each other as a neighbours on L2 level.
 2. IP addresses relate to VLANs - you assign an IP address to VLAN, once this is done on two sides of the wire and some traffic is generated then the devices can see each other as a neighbours on L3 level.
-# Bridged vlans (switch scenario)
+
+### Bridged vlans (switch scenario)
 1. Introduce a bridge to the network
 2. For each vlan create a bridge which will be linked to that vlan *(the caveat here is that if ther eis more than one bridge, then the hardware offloading can not bring it's benefit)*
 3. Assign the vlan to the bridge. At this stage VLAN it tagged on ether port, but it is also bridged with our bridge vlan. Then assign port to the bridge (this steps combines the physical port with the virutal entity which is the bridge) creating the access mode scenario. 
@@ -175,7 +178,8 @@ Resetting the board to the factory defaults with making use of the physical butt
 + 3.7 At this point you can copy the dynamically configured bridge vlans, and decide on which ethernet ports those should tagged and untagged
 + 3.100 Vlan Filtering (do it last)
 4. Looks like CCR does not have a switch chip, and all ports are directly connected to CPU.
-## Useful commands
+
+## Reset configuration
 + When something goes wrong, or you'd like to take a fresh start
 ```bash
 /system reset-configuration
@@ -187,6 +191,5 @@ Resetting the board to the factory defaults with making use of the physical butt
 + [Enable OpenVPN Server on Mikrotik RouterOS](https://lunar.computer/posts/mikrotik-routeros-openvpn/)
 
 ## Summary
-That's it.
-
+That's it.<br>
 Last update: 2022.04.13

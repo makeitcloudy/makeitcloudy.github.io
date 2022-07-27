@@ -3,9 +3,9 @@ layout: post
 title: "EUC books and toolset"
 permalink: "/euc-books-and-toolset/"
 subtitle: "Bunch of usefull books and tools"
-cover-img: /assets/img/euc-books-and-toolset/img-cover.png
-thumbnail-img: /assets/img/euc-books-and-toolset/img-thumb.png
-share-img: /assets/img/euc-books-and-toolset/img-cover.png
+cover-img: /assets/img/cover/img-cover-lab.png
+thumbnail-img: /assets/img/thumb/img-thumb-library.png
+share-img: /assets/img/cover/img-cover-lab.png
 tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
 categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 ---
@@ -118,4 +118,6 @@ Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operat
 
 + GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration. 
 + wttr.in [github](https://github.com/chubin/wttr.in)
+
+## Summary
 Last update: 2022.04.29

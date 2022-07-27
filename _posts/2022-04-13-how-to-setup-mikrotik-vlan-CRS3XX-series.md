@@ -3,9 +3,9 @@ layout: post
 title: "How to setup vlan - Mikrotik CRS3XX series"
 permalink: "/how-to-setup-mikrotik-vlan-crs3xx-series/"
 subtitle: "CRS3XX just do it's job pretty well, when it goes for switching"
-cover-img: /assets/img/img-cover-mikrotik.jpg
-thumbnail-img: /assets/img/how-to-setup-mikrotik-vlan-crs3xx-series/img-thumb.jpg
-share-img: /assets/img/img-cover-mikrotik.jpg
+cover-img: /assets/img/cover/img-cover-mikrotik.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
+share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik]
 categories: [HomeLab ,Networking ,Mikrotik]
 ---
@@ -16,7 +16,8 @@ This series of mikrotik devices, can handle your regular VM traffic, as well as 
 + a bit of mikrotik knowledge
 
 ## Configure CRS3XX as L2 switch
-CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your virtualization layer for the communication on the OS level, between all your boxes which constitutes your lab usecase and it's deployment. 
+CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your virtualization layer for the communication on the OS level, between all your boxes which constitutes your lab usecase and it's deployment.
+
 ```bash
 /interface bridge
 add admin-mac=(MAC-ADDRESS) auto-mac=no name=bridge-all-vlans pvid=404 vlan-filtering=yes
@@ -194,4 +195,5 @@ set allowed-interface-list=none
 
 ## Summary
 That's it.<br>
+It works on 6.4X firmware as well as on 7.3.1.<br>
 Last update: 2022.04.13

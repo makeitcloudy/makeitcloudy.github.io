@@ -3,9 +3,9 @@ layout: post
 title: "Advise for newcommers in VirtualWorkplace area"
 permalink: "/advise-for-newcommers-in-virtualworkplace-area/"
 subtitle: "Virtual Workplace aka EUC is not always a bread and butter"
-cover-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-cover.jpg
-thumbnail-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-thumb.jpg
-share-img: /assets/img/advise-for-newcommers-in-virtualworkplace-area/img-cover.jpg
+cover-img: /assets/img/cover/img-cover-path.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-readme.jpg
+share-img: /assets/img/cover/img-cover-path.jpg
 tags: [ReadmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 categories: [RedmeFirst ,HomeLab ,Citrix ,CVAD ,RDS]
 ---
@@ -13,7 +13,7 @@ Those advises are not mine, but supporting them very much. I wish I knew them ea
 
 Here comes the quote from his guide:
 
-## Advice
+## Advise
 1. Always learn.
 2. Always improve yourself.
 3. Be a better person today than you were yesterday.
@@ -84,6 +84,6 @@ don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
 
 **2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
-+ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.
++ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.<br>
 
 Last update: 2022.05.30
