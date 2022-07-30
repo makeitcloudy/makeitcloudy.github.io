@@ -187,6 +187,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 
+### Terraform
++ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
 ### DSC
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
