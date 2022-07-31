@@ -119,6 +119,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Hybrid / Trond advises for building hybrid scenarios [blog](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
 + Cloud / WVD (Windows Virtual Desktop) - AIB (Azure Image Builder) vs Packer [youtube](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA)
 
+## Azure - fasttrack for azure
++ Dolev Shor - azure orphan resources [microsoft](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-orphan-resources/ba-p/3492198), [github](https://github.com/dolevshor/azure-orphan-resources)
+
 ## Azure - Exam
 
 + Tim Warner - [youtube](https://www.youtube.com/watch?v=uoO7KpdG9Yk&feature=youtu.be)
