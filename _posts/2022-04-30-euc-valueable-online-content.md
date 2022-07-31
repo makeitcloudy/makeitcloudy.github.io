@@ -149,31 +149,41 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
 + + Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
-+ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
-+ Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI)
+
+### Azure Virtual Desktop - community shares
+
++ wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
++ AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
++ Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
++ Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
++ Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG)
++ Patrick Koehler [blog](https://avdlogix.com/), [youtube](https://www.youtube.com/channel/UC5aOMyGv93p1plb2QB2RY_g/playlists)
++ Marcer Meurer [blog](https://blog.itprocloud.de), [github](https://github.com/MarcelMeurer)
++ Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
++ Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
++ Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
++ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
 
 ## Azure - Bicep
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
 + Bicep [github](https://github.com/Azure/bicep/)
++ Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
-## Community shares
+### Terraform
 
-+ World of EUC [slack](https://t.co/EVrMXepANH)
-+ World of EUC [discord](https://t.co/zE0QTpANZQ)
-+ The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
-+ BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
-+ RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
-+ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
-+ MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
-+ Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
-+ VirtualExpo [blog](https://xenappblog.com/agenda/)
-+ Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
++ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
++ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
+
+### DSC
+
++ Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
++ Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
 
 ### Powershell and what not
 
@@ -187,13 +197,6 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 
-### Terraform
-+ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
-### DSC
-
-+ Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
-+ Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
-
 ### EUC
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
@@ -206,19 +209,18 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Helge Klein [twitter](https://twitter.com/HelgeKlein)
 + Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
 
-### Azure Virtual Desktop
+## EUC - community shares
 
-+ wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
-+ AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
-+ Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
-+ Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
-+ Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG)
-+ Patrick Koehler [blog](https://avdlogix.com/), [youtube](https://www.youtube.com/channel/UC5aOMyGv93p1plb2QB2RY_g/playlists)
-+ Marcer Meurer [blog](https://blog.itprocloud.de), [github](https://github.com/MarcelMeurer)
-+ Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
-+ Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
-+ Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
-+ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
++ World of EUC [slack](https://t.co/EVrMXepANH)
++ World of EUC [discord](https://t.co/zE0QTpANZQ)
++ The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
++ BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
++ RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
++ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
++ MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
++ Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
++ VirtualExpo [blog](https://xenappblog.com/agenda/)
++ Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
 
 ### Citrix Netscaler
 
@@ -264,6 +266,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + John Billekens [blog](https://blog.j81.nl/)
 + Lee Jeffries [blog](https://www.leeejeffries.com/home/)
 + Christ Twiest [blog](https://workspace-guru.com)
++ Barry Browne [blog](https://mybrokencomputer.net/t/setup-a-citrix-home-lab-in-sixty-minutes/28) - setup home lab in sixty minutes
 + Jarek Sobel [github](https://github.com/jareksobel)
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
@@ -278,4 +281,4 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
-Last update: 2022.05.29
+Last update: 2022.07.31
