@@ -155,6 +155,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI)
 
++ AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
+
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
 ### Azure Virtual Desktop - community shares
