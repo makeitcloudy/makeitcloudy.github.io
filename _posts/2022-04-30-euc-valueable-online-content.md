@@ -122,6 +122,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - fasttrack for azure
 + Dolev Shor - azure orphan resources [microsoft](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-orphan-resources/ba-p/3492198), [github](https://github.com/dolevshor/azure-orphan-resources)
 
++ Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
+
 ## Azure - Exam
 
 + Tim Warner - [youtube](https://www.youtube.com/watch?v=uoO7KpdG9Yk&feature=youtu.be)
