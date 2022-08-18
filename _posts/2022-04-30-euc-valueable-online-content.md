@@ -268,6 +268,8 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 ### Other
 
++ Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
+
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)
