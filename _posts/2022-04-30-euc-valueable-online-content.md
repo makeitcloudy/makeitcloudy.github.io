@@ -153,9 +153,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1), [blog](https://www.ciraltos.com)
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
-+ + Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
++ Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
-+ Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI)
+
++ Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
 
 + AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
 
