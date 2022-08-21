@@ -12,6 +12,7 @@ categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 Still it's worth spending money on books, which brings you non-scattered content, which can be supplemented with the latest updates comming from the great documentation from the venrods, or not. Thank you [Carl](https://www.carlstalhood.com/) and [Bas Van Kaam](https://www.basvankaam.com/my-books/).
 
 ## Books
+
 + Bas Van Kaam [Inside the FMA](https://www.basvankaam.com/wp-content/uploads/2019/03/Inside-Citrix-The-FlexCast-Management-Architecture.pdf)
 + Bas Van Kaam [Byte-Sized](https://www.basvankaam.com/2019/10/14/our-byte-sized-book-is-available-for-download-free-of-charge-go-grab-your-virtual-copy-now/) and [direct](https://www.basvankaam.com/wp-content/uploads/2019/10/Final-Version-Take-17.pdf) link
 + Johan van Amersfoort [VDI Design Guide](https://www.amazon.com/VDI-Design-Guide-comprehensive-standards/dp/1977535526) A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
@@ -37,6 +38,7 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools
+
 + Diagram as Code [github](https://github.com/mingrammer/diagrams)
 + Aaron Parker - EvenrGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen)
 + Deyda - NeverRed/EverGreen - [docs](https://www.deyda.net/index.php/en/evergreen-script/). [github](https://github.com/Deyda/Evergreen-Script)
@@ -72,7 +74,7 @@ Still it's worth spending money on books, which brings you non-scattered content
 + Master Packager [msix](https://www.masterpackager.com/blog/msix-limitations)
 
 + BIS-F Optimizer [webpage](https://eucweb.com/download-bis-f)
-+ Microsoft Optimizer [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize)
++ Microsoft Optimizer [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize), previous link [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize), [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-virtual-desktop-optimization-tool-now-available/m-p/1558614#M5056)
 + Vmware Optimizer [webpage](https://flings.vmware.com/vmware-os-optimization-tool)
 + Citrix Optimizer [webpage](https://support.citrix.com/article/CTX224676)
 
@@ -86,6 +88,8 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [Short link creator](https://katystech.blog/projects/project-short-link-creator)
 
 + Aaron Parker [vcredist](https://github.com/aaronparker/vcredist)
++ Ventoy create bootable USB [github](https://github.com/ventoy/Ventoy)
++ pdf split, merge, mix [github](https://github.com/torakiki/pdfsam)
 + [Ninite](https://ninite.com/) - Install and Update your apps at once
 + [Chocolatey](https://chocolatey.org/)
 + [Visual Studio Code](https://code.visualstudio.com/) with extensions
@@ -116,8 +120,9 @@ Still it's worth spending money on books, which brings you non-scattered content
 Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operational' | select -exp Properties | where {$_.Value -like '*.*.*.*' } | sort Value -u
 ```
 
-+ GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration. 
++ GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.
 + wttr.in [github](https://github.com/chubin/wttr.in)
 
 ## Summary
+
 Last update: 2022.04.29
