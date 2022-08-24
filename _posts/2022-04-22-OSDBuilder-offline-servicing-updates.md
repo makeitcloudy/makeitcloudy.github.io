@@ -3,9 +3,9 @@ layout: post
 title: "OSDBuilder offline servicing updates"
 permalink: "/OSDBuilder-offline-servicing-updates/"
 subtitle: "Prepare the updated Windows ISO's for the homelab usecase"
-cover-img: /assets/img/cover/img-cover-lab.jpg
-thumbnail-img: /assets/img/thumb/img-thumb-open.png
-share-img: /assets/img/cover/img-cover-lab.jpg
+cover-img: /assets/img/cover/img-cover-lab.png
+thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
+share-img: /assets/img/cover/img-cover-lab.png
 tags: [HomeLab ,Windows, Imaging]
 categories: [HomeLab ,Windows, Imaging]
 ---
@@ -19,6 +19,7 @@ The module is far from being perfect and it left much to be desired, never the l
 + modern management [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ)
 + modern management [blog](https://www.moderndeployment.com/quick-start-guide-windows-10-waas-servicing-updates-via-osdbuilder/)
 + makeitcloudy [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)
++ manelrodero [github](https://github.com/manelrodero/OSDBuilder)
 
 ## Prerequisites and observations from the field
 
