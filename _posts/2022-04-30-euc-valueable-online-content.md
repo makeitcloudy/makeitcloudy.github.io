@@ -158,7 +158,8 @@ Before you start deploying any AVD infrastructure, it would be really convinient
 It would also be helpful to bring good and consistent naming convention:
 + naming convention [blog](https://justinoconnor.codes/2022/08/19/azure-periodic-table-of-resource-naming-convention-shorthands/), [microsoft](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules)
 
-+ diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
++ Ryan Mangan - Mastering Azure Virtual Desktop [book](https://www.amazon.com/Mastering-Azure-Virtual-Desktop-implementation/dp/1801075026)
++ Marco Moioli - Azure Virtual Desktop Succinctly [book](https://www.syncfusion.com/succinctly-free-ebooks/azure-virtual-desktop-succinctly) - Free
 
 + Travis Roberts - Azure Virtual Desktop - [youtube](https://www.youtube.com/playlist?list=PLnWpsLZNgHzXMtKjaQJf4Rn64W86nUDv1), [blog](https://www.ciraltos.com)
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
@@ -172,6 +173,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
++ diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 ### Azure Virtual Desktop - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
