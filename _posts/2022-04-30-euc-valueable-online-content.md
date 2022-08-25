@@ -20,6 +20,18 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jeff Hicks - [blog](https://jdhitsolutions.com/blog/), [github](https://github.com/jdhitsolutions)
 + Mike F Robbins - [blog](https://mikefrobbins.com/)
 
+## Powershell and what not
+
++ Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
++ Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
++ Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
++ Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
++ Jason Helmick [github](https://github.com/theJasonHelmick)
++ PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
++ Virtual PowerShell Group[webpage](https://poshcode.org/)
++ Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
++ PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
+
 ## On-Premises
 
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
@@ -94,12 +106,6 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
 + DoublePulsar [RDP hijacking](https://doublepulsar.com/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6?gi=4b124037d5cb)
 
-## Azure - Automated lab provisioning
-
-+ Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
-+ Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
-+ AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
-
 ## Azure - Training
 
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
@@ -128,7 +134,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
 + Azure Charts [webpage](https://azurecharts.com/)
-## Azure - Exam
+
+### Azure - Exam
 
 + Tim Warner - [youtube](https://www.youtube.com/watch?v=uoO7KpdG9Yk&feature=youtu.be)
 + Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
@@ -144,13 +151,6 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
-
-## Azure - Virtual Desktop - lab - IaC
-
-+ Avd Accelerator [hithub](https://github.com/Azure/avdaccelerator)
-+ Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
-+ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
-+ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 
 ## Azure - Virtual Desktop
 
@@ -174,7 +174,8 @@ It would also be helpful to bring good and consistent naming convention:
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
-### Azure Virtual Desktop - community shares
+
+## Azure Virtual Desktop - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
 + AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
@@ -189,6 +190,13 @@ It would also be helpful to bring good and consistent naming convention:
 + Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
+## Azure - Virtual Desktop - lab - IaC
+
++ Avd Accelerator [hithub](https://github.com/Azure/avdaccelerator)
++ Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
++ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
++ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
+
 ## Azure - Bicep
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
@@ -198,29 +206,23 @@ It would also be helpful to bring good and consistent naming convention:
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
-### Terraform
+## Azure - Automated lab provisioning
+
++ Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
++ Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
++ AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
+
+## Terraform
 
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
 + Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
 
-### DSC
+## DSC
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
 + Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
 
-### Powershell and what not
-
-+ Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
-+ Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
-+ Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
-+ Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
-+ Jason Helmick [github](https://github.com/theJasonHelmick)
-+ PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
-+ Virtual PowerShell Group[webpage](https://poshcode.org/)
-+ Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
-+ PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
-
-### EUC
+## EUC
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
 + Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
@@ -245,7 +247,7 @@ It would also be helpful to bring good and consistent naming convention:
 + VirtualExpo [blog](https://xenappblog.com/agenda/)
 + Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
 
-### Citrix Netscaler
+## Citrix Netscaler
 
 + Esther Barthel [github](https://github.com/cognitionit) - if you are interested in REST API, Nitro for Citrix ADC and topics around automation, she is the one to follow, as well as some AVD stuff
 + Johannes Norz [blog](https://norz.at/blog) and his fantastic [wonderkitchen](https://www.wonderkitchen.tech/) - here you can benefit for your Citrix ADC skilset
@@ -255,14 +257,14 @@ It would also be helpful to bring good and consistent naming convention:
 + Jake Rutski [blog](https://blogs.serioustek.net/post/2019/03/26/troubleshooting-tips-for-citrix-adc-netscaler?es_p=8918036)
 + Mick Hilrost [blog](https://mickhilhorst.com/citrix/citrix-adc-sdk-powershell/) - some Nitro API getting started guide
 
-### Citrix - classic's
+## Citrix - classic's
 
 Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 + Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free. Carl's [github](https://github.com/CarlWebster)
 + Carl Stalhood [webpage](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.
 
-### Citrix
+## Citrix
 
 + James Kindon fantastic [blog](https://jkindon.com/), [github](https://github.com/JamesKindon)
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
@@ -295,7 +297,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
 
-### Other
+## Other
 
 + Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
 
