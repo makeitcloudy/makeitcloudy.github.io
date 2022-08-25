@@ -18,8 +18,13 @@ Still it's worth spending money on books, which brings you non-scattered content
 + Johan van Amersfoort [VDI Design Guide](https://www.amazon.com/VDI-Design-Guide-comprehensive-standards/dp/1977535526) A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
 
 + Claudio Rodrigues [DaaS - the complete guide](https://www.amazon.com/DaaS-Step-Step-Desktop-as-Service/dp/B09DN1FJ19) A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft, Citrix, VMware, Accops and much more.
-+ Ryan Mangan [Mastering Azure Virtual Desktop](https://www.packtpub.com/product/mastering-azure-virtual-desktop/9781801075022)
+
++ Mario Moioli [Azure Virtual Desktop Succinctly](https://www.syncfusion.com/succinctly-free-ebooks/azure-virtual-desktop-succinctly) which is pointing to the Ryan Mangan publications
++ Ryan Mangan [books and publications](https://ryanmangansitblog.com/books-and-publications) which are fantastic resources actually, bringing attention to valid topics
++ Ryan Mangan [Mastering Azure Virtual Desktop](https://www.packtpub.com/product/mastering-azure-virtual-desktop/9781801075022), top quality resource
+
 + Freek Berson [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021, Freek mentioned that he did an update for it somewhere in 2022
+
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
 
@@ -114,6 +119,8 @@ Still it's worth spending money on books, which brings you non-scattered content
 + Invoke-CommandAs [github](https://github.com/mkellerman/invoke-commandas)
 + RunAsUser [github](https://github.com/KelvinTegelaar/RunAsUser)
 + String to PsObject [txt to PsObject](https://doitpsway.com/converting-clipboard-text-content-to-powershell-object)
+
++ Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
 
 ```powershell
 # get list of IP addresses connected via RDP
