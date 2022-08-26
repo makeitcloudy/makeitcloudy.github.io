@@ -31,6 +31,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Virtual PowerShell Group[webpage](https://poshcode.org/)
 + Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
++ Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
 ## On-Premises
 
@@ -176,6 +177,15 @@ It would also be helpful to bring good and consistent naming convention:
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 
+## Azure Virtual Desktop - key areas
+
+Regardless of the overal engine underneath wich is bringing the Virtual Workplace functionality, there are few key areas which Virtual Workplace ninjas should cover, the list below will expand and cover those elemnts up to some extend.
+
+### Single Sign on
+
++ Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
++ 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
+
 ## Azure Virtual Desktop - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
@@ -189,6 +199,7 @@ It would also be helpful to bring good and consistent naming convention:
 + Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
 + Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
 + Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
++ avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
 ## Azure - Virtual Desktop - lab - IaC
@@ -197,6 +208,9 @@ It would also be helpful to bring good and consistent naming convention:
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
+
+## Windows 365
++ Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 
 ## Azure - Bicep
 
