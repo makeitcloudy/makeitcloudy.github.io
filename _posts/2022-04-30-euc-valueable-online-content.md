@@ -297,6 +297,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
++ ShotokuTech [youtube](https://www.youtube.com/c/ShotokuTech/playlists) - hyper-v core, active directory
 
 ## Other
 
