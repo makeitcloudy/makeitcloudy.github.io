@@ -34,6 +34,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## On-Premises
 
++ Hyper-V core, how to manage it [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY), just a life saver for everyone who is planning to make use of hyper-v and is not yet there with the DSC or PowerShell knowledge.
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
 
