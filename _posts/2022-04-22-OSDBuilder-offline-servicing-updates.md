@@ -21,6 +21,9 @@ The module is far from being perfect and it left much to be desired, never the l
 + makeitcloudy [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)
 + manelrodero [github](https://github.com/manelrodero/OSDBuilder)
 
++ getvpro [blog](https://getvpro.wordpress.com/2022/04/06/custom-offline-iso-windows-deployment-method-as-a-packer-alternative/)
++ getvpro [github](https://github.com/getvpro/Standard-WinBuilds/tree/master/Offline_Builds/Autounattend_xml)
+
 ## Prerequisites and observations from the field
 
 + Dedicated servicing machine, with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet.

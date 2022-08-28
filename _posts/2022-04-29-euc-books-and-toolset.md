@@ -13,20 +13,31 @@ Still it's worth spending money on books, which brings you non-scattered content
 
 ## Books
 
+Apart from community shares, there are great books which reorganize and structure the knowledge.
+
+### Citrix / EUC
+
 + Bas Van Kaam [Inside the FMA](https://www.basvankaam.com/wp-content/uploads/2019/03/Inside-Citrix-The-FlexCast-Management-Architecture.pdf)
 + Bas Van Kaam [Byte-Sized](https://www.basvankaam.com/2019/10/14/our-byte-sized-book-is-available-for-download-free-of-charge-go-grab-your-virtual-copy-now/) and [direct](https://www.basvankaam.com/wp-content/uploads/2019/10/Final-Version-Take-17.pdf) link
 + Johan van Amersfoort [VDI Design Guide](https://www.amazon.com/VDI-Design-Guide-comprehensive-standards/dp/1977535526) A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
 
 + Claudio Rodrigues [DaaS - the complete guide](https://www.amazon.com/DaaS-Step-Step-Desktop-as-Service/dp/B09DN1FJ19) A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft, Citrix, VMware, Accops and much more.
++ [Rds Complete Guide](https://www.amazon.com/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
+
+### AVD
 
 + Mario Moioli [Azure Virtual Desktop Succinctly](https://www.syncfusion.com/succinctly-free-ebooks/azure-virtual-desktop-succinctly) which is pointing to the Ryan Mangan publications
 + Ryan Mangan [books and publications](https://ryanmangansitblog.com/books-and-publications) which are fantastic resources actually, bringing attention to valid topics
 + Ryan Mangan [Mastering Azure Virtual Desktop](https://www.packtpub.com/product/mastering-azure-virtual-desktop/9781801075022), top quality resource
 
+### Bicep / KQL
+
 + Freek Berson [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021, Freek mentioned that he did an update for it somewhere in 2022
 
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
+
+### PowerShell / sourounding topics to EUC
 
 + Month of launches [SQL](https://www.manning.com/books/learn-sql-server-administration-in-a-month-of-lunches) a bit of sql knowledge wont' harm
 + Month of launches [IIS](https://www.manning.com/books/learn-windows-iis-in-a-month-of-lunches) worth to grasp some details about iis, it will pay off from time to time
@@ -39,7 +50,6 @@ Still it's worth spending money on books, which brings you non-scattered content
 + [The DSC Book](https://leanpub.com/the-dsc-book) - LeanPub
 + Ravikanth Chaganti [Pro PowerShell Desired State Configuration](https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth/dp/1484234820) - An In-Depth Guide to Windows PoweRshell DSC 2nd Edition
 
-+ [Rds Complete Guide](https://www.amazon.com/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
 
 ## Tools

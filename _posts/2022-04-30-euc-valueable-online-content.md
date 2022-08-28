@@ -12,6 +12,10 @@ categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and do [puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.
 
+# Automation
+
+League of Devops or Clickops.
+
 ## PowerShell
 
 It's essential get comfortable with PowerShell, it will help you switch from imperative style of work towards declarative, when you get some hands on experience with DSC and Bicep. There are few great books about PowerShell as well as great quality content on the PowerShell advocates blogs.
@@ -33,7 +37,36 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
-## On-Premises
+## Terraform
+
++ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
++ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
+
+## DSC
+
++ Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
++ Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
+
+## Azure - Bicep
+
++ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
++ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
++ Bicep [github](https://github.com/Azure/bicep/)
++ Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
++ Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
++ Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
+
+## Azure - Automated lab provisioning
+
++ Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
++ Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
++ AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
+
+# On-Premises / Cloud adjacent
+
+Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacent home lab.
+
+## On-Premises - HomeLab preparation steps
 
 + Hyper-V core, how to manage it [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY), just a life saver for everyone who is planning to make use of hyper-v and is not yet there with the DSC or PowerShell knowledge.
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
@@ -86,13 +119,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + AdamYarborough - EUCMonitoringRedux [github](https://github.com/littletoyrobots/EUCMonitoringRedux) - 'End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community'
 + Sacha Thomet - XA-and-XD-HealthCheck [github](https://github.com/sacha81)
 
-## Citrix (CVAD)
-
-+ Patrick Matua - CDF [webpage](https://patrickmatula.pages.dev/posts/whatiscitrixdiagnosticfacility/)
-+ StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
-+ StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
-
-## Remote Desktop Services
+## On-Premises - Remote Desktop Services
 
 + Microsoft [RDS Migration Guide towards AVD](https://twitter.com/fberson/status/1341039339929821184)
 + Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/) - RDS with DSC
@@ -108,6 +135,15 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
 + DoublePulsar [RDP hijacking](https://doublepulsar.com/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6?gi=4b124037d5cb)
 
+# Azure Cloud
+
+Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
+
++ Microsoft learn [webpage](https://docs.microsoft.com/en-us/learn/browse/)
++ The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
++ 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
++ MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
+
 ## Azure - Training
 
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
@@ -115,15 +151,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Thomas Maurer - 2022 Azure study guide - [blog](https://www.thomasmaurer.ch/2022/01/how-to-learn-microsoft-azure-in-2022/) this should be a sufficient amount of knowledge to be prepared for studying to AZ-140
 
 + CloudCommunity [github](https://github.com/cloudcommunity)
-+ Awesome Azure Architecture [github](https://github.com/lukemurraynz/awesome-azure-architecture)
-
-+ Microsoft learn [webpage](https://docs.microsoft.com/en-us/learn/browse/)
-+ The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
-+ 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
-
-+ MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
 + DirsuptTheCloud [podcast](https://linktr.ee/disruptthecloud)
-+ TechmindFactory - Identity [youtube](https://www.youtube.com/c/TechMindFactory/videos)
+
++ Awesome Azure Architecture [github](https://github.com/lukemurraynz/awesome-azure-architecture)
 
 + Hybrid / Trond advises for building hybrid scenarios [blog](https://xenappblog.com/2021/building-hybrid-cloud-on-nutanix-community-edition/)
 + Cloud / WVD (Windows Virtual Desktop) - AIB (Azure Image Builder) vs Packer [youtube](https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA)
@@ -131,13 +161,14 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - fasttrack for azure
 
 + How to become a DevOps engineer [blog](https://spacelift.io/blog/how-to-become-devops-engineer)
++ TechmindFactory - Identity [youtube](https://www.youtube.com/c/TechMindFactory/videos)
 
 + Dolev Shor - azure orphan resources [microsoft](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-orphan-resources/ba-p/3492198), [github](https://github.com/dolevshor/azure-orphan-resources)
 
 + Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
 + Azure Charts [webpage](https://azurecharts.com/)
 
-### Azure - Exam
+## Azure Exam
 
 + Tim Warner - [youtube](https://www.youtube.com/watch?v=uoO7KpdG9Yk&feature=youtu.be)
 + Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
@@ -158,6 +189,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 Before you start deploying any AVD infrastructure, it would be really convinient to get some understanding of the Storage, Networking, ActiveDirectory and a bit of AVD itself. At the time of writing this it is already possible to join the Host Pools to the Azure Active Directory never the less some scenarios needs the Active Directory Services and Hybrid join.
 It would also be helpful to bring good and consistent naming convention:
+
 + naming convention [blog](https://justinoconnor.codes/2022/08/19/azure-periodic-table-of-resource-naming-convention-shorthands/), [microsoft](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules)
 
 + Ryan Mangan - Mastering Azure Virtual Desktop [book](https://www.amazon.com/Mastering-Azure-Virtual-Desktop-implementation/dp/1801075026)
@@ -181,7 +213,11 @@ It would also be helpful to bring good and consistent naming convention:
 
 Regardless of the overal engine underneath wich is bringing the Virtual Workplace functionality, there are few key areas which Virtual Workplace ninjas should cover, the list below will expand and cover those elemnts up to some extend.
 
-### Single Sign on
+### Azure Virtual Desktop - Things to consider when planning and designing
+
++ vdibuzz - Enterprise-scale landing zone reference architecture for Virtual Desktop Service(Citrix/AVD) on Azure [blog](https://vdiclub.wordpress.com/2022/02/13/enterprise-scale-landing-zone-reference-architecture-for-virtual-desktop-servicecitrix-avd-on-azure/)
+
+### Azure Virtual Desktop - Single Sign on
 
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
@@ -202,7 +238,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
-## Azure - Virtual Desktop - lab - IaC
+## Azure Virtual Desktop - lab - IaC
 
 + Avd Accelerator [hithub](https://github.com/Azure/avdaccelerator)
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
@@ -210,57 +246,40 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 
 ## Windows 365
+
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 
-## Azure - Bicep
+# EUC
 
-+ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
-+ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
-+ Bicep [github](https://github.com/Azure/bicep/)
-+ Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
-+ Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
-+ Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
+Resources available in context of End User Computing
 
-## Azure - Automated lab provisioning
-
-+ Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
-+ Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
-+ AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
-
-## Terraform
-
-+ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
-+ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
-
-## DSC
-
-+ Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
-+ Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
-
-## EUC
+## EUC - community shares
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
++ World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
++ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
+
++ The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
++ BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
++ RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
+
++ MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
++ Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
++ VirtualExpo [blog](https://xenappblog.com/agenda/)
++ Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
+
 + Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
 + Matthias Schlimm [blog](https://eucweb.com/) and [github](https://github.com/EUCweb)
 + Trond Erik Haavarstein [blog](https://xenappblog.com/) and [github](https://github.com/Haavarstein/Applications), Trond is an founder of VirtualExpo.
 + Freek Berson [github](https://github.com/fberson/Slidedecks) - Virtual Workplace Ninja slideck's, along with The Microsoft Platform [youtube](https://www.youtube.com/channel/UCdwV5ypyqE01nyeQqAfr5Wg/videos) channel
 + Claudio Rodriguez [blog](http://blog.wtslabs.com/), apart from that there were RAS university [initiative](http://ras.euc.university/) - but for some reason this is no longer active at 2022.
 + David Segura [github](https://github.com/OSDeploy)
-+ Helge Klein [twitter](https://twitter.com/HelgeKlein)
++ Helge Klein [twitter](https://twitter.com/HelgeKlein), [blog](https://helgeklein.com/)
 + Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
 
-## EUC - community shares
+# Citrix
 
-+ World of EUC [slack](https://t.co/EVrMXepANH)
-+ World of EUC [discord](https://t.co/zE0QTpANZQ)
-+ The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
-+ BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
-+ RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
-+ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
-+ MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
-+ Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
-+ VirtualExpo [blog](https://xenappblog.com/agenda/)
-+ Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
+There are great resources in context of Citrix
 
 ## Citrix Netscaler
 
@@ -279,7 +298,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free. Carl's [github](https://github.com/CarlWebster)
 + Carl Stalhood [webpage](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.
 
-## Citrix
+## Citrix - community shares
 
 + James Kindon fantastic [blog](https://jkindon.com/), [github](https://github.com/JamesKindon)
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
@@ -313,7 +332,13 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
 + ShotokuTech [youtube](https://www.youtube.com/c/ShotokuTech/playlists) - hyper-v core, active directory
 
-## Other
+## Citrix (CVAD) - tools
+
++ Patrick Matua - CDF [webpage](https://patrickmatula.pages.dev/posts/whatiscitrixdiagnosticfacility/)
++ StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
++ StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
+
+# Other
 
 + Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
 
@@ -324,4 +349,4 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
-Last update: 2022.07.31
+Last update: 2022.08.28
