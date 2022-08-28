@@ -135,6 +135,12 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
 + DoublePulsar [RDP hijacking](https://doublepulsar.com/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6?gi=4b124037d5cb)
 
+## On-Premises - Parallels RAS
+
+If you decide to go RDS way, it will be beneficial for you to consider the product calls Parallels
+
++ Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY)
+
 # Azure Cloud
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
@@ -167,6 +173,9 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 + Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
 + Azure Charts [webpage](https://azurecharts.com/)
+
++ Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE), [aka.ms](http://aka.ms/AzureNamingTool)
++ Azure Academy - Governance [youtube](https://www.youtube.com/watch?v=NxcwCwc_wmM&list=PL-V4YVm6AmwVVU8B809tRUn2bJDTX2Vj4)
 
 ## Azure Exam
 
@@ -232,8 +241,13 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ### AVD - Single Sign on
 
++ Azure Virtual Desktop SSO with ADFS [vdibuzz](https://vdiclub.wordpress.com/2021/06/12/azure-virtual-desktop-sso-with-adfs/)
++ VDIBuzz SSO and passwrordless with youbikey [youtube](https://www.youtube.com/watch?v=PGUYoWMWgfw), along with youbikey supported devices [youbikey](https://support.yubico.com/hc/en-us/articles/360016913619-YubiKeys-for-Microsoft-Azure-AD-Passwordless-Sign-In-Guide)
++ Enable passwordless security key sign-in to on-premises resources by using Azure AD [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
+
++ how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
 
 ## AVD - community shares
 
@@ -251,9 +265,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
-## Windows 365
+## w365 / m365
 
++ Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
++ M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
 
 # EUC
 

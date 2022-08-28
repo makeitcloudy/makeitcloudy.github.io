@@ -36,6 +36,7 @@ Apart from community shares, there are great books which reorganize and structur
 
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
++ [KQL](aka.ms/lademo) - 2022.08.28 - current link for Azure Log Analytics Query Playground
 
 ### PowerShell / sourounding topics to EUC
 
@@ -51,6 +52,11 @@ Apart from community shares, there are great books which reorganize and structur
 + Ravikanth Chaganti [Pro PowerShell Desired State Configuration](https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth/dp/1484234820) - An In-Depth Guide to Windows PoweRshell DSC 2nd Edition
 
 + [The LinkedIn Code](https://www.amazon.com/LinkedIn-Code-Prospects-Professional-Marketing-ebook/dp/B00KJ0O88Q)
+
+## Scripts
+
++ ControlUP Az RDP to machine [webpage](https://www.controlup.com/script-library-posts/az-rdp-to-machine/) - Guy Leech
++ ControlUP scripts [webpage](https://www.controlup.com/scripts/)
 
 ## Tools
 
