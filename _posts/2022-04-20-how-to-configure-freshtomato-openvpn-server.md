@@ -57,8 +57,7 @@ At lot is going on in security area. It seems that this blog post will be obsole
 
 This blog post is far from being perfect, I'm not an expert in any means in those areas.
 
-+ aside from cetrificate authentication add the [username and password](https://wiki.dd-wrt.
-com/wiki/index.php/OpenVPN)
++ aside from cetrificate authentication add the [username and password](https://wiki.dd-wrt.com/wiki/index.php/OpenVPN)
 + CRL - test it and ammend the custom configuration accordingly
 
 ```shell
@@ -68,7 +67,7 @@ easyrsa gen-crl
 # within the custom configuration
 ```
 
-+ "Extended Key Usage" and "Key Usage" aka ( Client ) --remote-cert-ku --remote-cert-eku "TLS Web Server Authentication | ( Server )"TLS Web Client Authentication"
++ 'Extended Key Usage' and 'Key Usage' aka ( Client ) --remote-cert-ku --remote-cert-eku 'TLS Web Server Authentication' | ( Server )'TLS Web Client Authentication'
 + -tls-server and --tls-client options
 + kill switch in case of VPN dropout like [here](https://protonvpn.com/support/vpn-freshtomato-router/) - this is especially usefull when the vpn connection is your default gateway for the client.
 + set the firewall rules, that traffic is allowed or denied based on the ovpn USERNAME
@@ -117,7 +116,7 @@ Authorization Mode              - TLS
 TLS control channel security    - Encrypt Channel V2
 (tls-auth/tls-crypt)
 
-Auth digest	                    - SHA512
+Auth digest                     - SHA512
 # netmask is defining the amount of devices, here you have 14 which with this protocol will exagerate the CPU anyway
 VPN subnet/netmask              - 10.0.6.240 | 255.255.255.240
 ```
@@ -126,8 +125,7 @@ VPN subnet/netmask              - 10.0.6.240 | 255.255.255.240
 
 Chacha is more optimized towards ARM architecture
 
-+ [Do the Chacha](https://blog.cloudflare.com/
-do-the-chacha-better-mobile-performance-with-cryptography/) - better mobile performance with cryptography
++ [Do the Chacha](https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/) - better mobile performance with cryptography
 + [It takes two to Chacha](https://blog.cloudflare.com/it-takes-two-to-chacha-poly/)
 VPN Tunneling -> OpenVPN Server -> Advanced
 
@@ -149,13 +147,14 @@ Data ciphers                    - CHACHA20-POLY1305:AES-128-GCM:AES-256-GCM:AES-
 # you won't bother with Compression on top of OpenVPN protocol
 Compression                     - Disabled
 TLS Renegotiation Time          - -1  (in seconds, -1 for default)
-Manage Client-Specific Options	- unchecked
+Manage Client-Specific Options  - unchecked
 Allow User/Pass Auth            - checked
 Allow Only User/Pass            - unchecked
 (without cert Auth)
 ```
 
-As the Allow User/Pass Auth is checked, put the login and password for the client, it should goes hand in hand with USERNAME and PASSWORDUSERLOGIN from the [blog post](https://makeitcloudy.pl/how-to-configure-freshtomato-openvpn-client/) and the *FreshTomato OpenVPN Client - Basic Tab* configuration.<br>
+As the Allow User/Pass Auth is checked, put the login and password for the client, it should goes hand in hand with USERNAME and PASSWORDUSERLOGIN from the [blog post](https://makeitcloudy.pl/how-to-configure-freshtomato-openvpn-client/) and the *FreshTomato OpenVPN Client - Basic Tab* configuration.
+
 UserName and Password complement certificates. Once you check the Allow User/Pass Auth, you are shown with the GUI which allows you specifying those valuse.
 
 ## FreshTomato - Configuration - Advanced Settings - Custom Configuration
@@ -431,8 +430,7 @@ openssl rsa -passin pass:[SERVER_PEM_PASSPHRASE] -in FreshTomato.key -out FreshT
 
 ### FreshTomato - Configuration - EasyRSA 3 - Sign the CSR of the Client Certificate
 
-Create the OpenVPN Client certificate, it is being used on the OpenVPN Client configuration 
-and identifies particular client.
+Create the OpenVPN Client certificate, it is being used on the OpenVPN Client configuration and identifies particular client.
 
 + Common Name - is the identificator of the connected client
 
