@@ -224,6 +224,7 @@ It would also be helpful to bring good and consistent naming convention:
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
++ Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
 
 ## AVD - key areas towards end user experience
 
