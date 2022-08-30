@@ -9,23 +9,34 @@ share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [HomeLab ,Networking ,OpenVPN ,FreshTomato]
 categories: [HomeLab ,Networking ,OpenVPN ,FreshTomato]
 ---
-This post describe how to setup OpenVPN server on Freshtomato. There are so many versions, that new commers may feel overwhelmed, and there are plenty traps during configuration. I'm not an expert by any means in those areas, using this in my homelab and actually this is the sole purpose of the overall usecase, that someone can make use of second hand 25$ cpu ARMv7 based router, and setup an OpenVPN on top of it to get access to the homelab, when roaming, or expose it's LAN resources towards the oher FreshTomato based OpenVPN client or mobile devices etc.<br>
+This post describe how to setup OpenVPN server on Freshtomato. There are so many versions, that new commers may feel overwhelmed, and there are plenty traps during configuration. I'm not an expert by any means in those areas, using this in my homelab and actually this is the sole purpose of the overall usecase, that someone can make use of second hand 25$ cpu ARMv7 based router, and setup an OpenVPN on top of it to get access to the homelab, when roaming, or expose it's LAN resources towards the oher FreshTomato based OpenVPN client or mobile devices etc.
 
 ## Prerequisites
+
 + FreshTomato VPN compatible device, version [2022.3](https://freshtomato.org/downloads/freshtomato-arm/2022/2022.3/K26ARM/)
 + Worth to mention that devices behind the tunnel should be in different subnets, otherwise there may be routing issues with the regular configuration. Here the 172.16.88.0 subnet is being used for the LAN bridge on the device playing OpenVPN server role
 + Time should be in sync for the OpenVPN server and clients (make use of NTP)
 
 ## Background
+
 At lot is going on in security area. It seems that this blog post will be obsolete soon, never the less at least for home lab usecase it may bring some value, apart from being educational.
+
 0. Some says that after succesfull configuration of the OpenVPN Server/Client reboot the device, in order to get rid of TLS authentication issue. Based on my experience, this was not necessary as the tunnel was established immediatelly after the puzzles has been composed into the overall picture. From the other hand, I've been experiencing TLS authentication issues, when the PassPhrases has been set for CA and Server certificate.
+
 1. Upgrade all your FreshTomato servers and clients with the same software release, and clear the NVRAM, before performing the setup. I can not guarantee that the configuration mentioned here will work with other versions of the OpenVPN than the one mentioned here. It's so dynamic and there is plenty of depreciation of features or parameters betwen versions.
+
 2. Some says that backward compatibility of the certs left much to be desired. That's why in your lab usecase it's much easier to have them regenerated than deep dive with troubleshooting. It turned out that EasyRSA 3.1.0 serves the OpenVPN 2.5.6 very well as it goes for the certificates. If it does not then you may experience TLS handshake errors, or incorrect certificates configurations.
+
 3. Routers which are short with NVRAM, are not a limitation, you can make use of JFFS or other mounted storage on your router to store them. Typically devices with 32KB of NVRAM may encounter this issue, as certificates can consume 14KB of space. This means you can still make use of RT-N16U if you have one somewhere in your wardrobe.
+
 4. It looks that SHA1 has been cracked since early 2019, this is one of the reasons here within FreshTomato SHA256/SHA512 has been used. Mikrotik with RouterOS 7 also gives that option. It seems that FreshTomato is using SHA1 to hash the passwords for the openVPN usernames.
+
 5. TCP tunnels requires MTU settings, UDP tunnels can make use of mssfix option. Small amount of fragmentations should increase the overall thorughput of the tunnel. Within this configuration mssfix is not being used.
+
 6. CBC ciphers are more legacy than GCM, CHACHA brings optimizations for ARM based devices
+
 7. Start with some reading first. It will make your life much easier.
+
 + OpenVPN [wiki](https://community.openvpn.net/openvpn/wiki/GettingStartedwithOVPN) - Getting Started with OVPN
 + OpenVPN [wiki](https://openvpn.net/community-resources/how-to/#pki) - definitelly worth reading
 + OpenVPN [bridging and routing](https://community.openvpn.net/openvpn/wiki/BridgingAndRouting#Usingrouting)
@@ -43,8 +54,11 @@ At lot is going on in security area. It seems that this blog post will be obsole
 + Github [Intro To PKI](https://github.com/OpenVPN/easy-rsa/blob/master/doc/Intro-To-PKI.md)
 
 ## ToDo
+
 This blog post is far from being perfect, I'm not an expert in any means in those areas.
-+ aside from cetrificate authentication add the [username and password](https://wiki.dd-wrt.com/wiki/index.php/OpenVPN)
+
++ aside from cetrificate authentication add the [username and password](https://wiki.dd-wrt.
+com/wiki/index.php/OpenVPN)
 + CRL - test it and ammend the custom configuration accordingly
 
 ```shell
@@ -53,14 +67,16 @@ easyrsa gen-crl
 # transfer the file to the openVPN server to the location mentioned
 # within the custom configuration
 ```
+
 + "Extended Key Usage" and "Key Usage" aka ( Client ) --remote-cert-ku --remote-cert-eku "TLS Web Server Authentication | ( Server )"TLS Web Client Authentication"
 + -tls-server and --tls-client options
 + kill switch in case of VPN dropout like [here](https://protonvpn.com/support/vpn-freshtomato-router/) - this is especially usefull when the vpn connection is your default gateway for the client.
 + set the firewall rules, that traffic is allowed or denied based on the ovpn USERNAME
 
 ## Howto
+
 First and foremost enable the SSH access, so you can get into your tomato via SSH.
-Open webbrowser and navigate to you https://FreshTomatoMgmtIPAddress/admin-access.asp
+Open webbrowser and navigate [here](https://FreshTomatoMgmtIPAddress/admin-access.asp)
 
 ```shell
 Enable at Startup    - unchecked
@@ -84,6 +100,7 @@ Start-Process "ssh" -ArgumentList "root@$freshTomatoMgmtIPAddress -p $freshTomat
 ```
 
 ## FreshTomato - Configuration - Basic Settings
+
 It turns out, that the VPN Server is distributing the IP addresses starting the bottom of the subnet range, so the *tun21* network interface of the OpenVPN server has an address of 10.0.6.241/28, where the *tun11* interface has the 10.0.6.242/28.
 VPN Tunneling -> OpenVPN Server -> Basic
 
@@ -98,7 +115,7 @@ Firewall                        - Automatic
 Authorization Mode              - TLS
 # TLS control channel details can be found here: https://openvpn.net/vpn-server-resources/tls-control-channel-security-in-openvpn-access-server/
 TLS control channel security    - Encrypt Channel V2
-(tls-auth/tls-crypt)	
+(tls-auth/tls-crypt)
 
 Auth digest	                    - SHA512
 # netmask is defining the amount of devices, here you have 14 which with this protocol will exagerate the CPU anyway
@@ -106,8 +123,11 @@ VPN subnet/netmask              - 10.0.6.240 | 255.255.255.240
 ```
 
 ## FreshTomato - Configuration - Advanced Settings
+
 Chacha is more optimized towards ARM architecture
-+ [Do the Chacha](https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/) - better mobile performance with cryptography
+
++ [Do the Chacha](https://blog.cloudflare.com/
+do-the-chacha-better-mobile-performance-with-cryptography/) - better mobile performance with cryptography
 + [It takes two to Chacha](https://blog.cloudflare.com/it-takes-two-to-chacha-poly/)
 VPN Tunneling -> OpenVPN Server -> Advanced
 
@@ -139,7 +159,9 @@ As the Allow User/Pass Auth is checked, put the login and password for the clien
 UserName and Password complement certificates. Once you check the Allow User/Pass Auth, you are shown with the GUI which allows you specifying those valuse.
 
 ## FreshTomato - Configuration - Advanced Settings - Custom Configuration
+
 Paste following content into the Custom Configuration. Some says that since OpenVPN 2.4 it is not needed to use Diffie Hellman anymore, and the configuration can base on the eliptic curve cryptography, which indeed works with OpenVPN 2.5.6.
+
 + In case you need the log to be more verbose increase the natural number next to the verb parameter
 + Mute parameter specify the the Log, logs n consecutive messages in the same category
 + Remember about adding routes towards the networks on the other side of the VPN tunnel
@@ -170,7 +192,10 @@ route 192.168.28.0 255.255.255.0 vpn_gateway
 ```
 
 ## FreshTomato - Configuration - SSL certificates and keys
-Apart from the UserName and Password, the certificates are also to be used. FreshTomato 2022.3 uses OpenVPN 2.5.6 along with OpenSSL 1.1.1o.<br>
+
+Apart from the UserName and Password, the certificates are also to be used. FreshTomato 2022.
+3 uses OpenVPN 2.5.6 along with OpenSSL 1.1.1o.
+
 TLS Authorization Mode which was picked, requires certificates. In order to met that requirement following elements are needed (on VPN server those are stored in NVRAM)
 
 ```shell
@@ -190,13 +215,15 @@ client.crt  No              OpenVPN Client Certificate                  Client
 client.key  Yes             OpenVPN Client Certficate key               Client
 ```
 
-The ca.key is only used to sign the certificates. Keep it secure and do **NOT** copy to the server nor clients.<br>
+The ca.key is only used to sign the certificates. Keep it secure and do **NOT** copy to the server nor clients.
 
-The FreshTomato [wiki](https://openvpn.net/community-resources/how-to/) states that the OpenVPN server certificates can be created directly in FreshTomato GUI using the **Generate Key** button or with making use of EasyRSA, but do **NOT** use it due to very weak entropy, try using bare metal to generate certificates.In this scenario EasyRSA 3 is in use (I was not very fortunate with the GUI button), neither with previous releases of the EeasyRSA 2.X.<br>
+The FreshTomato [wiki](https://openvpn.net/community-resources/how-to/) states that the OpenVPN server certificates can be created directly in FreshTomato GUI using the **Generate Key** button or with making use of EasyRSA, but do **NOT** use it due to very weak entropy, try using bare metal to generate certificates.In this scenario EasyRSA 3 is in use (I was not very fortunate with the GUI button), neither with previous releases of the EeasyRSA 2.X.
+
 + [EasyRSA 3](https://github.com/OpenVPN/easy-rsa)
 
 ### FreshTomato - Configuration - EasyRSA 3 - Configure CA Certificates
-Open PowerShell session with Administrative permissions. Some says that creating the certificates with EasyRSA on Windows has it's [drawbacks](https://wiki.dd-wrt.com/wiki/index.php/VPN_(the_easy_way)_v24+) - check the paragraph *Creating Certificates Using Easy RSA in Windows*. I have no observe this, once certs were created, was able to use those immediatelly.<br>
+
+Open PowerShell session with Administrative permissions. Some says that creating the certificates with EasyRSA on Windows has it's [drawbacks](https://wiki.dd-wrt.com/wiki/index.php/VPN_(the_easy_way)_v24+) - check the paragraph *Creating Certificates Using Easy RSA in Windows*. I have no observe this, once certs were created, was able to use those immediatelly.
 OpenVPN version available on FreshTomato 2022.3 is 2.5.6, which goes hand in hand with EasyRSA 3.X. So we should be covered from that perspective.
 
 ```powershell
@@ -240,17 +267,17 @@ Uset Notepad++, to edit the *C:\Temp\EasyRSA-3.1.0\pki\vars* file, uncomment fol
 ```powershell
 Get-ChildItem -Path 'C:\Program Files\EasyRSA-3.1.0\pki'
 # Edit vars file, uncomment following entries
-set_var EASYRSA_REQ_COUNTRY	"PL"
-set_var EASYRSA_REQ_PROVINCE	"Marshland"
-set_var EASYRSA_REQ_CITY	"Pristine"
-set_var EASYRSA_REQ_ORG	"MakeITcloudy"
-#set_var EASYRSA_REQ_EMAIL	"me@example.net"
-set_var EASYRSA_REQ_OU	"SurprisedItWorks"
-set_var EASYRSA_KEY_SIZE	2048
+set_var EASYRSA_REQ_COUNTRY "PL"
+set_var EASYRSA_REQ_PROVINCE    "Marshland"
+set_var EASYRSA_REQ_CITY    "Pristine"
+set_var EASYRSA_REQ_ORG "MakeITcloudy"
+#set_var EASYRSA_REQ_EMAIL  "me@example.net"
+set_var EASYRSA_REQ_OU  "SurprisedItWorks"
+set_var EASYRSA_KEY_SIZE    2048
 # EASYRSA_CA_EXPIRE defines the amount of days till the ca.crt certificate expires, by default it's 10years
-#set_var EASYRSA_CA_EXPIRE	3650
+#set_var EASYRSA_CA_EXPIRE  3650
 # EASYRSA_CERT_EXPIRE defines the amount of days till the server.crt certificate expires, by default it is 825days
-set_var EASYRSA_CERT_EXPIRE	1004
+set_var EASYRSA_CERT_EXPIRE 1004
 ```
 
 Still in the EasyRSA Shell, execute next commands to build the CA. The var file has been customized already, those parameters will be used during this phase. The common name of the is worth to be wrote down, never the less this is not this value which is being used as the Common Name check during the phased of certificate verification.
@@ -282,13 +309,16 @@ Still in the EasyRSA Shell, execute next commands to build the CA. The var file 
 ```
 
 At this stage you have
+
 + ca.crt - this file is being used on the OpenVPN Server as well as OpenVPN client
 + ca.key - this file remains private
 
 ### FreshTomato - Configuration - EasyRSA 3 - Request Server Certificate
+
 It's time to generate OpenVPN Server certificate.
+
 + the *nopass* parameter is being used, so you are **not** asked for the PEM pass phrase. If this parameter is ommited, then there is a need to put the same passphrase which was used during the CA certificate creation, never the less here for the CA creation, the *nopass* switch was also used.
-* write down, the Common Name value, as it will be used on the OpenVPN Client configuration for the verification process of the certificate Name
++ write down, the Common Name value, as it will be used on the OpenVPN Client configuration for the verification process of the certificate Name
 
 ```shell
 #EasyRSA Shell
@@ -318,6 +348,7 @@ It's time to generate OpenVPN Server certificate.
 ```
 
 ### FreshTomato - Configuration - EasyRSA 3 - Sign the CSR of Server Certificate
+
 Create the OpenVPN Server certificate, this certificate is being used only on the OpenVPN Server configuration and is not being shared with the Clients.
 
 ```shell
@@ -359,7 +390,9 @@ Create the OpenVPN Server certificate, this certificate is being used only on th
 ```
 
 ### FreshTomato - Configuration - EasyRSA 3 - Request Client certificate
+
 Repeat those steps for each OpenVPN client separatelly. It is also possible to make it later, provided you had safely backed up your ca.crt and ca.key, and have **not** run *./easyrsa init-pki* during the period of time when the certificates are valid, as this command is wiping out existing keys.
+
 + the *nopass* parameter causes that it is not needed to remove the password from the private key, in case this is not being used some extra tweak would be necessary
 
 ```shell
@@ -397,7 +430,10 @@ openssl rsa -passin pass:[SERVER_PEM_PASSPHRASE] -in FreshTomato.key -out FreshT
 ```
 
 ### FreshTomato - Configuration - EasyRSA 3 - Sign the CSR of the Client Certificate
-Create the OpenVPN Client certificate, it is being used on the OpenVPN Client configuration and identifies particular client.
+
+Create the OpenVPN Client certificate, it is being used on the OpenVPN Client configuration 
+and identifies particular client.
+
 + Common Name - is the identificator of the connected client
 
 ```shell
@@ -437,10 +473,13 @@ Create the OpenVPN Client certificate, it is being used on the OpenVPN Client co
 ```
 
 ## Depreciated - FreshTomato - Configuration - EasyRSA - Generate DH
-*No need to run this, this section can be skipped - it's left here only for informational purposes, in case someone got used to it, and during the years was using DH.<br>
-Diffie Helman is being used for the safe key exchange. EasyRSA key size was defined above as 2048 bits, if it is changed anytime during the validity of the cetificates generated, you should recreate the certificates from scratch.<br>
+
+No need to run this, this section can be skipped - it's left here only for informational purposes, in case someone got used to it, and during the years was using DH.
+
+Diffie Helman is being used for the safe key exchange. EasyRSA key size was defined above as 2048 bits, if it is changed anytime during the validity of the cetificates generated, you should recreate the certificates from scratch.
+
 + [Some says](https://wiki.archlinux.org/title/OpenVPN) that starting OpenVPN 2.4.8 to specify the eliptic curve in server configuration. Otherwise the server would fail to recognize the curve type, resulting an authentication errors.
-+ OpenVPN 2.4 brought Eliptical Curve Diffie Hellman to generate the key (provided the client also supports this). More details about it when googling for EDCSA certificates. That's why within the Advanced Tab and Custom configuration the following settings were set.<br>
++ OpenVPN 2.4 brought Eliptical Curve Diffie Hellman to generate the key (provided the client also supports this). More details about it when googling for EDCSA certificates. That's why within the Advanced Tab and Custom configuration the following settings were set.
 
 ```shell
 dh none
@@ -481,6 +520,7 @@ C:/Program Files/EasyRSA-3.1.0/pki/issued/ovpn-Client1.crt
 ```
 
 ## FreshTomato - Configuration - OpenVPN Server
+
 VPN Tunneling -> OpenVPN Server ->
 
 ```shell
@@ -521,9 +561,11 @@ tun21      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-0
 Establishing the tunnel between FreshTomato devices, with *verb 4* in the custom config, the log indicates it's 3 seconds.
 
 ## Final thoughts
+
 + ca.crt is common for the clients, until it gets renewed on the OpenVPN server device
 + ovpn-ClientX.crt and ovpn-ClientX.key is generaged individually for each OpenVPN client and separatelly shared with anyone you'd like to share your VPN with
 + Following files are shared with each client, apart from that each client has it's own UserName and Password.
+
 ```shell
 C:/Program Files/EasyRSA-3.1.0/pki/ca.crt #it's the same for each client
 #those two goes in pair and are uniques for each client
@@ -534,7 +576,7 @@ C:/Program Files/EasyRSA-3.1.0/pki/private/ovpn-Client1.key
 On top of that, drop your firewall rules.
 
 ## Summary
-That's it.<br>
-Tested on FreshTomato 2022.3, it uses OpenVPN 2.5.6, OpenSSL 1.1.1o, on RT-N18U.<br>
-Certificates generated with: EasyRSA 3.1.0, OpenSSL 3.0.3 on Windows<br>
+
+That's it. Tested on FreshTomato 2022.3, it uses OpenVPN 2.5.6, OpenSSL 1.1.1o, on RT-N18U. Certificates generated with: EasyRSA 3.1.0, OpenSSL 3.0.3 on Windows.
+
 Last update: 2022.07.01
