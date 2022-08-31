@@ -271,6 +271,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
++ Monkey365 [github](https://github.com/silverhack/monkey365)
 
 # EUC
 
