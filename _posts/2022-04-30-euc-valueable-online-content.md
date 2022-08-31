@@ -279,6 +279,7 @@ Resources available in context of End User Computing
 ## EUC - community shares
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
++ EUC Digest [webpage](https://www.eucdigest.com/), [linkedin](https://www.linkedin.com/company/eucdigest/?miniCompanyUrn=urn%3Ali%3Afs_miniCompany%3A23759490)
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
