@@ -365,6 +365,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 # Other
 
++ PL - Weronika Szatan - Co zrobic zeby nie przejsc do gorszej firmy [geek.justjoin.it](https://geek.justjoin.it/zmiana-pracy-na-lepsza-czyli-co-zrobic-zeby-nie-przejsc-do-gorszej-firmy)
 + Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
 
 + Josh Duffney [blog](https://duffney.io/)
