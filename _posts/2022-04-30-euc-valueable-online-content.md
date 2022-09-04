@@ -251,6 +251,10 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 + how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
 
+### AVD - FsLogix
+
++ T-Bone blog, Azure fileshare for WVD with Fslogix [blog](http://www.tbone.se/2020/12/04/azure-fileshare-for-wvd-with-fslogix/)
+
 ## AVD - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
@@ -369,6 +373,9 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 + PL - Weronika Szatan - Co zrobic zeby nie przejsc do gorszej firmy [geek.justjoin.it](https://geek.justjoin.it/zmiana-pracy-na-lepsza-czyli-co-zrobic-zeby-nie-przejsc-do-gorszej-firmy)
 + Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
+
++ Galloway on follow your passion [youtube](https://www.youtube.com/watch?v=2jIia7aXins)
++ Kevin Bendeler, I do not like SAFe [medium](https://kevinbendeler.medium.com/i-dont-like-safe-9a003773e42c)
 
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
