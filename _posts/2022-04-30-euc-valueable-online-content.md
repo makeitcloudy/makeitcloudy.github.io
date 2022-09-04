@@ -123,6 +123,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 + Microsoft [RDS Migration Guide towards AVD](https://twitter.com/fberson/status/1341039339929821184)
 + Mehic.se [blog](https://mehic.se/2018/12/24/install-remote-desktop-services-2016-with-desired-state-configuration/) - RDS with DSC
++ Microsoft Recommended configuration for VDI desktops [docs](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations)
 + Simon [Another Windows Blog](https://www.anotherwindowsblog.com/2018/02) - RDS farm behind NetScaler
 + Julian Mooren - [RDS powered by PVS](https://citrixguyblog.com/2021/10/07/citrix-pvs-deploy-microsoft-remote-desktop-session-hosts-with-citrix-provisioning-services/) - RDS session host on PVS steroids
 + Denis Gundarev [twitter](https://twitter.com/fdwl/), and his great video - How does the remote protocols work on [youtube](https://www.youtube.com/watch?v=khHej2Ba9B0)
@@ -359,6 +360,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 ## Citrix (CVAD) - tools
 
++ Citrix Hypervisor - fsi - flexible server installation [webpage](https://www.fsiproject.org/), [wiki](https://wiki.fsiproject.org:3443/wiki/doku.php)
 + Patrick Matua - CDF [webpage](https://patrickmatula.pages.dev/posts/whatiscitrixdiagnosticfacility/)
 + StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
 + StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
