@@ -52,6 +52,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
 + Bicep [github](https://github.com/Azure/bicep/)
++ Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
