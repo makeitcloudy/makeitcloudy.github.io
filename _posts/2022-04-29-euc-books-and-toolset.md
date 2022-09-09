@@ -137,6 +137,7 @@ Apart from community shares, there are great books which reorganize and structur
 + String to PsObject [txt to PsObject](https://doitpsway.com/converting-clipboard-text-content-to-powershell-object)
 
 + Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
++ Json Crack [github](https://github.com/AykutSarac/jsoncrack.com)
 
 ```powershell
 # get list of IP addresses connected via RDP
