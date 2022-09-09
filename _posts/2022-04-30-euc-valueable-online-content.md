@@ -210,6 +210,8 @@ It would also be helpful to bring good and consistent naming convention:
 + Dean Cefola - Azure Academy - how to setup Windows Virtual Desktop [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
 + Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
++ Michawest - Architect WVD Workshop - AVD with PowerShell [blog](https://michawets.github.io/CA-Microsoft-WVD_ARM-Workshop/)
+
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
@@ -227,6 +229,7 @@ It would also be helpful to bring good and consistent naming convention:
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 + Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
++ Azure/RDS-Templtes [github](https://github.com/Azure/RDS-Templates) - ARM Templates for Remote Desktop Services deployments
 
 ## AVD - key areas towards end user experience
 
