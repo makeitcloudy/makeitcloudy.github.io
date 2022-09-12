@@ -145,6 +145,7 @@ Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operat
 ```
 
 + GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.
++ Dall-e2 [webpage](https://openai.com/dall-e-2/)
 + wttr.in [github](https://github.com/chubin/wttr.in)
 
 ## Summary
