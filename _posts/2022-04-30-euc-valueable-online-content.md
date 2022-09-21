@@ -9,7 +9,7 @@ share-img: /assets/img/cover/img-cover-bouquet.jpg
 tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
 categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 ---
-There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and do [puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
+There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and [do puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.
 
 # Automation
@@ -45,7 +45,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## DSC
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
-+ Troy Ault [github ]<https://github.com/aultt> and [blog](https://www.labiac.com/) - DSC Db related
++ Troy Ault [github](https://github.com/aultt) and [blog](https://www.labiac.com/) - DSC Db related
 
 ## Azure - Bicep
 
