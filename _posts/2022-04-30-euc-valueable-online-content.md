@@ -51,6 +51,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
++ StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw)
 + Bicep [github](https://github.com/Azure/bicep/)
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
@@ -224,6 +225,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 ## AVD - lab - IaC
 
++ StreamingClouds [youtube](https://www.youtube.com/c/StreamingClouds)
 + Avd Accelerator [hithub](https://github.com/Azure/avdaccelerator)
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
