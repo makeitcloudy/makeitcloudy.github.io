@@ -33,6 +33,7 @@ Apart from community shares, there are great books which reorganize and structur
 ### Bicep / KQL
 
 + Freek Berson [Bicep](https://www.amazon.com/Getting-started-Bicep-Infrastructure-Azure-ebook/dp/B0984MQY2N) - 2021, Freek mentioned that he did an update for it somewhere in 2022
++ Manning, Azure Infrastructure as Code with ARM templates and Bicep [ISBN 9781617299421](https://www.manning.com/books/azure-infrastructure-as-code)
 
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
@@ -145,6 +146,7 @@ Get-WinEvent -Log 'Microsoft-Windows-TerminalServices-LocalSessionManager/Operat
 ```
 
 + GFPGAN [github](https://github.com/TencentARC/GFPGAN) - GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.
++ Dall-e2 [webpage](https://openai.com/dall-e-2/)
 + wttr.in [github](https://github.com/chubin/wttr.in)
 
 ## Summary

@@ -51,7 +51,11 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
+<<<<<<< HEAD
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw)
+=======
++ Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
+>>>>>>> 1e9f91efc07c358d35c2d33b3d7be886a0a823ee
 + Bicep [github](https://github.com/Azure/bicep/)
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
@@ -204,6 +208,8 @@ It would also be helpful to bring good and consistent naming convention:
 
 + naming convention [blog](https://justinoconnor.codes/2022/08/19/azure-periodic-table-of-resource-naming-convention-shorthands/), [microsoft](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules)
 
++ RDS in Azure, correct regular RDS farm in the cloud, not the AVD yet - year of 2017 by Freek Berson [blog](https://microsoftplatform.blogspot.com/2017/03/)
+
 + Ryan Mangan - Mastering Azure Virtual Desktop [book](https://www.amazon.com/Mastering-Azure-Virtual-Desktop-implementation/dp/1801075026)
 + Marco Moioli - Azure Virtual Desktop Succinctly [book](https://www.syncfusion.com/succinctly-free-ebooks/azure-virtual-desktop-succinctly) - Free
 
@@ -283,6 +289,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
 + Monkey365 [github](https://github.com/silverhack/monkey365)
++ Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
 
 # EUC
 
