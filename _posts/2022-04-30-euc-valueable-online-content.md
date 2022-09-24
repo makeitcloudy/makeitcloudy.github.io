@@ -51,7 +51,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
-+ StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw)
++ StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
 + Bicep [github](https://github.com/Azure/bicep/)
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
@@ -64,6 +64,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
 + Andreas Fleischmann - [Azure-Sig](https://github.com/andif888/azure-sig)
 + AutomatedLab [blog](https://automatedlab.org/en/latest/), [github](https://github.com/AutomatedLab/AutomatedLab)
+
+## Azure - DevOps
+
++ John Savill - DevOps Master Class [github](https://github.com/johnthebrit/DevOpsMC)
 
 # On-Premises / Cloud adjacent
 
@@ -223,15 +227,20 @@ It would also be helpful to bring good and consistent naming convention:
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
 
 + AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
++ Recommended settings for VDI desktops [microsoft](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations)
 
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 
+## AVD - IaC - Bicep
+
++ Freek Berson - Azure Virtual Desktop as a gaming console [github](https://github.com/fberson/Azure-Virtual-Desktop-as-a-gaming-console)
+
 ## AVD - lab - IaC
 
 + StreamingClouds [youtube](https://www.youtube.com/c/StreamingClouds)
-+ Avd Accelerator [hithub](https://github.com/Azure/avdaccelerator)
++ Avd Accelerator [github](https://github.com/Azure/avdaccelerator)
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
@@ -260,7 +269,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
 
-+ how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
++ Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
 
 ### AVD - FsLogix
 
@@ -318,6 +327,10 @@ Resources available in context of End User Computing
 + David Segura [github](https://github.com/OSDeploy)
 + Helge Klein [twitter](https://twitter.com/HelgeKlein), [blog](https://helgeklein.com/)
 + Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
+
+## OSDBuilder
+
+Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
 
 # Citrix
 
