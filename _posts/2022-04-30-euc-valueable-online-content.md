@@ -138,6 +138,8 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Sami Laiho [twitter](https://twitter.com/samilaiho)
 + DoublePulsar [RDP hijacking](https://doublepulsar.com/rdp-hijacking-how-to-hijack-rds-and-remoteapp-sessions-transparently-to-move-through-an-da2a1e73a5f6?gi=4b124037d5cb)
 
++ RDS Gateway integration with Azure AD for MFA [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-nps-extension-rdg), along with Nate Harris great series on [youtube](https://www.youtube.com/watch?v=Uj9yQZE1XEY)
+
 ## On-Premises - Parallels RAS
 
 If you decide to go RDS way, it will be beneficial for you to consider the product calls Parallels
