@@ -25,7 +25,7 @@ Aside from countless of online trainigs here are the bages collected through the
 
 #### Microsoft
 
-- [70-409](https://www.credly.com/badges/fc1a1bc0-081e-49a7-a4b7-59e074177b73/public_url) - - Server Virtualization with Windows Server Hyper-V and System Center
+- [70-409](https://www.credly.com/badges/fc1a1bc0-081e-49a7-a4b7-59e074177b73/public_url) - Server Virtualization with Windows Server Hyper-V and System Center
 - [AZ-140](https://www.credly.com/badges/4f05b02b-4228-40f1-a41d-cc81bd2fb818/public_url) - Azure Virtual Desktop Specialty
 - [AZ-900](https://www.credly.com/badges/5dd83d11-485d-4e65-915d-06bd9c002d4f/public_url) - Azure Fundamentals
 
