@@ -99,6 +99,8 @@ Apart from community shares, there are great books which reorganize and structur
 + Microsoft Optimizer [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize), previous link [github](https://github.com/TheVDIGuys/Windows_10_VDI_Optimize), [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-virtual-desktop-optimization-tool-now-available/m-p/1558614#M5056)
 + Vmware Optimizer [webpage](https://flings.vmware.com/vmware-os-optimization-tool)
 + Citrix Optimizer [webpage](https://support.citrix.com/article/CTX224676)
++ PVS Kopioi [gitlab](https://gitlab.com/patrickmatula/pvs-kopioi), [twitter](https://twitter.com/p_matula/status/1573973568546897921) - by Patrick Matula
+
 
 + ADMX reader [github](https://github.com/cognitionIT/ADMXReader/blob/master/ADMXReader.ps1)
 + Sapien [CIM/WMI Explorer](https://www.sapien.com/software/cimexplorer)
