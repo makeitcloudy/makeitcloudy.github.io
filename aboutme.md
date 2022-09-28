@@ -4,7 +4,7 @@ title: About me
 subtitle:
 ---
 
-My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer at [Rackspace Technology](https://www.rackspace.com/). For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards azure. This blog is a gave back to the community, to share the experience with people who may be seeking for the details mentioned here.
+My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer at [Rackspace Technology](https://www.rackspace.com/). For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards Azure. This blog is a gave back to the community, to share the experience with people who may be seeking for the details mentioned here.
 
 ### A bit about me
 
@@ -12,7 +12,7 @@ My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer at
 - proud Father
 - homelabber
 - founder of [makeitcloudy.pl](https://makeitcloudy.pl/#)
-
+- my github [gists](https://gist.github.com/makeitcloudy)
 ### I like
 
 - tinker on bikes, metal and wood
