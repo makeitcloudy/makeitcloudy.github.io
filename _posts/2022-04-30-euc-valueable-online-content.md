@@ -42,6 +42,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
 + Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
 
+## HashiCorp - Packer
+
++ Gold Image from Azure DevOps Pipeline to deploy a Windows VDA [github](https://github.com/ryancbutler/converge-2020) by Ryan C Butler - converge-2020
+
 ## DSC
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
@@ -72,6 +76,12 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - DevOps
 
 + John Savill - DevOps Master Class [github](https://github.com/johnthebrit/DevOpsMC)
++ Microsoft Learn - Azure PowerShell Lifecycle [microsoft](https://learn.microsoft.com/en-us/powershell/azure/azureps-support-lifecycle?view=azps-8.3.0) - when will Microsoft stop supporting the old AzureRm PowerShell Modules
++ AdminTurnedDevops - Devops-The-Hard-Way-Azure [github](https://github.com/thomast1906/DevOps-The-Hard-Way-Azure)
+
+## Azure - Arc
+
++ Azure Arc JumpStart [webpage](https://azurearcjumpstart.io/)
 
 # On-Premises / Cloud adjacent
 
@@ -79,7 +89,9 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 ## On-Premises - HomeLab preparation steps
 
++ Hyper-V Core, Active Directory [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY) along with the channel playlist (https://www.youtube.com/c/ShotokuTech/playlists) - by ShotokuTech
 + Hyper-V core, how to manage it [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY), just a life saver for everyone who is planning to make use of hyper-v and is not yet there with the DSC or PowerShell knowledge.
++ Use Hyper-V and PowerShell to quickly spin up Windows test machines [blog](https://smbtothecloud.com/use-hyper-v-and-powershell-to-quickly-spin-up-windows-test-machines/)
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
 
@@ -155,7 +167,7 @@ If you decide to go RDS way, it will be beneficial for you to consider the produ
 
 + Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY)
 
-# Azure Cloud
+# Azure Cloud - Community Shares
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
 
@@ -163,7 +175,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
 + 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
 + MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
-
++ Cloudpartner.fi [blog](https://www.cloudpartner.fi/)
 ## Azure - Training
 
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
@@ -270,6 +282,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Azure Virtual Desktop SSO with ADFS [vdibuzz](https://vdiclub.wordpress.com/2021/06/12/azure-virtual-desktop-sso-with-adfs/)
 + VDIBuzz SSO and passwrordless with youbikey [youtube](https://www.youtube.com/watch?v=PGUYoWMWgfw), along with youbikey supported devices [youbikey](https://support.yubico.com/hc/en-us/articles/360016913619-YubiKeys-for-Microsoft-Azure-AD-Passwordless-Sign-In-Guide)
 + Enable passwordless security key sign-in to on-premises resources by using Azure AD [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
++ How to enable Azure Virtual Desktop hybrid Single Sign-On [blog](https://raymondzaagsma.github.io/posts/avd_aad_sso/) - by raymondzaagsma
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
 
@@ -368,6 +381,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Nicolas Ignoto [twitter](https://twitter.com/citrixguru), [blog](https://www.citrixguru.com/2019/01/21/ltsr-vs-cr/), along with his guide [how to setup the lab](https://www.citrixguru.com/category/lab/)
 + Denis Span [blog](https://dennisspan.com/) - he was my inspiration for some automation topics around PVS etc. His blog is full of examples how the installation of the components building CVAD can be automated. You may customize those scripts for your preference, for instance including the Error and Verbose streams, they are great starting point.
 + Aaron Parker [blog](https://stealthpuppy.com/posts/),[github](https://github.com/aaronparker/VcRedist)
++ ZachThurmond, CriticalDesign.net [blog](https://www.criticaldesign.net/post/automating-lab-builds-with-xenserver-powershell-part-1-understanding-the-requirements) - Automating Lab Builds  with XenServer PowerShell, [github](https://github.com/ZachThurmond/Automated-XenServer-Labs) repository
 + Steven Noel [blog](https://verticalagetechnologies.com/) and [github](https://github.com/StevenNoel) - waiting for his VIAB module which will be suplementary for Ryan's C Bulter [Citrix-VAD-LAB](https://github.com/ryancbutler/Citrix-VAD-LAB)
 + Ryan C Bulter [github](https://github.com/ryancbutler)
 + Thomas Preischl [blog](https://www.thomaspreischl.de)
@@ -393,7 +407,6 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
-+ ShotokuTech [youtube](https://www.youtube.com/c/ShotokuTech/playlists) - hyper-v core, active directory
 
 ## Citrix (CVAD) - tools
 
