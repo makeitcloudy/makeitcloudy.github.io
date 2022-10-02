@@ -50,7 +50,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
-+ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o)
++ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o), along with all slideck shared by Freek on [github](https://github.com/fberson)
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
 + Bicep [github](https://github.com/Azure/bicep/)
@@ -58,6 +58,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
+
+## Azure - KQL
+
++ Kusto Detective Agency for learning KQL [webpage](https://detective.kusto.io/)
 
 ## Azure - Automated lab provisioning
 
@@ -81,7 +85,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 ## On-Premises - Automated lab provisioning
 
-+ GO-EUC [github](https://github.com/GO-EUC/go-euc-lab)
++ GO-EUC [github](https://github.com/GO-EUC/go-euc-lab) - along with the Virtual Expo 202209 session of @AntonvanPelt and @pvdnborn
 + Citrix-VAD-LAB [github](https://github.com/ryancbutler/Citrix-VAD-LAB) - quickly deploy a full CVAD environment on vCenter with ansible and terraform
 + Steven Noel [github](https://github.com/StevenNoel/Citrix-VAD-LAB-Single) - Citrix VAD LAB Single
 + XenDesktop7Lab [github](https://github.com/VirtualEngine/XenDesktop7Lab)
@@ -336,6 +340,10 @@ Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder Pow
 
 There are great resources in context of Citrix
 
+## Citrix DaaS
+
++ Denis Span [blog](https://dennisspan.com/azure-hosting-connections-in-citrix-virtual-apps-and-desktops-service-deep-dive/) - Azure hosting connections in Citrix virtual apps and deskops service deep dive
+
 ## Citrix Netscaler
 
 + Esther Barthel [github](https://github.com/cognitionit) - if you are interested in REST API, Nitro for Citrix ADC and topics around automation, she is the one to follow, as well as some AVD stuff
@@ -406,6 +414,8 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)
 + Free Intune Lab tenant with [M365 developer subscription](https://www.inthecloud247.com/set-up-a-free-microsoft-intune-lab-tenant-with-microsoft/)
+
++ Experts Live Netherlands [youtube](https://www.youtube.com/c/ExpertsLive/playlists), [webpage](https://www.youtube.com/c/ExpertsLive/playlists)
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
