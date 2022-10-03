@@ -173,9 +173,11 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 + Microsoft learn [webpage](https://docs.microsoft.com/en-us/learn/browse/)
 + The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
++ 8 github repos azure cloud engineers should check out [webpage](https://levelup.gitconnected.com/8-github-repos-azure-cloud-engineers-should-check-out-ee94f8f169ed)
 + 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
 + MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
 + Cloudpartner.fi [blog](https://www.cloudpartner.fi/)
+
 ## Azure - Training
 
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
