@@ -177,9 +177,11 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 + Microsoft learn [webpage](https://docs.microsoft.com/en-us/learn/browse/)
 + The Azure Podcast [youtube](https://www.youtube.com/c/TheAzurePodcast)
++ 8 github repos azure cloud engineers should check out [webpage](https://levelup.gitconnected.com/8-github-repos-azure-cloud-engineers-should-check-out-ee94f8f169ed)
 + 90 Days of DevOps [github](https://github.com/MichaelCade/90DaysOfDevOps)
 + MadeByGPS [youtube](https://www.youtube.com/c/MadeByGPS) - what is interesting is that she goes straight to the point, there is no marketing, and experience from the field
 + Cloudpartner.fi [blog](https://www.cloudpartner.fi/)
+
 ## Azure - Training
 
 + John Savil - Onboarding to Azure - [github](https://github.com/johnthebrit/CertificationMaterials)
@@ -287,6 +289,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Azure Virtual Desktop SSO with ADFS [vdibuzz](https://vdiclub.wordpress.com/2021/06/12/azure-virtual-desktop-sso-with-adfs/)
 + VDIBuzz SSO and passwrordless with youbikey [youtube](https://www.youtube.com/watch?v=PGUYoWMWgfw), along with youbikey supported devices [youbikey](https://support.yubico.com/hc/en-us/articles/360016913619-YubiKeys-for-Microsoft-Azure-AD-Passwordless-Sign-In-Guide)
 + Enable passwordless security key sign-in to on-premises resources by using Azure AD [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
++ In session PasswordLess Authentication [microsoft](https://learn.microsoft.com/en-us/azure/virtual-desktop/authentication#in-session-passwordless-authentication-preview)
 + How to enable Azure Virtual Desktop hybrid Single Sign-On [blog](https://raymondzaagsma.github.io/posts/avd_aad_sso/) - by raymondzaagsma
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
