@@ -67,6 +67,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Kusto Detective Agency for learning KQL [webpage](https://detective.kusto.io/)
 
+## PowerShell Graph
+
++ Microsoft Learn [webpage](https://learn.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0)
+
 ## Azure - Automated lab provisioning
 
 + Andreas Fleischmann - [Azure-Playground](https://github.com/andif888/azure-playground)
@@ -248,6 +252,7 @@ It would also be helpful to bring good and consistent naming convention:
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
++ Troubleshoot RDS shortpath [learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-rdp-shortpath#verifying-stun-server-connectivity-and-nat-type)
 
 ## AVD - IaC - Bicep
 
@@ -315,6 +320,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
 + Monkey365 [github](https://github.com/silverhack/monkey365)
 + Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
++ m365 network connectivity test [webpage](https://connectivity.office.com/)
 
 # EUC
 
