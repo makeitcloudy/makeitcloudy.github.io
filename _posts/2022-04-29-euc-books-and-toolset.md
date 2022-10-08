@@ -82,6 +82,8 @@ Apart from community shares, there are great books which reorganize and structur
 + Citrix [Download Scrapper](https://github.com/ryancbutler/Citrix_DL_Scrapper)
 + Citrix [License usage](https://github.com/aspicola2605/citrixlicenseusage)
 
++ Alexander Schuller - Modern workplace, wifi and ICA - splunkApp [linkedin](https://www.linkedin.com/pulse/modern-workplace-wi-fi-signal-quality-bad-application-sch%25C3%25BCller/)
+
 + Vmware Workstation vmxtoolkit [github](https://github.com/bottkars/vmxtoolkit)
 
 + HSF [Http File Server](www.rejetto.com/hfs) - the other way to share your files

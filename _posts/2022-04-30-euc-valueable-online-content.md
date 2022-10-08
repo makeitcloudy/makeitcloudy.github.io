@@ -207,6 +207,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Azure Charts [webpage](https://azurecharts.com/)
 
 + Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE), [aka.ms](http://aka.ms/AzureNamingTool)
++ Merill Fernando - aka.ms/commands - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
 + Azure Academy - Governance [youtube](https://www.youtube.com/watch?v=NxcwCwc_wmM&list=PL-V4YVm6AmwVVU8B809tRUn2bJDTX2Vj4)
 
 ## Azure Exam
@@ -247,6 +248,10 @@ It would also be helpful to bring good and consistent naming convention:
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
+
++ What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
++ What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
++ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
 
 + AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
 + Recommended settings for VDI desktops [microsoft](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations)
@@ -342,7 +347,8 @@ Resources available in context of End User Computing
 
 + MyCugc [webpage](https://mycugc.org/), with it's recoreded webinars on [youtube](https://www.youtube.com/channel/UCHUL53GmGBQbphSBs7PK5Hw)
 + Go-EUC [webpage](https://www.go-euc.com/) - there is an interesting mission behind the scenes
-+ VirtualExpo [blog](https://xenappblog.com/agenda/)
++ VirtualExpo - free recordings since 2015 [blog](https://xenapptraining.com/members/virtual-expo/)
++ Guy Leech - Dissecting windows logons - Windows Performance Recorder/Analyzer [youtube](https://www.youtube.com/watch?v=4BLYBmCS2Bs), [slides](https://speakerdeck.com/guyrleech/dissecting-windows-logons), [slides](https://speakerdeck.com/guyrleech/dissecting-logons-ca96f9d8-bdce-47e4-b006-f17bc9593e54), Windows Performance Recorder intro [microsoft learn](https://learn.microsoft.com/en-us/windows-hardware/test/wpt/windows-performance-recorder)
 + Via Monstra Acaremy [webpage](https://academy.viamonstra.com/collections)
 
 + Bas van Kaam [blog](https://www.basvankaam.com/) - he is one of the Nerdio evangelist, who shared great green book called the FMA Architecture. Hat's off for the structualized content he brings.
