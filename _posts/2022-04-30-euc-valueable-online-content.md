@@ -93,7 +93,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 ## On-Premises - HomeLab preparation steps
 
-+ Hyper-V Core, Active Directory [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY) along with the channel playlist (https://www.youtube.com/c/ShotokuTech/playlists) - by ShotokuTech
++ Hyper-V Core, Active Directory [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY) along with the [youtube channel playlist](https://www.youtube.com/c/ShotokuTech/playlists) - by ShotokuTech
 + Hyper-V core, how to manage it [youtube](https://www.youtube.com/watch?v=LEZSgWL6SZY), just a life saver for everyone who is planning to make use of hyper-v and is not yet there with the DSC or PowerShell knowledge.
 + Use Hyper-V and PowerShell to quickly spin up Windows test machines [blog](https://smbtothecloud.com/use-hyper-v-and-powershell-to-quickly-spin-up-windows-test-machines/)
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
@@ -372,7 +372,9 @@ Resources available in context of End User Computing
 
 ## OSDBuilder
 
-Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
+
++ Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
++ Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
 
 # Citrix
 

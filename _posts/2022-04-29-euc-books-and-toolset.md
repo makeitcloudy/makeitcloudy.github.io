@@ -90,7 +90,7 @@ Apart from community shares, there are great books which reorganize and structur
 
 + HSF [Http File Server](www.rejetto.com/hfs) - the other way to share your files
 
-+ Screen capturing [Sharex](https://getsharex.com/) and (https://github.com/ShareX/ShareX)
++ Screen capturing [Sharex](https://getsharex.com/) and [github](https://github.com/ShareX/ShareX)
 + Screen capturing [Licelap](https://www.cockos.com/licecap/)
 + Encoding [ffmpeg](https://ffmpeg.org/)
 + Encocing H.265 [StaxRip](https://helgeklein.com/blog/hardware-encode-video-in-h-265-with-free-tools-to-save-disk-space/)
