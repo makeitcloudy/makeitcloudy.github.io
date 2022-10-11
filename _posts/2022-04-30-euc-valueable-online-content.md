@@ -222,10 +222,12 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + AZ-900 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-900-study-guide-microsoft-azure-fundamentals-2021/)
 + AZ-900 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
 
-### AZ-104
+### AZ-104, AZ-140
 
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
++ AZ-140 - Deliver remote desktops and apps with Azure Virtual Desktop - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/m365-wvd/)
++ AZ-140 - Implement an Azure Virtual Desktop infrastructure - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/implement-azure-virtual-infrastructure/)
 
 ## Azure Virtual Desktop
 
