@@ -251,10 +251,6 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
 
-+ What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
-+ What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-+ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
-
 + AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
 + Recommended settings for VDI desktops [microsoft](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations)
 
@@ -262,6 +258,18 @@ It would also be helpful to bring good and consistent naming convention:
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 + Troubleshoot RDS shortpath [learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-rdp-shortpath#verifying-stun-server-connectivity-and-nat-type)
+
+## AVD - What's new
+
++ Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
+
++ Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
++ What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
++ What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
++ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
+
++ Tom Hickling - updates [linkedin](https://www.linkedin.com/in/tomhickling/), [twitter](https://twitter.com/tomhickling)
++ 
 
 ## AVD - IaC - Bicep
 
@@ -449,4 +457,4 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
-Last update: 2022.08.28
+Last update: 2022.10.11
