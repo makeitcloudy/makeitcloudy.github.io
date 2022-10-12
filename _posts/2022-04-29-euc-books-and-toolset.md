@@ -138,6 +138,7 @@ Apart from community shares, there are great books which reorganize and structur
 + OpenSSL [easy-csr](https://www.digicert.com/easy-csr/openssl.htm)
 + certreq [docs](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certreq_1#example)
 + OpenSSL [cheat sheet](https://classes.pracnet.net/courses/openssl-training)
++ rdpsign [microsoft learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/rdpsign)
 
 + Invoke-CommandAs [github](https://github.com/mkellerman/invoke-commandas)
 + RunAsUser [github](https://github.com/KelvinTegelaar/RunAsUser)
@@ -145,6 +146,7 @@ Apart from community shares, there are great books which reorganize and structur
 
 + Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
 + Json Crack [github](https://github.com/AykutSarac/jsoncrack.com)
++ JMESPath [json parser](https://jmespath.org/)
 
 ```powershell
 # get list of IP addresses connected via RDP

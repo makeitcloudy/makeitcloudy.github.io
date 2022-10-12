@@ -50,6 +50,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
 + Troy Ault [github](https://github.com/aultt) and [blog](https://www.labiac.com/) - DSC Db related
++ [DSC Resource Kit](https://www.powershellgallery.com/packages?q=Tags%3A%22DSCResourceKit%22)
++ Troubleshoot DSC [WinRM dependency](https://learn.microsoft.com/en-us/powershell/dsc/troubleshooting/troubleshooting?view=dsc-1.1&viewFallbackFrom=powershell-7.2#winrm-dependency), [WMF 5.1](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/wmf/setup/install-configure?view=powershell-7.2)
 
 ## Azure - Bicep
 
@@ -207,8 +209,10 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Azure Charts [webpage](https://azurecharts.com/)
 
 + Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE), [aka.ms](http://aka.ms/AzureNamingTool)
-+ Merill Fernando - aka.ms/commands - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
 + Azure Academy - Governance [youtube](https://www.youtube.com/watch?v=NxcwCwc_wmM&list=PL-V4YVm6AmwVVU8B809tRUn2bJDTX2Vj4)
+
++ Merill Fernando - [aka.ms/commands](aka.ms/commands) - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
++ Microsoft Entra end-user rollout templates and materials - [microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=6f710b95-dcef-4f2c-8386-0984f88544fe) - Use these customizable posters, training, stickers, and email templates to roll out Azure Active Directory features in your organization
 
 ## Azure Exam
 
@@ -318,6 +322,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 ### AVD - maintenance
 
 + Danidu (Madhawa) Weerasinghe - Gold Image Windows Update automation - [blog](https://hungryboysl.wordpress.com/2022/10/10/azure-virtual-desktops-gold-image-windows-update-automation/)
++ [Azure Automation DSC](https://learn.microsoft.com/en-us/azure/automation/automation-dsc-overview) -> [Azure Automanage Machine Configuration](https://learn.microsoft.com/en-us/azure/governance/machine-configuration/overview)
 
 ## AVD - community shares
 
@@ -333,7 +338,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
 + Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
-+ Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com)
++ Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
 ## w365 / m365
