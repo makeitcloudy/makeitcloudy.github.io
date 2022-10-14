@@ -54,6 +54,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
+
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o), along with all slideck shared by Freek on [github](https://github.com/fberson)
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
@@ -69,6 +70,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## PowerShell Graph
 
++ All Graph PowersShell in one place [linktr.ee](https://linktr.ee/graphpowershell)
++ Introduction to Microsoft Graph PowerShell [microsoft learn](https://learn.microsoft.com/en-us/training/modules/introduction-to-microsoft-graph-powershell/)
 + Microsoft Learn [webpage](https://learn.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0)
 
 ## Azure - Automated lab provisioning

@@ -59,6 +59,10 @@ Apart from community shares, there are great books which reorganize and structur
 + ControlUP Az RDP to machine [webpage](https://www.controlup.com/script-library-posts/az-rdp-to-machine/) - Guy Leech
 + ControlUP scripts [webpage](https://www.controlup.com/scripts/)
 
+## Azure - useful links
+
++ Azure Shell - [https://shell.azure.com/](https://shell.azure.com/)
+
 ## Tools
 
 + Diagram as Code [github](https://github.com/mingrammer/diagrams)
