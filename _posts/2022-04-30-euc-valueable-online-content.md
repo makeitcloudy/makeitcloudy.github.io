@@ -41,6 +41,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
 + Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
++ Aj [blog](https://blog.ayjc.net/posts/terraform/)
 
 ## HashiCorp - Packer
 
