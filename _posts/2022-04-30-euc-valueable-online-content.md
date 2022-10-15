@@ -204,6 +204,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 ## Azure - fasttrack for azure
 
++ [Azure updates](https://azure.microsoft.com/en-gb/updates/)
 + How to become a DevOps engineer [blog](https://spacelift.io/blog/how-to-become-devops-engineer)
 + TechmindFactory - Identity [youtube](https://www.youtube.com/c/TechMindFactory/videos)
 
@@ -271,13 +272,13 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
 
++ General availability: Static IP configurations of private endpoints [azure updates](https://azure.microsoft.com/en-gb/updates/general-availability-static-ip-configurations-of-private-endpoints/)
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 + What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
 + What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 + FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
 
 + Tom Hickling - updates [linkedin](https://www.linkedin.com/in/tomhickling/), [twitter](https://twitter.com/tomhickling)
-+ 
 
 ## AVD - IaC - Bicep
 
