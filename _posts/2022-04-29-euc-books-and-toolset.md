@@ -151,6 +151,8 @@ Apart from community shares, there are great books which reorganize and structur
 + Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
 + Json Crack [github](https://github.com/AykutSarac/jsoncrack.com)
 + JMESPath [json parser](https://jmespath.org/)
++ Regular Expressions made strangely simple [github](https://github.com/StartAutomating/Irregular)
++ Regex AI [autoregex.xyz](https://www.autoregex.xyz/)
 
 ```powershell
 # get list of IP addresses connected via RDP

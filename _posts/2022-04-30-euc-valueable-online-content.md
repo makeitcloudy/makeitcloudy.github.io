@@ -74,7 +74,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## PowerShell Graph
 
 + All Graph PowersShell in one place [linktr.ee](https://linktr.ee/graphpowershell)
-+ Introduction to Microsoft Graph PowerShell [microsoft learn](https://learn.microsoft.com/en-us/training/modules/introduction-to-microsoft-graph-powershell/)
++ Introduction to Microsoft Graph PowerShell [aka.ms/learngraphs](http://aka.ms/learngraphps),[microsoft learn](https://learn.microsoft.com/en-us/training/modules/introduction-to-microsoft-graph-powershell/)
 + Microsoft Learn [webpage](https://learn.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0)
 
 ## Azure - Automated lab provisioning
@@ -365,6 +365,7 @@ Resources available in context of End User Computing
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
++ Login VSI pwhite papers](https://www.loginvsi.com/resources/white-papers/)
 + The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
 + BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
 + RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
