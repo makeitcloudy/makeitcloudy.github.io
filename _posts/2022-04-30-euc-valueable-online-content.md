@@ -365,7 +365,8 @@ Resources available in context of End User Computing
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
-+ Login VSI pwhite papers](https://www.loginvsi.com/resources/white-papers/)
++ ControlUP [resources](https://www.controlup.com/resources/)
++ Login VSI [white papers](https://www.loginvsi.com/resources/white-papers/)
 + The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
 + BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
 + RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
