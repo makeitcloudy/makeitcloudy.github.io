@@ -341,13 +341,16 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
 + Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
 + Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
-+ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
++ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status1108675328711577600)
+
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
 ## w365 / m365
 
++ m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
++ m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
 + Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
@@ -451,6 +454,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
++ Nishith Gupta - VMware Tools in PVS Image [blog](https://guptanishith.com/vmware-tools-in-pvs-image/)
 
 ## Citrix (CVAD) - tools
 
