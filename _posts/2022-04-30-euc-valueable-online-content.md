@@ -172,7 +172,9 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 If you decide to go RDS way, it will be beneficial for you to consider the product calls Parallels
 
-+ Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY)
++ Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY), [youtube channel](https://www.youtube.com/c/parallels/playlists)
++ Paralells RAS technical certification (RAS-TP) [youtube](https://www.youtube.com/watch?v=USxdhOb5l9s)
++ Parallels RAS (RAS-TPA) [youtube](https://www.youtube.com/watch?v=M2N10yVo-8k)
 
 # Azure Cloud - Community Shares
 
@@ -314,8 +316,6 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
 
-+ Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
-
 ### AVD - FsLogix
 
 + T-Bone blog, Azure fileshare for WVD with Fslogix [blog](http://www.tbone.se/2020/12/04/azure-fileshare-for-wvd-with-fslogix/)
@@ -341,6 +341,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
+
+## Passwordless
++ Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
++ PasswordLess Digital Event [youtube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuQeH5-t0uwh50wlqS0JeeT)
++ [http://Aka.ms/GoPasswordless](http://Aka.ms/GoPasswordless), [http://Aka.ms/passwordlessWirdlessWizard](http://Aka.ms/passwordlessWirdlessWizard), [http://Aka.ms/passwordlessderdlessdeploymentguide](http://Aka.ms/passwordlessderdlessdeploymentguide), [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10), [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
 ## w365 / m365
 
