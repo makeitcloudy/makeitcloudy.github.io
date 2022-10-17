@@ -57,6 +57,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
+
 + Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o), along with all slideck shared by Freek on [github](https://github.com/fberson)
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
@@ -72,6 +73,8 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## PowerShell Graph
 
++ All Graph PowersShell in one place [linktr.ee](https://linktr.ee/graphpowershell)
++ Introduction to Microsoft Graph PowerShell [aka.ms/learngraphs](http://aka.ms/learngraphps),[microsoft learn](https://learn.microsoft.com/en-us/training/modules/introduction-to-microsoft-graph-powershell/)
 + Microsoft Learn [webpage](https://learn.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0)
 
 ## Azure - Automated lab provisioning
@@ -203,6 +206,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 ## Azure - fasttrack for azure
 
++ [Azure updates](https://azure.microsoft.com/en-gb/updates/)
 + How to become a DevOps engineer [blog](https://spacelift.io/blog/how-to-become-devops-engineer)
 + TechmindFactory - Identity [youtube](https://www.youtube.com/c/TechMindFactory/videos)
 
@@ -270,13 +274,13 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
 
++ General availability: Static IP configurations of private endpoints [azure updates](https://azure.microsoft.com/en-gb/updates/general-availability-static-ip-configurations-of-private-endpoints/)
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 + What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
 + What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 + FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
 
 + Tom Hickling - updates [linkedin](https://www.linkedin.com/in/tomhickling/), [twitter](https://twitter.com/tomhickling)
-+ 
 
 ## AVD - IaC - Bicep
 
@@ -337,7 +341,8 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
 + Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
 + Esther Barthel [github](https://github.com/cognitionIT/AzureWVD)
-+ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status/1108675328711577600)
++ Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status1108675328711577600)
+
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
@@ -349,6 +354,8 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ## w365 / m365
 
++ m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
++ m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
 + Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
@@ -367,6 +374,8 @@ Resources available in context of End User Computing
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
++ ControlUP [resources](https://www.controlup.com/resources/)
++ Login VSI [white papers](https://www.loginvsi.com/resources/white-papers/)
 + The Pub Forum [youtube](https://www.youtube.com/user/ThePubForum)
 + BriForum [youtube](https://www.youtube.com/channel/UCv8RxeSmX0-CZpywAvGuLSQ)
 + RunAsRadio [webpage](https://runasradio.com/Shows/Show/822)
@@ -450,6 +459,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
++ Nishith Gupta - VMware Tools in PVS Image [blog](https://guptanishith.com/vmware-tools-in-pvs-image/)
 
 ## Citrix (CVAD) - tools
 
