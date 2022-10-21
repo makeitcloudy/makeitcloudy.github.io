@@ -85,5 +85,5 @@ Learning something new can be stressful, challenging, and frustrating. But it is
 
 **2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
 + Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.<br>
-
++ David Heinemeier [thoughts](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0)
 Last update: 2022.05.30
