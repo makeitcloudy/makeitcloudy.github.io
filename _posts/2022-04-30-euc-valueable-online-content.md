@@ -172,11 +172,14 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 + RDS Gateway integration with Azure AD for MFA [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-nps-extension-rdg), along with Nate Harris great series on [youtube](https://www.youtube.com/watch?v=Uj9yQZE1XEY)
 
-## On-Premises - Parallels RAS
+## Parallels RAS
 
 If you decide to go RDS way, it will be beneficial for you to consider the product calls Parallels
 
-+ Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY)
++ Parallels RAS quick start guide [youtube](https://www.youtube.com/watch?v=ok4upNAXhCY), [youtube channel](https://www.youtube.com/c/parallels/playlists)
++ Paralells RAS technical certification (RAS-TP) [youtube](https://www.youtube.com/watch?v=USxdhOb5l9s)
++ Parallels RAS (RAS-TPA) [youtube](https://www.youtube.com/watch?v=M2N10yVo-8k)
++ Parallels RAS on Azure [azuremarketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/parallels.allinone)
 
 # Azure Cloud - Community Shares
 
@@ -268,6 +271,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 + Troubleshoot RDS shortpath [learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-rdp-shortpath#verifying-stun-server-connectivity-and-nat-type)
++ AVD Considerations in Risk Management [spiceworks](https://www.spiceworks.com/collaboration/remote-support/guest-article/azure-virtual-desktop-considerations-in-risk-management/)
 
 ## AVD - What's new
 
@@ -319,8 +323,6 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Configure Single Sign-On for AVD [microsoft](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-single-sign-on) - W11 22H2, RDP properties "enablerdsaadauth:i:1"
 + 2022.08.24 - Insider preview [microsoft](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842)
 
-+ Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
-
 ### AVD - FsLogix
 
 + T-Bone blog, Azure fileshare for WVD with Fslogix [blog](http://www.tbone.se/2020/12/04/azure-fileshare-for-wvd-with-fslogix/)
@@ -348,9 +350,15 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
+## Passwordless
++ Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
++ PasswordLess Digital Event [youtube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuQeH5-t0uwh50wlqS0JeeT)
++ [http://Aka.ms/GoPasswordless](http://Aka.ms/GoPasswordless), [http://Aka.ms/passwordlessWirdlessWizard](http://Aka.ms/passwordlessWirdlessWizard), [http://Aka.ms/passwordlessderdlessdeploymentguide](http://Aka.ms/passwordlessderdlessdeploymentguide), [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10), [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
+
 ## w365 / m365
 
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
++ Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
 + Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
@@ -404,6 +412,7 @@ There are great resources in context of Citrix
 
 ## Citrix DaaS
 
++ CVAD-as-Code: Applying DevOps to Images and Infrastructure - [youtube](https://www.youtube.com/watch?v=hS84ylAtrNg)
 + Denis Span [blog](https://dennisspan.com/azure-hosting-connections-in-citrix-virtual-apps-and-desktops-service-deep-dive/) - Azure hosting connections in Citrix virtual apps and deskops service deep dive
 
 ## Citrix Netscaler
