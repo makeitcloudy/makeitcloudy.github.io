@@ -65,6 +65,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
++ Sharing bicep modules with azure container registry [dev.to](https://dev.to/azure/sharing-bicep-modules-with-azure-container-registry-4mo0)
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
 ## Azure - KQL
@@ -286,7 +287,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 ## AVD - lab - IaC
 
-+ StreamingClouds [youtube](https://www.youtube.com/c/StreamingClouds)
++ StreamingClouds [youtube](https://www.youtube.com/c/StreamingClouds), [linkedin](https://www.linkedin.com/company/streamingclouds/)
 + Avd Accelerator [github](https://github.com/Azure/avdaccelerator)
 + Tighetec [blog](https://tighetec.co.uk/2022/07/01/avd-deployment-azure-ad-join-bicep/) - avd deployment auzre ad join with Bicep, [github](https://github.com/jamesatighe/AVD-BICEP)
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF) - AVD and Terraform
@@ -353,6 +354,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
 + Alex Danilychev [linkedin shares](https://www.linkedin.com/in/alexdanilychev/recent-activity/shares/)
 + Thomas Marcussen [blog](https://blog.thomasmarcussen.com/apps-in-windows-365-what-everyone-wants-to-know/) - apps in Windows 365, what everyone wants to know
++ Manage Cloud PCs and Virtual Desktops [microsoft learn](https://learn.microsoft.com/en-us/training/modules/manage-virtual-desktops/?WT.mc_id=learnlive-20221012B%3FWT.mc_id%3Dlearnlive-20221012B)
 + M365 recommended block rules [microsoft](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) - Defender Application Control
 + Monkey365 [github](https://github.com/silverhack/monkey365)
 + Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
