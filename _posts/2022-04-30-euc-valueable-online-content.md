@@ -410,6 +410,8 @@ Resources available in context of End User Computing
 
 There are great resources in context of Citrix
 
++ CVAD what's new - 2022.09 [citrix blog](https://www.citrix.com/blogs/2022/09/29/whats-new-with-citrix-daas-and-citrix-virtual-apps-and-desktops-september-2022/)
+
 ## Citrix DaaS
 
 + CVAD-as-Code: Applying DevOps to Images and Infrastructure - [youtube](https://www.youtube.com/watch?v=hS84ylAtrNg)
