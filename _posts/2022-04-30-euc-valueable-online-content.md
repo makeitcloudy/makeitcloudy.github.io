@@ -263,6 +263,7 @@ It would also be helpful to bring good and consistent naming convention:
 + Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
++ Mahammad Kubaib - AVD/Citrix vs DNS [youtube](https://www.youtube.com/watch?v=sKs-24CLPG8)
 
 + AVD Cloud adoption framework [microsoft docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone)
 + Recommended settings for VDI desktops [microsoft](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations)
