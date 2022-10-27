@@ -224,11 +224,15 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
 + Azure Charts [webpage](https://azurecharts.com/)
 
-+ Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE), [aka.ms](http://aka.ms/AzureNamingTool)
++ Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE)
 + Azure Academy - Governance [youtube](https://www.youtube.com/watch?v=NxcwCwc_wmM&list=PL-V4YVm6AmwVVU8B809tRUn2bJDTX2Vj4)
 
-+ Merill Fernando - [aka.ms/commands](aka.ms/commands) - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
++ Merill Fernando - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
 + Microsoft Entra end-user rollout templates and materials - [microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=6f710b95-dcef-4f2c-8386-0984f88544fe) - Use these customizable posters, training, stickers, and email templates to roll out Azure Active Directory features in your organization
+
++ [http://aka.ms/commands](http://aka.ms/commands)
++ Microsoft Cloud command line [https://cmd.ms/docs/tips/](https://cmd.ms/docs/tips/)
++ Microsoft cloud adoption framework [http://aka.ms/AzureNamingTool](http://aka.ms/AzureNamingTool)
 
 ## Azure Exam
 
@@ -307,6 +311,10 @@ It would also be helpful to bring good and consistent naming convention:
 + go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab/tree/features/AzureVirtualDesktop-TF/terraform/azure/delivery/avd) - automated deployment of Azure AVD mentioned by Patrick van den Born on [twitter](https://twitter.com/pvdnborn/status/1532065490612666368)
 + Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
 + Azure/RDS-Templtes [github](https://github.com/Azure/RDS-Templates) - ARM Templates for Remote Desktop Services deployments
+
+## AVD - Image Management
+
++ Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
 
 ## AVD - key areas towards end user experience
 
@@ -415,7 +423,6 @@ Resources available in context of End User Computing
 + Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
 
 ## OSDBuilder
-
 
 + Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
 + Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
