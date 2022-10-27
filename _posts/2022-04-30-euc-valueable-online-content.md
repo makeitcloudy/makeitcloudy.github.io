@@ -188,6 +188,8 @@ If you decide to go RDS way, it will be beneficial for you to consider the produ
 + Parallels RAS (RAS-TPA) [youtube](https://www.youtube.com/watch?v=M2N10yVo-8k)
 + Parallels RAS on Azure [azuremarketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/parallels.allinone)
 
++ [Awingu](https://www.awingu.com) - remote access technology that acts as a VPN alternative
+
 # Azure - Community Shares
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
@@ -315,6 +317,7 @@ It would also be helpful to bring good and consistent naming convention:
 ## AVD - Image Management
 
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
 
 ## AVD - key areas towards end user experience
 
