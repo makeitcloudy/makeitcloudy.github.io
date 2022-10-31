@@ -57,14 +57,21 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - Bicep
 
-+ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/?WT.mc_id=DT-MVP-5001664)
-
-+ Bicep, Esther Barthel,Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o), along with all slideck shared by Freek on [github](https://github.com/fberson)
-+ StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
-+ Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
 + Bicep [github](https://github.com/Azure/bicep/)
++ Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/)
++ Bicep [microsoft learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep)
+
++ Bicep deployment reference [https://docs.microsoft.com/azure/templates/{provider-namespace}/{resource-type}](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)
+
++ Bicep, Esther Barthel, Freek Berson [fabulous intro video](https://www.youtube.com/watch?v=Cvbr-pI6G0o), along with all slideck shared by Freek on [github](https://github.com/fberson)
++ John Savill - Understanding and using project Bicep [youtube](https://www.youtube.com/watch?v=_yvb6NVx61Y)
++ Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
++ StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
++ Bicep, Esther Barthel, Freek Berson - Experts Netherlands slideck [github - part I](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20II.pdf), [github - part II](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20I.pdf)
+
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
+
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Sharing bicep modules with azure container registry [dev.to](https://dev.to/azure/sharing-bicep-modules-with-azure-container-registry-4mo0)
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
@@ -184,7 +191,9 @@ If you decide to go RDS way, it will be beneficial for you to consider the produ
 + Parallels RAS (RAS-TPA) [youtube](https://www.youtube.com/watch?v=M2N10yVo-8k)
 + Parallels RAS on Azure [azuremarketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/parallels.allinone)
 
-# Azure Cloud - Community Shares
++ [Awingu](https://www.awingu.com) - remote access technology that acts as a VPN alternative
+
+# Azure - Community Shares
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
 
@@ -220,11 +229,15 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Azure Developer Cheatsheet [github](https://github.com/milanm/azure-cheat-sheet)
 + Azure Charts [webpage](https://azurecharts.com/)
 
-+ Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE), [aka.ms](http://aka.ms/AzureNamingTool)
++ Cloud Adoption Framework - Azure Naming Tool [github](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), [youtube](https://www.youtube.com/watch?v=Ztmxx_KhZdE)
 + Azure Academy - Governance [youtube](https://www.youtube.com/watch?v=NxcwCwc_wmM&list=PL-V4YVm6AmwVVU8B809tRUn2bJDTX2Vj4)
 
-+ Merill Fernando - [aka.ms/commands](aka.ms/commands) - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
++ Merill Fernando - [github](https://github.com/microsoft/aka#readme), [twitter](https://twitter.com/merill/status/1578301242530443264)
 + Microsoft Entra end-user rollout templates and materials - [microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=6f710b95-dcef-4f2c-8386-0984f88544fe) - Use these customizable posters, training, stickers, and email templates to roll out Azure Active Directory features in your organization
+
++ [http://aka.ms/commands](http://aka.ms/commands)
++ Microsoft Cloud command line [https://cmd.ms/docs/tips/](https://cmd.ms/docs/tips/)
++ Microsoft cloud adoption framework [http://aka.ms/AzureNamingTool](http://aka.ms/AzureNamingTool)
 
 ## Azure Exam
 
@@ -242,6 +255,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
 + AZ-104 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/)
++ AZ-104 - Tim's Warner Azure Administrator certification study image [lucid](https://lucid.app/publicSegments/view/70bcc0b4-625c-4660-b2a8-7ba46ea86326/image.png)
 + AZ-140 - Deliver remote desktops and apps with Azure Virtual Desktop - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/m365-wvd/)
 + AZ-140 - Implement an Azure Virtual Desktop infrastructure - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/implement-azure-virtual-infrastructure/)
 
@@ -303,6 +317,11 @@ It would also be helpful to bring good and consistent naming convention:
 + Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
 + Azure/RDS-Templtes [github](https://github.com/Azure/RDS-Templates) - ARM Templates for Remote Desktop Services deployments
 
+## AVD - Image Management
+
++ Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
+
 ## AVD - key areas towards end user experience
 
 Regardless of the overal engine underneath wich is bringing the Virtual Workplace functionality, there are few key areas which Virtual Workplace ninjas should cover, the list below will expand and cover those elemnts up to some extend.
@@ -359,9 +378,14 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Orin Thomas - The video for the new LAPS (built into the OS rather than separate add on) presentation is up -  Managing Local admin account passwords in AD and Azure AD [youtube](https://www.youtube.com/watch?v=jdEDIXm4JgU)
 
 ## Passwordless
+
 + Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
 + PasswordLess Digital Event [youtube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuQeH5-t0uwh50wlqS0JeeT)
-+ [http://Aka.ms/GoPasswordless](http://Aka.ms/GoPasswordless), [http://Aka.ms/passwordlessWirdlessWizard](http://Aka.ms/passwordlessWirdlessWizard), [http://Aka.ms/passwordlessderdlessdeploymentguide](http://Aka.ms/passwordlessderdlessdeploymentguide), [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10), [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
++ [http://Aka.ms/GoPasswordless](http://Aka.ms/GoPasswordless)
++ [http://Aka.ms/passwordlessWirdlessWizard](http://Aka.ms/passwordlessWirdlessWizard)
++ [http://Aka.ms/passwordlessderdlessdeploymentguide](http://Aka.ms/passwordlessderdlessdeploymentguide)
++ [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10)
++ [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
 ## w365 / m365
 
@@ -410,13 +434,14 @@ Resources available in context of End User Computing
 
 ## OSDBuilder
 
-
 + Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
 + Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
 
 # Citrix
 
 There are great resources in context of Citrix
+
++ CVAD what's new - 2022.09 [citrix blog](https://www.citrix.com/blogs/2022/09/29/whats-new-with-citrix-daas-and-citrix-virtual-apps-and-desktops-september-2022/)
 
 ## Citrix DaaS
 
