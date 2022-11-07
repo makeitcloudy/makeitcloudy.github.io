@@ -120,6 +120,7 @@ Apart from community shares, there are great books which reorganize and structur
 + [Short link creator](https://katystech.blog/projects/project-short-link-creator)
 
 + Aaron Parker [vcredist](https://github.com/aaronparker/vcredist)
++ MSIX-Hero [github](https://github.com/marcinotorowski/MSIX-Hero)
 + Ventoy create bootable USB [github](https://github.com/ventoy/Ventoy)
 + pdf split, merge, mix [github](https://github.com/torakiki/pdfsam)
 + [Ninite](https://ninite.com/) - Install and Update your apps at once

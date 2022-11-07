@@ -20,6 +20,7 @@ League of Devops or Clickops.
 
 It's essential get comfortable with PowerShell, it will help you switch from imperative style of work towards declarative, when you get some hands on experience with DSC and Bicep. There are few great books about PowerShell as well as great quality content on the PowerShell advocates blogs.
 
++ Don Jones - [youtube](https://www.youtube.com/watch?v=KprrLkjPq_c) - must watch
 + Kevin Marquette - [blog](https://powershellexplained.com/)
 + Jeff Hicks - [blog](https://jdhitsolutions.com/blog/), [github](https://github.com/jdhitsolutions)
 + Mike F Robbins - [blog](https://mikefrobbins.com/)
@@ -140,6 +141,8 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 + TheNetworkBerg [youtube](https://www.youtube.com/c/TheNetworkBerg), [github](https://github.com/TheNetworkBerg) - if you are focused on EUC, here is enough content about networking shared in digestable way, which can help you pass MCTNA and MTCRE
 
+## On-Premises - Proxy and linux deamons
++ NetShark - Managing Web Services - Apache | NGIX | Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
 ## On-Premises - PKI
 
 + Vadims Podans [webpage](https://www.pkisolutions.com/), [github](https://github.com/PKISolutions/PSPKI)
@@ -389,6 +392,10 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
+
+## LAPS
+
++ Orin Thomas - The video for the new LAPS (built into the OS rather than separate add on) presentation is up -  Managing Local admin account passwords in AD and Azure AD [youtube](https://www.youtube.com/watch?v=jdEDIXm4JgU)
 
 ## Passwordless
 
