@@ -143,6 +143,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 ## On-Premises - Proxy and linux deamons
 + NetShark - Managing Web Services - Apache | NGIX | Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
+
 ## On-Premises - PKI
 
 + Vadims Podans [webpage](https://www.pkisolutions.com/), [github](https://github.com/PKISolutions/PSPKI)
@@ -471,7 +472,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
 + Nicolas Ignoto [twitter](https://twitter.com/citrixguru), [blog](https://www.citrixguru.com/2019/01/21/ltsr-vs-cr/), along with his guide [how to setup the lab](https://www.citrixguru.com/category/lab/)
 + Denis Span [blog](https://dennisspan.com/) - he was my inspiration for some automation topics around PVS etc. His blog is full of examples how the installation of the components building CVAD can be automated. You may customize those scripts for your preference, for instance including the Error and Verbose streams, they are great starting point.
-+ Aaron Parker [blog](https://stealthpuppy.com/posts/),[github](https://github.com/aaronparker/VcRedist)
++ Aaron Parker [twitter](https://twitter.com/stealthpuppy), [blog](https://stealthpuppy.com/posts/), [github](https://github.com/aaronparker/VcRedist)
 + ZachThurmond, CriticalDesign.net [blog](https://www.criticaldesign.net/post/automating-lab-builds-with-xenserver-powershell-part-1-understanding-the-requirements) - Automating Lab Builds  with XenServer PowerShell, [github](https://github.com/ZachThurmond/Automated-XenServer-Labs) repository
 + Steven Noel [blog](https://verticalagetechnologies.com/) and [github](https://github.com/StevenNoel) - waiting for his VIAB module which will be suplementary for Ryan's C Bulter [Citrix-VAD-LAB](https://github.com/ryancbutler/Citrix-VAD-LAB)
 + Ryan C Bulter [github](https://github.com/ryancbutler)
