@@ -142,7 +142,8 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + TheNetworkBerg [youtube](https://www.youtube.com/c/TheNetworkBerg), [github](https://github.com/TheNetworkBerg) - if you are focused on EUC, here is enough content about networking shared in digestable way, which can help you pass MCTNA and MTCRE
 
 ## On-Premises - Proxy and linux deamons
-+ NetShark - Managing Web Services - Apache | NGIX | Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
+
++ NetShark - Managing Web Services - Apache - NGIX - Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
 
 ## On-Premises - PKI
 
@@ -407,6 +408,9 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + [http://Aka.ms/passwordlessderdlessdeploymentguide](http://Aka.ms/passwordlessderdlessdeploymentguide)
 + [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10)
 + [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
+
+## Passkeys
++ Passkeys - Microsoft, Apple and Google's password killer [arstechnica](https://arstechnica.com/information-technology/2022/10/passkeys-microsoft-apple-and-googles-password-killer-are-finally-here/)
 
 ## w365 / m365
 
