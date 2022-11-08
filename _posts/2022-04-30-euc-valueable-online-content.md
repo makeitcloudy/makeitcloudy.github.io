@@ -183,6 +183,25 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 + RDS Gateway integration with Azure AD for MFA [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-nps-extension-rdg), along with Nate Harris great series on [youtube](https://www.youtube.com/watch?v=Uj9yQZE1XEY)
 
+## Nutanix
+
++ Your Guide to Selecting the Nutanix Certification that’s Right for You [nutanix blog](https://next.nutanix.com/education-blog-153/your-guide-to-selecting-the-nutanix-certification-that-s-right-for-you-41289?utm_source=bambu&utm_medium=social&utm_campaign=social&blaid=3703891)
++ Nutanix University Training & Certification [nutanix](https://www.nutanix.com/support-services/training-certification/certifications), [linkedin](https://lnkd.in/dRgifdzN) - code shared some time ago: HLW22FRX
++ 2022.11 - NCA, NCP-MCI certifications for free [link](https://next.nutanix.com/education-blog-153/get-your-nca-or-ncp-mci-v6-5-certification-for-free-41217)
++ 
++ Nutanix University [linkedin](https://www.linkedin.com/showcase/nutanixuniversity/)
++ Nutanix [architecture](https://www.nutanix.com/architecture)
++ Nutanix [Design Guide](https://vcdx133.files.wordpress.com/2019/05/the-nutanix-design-guide-first-edition.pdf)
++ Nutanix [Hybrid Cloud Reference Architecture](https://portal.nutanix.com/page/documents/solutions/details?targetId=Nutanix_Hybrid_Cloud_Reference_Architecture:Nutanix_Hybrid_Cloud_Reference_Architecture)
++ Nutanix Frame [Solutions documentation](https://portal.nutanix.com/page/documents/solutions/details?targetId=TN-2118-Nutanix-Xi-Frame:TN-2118-Nutanix-Xi-Frame)
++ Nutanix Frame [trial](https://www.nutanix.com/work-from-home) and Frame Documentation [Frame on Nutanix AHV](https://docs.frame.nutanix.com/infrastructure/byo/frame-AHV/frame-AHV.html)
+
+### Nutanix & Citrix
+
++ Citrix Virtual Apps and Desktops on Nutanix [best practices](https://portal.nutanix.com/page/documents/solutions/details?targetId=BP-2079-Citrix-Virtual-Apps-and-Desktops:BP-2079-Citrix-Virtual-Apps-and-Desktops)
++ Citrix DaaS on Nutanix [best practices](https://portal.nutanix.com/page/documents/solutions/details?targetId=BP-2062-Citrix-Virtual-Apps-and-Desktops-Service:BP-2062-Citrix-Virtual-Apps-and-Desktops-Service)
++ Nutanix Citrix DaaS [Validated Design](https://portal.nutanix.com/page/documents/solutions/details?targetId=NVD-2158-Citrix-DaaS:NVD-2158-Citrix-DaaS)
+
 ## Parallels RAS
 
 If you decide to go RDS way, it will be beneficial for you to consider the product calls Parallels
@@ -322,6 +341,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
 + Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
++ AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
 
 ## AVD - key areas towards end user experience
 
@@ -362,7 +382,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
 + Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
 + Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
-+ Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG)
++ Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG), [news webpage](news.ryanmangansitblog.com)
 + Patrick Koehler [blog](https://avdlogix.com/), [youtube](https://www.youtube.com/channel/UC5aOMyGv93p1plb2QB2RY_g/playlists)
 + Marcer Meurer [blog](https://blog.itprocloud.de), [github](https://github.com/MarcelMeurer)
 + Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
@@ -442,6 +462,8 @@ Resources available in context of End User Computing
 
 There are great resources in context of Citrix
 
++ What's new and Next with Citrix DaaS - 2H 2022 [youtube](https://www.youtube.com/watch?v=w34sj6MYmRM)
++ https://www.youtube.com/watch?v=w34sj6MYmRM
 + CVAD what's new - 2022.09 [citrix blog](https://www.citrix.com/blogs/2022/09/29/whats-new-with-citrix-daas-and-citrix-virtual-apps-and-desktops-september-2022/)
 
 ## Citrix DaaS
