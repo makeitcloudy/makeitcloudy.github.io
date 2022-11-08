@@ -316,6 +316,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
 
++ Dean Cefola - MS Azure Academy - AVD Private Endpoints [youtube](https://www.youtube.com/watch?v=UdD1kfKZwOM)
 + General availability: Static IP configurations of private endpoints [azure updates](https://azure.microsoft.com/en-gb/updates/general-availability-static-ip-configurations-of-private-endpoints/)
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 + What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
