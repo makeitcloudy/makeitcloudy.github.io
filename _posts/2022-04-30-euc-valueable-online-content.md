@@ -316,6 +316,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
 
++ Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session VMs is now GA [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-intune-user-scope-configuration-for-azure-virtual/ba-p/3667410?WT.mc_id=AZ-MVP-5004159)
 + Dean Cefola - MS Azure Academy - AVD Private Endpoints [youtube](https://www.youtube.com/watch?v=UdD1kfKZwOM)
 + General availability: Static IP configurations of private endpoints [azure updates](https://azure.microsoft.com/en-gb/updates/general-availability-static-ip-configurations-of-private-endpoints/)
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
@@ -542,6 +543,8 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 + Galloway on follow your passion [youtube](https://www.youtube.com/watch?v=2jIia7aXins)
 + Kevin Bendeler, I do not like SAFe [medium](https://kevinbendeler.medium.com/i-dont-like-safe-9a003773e42c)
++ Enterprise vs Solution vs Technical Architect [leanix](https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-solution-architect-vs-technical-architect-whats-the-difference?utm_content=buffer27c09&utm_medium=social&utm_source=linkedin.com&utm_campaign=buffer)
++ Why Some People Get Burned Out and Others Don’t [hbr](https://hbr.org/2016/11/why-some-people-get-burned-out-and-others-dont?utm_medium=social&utm_campaign=hbr&utm_source=twitter&tpcc=orgsocial_edit)
 
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
