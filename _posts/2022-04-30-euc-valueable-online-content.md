@@ -142,7 +142,9 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + TheNetworkBerg [youtube](https://www.youtube.com/c/TheNetworkBerg), [github](https://github.com/TheNetworkBerg) - if you are focused on EUC, here is enough content about networking shared in digestable way, which can help you pass MCTNA and MTCRE
 
 ## On-Premises - Proxy and linux deamons
-+ NetShark - Managing Web Services - Apache | NGIX | Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
+
++ NetShark - Managing Web Services - Apache - NGIX - Squid - Linux LPIC2 [youtube](https://www.youtube.com/c/NetSharkPro)
+
 ## On-Premises - PKI
 
 + Vadims Podans [webpage](https://www.pkisolutions.com/), [github](https://github.com/PKISolutions/PSPKI)
@@ -314,6 +316,8 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Azure Virtual Desktop Blog [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/bg-p/AzureVirtualDesktopBlog)
 
++ Microsoft Intune user scope configuration for Azure Virtual Desktop multi-session VMs is now GA [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-intune-user-scope-configuration-for-azure-virtual/ba-p/3667410?WT.mc_id=AZ-MVP-5004159)
++ Dean Cefola - MS Azure Academy - AVD Private Endpoints [youtube](https://www.youtube.com/watch?v=UdD1kfKZwOM)
 + General availability: Static IP configurations of private endpoints [azure updates](https://azure.microsoft.com/en-gb/updates/general-availability-static-ip-configurations-of-private-endpoints/)
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 + What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
@@ -431,6 +435,9 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10)
 + [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
+## Passkeys
++ Passkeys - Microsoft, Apple and Google's password killer [arstechnica](https://arstechnica.com/information-technology/2022/10/passkeys-microsoft-apple-and-googles-password-killer-are-finally-here/)
+
 ## w365 / m365
 
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
@@ -517,7 +524,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
 + Nicolas Ignoto [twitter](https://twitter.com/citrixguru), [blog](https://www.citrixguru.com/2019/01/21/ltsr-vs-cr/), along with his guide [how to setup the lab](https://www.citrixguru.com/category/lab/)
 + Denis Span [blog](https://dennisspan.com/) - he was my inspiration for some automation topics around PVS etc. His blog is full of examples how the installation of the components building CVAD can be automated. You may customize those scripts for your preference, for instance including the Error and Verbose streams, they are great starting point.
-+ Aaron Parker [blog](https://stealthpuppy.com/posts/),[github](https://github.com/aaronparker/VcRedist)
++ Aaron Parker [twitter](https://twitter.com/stealthpuppy), [blog](https://stealthpuppy.com/posts/), [github](https://github.com/aaronparker/VcRedist)
 + ZachThurmond, CriticalDesign.net [blog](https://www.criticaldesign.net/post/automating-lab-builds-with-xenserver-powershell-part-1-understanding-the-requirements) - Automating Lab Builds  with XenServer PowerShell, [github](https://github.com/ZachThurmond/Automated-XenServer-Labs) repository
 + Steven Noel [blog](https://verticalagetechnologies.com/) and [github](https://github.com/StevenNoel) - waiting for his VIAB module which will be suplementary for Ryan's C Bulter [Citrix-VAD-LAB](https://github.com/ryancbutler/Citrix-VAD-LAB)
 + Ryan C Bulter [github](https://github.com/ryancbutler)
@@ -560,6 +567,8 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 + Galloway on follow your passion [youtube](https://www.youtube.com/watch?v=2jIia7aXins)
 + Kevin Bendeler, I do not like SAFe [medium](https://kevinbendeler.medium.com/i-dont-like-safe-9a003773e42c)
++ Enterprise vs Solution vs Technical Architect [leanix](https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-solution-architect-vs-technical-architect-whats-the-difference?utm_content=buffer27c09&utm_medium=social&utm_source=linkedin.com&utm_campaign=buffer)
++ Why Some People Get Burned Out and Others Don’t [hbr](https://hbr.org/2016/11/why-some-people-get-burned-out-and-others-dont?utm_medium=social&utm_campaign=hbr&utm_source=twitter&tpcc=orgsocial_edit)
 
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
