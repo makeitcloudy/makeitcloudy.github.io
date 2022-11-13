@@ -13,8 +13,8 @@ It's not the most secure way, but can be used as a good starting point for furth
 
 ## A bit of background
 
-One of the blog reader Arturus had a usecase, where he needs to get his dev device within the same network range as the iphone. There is a server within the the network, along with the dev device connected via LAN cables to the devices, no masquerade, all devices served via IP addresses comming from the iphone. The network mask is 255.255.255.240 on the iphone hotspot, which means that 13 devices + mikrotik should be able to be handled by the iOS.
-In case there are L2 protocols which are used to communicate between devices, and the mikrotik should play the role of the interface converter, or one is willing to use cable connectivity, it may be the solution for you.
+One of the blog reader Arturus had a usecase, where he needs to get his dev device within the same network range as the iphone. There is a server within the the network, along with the dev device connected via LAN cables to the devices, no masquerade, all devices served via IP addresses comming from the iphone. The network mask is 255.255.255.240 on the iphone hotspot, which means that 13 devices + mikrotik should be able to be handled by the iOS.<br>
+In case there are L2 protocols which are used to communicate between devices, and the mikrotik should play the role of the interface converter, or one is willing to use cable connectivity, it may be the solution for you.<br>
 By default the iOS 15.7 serves the 172.20.10.1/28.
 
 ## Caveats
