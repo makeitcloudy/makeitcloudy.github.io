@@ -403,6 +403,10 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Danidu (Madhawa) Weerasinghe - Gold Image Windows Update automation - [blog](https://hungryboysl.wordpress.com/2022/10/10/azure-virtual-desktops-gold-image-windows-update-automation/)
 + [Azure Automation DSC](https://learn.microsoft.com/en-us/azure/automation/automation-dsc-overview) -> [Azure Automanage Machine Configuration](https://learn.microsoft.com/en-us/azure/governance/machine-configuration/overview)
 
+### AVD - troubeshoot
+
++ Troubleshoot agent [microsoft learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-agent)
+
 ## AVD - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
