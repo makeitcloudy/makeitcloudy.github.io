@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to configure Mikrotik as wifi bridge with iphone hotspot"
+title: "Mikrotik wifi bridge for Apple developers"
 permalink: "/how-to-configure-mikrotik-as-wifi-bridge-in-iphone-network/"
 subtitle: "Mikrotik acts as the interface converter, your dev machine in the same network range as your iphone"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
@@ -19,7 +19,7 @@ By default the iOS 15.7 serves the 172.20.10.1/28.
 
 ## Caveats
 
-I've seen it disconnecting from the mobile, once the display of the device turn off, I'm sure there is some configuraton within the mobile, to overcome this.
+I've seen it disconnecting from the mobile, once the display of the device turn off. I'm sure there is some configuraton within the mobile, to get this sorted out.
 
 ## Prerequisites
 
