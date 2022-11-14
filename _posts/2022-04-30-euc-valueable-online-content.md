@@ -345,7 +345,34 @@ It would also be helpful to bring good and consistent naming convention:
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
 + Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
 + AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
+<<<<<<< HEAD
 + Askaresh - AVD monthly patching on the golden images [blog](https://askaresh.com/2022/11/14/azure-virtual-desktop-apply-monthly-microsoft-security-cumulative-updates-on-the-golden-image-with-azure-compute-galleries/)
+=======
++ Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
+
+Mahammad Kubaib advise
+```shell
+One of the Best way to keep your golden vm upto date and image management in AVD..
+(By default when you sysprep and convert golden vm to image, it will make the vm unusable for future use)
+
+1.Create golden vm
+2.Install patch and apps (optionally join to domain for apps testing )
+3.shutdown the Golden image
+4.Clone and create New vm (snapshot of golden vm>create a disk >create vm)
+5.disjoin the cloned vm from domain
+6.sysprep cloned VM
+7.convert the vm to Image (select delete vm option while converting to image)
+8. Optionally upload it to compute gallery
+9.Build hostpool or add vms to hostpool using the image
+*************************************************
+10.Turn on golden VM
+11.Install or update monthly patches and apps
+12.Repeat step 3 to 8
+
+so with this you can keep your golden image always upto date and it allows you to redeploy your hostpool or add new vms to hostpool anytime with the latest image 😉
+Note : (citrix and vmware vdi solution does this image management automatically for you ..hope someday will see the same in AVD as well 🤞 )
+```
+>>>>>>> 2fe62ae8c7290a19165cbbb69603b5a103de59e3
 
 ## AVD - key areas towards end user experience
 
@@ -379,6 +406,10 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 + Danidu (Madhawa) Weerasinghe - Gold Image Windows Update automation - [blog](https://hungryboysl.wordpress.com/2022/10/10/azure-virtual-desktops-gold-image-windows-update-automation/)
 + [Azure Automation DSC](https://learn.microsoft.com/en-us/azure/automation/automation-dsc-overview) -> [Azure Automanage Machine Configuration](https://learn.microsoft.com/en-us/azure/governance/machine-configuration/overview)
+
+### AVD - troubeshoot
+
++ Troubleshoot agent [microsoft learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-agent)
 
 ## AVD - community shares
 

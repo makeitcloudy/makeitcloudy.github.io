@@ -109,7 +109,6 @@ Apart from community shares, there are great books which reorganize and structur
 + Citrix Optimizer [webpage](https://support.citrix.com/article/CTX224676)
 + PVS Kopioi [gitlab](https://gitlab.com/patrickmatula/pvs-kopioi), [twitter](https://twitter.com/p_matula/status/1573973568546897921) - by Patrick Matula
 
-
 + ADMX reader [github](https://github.com/cognitionIT/ADMXReader/blob/master/ADMXReader.ps1)
 + Sapien [CIM/WMI Explorer](https://www.sapien.com/software/cimexplorer)
 + Ks-Soft [CIM/WMI Explorer](https://www.ks-soft.net/hostmon.eng/wmi/index.htm)
@@ -150,6 +149,7 @@ Apart from community shares, there are great books which reorganize and structur
 + RunAsUser [github](https://github.com/KelvinTegelaar/RunAsUser)
 + String to PsObject [txt to PsObject](https://doitpsway.com/converting-clipboard-text-content-to-powershell-object)
 
++ Azure Resource Inventory [github](https://github.com/microsoft/ARI)
 + Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
 + Json Crack [github](https://github.com/AykutSarac/jsoncrack.com)
 + JMESPath [json parser](https://jmespath.org/)
