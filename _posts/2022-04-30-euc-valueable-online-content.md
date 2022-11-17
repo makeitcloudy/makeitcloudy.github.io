@@ -78,6 +78,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - KQL
 
++ Everything you need to know when using Kusto and Powershell for platform management [mihai-albert.com](https://mihai-albert.com/2020/10/01/get-the-list-of-all-azure-vms-with-all-their-private-and-public-ips/)
 + Kusto Detective Agency for learning KQL [webpage](https://detective.kusto.io/)
 + Practice your KQL [Microsoft Query Playground](aka.ms/lademo)
 
