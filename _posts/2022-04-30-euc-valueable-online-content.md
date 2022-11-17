@@ -79,6 +79,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - KQL
 
 + Kusto Detective Agency for learning KQL [webpage](https://detective.kusto.io/)
++ Practice your KQL [Microsoft Query Playground](aka.ms/lademo)
 
 ## PowerShell Graph
 
