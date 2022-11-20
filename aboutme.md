@@ -4,7 +4,7 @@ title: About me
 subtitle:
 ---
 
-My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer at [Rackspace Technology](https://www.rackspace.com/). For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards Azure. This blog is a gave back to the community, to share the experience with people who may be seeking for the details mentioned here.
+My name is Piotr Ostrowski, I'm employed as Virtual Desktop Engineer at [Rackspace Technology](https://www.rackspace.com/). For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. These days I'm drifting towards Azure. This blog is a gave back to the community, to share the experience with people who may be seeking for the details mentioned here.
 
 ### A bit about me
 
@@ -21,13 +21,13 @@ My name is Piotr Ostrowski, I'm employed as Senior Virtual Workplace Engineer at
 
 ### Technical Certifications
 
-Aside from countless of online trainigs here are the bages collected through the years.
+Aside from countless of online trainings here are the bages collected through the years.
 
 #### Microsoft
 
-- [70-409](https://www.credly.com/badges/fc1a1bc0-081e-49a7-a4b7-59e074177b73/public_url) - Server Virtualization with Windows Server Hyper-V and System Center
 - [AZ-140](https://www.credly.com/badges/4f05b02b-4228-40f1-a41d-cc81bd2fb818/public_url) - Azure Virtual Desktop Specialty
 - [AZ-900](https://www.credly.com/badges/5dd83d11-485d-4e65-915d-06bd9c002d4f/public_url) - Azure Fundamentals
+- [70-409](https://www.credly.com/badges/fc1a1bc0-081e-49a7-a4b7-59e074177b73/public_url) - Server Virtualization with Windows Server Hyper-V and System Center
 
 #### Citrix
 

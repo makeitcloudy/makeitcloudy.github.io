@@ -59,10 +59,14 @@ Apart from community shares, there are great books which reorganize and structur
 + ControlUP Az RDP to machine [webpage](https://www.controlup.com/script-library-posts/az-rdp-to-machine/) - Guy Leech
 + ControlUP scripts [webpage](https://www.controlup.com/scripts/)
 
+## Azure - useful links
+
++ Azure Shell - [https://shell.azure.com/](https://shell.azure.com/)
+
 ## Tools
 
 + Diagram as Code [github](https://github.com/mingrammer/diagrams)
-+ Aaron Parker - EvenrGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen)
++ Aaron Parker - EvenrGreen - [docs](https://stealthpuppy.com/evergreen/), [gitHub](https://github.com/aaronparker/evergreen), [apotracker](https://stealthpuppy.com/apptracker/apps/)
 + Deyda - NeverRed/EverGreen - [docs](https://www.deyda.net/index.php/en/evergreen-script/). [github](https://github.com/Deyda/Evergreen-Script)
 + Aaron Parker - vcRedist - [github](https://github.com/aaronparker/vcredist)
 + [EUCMonitoringRedux](https://github.com/littletoyrobots/EUCMonitoringRedux) - End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community.
@@ -82,11 +86,15 @@ Apart from community shares, there are great books which reorganize and structur
 + Citrix [Download Scrapper](https://github.com/ryancbutler/Citrix_DL_Scrapper)
 + Citrix [License usage](https://github.com/aspicola2605/citrixlicenseusage)
 
++ Phil Bossman - PowerShell Desktop Engineering Tips n Tricks PSADT [youtube](https://www.youtube.com/watch?v=aNONnhWXEnQ), [twitter](https://twitter.com/hashtag/PSADT?src=hashtag_click)
+
++ Alexander Schuller - Modern workplace, wifi and ICA - splunkApp [linkedin](https://www.linkedin.com/pulse/modern-workplace-wi-fi-signal-quality-bad-application-sch%25C3%25BCller/)
+
 + Vmware Workstation vmxtoolkit [github](https://github.com/bottkars/vmxtoolkit)
 
 + HSF [Http File Server](www.rejetto.com/hfs) - the other way to share your files
 
-+ Screen capturing [Sharex](https://getsharex.com/) and (https://github.com/ShareX/ShareX)
++ Screen capturing [Sharex](https://getsharex.com/) and [github](https://github.com/ShareX/ShareX)
 + Screen capturing [Licelap](https://www.cockos.com/licecap/)
 + Encoding [ffmpeg](https://ffmpeg.org/)
 + Encocing H.265 [StaxRip](https://helgeklein.com/blog/hardware-encode-video-in-h-265-with-free-tools-to-save-disk-space/)
@@ -101,7 +109,6 @@ Apart from community shares, there are great books which reorganize and structur
 + Citrix Optimizer [webpage](https://support.citrix.com/article/CTX224676)
 + PVS Kopioi [gitlab](https://gitlab.com/patrickmatula/pvs-kopioi), [twitter](https://twitter.com/p_matula/status/1573973568546897921) - by Patrick Matula
 
-
 + ADMX reader [github](https://github.com/cognitionIT/ADMXReader/blob/master/ADMXReader.ps1)
 + Sapien [CIM/WMI Explorer](https://www.sapien.com/software/cimexplorer)
 + Ks-Soft [CIM/WMI Explorer](https://www.ks-soft.net/hostmon.eng/wmi/index.htm)
@@ -112,12 +119,14 @@ Apart from community shares, there are great books which reorganize and structur
 + [Short link creator](https://katystech.blog/projects/project-short-link-creator)
 
 + Aaron Parker [vcredist](https://github.com/aaronparker/vcredist)
++ MSIX-Hero [github](https://github.com/marcinotorowski/MSIX-Hero)
 + Ventoy create bootable USB [github](https://github.com/ventoy/Ventoy)
 + pdf split, merge, mix [github](https://github.com/torakiki/pdfsam)
 + [Ninite](https://ninite.com/) - Install and Update your apps at once
 + [Chocolatey](https://chocolatey.org/)
 + [Visual Studio Code](https://code.visualstudio.com/) with extensions
 
++ [pcManager](https://www.theverge.com/2022/10/21/23416070/microsoft-pc-manager-app-performance-systems-clean-up)
 + [WizTree](https://diskanalyzer.com/) - TreeSize alternative, which is just faster
 + [WinDirStat](https://windirstat.net/)
 + [Basilisk](https://www.basilisk-browser.org/)
@@ -134,13 +143,18 @@ Apart from community shares, there are great books which reorganize and structur
 + OpenSSL [easy-csr](https://www.digicert.com/easy-csr/openssl.htm)
 + certreq [docs](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certreq_1#example)
 + OpenSSL [cheat sheet](https://classes.pracnet.net/courses/openssl-training)
++ rdpsign [microsoft learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/rdpsign)
 
 + Invoke-CommandAs [github](https://github.com/mkellerman/invoke-commandas)
 + RunAsUser [github](https://github.com/KelvinTegelaar/RunAsUser)
 + String to PsObject [txt to PsObject](https://doitpsway.com/converting-clipboard-text-content-to-powershell-object)
 
++ Azure Resource Inventory [github](https://github.com/microsoft/ARI)
 + Azure Mask (Az Mask) [github](https://github.com/clarkio/azure-mask)
 + Json Crack [github](https://github.com/AykutSarac/jsoncrack.com)
++ JMESPath [json parser](https://jmespath.org/)
++ Regular Expressions made strangely simple [github](https://github.com/StartAutomating/Irregular)
++ Regex AI [autoregex.xyz](https://www.autoregex.xyz/)
 
 ```powershell
 # get list of IP addresses connected via RDP
