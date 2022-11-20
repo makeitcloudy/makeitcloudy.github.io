@@ -58,6 +58,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Alex Frankel [youtube](https://www.youtube.com/watch?v=hF7nCzYy1Ps), Anders Hajlsberg - craftsman of computer language [youtube](https://www.youtube.com/watch?v=0g-IjyFnrAM)
 + Bicep [github](https://github.com/Azure/bicep/)
++ Bicep ElYusubov [github](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
