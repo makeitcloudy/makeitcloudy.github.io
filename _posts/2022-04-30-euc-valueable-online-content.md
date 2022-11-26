@@ -58,6 +58,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [github](https://github.com/Azure/bicep/)
+<<<<<<< HEAD
++ Bicep ElYusubov [github](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
+=======
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/)
 + Bicep [microsoft learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep)
 
@@ -69,6 +72,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Esther Barthel, Freek Berson - Experts Netherlands slideck [github - part I](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20II.pdf), [github - part II](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20I.pdf)
 
+>>>>>>> 095353c2c7329bef92c344c3124f4ddb4f362e49
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 
