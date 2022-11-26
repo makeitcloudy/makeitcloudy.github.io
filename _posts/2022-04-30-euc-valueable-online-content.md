@@ -353,7 +353,9 @@ It would also be helpful to bring good and consistent naming convention:
 + Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
 
 Mahammad Kubaib advise
+
 ```shell
+
 One of the Best way to keep your golden vm upto date and image management in AVD..
 (By default when you sysprep and convert golden vm to image, it will make the vm unusable for future use)
 
@@ -373,7 +375,9 @@ One of the Best way to keep your golden vm upto date and image management in AVD
 
 so with this you can keep your golden image always upto date and it allows you to redeploy your hostpool or add new vms to hostpool anytime with the latest image 😉
 Note : (citrix and vmware vdi solution does this image management automatically for you ..hope someday will see the same in AVD as well 🤞 )
+
 ```
+
 >>>>>>> 2fe62ae8c7290a19165cbbb69603b5a103de59e3
 
 ## AVD - key areas towards end user experience
@@ -446,6 +450,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
 ## Passkeys
+
 + Passkeys - Microsoft, Apple and Google's password killer [arstechnica](https://arstechnica.com/information-technology/2022/10/passkeys-microsoft-apple-and-googles-password-killer-are-finally-here/)
 
 ## w365 / m365
@@ -497,6 +502,13 @@ Resources available in context of End User Computing
 
 + Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
 + Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
+
+## Azure Image Builder / AVD VM apps
++ Azure academy [youtube](https://www.youtube.com/watch?v=UEOZsNBjGJc)
++ AVD VM Apps - sort of app containers [youtube](https://www.youtube.com/watch?v=C3w30h3VWxc)
+## PFsense
+
++ David McKone - pfsense basic firewall rules [youtube](https://www.youtube.com/watch?v=PBLFYvUIU54)
 
 # Citrix
 
