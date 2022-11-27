@@ -119,6 +119,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Use Hyper-V and PowerShell to quickly spin up Windows test machines [blog](https://smbtothecloud.com/use-hyper-v-and-powershell-to-quickly-spin-up-windows-test-machines/)
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
++ David McKone - pfsense and basic roles on linux like dns and dhcp [youtube](https://www.youtube.com/watch?v=PBLFYvUIU54)
 
 ## On-Premises - Automated lab provisioning
 
@@ -508,11 +509,9 @@ Resources available in context of End User Computing
 + Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
 
 ## Azure Image Builder / AVD VM apps
+
 + Azure academy [youtube](https://www.youtube.com/watch?v=UEOZsNBjGJc)
 + AVD VM Apps - sort of app containers [youtube](https://www.youtube.com/watch?v=C3w30h3VWxc)
-## PFsense
-
-+ David McKone - pfsense basic firewall rules [youtube](https://www.youtube.com/watch?v=PBLFYvUIU54)
 
 # Citrix
 
