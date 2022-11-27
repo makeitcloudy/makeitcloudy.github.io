@@ -47,13 +47,13 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 
 10. the image should be sent, roughly in 20s, at the end of the overall process the Firmware Restoration utility will report the following status: Successfully recovered the system. Please wait for the system to reboot.
 11. wait until the device gets restarted and load the newest firmware, roughly 90s (again your wifi led indicator will indicate the device is up again)
-12. login to the device http://192.168.1.1 via web browser, 
-    login:root <br>
-    password:admin <br>
+12. login to the device *http://192.168.1.1* via web browser, <br>
+    login: **root** <br>
+    password: **admin** <br>
     (in case you can not get there, and the initial 90s already past, unplug the power cord from the device, and power it up again - I have not noticed any pattern with that, never the less it happens occasionally)
 13. erase NVRAM: Administration -> Configuration -> Restore Default Configuration -> Erase all data in NVRAM memory (thorough). After proceeding with this step, the total amount of Free NVRAM is 55.65% - 35.62KB/64K.00B (never the less for some reason this might slightly differ between devices, for RT-N10u  21.62KB/32K.00B - 67.56% is used)
 14. wait while the default are restored (90s)
-15. login back to device http://192.168.1.1 via web browser and restore the configuration or start configuring the device according to your needs.
+15. login back to device *http://192.168.1.1* via web browser and restore the configuration or start configuring the device according to your needs.
 16. reconfigure the network interface of your endpoint, so the network subnets matches
 
 ## Summary
