@@ -347,6 +347,10 @@ It would also be helpful to bring good and consistent naming convention:
 + Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
 + Azure/RDS-Templtes [github](https://github.com/Azure/RDS-Templates) - ARM Templates for Remote Desktop Services deployments
 
+## AVD - Networking
+
++ CloudTrooper [Azure Route Server](https://blog.cloudtrooper.net/2021/03/03/azure-route-server-super-powers-for-your-network-virtual-appliance/)
+
 ## AVD - Image Management
 
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
