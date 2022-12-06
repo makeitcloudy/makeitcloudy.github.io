@@ -58,9 +58,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [github](https://github.com/Azure/bicep/)
-<<<<<<< HEAD
 + Bicep ElYusubov [github](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
-=======
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/)
 + Bicep [microsoft learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep)
 
@@ -72,7 +70,6 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Esther Barthel, Freek Berson - Experts Netherlands slideck [github - part I](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20II.pdf), [github - part II](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20I.pdf)
 
->>>>>>> 095353c2c7329bef92c344c3124f4ddb4f362e49
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 
@@ -355,10 +352,9 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
 + Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
++ Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
 + AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
-<<<<<<< HEAD
 + Askaresh - AVD monthly patching on the golden images [blog](https://askaresh.com/2022/11/14/azure-virtual-desktop-apply-monthly-microsoft-security-cumulative-updates-on-the-golden-image-with-azure-compute-galleries/)
-=======
 + Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
 
 Mahammad Kubaib advise
@@ -386,8 +382,6 @@ so with this you can keep your golden image always upto date and it allows you t
 Note : (citrix and vmware vdi solution does this image management automatically for you ..hope someday will see the same in AVD as well 🤞 )
 
 ```
-
->>>>>>> 2fe62ae8c7290a19165cbbb69603b5a103de59e3
 
 ## AVD - key areas towards end user experience
 
