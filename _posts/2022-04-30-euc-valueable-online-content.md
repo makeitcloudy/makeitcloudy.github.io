@@ -312,6 +312,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
++ Azure Architecture Icons [learn](https://learn.microsoft.com/en-us/azure/architecture/icons/) - svg files
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 + Troubleshoot RDS shortpath [learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-rdp-shortpath#verifying-stun-server-connectivity-and-nat-type)
 + AVD Considerations in Risk Management [spiceworks](https://www.spiceworks.com/collaboration/remote-support/guest-article/azure-virtual-desktop-considerations-in-risk-management/)
