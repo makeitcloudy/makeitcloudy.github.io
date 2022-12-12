@@ -356,6 +356,8 @@ It would also be helpful to bring good and consistent naming convention:
 + Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
 + AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
 + Askaresh - AVD monthly patching on the golden images [blog](https://askaresh.com/2022/11/14/azure-virtual-desktop-apply-monthly-microsoft-security-cumulative-updates-on-the-golden-image-with-azure-compute-galleries/)
++ Askaresh - w11 powershell from marketplace image [blog](https://askaresh.com/2022/11/28/powershell-create-a-windows-11-multi-session-golden-image-for-azure-virtual-desktop-using-marketplace-image/)
+
 + Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
 
 Mahammad Kubaib advise
@@ -372,7 +374,7 @@ One of the Best way to keep your golden vm upto date and image management in AVD
 5.disjoin the cloned vm from domain
 6.sysprep cloned VM
 7.convert the vm to Image (select delete vm option while converting to image)
-8. Optionally upload it to compute gallery
+1. Optionally upload it to compute gallery
 9.Build hostpool or add vms to hostpool using the image
 *************************************************
 10.Turn on golden VM
