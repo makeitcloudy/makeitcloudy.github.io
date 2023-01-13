@@ -38,6 +38,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
+## PowerShell - EUC related tools
++ PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
+
 ## Terraform
 
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
@@ -391,6 +394,9 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 ### AVD - Things to consider when planning and designing
 
 + vdibuzz - Enterprise-scale landing zone reference architecture for Virtual Desktop Service(Citrix/AVD) on Azure [blog](https://vdiclub.wordpress.com/2022/02/13/enterprise-scale-landing-zone-reference-architecture-for-virtual-desktop-servicecitrix-avd-on-azure/)
+
+### AVD - Cost optimization
++ Azure Virtual Desktop x Shutdown and deallocate Session host at logoff [avdpunks](https://avdpunks.com/avd/2023/01/12/AVDxDeallocateSessionHosts.html)
 
 ### AVD - Latency and RTT
 
