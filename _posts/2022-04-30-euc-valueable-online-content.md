@@ -107,6 +107,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Arc
 
 + Azure Arc JumpStart [webpage](https://azurearcjumpstart.io/)
++ How to manage servers using Azure Arc [blog.mindcore.dk](https://blog.mindcore.dk/2023/01/how-to-manage-servers-using-azure-arc-part-4/)
 
 # On-Premises / Cloud adjacent
 
@@ -467,6 +468,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ## w365 / m365
 
++ w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
 + Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
