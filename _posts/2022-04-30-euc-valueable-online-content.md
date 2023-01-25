@@ -77,6 +77,13 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Sharing bicep modules with azure container registry [dev.to](https://dev.to/azure/sharing-bicep-modules-with-azure-container-registry-4mo0)
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
+## Azure - 2023 trends
+
++ Template specs
++ Deployment stacks
++ Azure Automanage Machine Configuration
++ https://entra.microsoft.com
+
 ## Azure - KQL
 
 + Everything you need to know when using Kusto and Powershell for platform management [mihai-albert.com](https://mihai-albert.com/2020/10/01/get-the-list-of-all-azure-vms-with-all-their-private-and-public-ips/)
@@ -103,7 +110,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - Arc
 
-+ Azure Arc JumpStart [webpage](https://azurearcjumpstart.io/)
++ Azure Arc JumpStart [arcjumpstart.io](https://azurearcjumpstart.io/)
 
 # On-Premises / Cloud adjacent
 
@@ -578,6 +585,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
 + Nishith Gupta - VMware Tools in PVS Image [blog](https://guptanishith.com/vmware-tools-in-pvs-image/)
++ Balint Oberrauch [blog](https://oberrauch.bz.it/2022/12/21/upgrade-ctx-storefront-and-retain-customizations/)
 
 ## Citrix (CVAD) - tools
 
