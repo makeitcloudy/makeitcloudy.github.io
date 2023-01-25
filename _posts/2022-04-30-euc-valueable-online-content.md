@@ -38,6 +38,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
+## PowerShell - EUC related tools
++ PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
+
 ## Terraform
 
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
@@ -110,7 +113,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 
 ## Azure - Arc
 
-+ Azure Arc JumpStart [arcjumpstart.io](https://azurearcjumpstart.io/)
++ Azure Arc JumpStart [webpage](https://azurearcjumpstart.io/)
 
 # On-Premises / Cloud adjacent
 
@@ -401,6 +404,9 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 + vdibuzz - Enterprise-scale landing zone reference architecture for Virtual Desktop Service(Citrix/AVD) on Azure [blog](https://vdiclub.wordpress.com/2022/02/13/enterprise-scale-landing-zone-reference-architecture-for-virtual-desktop-servicecitrix-avd-on-azure/)
 
+### AVD - Cost optimization
++ Azure Virtual Desktop x Shutdown and deallocate Session host at logoff [avdpunks](https://avdpunks.com/avd/2023/01/12/AVDxDeallocateSessionHosts.html)
+
 ### AVD - Latency and RTT
 
 + AVD Experience Estimator [microsoft](https://azure.microsoft.com/en-us/services/virtual-desktop/assessment/)
@@ -468,6 +474,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ## w365 / m365
 
++ w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
 + Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
