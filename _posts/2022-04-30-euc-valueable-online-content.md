@@ -560,6 +560,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 ## Citrix - community shares
 
++ [https://blogs.mycug.org](https://blogs.mycugc.org/2023/)
 + James Kindon fantastic [blog](https://jkindon.com/), [github](https://github.com/JamesKindon)
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
 + Nicolas Ignoto [twitter](https://twitter.com/citrixguru), [blog](https://www.citrixguru.com/2019/01/21/ltsr-vs-cr/), along with his guide [how to setup the lab](https://www.citrixguru.com/category/lab/)
