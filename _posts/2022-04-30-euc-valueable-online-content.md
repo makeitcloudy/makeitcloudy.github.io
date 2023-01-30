@@ -356,7 +356,8 @@ It would also be helpful to bring good and consistent naming convention:
 ## AVD - Image Management
 
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
-+ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0) 
++ MSI-X app attach on AVD [deployment.mx](https://www.deployment.mx/msix-app-attach-en-azure-virtual-desktop/)
 + Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
 + AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
 + Askaresh - AVD monthly patching on the golden images [blog](https://askaresh.com/2022/11/14/azure-virtual-desktop-apply-monthly-microsoft-security-cumulative-updates-on-the-golden-image-with-azure-compute-galleries/)
