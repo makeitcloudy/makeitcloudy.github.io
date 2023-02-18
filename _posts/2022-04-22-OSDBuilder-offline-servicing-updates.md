@@ -26,7 +26,8 @@ The module is far from being perfect and it left much to be desired, never the l
 
 ## Prerequisites and observations from the field
 
-+ Dedicated servicing machine, with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet.
++ Dedicated servicing machine (w2k19 or w10), with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet.
++ Was stuck with servicing machine powered by w10 22H2 - it can **not** access the samba share anymore. Previous versions of the operating system does not have this problem. (smb share - is the same for both)
 + Access to Microsoft Update webpage.
 + Adequate amount of free disk space, roughly each updated operating system consumes somewhere around 20GB of free space  (including the updated iso file).
 + Regardless of the amount of vCPU the overall update process will take roughly up to 4hours. It's more memory intensive and from time to time it bring some level of stress on the storage.
@@ -45,15 +46,15 @@ Before the process can start you need to prepare your VM
 2. Within the installation of the ADK pick only few elements
 In case there is a previous version installed, you have uninstall it first, there is no option for a quick update of ADK.
 
-+ Deployment Tools
++ Deployment Tools (contains oscdimg.exe - in case your only goal is to burn the updated image, during the ADK installation pick only this option feature from the installation gui)
 + Image and Configuration Designer
 + Configuration Designer
 + User State Migration Tool
 
-It seems some of those can be trimmed for the pure usecase of an update, but those four will do the trick. Actually the most important thing seems to be the oscdimg which is being used to prepare the bootable ISO.
+Installation of IaCD, CD, USMT, can be skipped if the pure usecase of an update. oscdimg (part of DT) is the dependency for the iso creation once the OSDBuilder does it's trick with the bootable iso preparation.
 
 ```powershell
-Set-Execution ByPass
+Set-ExecutionPolicy ByPass -Scope CurrentUser
 Install-Module OSDBuilder
 # store the OSDBuilder within the separate directly aside from your regular OS
 Get-OSDBuilder -SetPath O:\OSDBuilder
@@ -69,13 +70,27 @@ Get-DownOSDBuilder -ContentDownload 'OneDriveSetup Production'
 # for windows 10 iso's it can be done with making use of MediaCreationTool
 # https://github.com/AveYo/MediaCreationTool.bat
 
-# ImageIndex for the servers is the natural number <1-4>, for windows 10 it could be <1,10>
-# 1 - standard
-# 2 - standard desktop experience
-# 3 - datacenter
-# 4 - datacenter desktop experience
+# In order to get the index of the version which is under your interests, execute
+# https://osdbuilder.osdeploy.com/module/functions/import-osmedia
+# Import-OSMedia -ShowInfo -Quick
+
+# ImageIndex for Windows Servers editions is the natural number <1-4>
+# ImageIndex 1 - standard
+# ImageIndex 2 - standard desktop experience
+# ImageIndex 3 - datacenter
+# ImageIndex 4 - datacenter desktop experience
+
+# ImageIndex for Desktop Operating systems - w10 is the natural number as well
+# ImageIndex 1: Windows 10 Education
+# ImageIndex 2: Windows 10 Education N
+# ImageIndex 3: Windows 10 Enterprise
+# ImageIndex 4: Windows 10 Enterprise N
+# ImageIndex 5: Windows 10 Pro
+# ImageIndex 6: Windows 10 Pro N
 # in case it can not enumerate the indexes within the ISO, it may mean that the ISO is corrupted, you need to download it again and start the mount and import again
 Import-OSMedia -ImageIndex 1 -SkipGrid -Update -BuildNetFX
+# or
+Import-OSMedia -ImageName 'Windows 10 Enterprise' -ImageIndex 3 -SkipGrid -Update -BuildNetFX -Verbose
 
 # In this usecase there are no features which are enabled within the image
 # It is left as generic as possible, and in case feature or role is needed it's
@@ -83,8 +98,15 @@ Import-OSMedia -ImageIndex 1 -SkipGrid -Update -BuildNetFX
 # when managing the configuration drift or with some other mechanisms
 
 # once the whole operations ends it's time to create the ISO
+# this command has a dependency on the ADK and the availability of oscdimg.exe
 New-OSBMediaISO -FullName 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise x64 1909 18363.2274'
+# at this point the updated iso file should be located here
+# O:\OSDBuilder\OSBuilds\Windows 10 Enterprise x64 21H2 19044.2604\ISO
+
+# at this point continue with step number 5 mentioned below
+# this section will be updated shortly (2023.02.17 - recalling the process in the lab)
 ```
+
 The process of the update looks like this
 0. Mount ISO (the regular not updated iso, or the updated iso from the previous update cycle)
 1. Import-OSMedia (and pass the Index Parameter, depending from the target (datacenter, standard, desktop experience, core, Enterprise N, Education, Proffessional etc))
@@ -100,6 +122,6 @@ That's it.
 
 If everything went well the based image/images should contain latest updates along with prefered customizations allowing unattended installations.
 
-Tested on Windows 10 20H2, servicing box. Images services: w10, w2k16, w2k19, w2k22. It is just doing it's trick properly.
+Servicing process was tested on vms which were running Windows 10 20H2 and Server 2019 OS'es. Images which were serviced/updated were: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). The process, brings the patched operating system which later on, can be used for the provisioning process of your boxes within the lab.
 
-Last update: 2022.04.22
+Last update: 2023.02.18
