@@ -33,6 +33,12 @@ The module is far from being perfect and it left much to be desired, never the l
 + Regardless of the amount of vCPU the overall update process will take roughly up to 4hours. It's more memory intensive and from time to time it bring some level of stress on the storage.
 + Rights to run an elevated PowerShell prompt
 + It would be wise to have a separated drive, where the OSDBuilder is located along with all the media and builds prepared by this great tool
++ If you have more than one image to maintain, due to the fact that the process is time consuming, consider spinning few vms and service the images in parallel. 
+
+## Download the base image
+
+If you start from zero [MediaCreationTool.bat](https://github.com/AveYo/MediaCreationTool.bat/blob/main/MediaCreationTool.bat) is the tool, which can help you to download the Windows 10.
+All you have to do is to rename the .bat file, in my case it was renamed to *enterprise iso 21H2.bat*. You execute it within the elevated PowerShell session. Be prepared that you should have sufficient space on your C: drive (at least 8GB), even though the working directory where you run the MediaCreationTool is on another drive.
 
 ## Prepare the OSDBuilder
 
@@ -114,7 +120,7 @@ The process of the update looks like this
 3. Once finished (it can take few hours) run the New-OSBMediaISO -FullName 'path to the OSBuilds directory' which was brought as an output from the previous commandlet.
 4. Once done unmount the original ISO.
 
-5. At the end repack the ISO with making use of the oscdimg and add the autounattend.xml file [BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
+5. At the end repack the ISO with making use of the oscdimg and add the autounattend.xml file [BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or [goodFileIsQuietIsoFile](https://github.com/makeitcloudy/AutomatedCitrix/blob/feature/007_imagePrep/unattendedISO/goodIsoFileIsAquietIsoFile-JohanArwidmark.ps1) prepared by Johan Arwidmark. Alternatively, include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
 
 ## Summary
 
