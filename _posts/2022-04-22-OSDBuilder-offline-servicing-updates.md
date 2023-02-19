@@ -192,8 +192,7 @@ Remove-Item (Join-Path $TempFolder "boot\bootfix.bin") -Force
 
 # pick this file if the iso is server based
 $autounattendFileName = 'autounattend.xml'
-# pick this file if the iso is w10 based
-#$autounattendFileName = 'autounattend_w10.xml'
+# NOTE: the xml file for the windows 10 i slightly different that for the server operating systems
 $autounattendFullPath = Join-Path -Path $isoPath -ChildPath $autounattendFileName
 Copy-Item $autounattendFullPath -Destination $TempFolder -Verbose
 
@@ -218,8 +217,8 @@ else {
 
 That's it.
 
-If everything went well the based image/images should contain latest updates along with prefered customizations allowing unattended installations.
+If everything went well the based image should contain latest updates ready for unattended installation.
 
-Servicing process was tested on vms which were running Windows 10 20H2 and Server 2019 OS'es. Images which were serviced/updated were: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). The process, brings the patched operating system which later on, can be used for the provisioning process of your boxes within the lab.
+Servicing process was tested on vms which were running Windows 10 20H2 and Server 2019 OS'es. Images which were serviced/updated: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). The .
 
 Last update: 2023.02.18
