@@ -30,6 +30,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
 + Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
 + Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
++ 70 best powershell blogs and websites to follow [feedspot](https://blog.feedspot.com/powershell_blogs/)
 + Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
 + Jason Helmick [github](https://github.com/theJasonHelmick)
 + PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
@@ -39,6 +40,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
 ## PowerShell - EUC related tools
+
 + PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
 
 ## Terraform
@@ -85,7 +87,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Template specs
 + Deployment stacks
 + Azure Automanage Machine Configuration
-+ https://entra.microsoft.com
++ [Microsoft Entra](https://entra.microsoft.com)
 
 ## Azure - KQL
 
@@ -228,7 +230,7 @@ If you decide to go RDS way, it will be beneficial for you to consider the produ
 
 + [Awingu](https://www.awingu.com) - remote access technology that acts as a VPN alternative
 
-# Azure - Community Shares
+## Azure - Community Shares
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
 
@@ -361,6 +363,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 ## AVD - Image Management
 
++ Patch management tips: [Updating IT systems in large and small networks](https://4sysops.com/archives/patch-management-tips-updating-it-systems-in-large-and-small-networks/)
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
 + Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0) 
 + MSI-X app attach on AVD [deployment.mx](https://www.deployment.mx/msix-app-attach-en-azure-virtual-desktop/)
@@ -406,6 +409,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + vdibuzz - Enterprise-scale landing zone reference architecture for Virtual Desktop Service(Citrix/AVD) on Azure [blog](https://vdiclub.wordpress.com/2022/02/13/enterprise-scale-landing-zone-reference-architecture-for-virtual-desktop-servicecitrix-avd-on-azure/)
 
 ### AVD - Cost optimization
+
 + Azure Virtual Desktop x Shutdown and deallocate Session host at logoff [avdpunks](https://avdpunks.com/avd/2023/01/12/AVDxDeallocateSessionHosts.html)
 
 ### AVD - Latency and RTT
@@ -487,6 +491,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
 + m365 network connectivity test [webpage](https://connectivity.office.com/)
 
+## Weekly digest
+
++ PowerShell Wekly [psweekly.dowst.dev](https://psweekly.dowst.dev/)
++ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
+
 # EUC
 
 Resources available in context of End User Computing
@@ -496,7 +505,6 @@ Resources available in context of End User Computing
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
 + EUC Digest [webpage](https://www.eucdigest.com/), [linkedin](https://www.linkedin.com/company/eucdigest/?miniCompanyUrn=urn%3Ali%3Afs_miniCompany%3A23759490)
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
-+ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
 + ControlUP [resources](https://www.controlup.com/resources/)
 + Login VSI [white papers](https://www.loginvsi.com/resources/white-papers/)
@@ -613,6 +621,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Enterprise vs Solution vs Technical Architect [leanix](https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-solution-architect-vs-technical-architect-whats-the-difference?utm_content=buffer27c09&utm_medium=social&utm_source=linkedin.com&utm_campaign=buffer)
 + Why Some People Get Burned Out and Others Don’t [hbr](https://hbr.org/2016/11/why-some-people-get-burned-out-and-others-dont?utm_medium=social&utm_campaign=hbr&utm_source=twitter&tpcc=orgsocial_edit)
 
++ turbogeek.co.uk [blog](https://www.turbogeek.co.uk/)
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)

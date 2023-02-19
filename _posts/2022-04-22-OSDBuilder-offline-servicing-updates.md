@@ -122,6 +122,98 @@ The process of the update looks like this
 
 5. At the end repack the ISO with making use of the oscdimg and add the autounattend.xml file [BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or [goodFileIsQuietIsoFile](https://github.com/makeitcloudy/AutomatedCitrix/blob/feature/007_imagePrep/unattendedISO/goodIsoFileIsAquietIsoFile-JohanArwidmark.ps1) prepared by Johan Arwidmark. Alternatively, include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
 
+```
+<#
+.Synopsis
+    Sample script for Deployment Research
+    For UEFI Deployments, modifies a WinPE ISO to not ask for "Press Any Key To Boot From..."
+
+.DESCRIPTION
+    Created: 2020-01-10
+    Version: 1.0
+     
+    Author : Johan Arwidmark
+    Twitter: @jarwidmark
+    Blog   : https://deploymentresearch.com
+ 
+    Disclaimer: This script is provided "AS IS" with no warranties, confers no rights and 
+    is not supported by the author or DeploymentArtist..
+
+.NOTES
+    Requires Windows ADK 10 to be installed
+
+.EXAMPLE
+    N/A
+#>
+
+# Settings
+$architecture = "amd64" # Or x86
+$adkPath = "${env:ProgramFiles(x86)}\Windows Kits\10\Assessment and Deployment Kit"
+#$WinPE_ADK_Path = $adkPath + "\Windows Preinstallation Environment"
+$oscdimgPath = $adkPath + "\Deployment Tools" + "\$architecture\Oscdimg"
+
+$isoPath                        = 'O:\iso'
+$isoUpdatedFolderName           = 'updated_2302'
+$isoUpdatedUnattendedFolderName = 'updated_2302_unattended'
+$isoUpdatedFileName             = 'w10_21H2_updt_2302.iso'
+$isoFinalFileName               = 'w10_21H2_updt_2302_unattended_noprompt.iso'
+
+#path where the OSDBuilder output iso is stored
+$isoUpdatedPath           = Join-Path -Path $isoPath -ChildPath $isoUpdatedFolderName
+#location of the iso which is processed to become unattended, no prompt
+$isoUpdatedFile           = Join-Path -Path $isoUpdatedPath -ChildPath $isoUpdatedFileName
+
+#path where the final iso file is stored
+$isoUpdatedUnattendedPath = Join-Path -Path $isoPath -ChildPath $isoUpdatedUnattendedFolderName 
+#location of the iso which is the outcome of the script processing
+$isoUpdatedUnattendedFile = Join-Path -Path $isoUpdatedUnattendedPath -ChildPath $isoFinalFileName
+
+# Validate locations
+If (!(Test-path $isoUpdatedFile)){ Write-Warning "ISO file updated by OSDBuilder does not exist, aborting...";Break}
+If (!(Test-path $adkPath)){ Write-Warning "ADK Path does not exist, aborting...";Break}
+If (!(Test-path $oscdimgPath)){ Write-Warning "OSCDIMG Path does not exist, aborting...";Break}
+
+# Mount the Original ISO ($isoUpdatedFile) and figure out the drive-letter
+Mount-DiskImage -ImagePath $isoUpdatedFile
+$isoImage = Get-DiskImage -ImagePath $isoUpdatedFile | Get-Volume
+$isoDrive = [string]$isoImage.DriveLetter+":"
+
+# Section added for BIOS Support
+# the updated iso content is copied to the Temp Directory
+# this steps is to add the autounattend.xml file and repack the iso later on again
+$TempFolder = "O:\Temp\ISO"
+New-Item -Path $TempFolder -ItemType Directory -Force
+Copy-Item "$ISODrive\*" $TempFolder -Recurse
+Remove-Item (Join-Path $TempFolder "boot\bootfix.bin") -Force
+
+# Copy the unattended file
+# (update 2023.02)this section needs some improvement and autodetection of the OS type or an argument passed into the script or function once it is integrated with the module
+# at this point the autounattend.xml file should already exist somewhere on the filesystem
+
+# pick this file if the iso is server based
+$autounattendFileName = 'autounattend.xml'
+# pick this file if the iso is w10 based
+#$autounattendFileName = 'autounattend_w10.xml'
+$autounattendFullPath = Join-Path -Path $isoPath -ChildPath $autounattendFileName
+Copy-Item $autounattendFullPath -Destination $TempFolder -Verbose
+
+# Dismount the Original ISO
+Dismount-DiskImage -ImagePath $isoUpdatedFile
+
+# Create a new bootable  ISO file, based on the Original ISO, but using efisys_noprompt.bin instead
+$BootData='2#p0,e,b"{0}"#pEF,e,b"{1}"' -f "$oscdimgPath\etfsboot.com","$oscdimgPath\efisys_noprompt.bin"
+   
+$Proc = Start-Process -FilePath "$oscdimgPath\oscdimg.exe" -ArgumentList @("-bootdata:$BootData",'-u2','-udfver102',"$TempFolder\","`"$isoUpdatedUnattendedFile`"") -PassThru -Wait -NoNewWindow
+if($Proc.ExitCode -ne 0)
+{
+    Throw "Failed to generate ISO with exitcode: $($Proc.ExitCode)"
+}
+else {
+    #remove the content of the tempfolder so the the logic can be repeated with the subsequent image or OS version
+    Remove-Item $TempFolder -Force
+}
+```
+
 ## Summary
 
 That's it.
