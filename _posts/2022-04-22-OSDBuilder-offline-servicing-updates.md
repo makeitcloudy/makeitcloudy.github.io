@@ -28,12 +28,13 @@ The module is far from being perfect and it left much to be desired, never the l
 
 + Dedicated servicing machine (w2k19 or w10), with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet.
 + Was stuck with servicing machine powered by w10 22H2 - it can **not** access the samba share anymore. Previous versions of the operating system does not have this problem. (smb share - is the same for both)
++ The autounattend.xml for the windows 10, needs an update of the product key (it changes between versions - Enterprise has different KMS key than EnterpriseN - details about the keys can be found [here](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys))
 + Access to Microsoft Update webpage.
 + Adequate amount of free disk space, roughly each updated operating system consumes somewhere around 20GB of free space  (including the updated iso file).
 + Regardless of the amount of vCPU the overall update process will take roughly up to 4hours. It's more memory intensive and from time to time it bring some level of stress on the storage.
 + Rights to run an elevated PowerShell prompt
 + It would be wise to have a separated drive, where the OSDBuilder is located along with all the media and builds prepared by this great tool
-+ If you have more than one image to maintain, due to the fact that the process is time consuming, consider spinning few vms and service the images in parallel. 
++ If you have more than one image to maintain, due to the fact that the process is time consuming, consider spinning few vms and service the images in parallel.
 
 ## Download the base image
 
