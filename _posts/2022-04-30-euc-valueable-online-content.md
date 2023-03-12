@@ -359,6 +359,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 ## AVD - Networking
 
++ IGEL OS Shortpath [virtualbrat.com](https://virtualbrat.com/2023/03/10/rdp-shortpath-greatly-enhances-user-experience-in-azure-virtual-desktop-avd-using-igel-os/)
 + CloudTrooper [Azure Route Server](https://blog.cloudtrooper.net/2021/03/03/azure-route-server-super-powers-for-your-network-virtual-appliance/)
 
 ## AVD - Image Management
