@@ -30,6 +30,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
 + Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
 + Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
++ 70 best powershell blogs and websites to follow [feedspot](https://blog.feedspot.com/powershell_blogs/)
 + Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
 + Jason Helmick [github](https://github.com/theJasonHelmick)
 + PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
@@ -37,6 +38,10 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
+
+## PowerShell - EUC related tools
+
++ PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
 
 ## Terraform
 
@@ -58,9 +63,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 ## Azure - Bicep
 
 + Bicep [github](https://github.com/Azure/bicep/)
-<<<<<<< HEAD
 + Bicep ElYusubov [github](https://github.com/ElYusubov/AWESOME-Azure-Bicep)
-=======
 + Bicep [fundamentals](https://docs.microsoft.com/en-us/learn/paths/fundamentals-bicep/)
 + Bicep [microsoft learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep)
 
@@ -72,13 +75,19 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + StreamingCloud, getting started with Bicep with Freek Berson [youtube](https://www.youtube.com/watch?v=C-VAXvEFCkw), [github](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20My%20journey%20to%20Bicep%20and%20how%20you%20can%20get%20started!.pdf)
 + Bicep, Esther Barthel, Freek Berson - Experts Netherlands slideck [github - part I](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20II.pdf), [github - part II](https://github.com/fberson/Slidedecks/blob/main/2022/2022%20-%2009%20-%20Bicep%20-%20Infrastructure%20as%20Code%20Masterclass%20-%20part%20I.pdf)
 
->>>>>>> 095353c2c7329bef92c344c3124f4ddb4f362e49
 + Bicep learning and reference [github](https://github.com/kevinevans1/learn-azure-bicep)
 + Bicep and github actions part1 [blog](https://www.cloudninja.nu/post/2021/06/getting-started-with-github-actions-and-bicep-part-1/)
 
 + Packt [github](https://github.com/PacktPublishing/Infrastructure-as-Code-with-Azure-Bicep) - Infrastructure as a Code with Azure Bicep
 + Sharing bicep modules with azure container registry [dev.to](https://dev.to/azure/sharing-bicep-modules-with-azure-container-registry-4mo0)
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
+
+## Azure - 2023 trends
+
++ Template specs
++ Deployment stacks
++ Azure Automanage Machine Configuration
++ [Microsoft Entra](https://entra.microsoft.com)
 
 ## Azure - KQL
 
@@ -119,6 +128,7 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Use Hyper-V and PowerShell to quickly spin up Windows test machines [blog](https://smbtothecloud.com/use-hyper-v-and-powershell-to-quickly-spin-up-windows-test-machines/)
 + Johan Arwidmark [blog](https://www.deploymentresearch.com/building-the-perfect-windows-server-2019-reference-image/) - building a perfect windows server 2019 reference image
 + AveYo - Media Creation Tool [github](https://github.com/AveYo/MediaCreationTool.bat)
++ David McKone - pfsense and basic roles on linux like dns and dhcp [youtube](https://www.youtube.com/watch?v=PBLFYvUIU54)
 
 ## On-Premises - Automated lab provisioning
 
@@ -220,7 +230,7 @@ If you decide to go RDS way, it will be beneficial for you to consider the produ
 
 + [Awingu](https://www.awingu.com) - remote access technology that acts as a VPN alternative
 
-# Azure - Community Shares
+## Azure - Community Shares
 
 Apart from Microsoft learn and docs, there are community shares which helps you being equipped with hints and tips.
 
@@ -314,6 +324,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + AutoScale Pooled Host Pools [techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 
++ Azure Architecture Icons [learn](https://learn.microsoft.com/en-us/azure/architecture/icons/) - svg files
 + diagrams [lucidchart](https://www.lucidchart.com/), updated with Azure Icons
 + Troubleshoot RDS shortpath [learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-rdp-shortpath#verifying-stun-server-connectivity-and-nat-type)
 + AVD Considerations in Risk Management [spiceworks](https://www.spiceworks.com/collaboration/remote-support/guest-article/azure-virtual-desktop-considerations-in-risk-management/)
@@ -346,18 +357,28 @@ It would also be helpful to bring good and consistent naming convention:
 + Patrick van den Born [blog](www.vandenborn.it) - HashiCorp, IaC, Automated images builds etc
 + Azure/RDS-Templtes [github](https://github.com/Azure/RDS-Templates) - ARM Templates for Remote Desktop Services deployments
 
+## AVD - Networking
+
++ IGEL OS Shortpath [virtualbrat.com](https://virtualbrat.com/2023/03/10/rdp-shortpath-greatly-enhances-user-experience-in-azure-virtual-desktop-avd-using-igel-os/)
++ CloudTrooper [Azure Route Server](https://blog.cloudtrooper.net/2021/03/03/azure-route-server-super-powers-for-your-network-virtual-appliance/)
+
 ## AVD - Image Management
 
++ Patch management tips: [Updating IT systems in large and small networks](https://4sysops.com/archives/patch-management-tips-updating-it-systems-in-large-and-small-networks/)
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
-+ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0) 
++ MSI-X app attach on AVD [deployment.mx](https://www.deployment.mx/msix-app-attach-en-azure-virtual-desktop/)
++ Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
 + AppCure - transform applications from SCCM to MSIX (recommended by Ryan Mangan)[webpage](https://www.appcure.io/extracting-sccm-installation-media-and-modernising-at-speed/)
-<<<<<<< HEAD
 + Askaresh - AVD monthly patching on the golden images [blog](https://askaresh.com/2022/11/14/azure-virtual-desktop-apply-monthly-microsoft-security-cumulative-updates-on-the-golden-image-with-azure-compute-galleries/)
-=======
++ Askaresh - w11 powershell from marketplace image [blog](https://askaresh.com/2022/11/28/powershell-create-a-windows-11-multi-session-golden-image-for-azure-virtual-desktop-using-marketplace-image/)
+
 + Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
 
 Mahammad Kubaib advise
+
 ```shell
+
 One of the Best way to keep your golden vm upto date and image management in AVD..
 (By default when you sysprep and convert golden vm to image, it will make the vm unusable for future use)
 
@@ -368,7 +389,7 @@ One of the Best way to keep your golden vm upto date and image management in AVD
 5.disjoin the cloned vm from domain
 6.sysprep cloned VM
 7.convert the vm to Image (select delete vm option while converting to image)
-8. Optionally upload it to compute gallery
+1. Optionally upload it to compute gallery
 9.Build hostpool or add vms to hostpool using the image
 *************************************************
 10.Turn on golden VM
@@ -377,8 +398,8 @@ One of the Best way to keep your golden vm upto date and image management in AVD
 
 so with this you can keep your golden image always upto date and it allows you to redeploy your hostpool or add new vms to hostpool anytime with the latest image 😉
 Note : (citrix and vmware vdi solution does this image management automatically for you ..hope someday will see the same in AVD as well 🤞 )
+
 ```
->>>>>>> 2fe62ae8c7290a19165cbbb69603b5a103de59e3
 
 ## AVD - key areas towards end user experience
 
@@ -387,6 +408,10 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 ### AVD - Things to consider when planning and designing
 
 + vdibuzz - Enterprise-scale landing zone reference architecture for Virtual Desktop Service(Citrix/AVD) on Azure [blog](https://vdiclub.wordpress.com/2022/02/13/enterprise-scale-landing-zone-reference-architecture-for-virtual-desktop-servicecitrix-avd-on-azure/)
+
+### AVD - Cost optimization
+
++ Azure Virtual Desktop x Shutdown and deallocate Session host at logoff [avdpunks](https://avdpunks.com/avd/2023/01/12/AVDxDeallocateSessionHosts.html)
 
 ### AVD - Latency and RTT
 
@@ -450,10 +475,12 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
 ## Passkeys
+
 + Passkeys - Microsoft, Apple and Google's password killer [arstechnica](https://arstechnica.com/information-technology/2022/10/passkeys-microsoft-apple-and-googles-password-killer-are-finally-here/)
 
 ## w365 / m365
 
++ w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
 + Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
@@ -465,6 +492,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
 + m365 network connectivity test [webpage](https://connectivity.office.com/)
 
+## Weekly digest
+
++ PowerShell Wekly [psweekly.dowst.dev](https://psweekly.dowst.dev/)
++ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
+
 # EUC
 
 Resources available in context of End User Computing
@@ -474,7 +506,6 @@ Resources available in context of End User Computing
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
 + EUC Digest [webpage](https://www.eucdigest.com/), [linkedin](https://www.linkedin.com/company/eucdigest/?miniCompanyUrn=urn%3Ali%3Afs_miniCompany%3A23759490)
 + World of EUC [slack](https://t.co/EVrMXepANH), [discord](https://t.co/zE0QTpANZQ)
-+ Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
 + ControlUP [resources](https://www.controlup.com/resources/)
 + Login VSI [white papers](https://www.loginvsi.com/resources/white-papers/)
@@ -501,6 +532,11 @@ Resources available in context of End User Computing
 
 + Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
 + Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
+
+## Azure Image Builder / AVD VM apps
+
++ Azure academy [youtube](https://www.youtube.com/watch?v=UEOZsNBjGJc)
++ AVD VM Apps - sort of app containers [youtube](https://www.youtube.com/watch?v=C3w30h3VWxc)
 
 # Citrix
 
@@ -534,6 +570,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 ## Citrix - community shares
 
++ [https://blogs.mycug.org](https://blogs.mycugc.org/2023/)
 + James Kindon fantastic [blog](https://jkindon.com/), [github](https://github.com/JamesKindon)
 + James Ranklin [blog](https://james-rankin.com/) - great stuff
 + Nicolas Ignoto [twitter](https://twitter.com/citrixguru), [blog](https://www.citrixguru.com/2019/01/21/ltsr-vs-cr/), along with his guide [how to setup the lab](https://www.citrixguru.com/category/lab/)
@@ -566,6 +603,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Steven Lemonier [blog](https://stevenlemonier.fr/), [github](https://github.com/SLemonier)
 + Mahammad Kubaib [blog](https://vdiclub.wordpress.com/), [youtube](https://www.youtube.com/user/mahammadism)
 + Nishith Gupta - VMware Tools in PVS Image [blog](https://guptanishith.com/vmware-tools-in-pvs-image/)
++ Balint Oberrauch [blog](https://oberrauch.bz.it/2022/12/21/upgrade-ctx-storefront-and-retain-customizations/)
 
 ## Citrix (CVAD) - tools
 
@@ -584,6 +622,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Enterprise vs Solution vs Technical Architect [leanix](https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-solution-architect-vs-technical-architect-whats-the-difference?utm_content=buffer27c09&utm_medium=social&utm_source=linkedin.com&utm_campaign=buffer)
 + Why Some People Get Burned Out and Others Don’t [hbr](https://hbr.org/2016/11/why-some-people-get-burned-out-and-others-dont?utm_medium=social&utm_campaign=hbr&utm_source=twitter&tpcc=orgsocial_edit)
 
++ turbogeek.co.uk [blog](https://www.turbogeek.co.uk/)
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)
