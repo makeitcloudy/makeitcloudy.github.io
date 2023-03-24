@@ -36,6 +36,7 @@ Apart from community shares, there are great books which reorganize and structur
 + Manning, Azure Infrastructure as Code with ARM templates and Bicep [ISBN 9781617299421](https://www.manning.com/books/azure-infrastructure-as-code)
 
 + [Bicep](https://leanpub.com/azurebicep) - LeanPub
++ [AweSome-Azure-Bicep](https://github.com/ElYusubov) - ElYusubov along with the [thecloudmarathoner.com](https://thecloudmarathoner.com/)
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
 + [KQL](aka.ms/lademo) - 2022.08.28 - current link for Azure Log Analytics Query Playground
 
@@ -101,6 +102,7 @@ Apart from community shares, there are great books which reorganize and structur
 + Virtual Smart Card - EIDVirtual [webpage](https://www.mysmartlogon.com/products/eidvirtual.html) - Transform an USB Key into a virtual smart card
 
 + EUC [Application Check](https://eucweb.com/blog/1886) - report engine
++ Workplace ninja's [Tools](https://www.wpninjas.ch/tools/)
 + Master Packager [msix](https://www.masterpackager.com/blog/msix-limitations)
 
 + BIS-F Optimizer [webpage](https://eucweb.com/download-bis-f)
