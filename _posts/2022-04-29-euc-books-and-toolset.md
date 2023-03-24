@@ -100,6 +100,8 @@ Apart from community shares, there are great books which reorganize and structur
 + Encocing H.265 [StaxRip](https://helgeklein.com/blog/hardware-encode-video-in-h-265-with-free-tools-to-save-disk-space/)
 + Virtual Smart Card - EIDVirtual [webpage](https://www.mysmartlogon.com/products/eidvirtual.html) - Transform an USB Key into a virtual smart card
 
++ WinAeroTweaker [webpage](https://winaerotweaker.com/)
+
 + EUC [Application Check](https://eucweb.com/blog/1886) - report engine
 + Master Packager [msix](https://www.masterpackager.com/blog/msix-limitations)
 

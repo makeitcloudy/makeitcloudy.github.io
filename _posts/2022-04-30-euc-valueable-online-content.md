@@ -545,6 +545,7 @@ There are great resources in context of Citrix
 + What's new and Next with Citrix DaaS - 2H 2022 [youtube](https://www.youtube.com/watch?v=w34sj6MYmRM)
 + https://www.youtube.com/watch?v=w34sj6MYmRM
 + CVAD what's new - 2022.09 [citrix blog](https://www.citrix.com/blogs/2022/09/29/whats-new-with-citrix-daas-and-citrix-virtual-apps-and-desktops-september-2022/)
++ Citrix on Azure [Enterprise scale landing zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/landing-zone-citrix/citrix-enterprise-scale-landing-zone)
 
 ## Citrix DaaS
 
@@ -632,4 +633,4 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 Many of abovementioned EUC experts, links on their blogs shares great tools which may improve your skills in your daily work, and reveal knowledge, which you'll never get on the trainings guarateed by the vendor, exposing their experience from the field. There are many more, please forgive me I can not enumerate them all here. Depending from the area, many are CTP's or MVP's, but there are also grey eminence personas who share valuable information.
 
-Last update: 2022.10.11
+Last update: 2023.03.24
