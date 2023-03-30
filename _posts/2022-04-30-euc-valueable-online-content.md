@@ -597,6 +597,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Kris Davis [blog](https://xenapplepie.com/)
 + John Billekens [blog](https://blog.j81.nl/)
 + Lee Jeffries [blog](https://www.leeejeffries.com/home/)
++ Patrick Matula [pages.dev](https://patrickmatula.pages.dev/)
 + Christ Twiest [blog](https://workspace-guru.com)
 + Barry Browne [blog](https://mybrokencomputer.net/t/setup-a-citrix-home-lab-in-sixty-minutes/28) - setup home lab in sixty minutes
 + Jarek Sobel [github](https://github.com/jareksobel)
