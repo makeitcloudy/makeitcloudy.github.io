@@ -501,6 +501,8 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 Resources available in context of End User Computing
 
++ Alternatives to Citrix, Microsoft and VMware for remote work [techtarget](https://www.techtarget.com/searchvirtualdesktop/opinion/Alternatives-to-Citrix-Microsoft-and-VMware-for-remote-work)
+
 ## EUC - community shares
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
