@@ -502,6 +502,8 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 Resources available in context of End User Computing
 
++ Alternatives to Citrix, Microsoft and VMware for remote work [techtarget](https://www.techtarget.com/searchvirtualdesktop/opinion/Alternatives-to-Citrix-Microsoft-and-VMware-for-remote-work)
+
 ## EUC - community shares
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
@@ -598,6 +600,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Kris Davis [blog](https://xenapplepie.com/)
 + John Billekens [blog](https://blog.j81.nl/)
 + Lee Jeffries [blog](https://www.leeejeffries.com/home/)
++ Patrick Matula [pages.dev](https://patrickmatula.pages.dev/)
 + Christ Twiest [blog](https://workspace-guru.com)
 + Barry Browne [blog](https://mybrokencomputer.net/t/setup-a-citrix-home-lab-in-sixty-minutes/28) - setup home lab in sixty minutes
 + Jarek Sobel [github](https://github.com/jareksobel)
