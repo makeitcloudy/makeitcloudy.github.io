@@ -176,6 +176,11 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 + fslogix [webpage](https://www.sul.de/2019/04/05/fslogix-in-a-citrix-provisioning-environment/)
 
+## FSLogix
+
++ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
++ FSLogix [docs](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix)
+
 ## On-Premises - Monitoring
 
 + AdamYarborough - EUCMonitoringRedux [github](https://github.com/littletoyrobots/EUCMonitoringRedux) - 'End User Compute Monitoring Platform that is FREE and based on PowerShell. Will cover Citrix, VMware and Microsoft technologies. Driven and written by the community for the community'
@@ -339,7 +344,6 @@ It would also be helpful to bring good and consistent naming convention:
 + Announcing General Availability of Autoscale for Pooled Host Pools [microsoft technet](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-autoscale-for-pooled-host/ba-p/3591462)
 + What is new in Azure Virtual Desktop for September 2022 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/what-is-new-in-azure-virtual-desktop-for-september-2022/m-p/3645203#M9910)
 + What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-+ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
 
 + Tom Hickling - updates [linkedin](https://www.linkedin.com/in/tomhickling/), [twitter](https://twitter.com/tomhickling)
 
