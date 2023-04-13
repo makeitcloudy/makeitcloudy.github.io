@@ -366,7 +366,7 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Patch management tips: [Updating IT systems in large and small networks](https://4sysops.com/archives/patch-management-tips-updating-it-systems-in-large-and-small-networks/)
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
-+ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0) 
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
 + MSI-X app attach on AVD [deployment.mx](https://www.deployment.mx/msix-app-attach-en-azure-virtual-desktop/)
 + February 2023 [what's new in msi-x](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/what-s-new-in-the-msix-packaging-tool-february-2023/ba-p/3737177)
 + Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
@@ -451,6 +451,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
 + Ryan Mangan [blog](https://ryanmangansitblog.com/), [github](https://github.com/RMITBLOG), [news webpage](news.ryanmangansitblog.com)
 + Patrick Koehler [blog](https://avdlogix.com/), [youtube](https://www.youtube.com/channel/UC5aOMyGv93p1plb2QB2RY_g/playlists)
++ Bas van Kaam [AVD security guidelines cheat sheet](https://www.basvankaam.com/2023/04/11/the-azure-virtual-desktop-security-guidelines-cheat-sheet/)
 + Marcer Meurer [blog](https://blog.itprocloud.de), [github](https://github.com/MarcelMeurer)
 + Nathan McNulty [blog](https://blog.nathanmcnulty.com/azure-automation-device-cleanup/)
 + Bas Van Kaam, facts about WVD [blog](https://www.basvankaam.com/2019/03/19/the-windows-virtual-desktop-what-we-know-so-far-its-more-than-you-think-65-facts-listed/)
