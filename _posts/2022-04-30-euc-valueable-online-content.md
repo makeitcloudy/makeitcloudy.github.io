@@ -406,6 +406,14 @@ Note : (citrix and vmware vdi solution does this image management automatically 
 
 ```
 
++ [Azure Academy - AVD AIB Custom Image](https://www.youtube.com/watch?v=QxRb9sV3tHU)
+
++ [Azure Academy - AVD AIB Custom Image - Managed Identity](https://www.youtube.com/watch?v=oXGmfog8Cao)
++ [Azure Academy - AVD AIB Custom Image - Managed Identity - json RBAC](https://raw.githubusercontent.com/DeanCefola/AzureImageBuilder/main/aibRoleImageCreation.json)
++ [Azure Academy - AVD AIB Custom Image - scripts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD)
++ [Azure Academy - AVD AIB](https://www.youtube.com/watch?v=UEOZsNBjGJc)
++ [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4)
+
 ## AVD - key areas towards end user experience
 
 Regardless of the overal engine underneath wich is bringing the Virtual Workplace functionality, there are few key areas which Virtual Workplace ninjas should cover, the list below will expand and cover those elemnts up to some extend.
