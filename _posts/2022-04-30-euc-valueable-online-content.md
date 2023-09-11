@@ -346,6 +346,8 @@ It would also be helpful to bring good and consistent naming convention:
 + What is new in AVD Desktop client [microsoft learn](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 
 + Tom Hickling - updates [linkedin](https://www.linkedin.com/in/tomhickling/), [twitter](https://twitter.com/tomhickling)
++ Tom Hickling - AVD Mechanics [youtube](https://www.youtube.com/watch?v=aPEibGMvxZw&list=PLXtHYVsvn_b-bLI3NQ5X1tcPC6HCNBkpx&index=2)
++ Microsoft VDI Bill of materials [linkedin](https://www.linkedin.com/smart-links/AQEq152YU8klBw/75dfee42-2c16-43c2-a57b-dc65564b03b2)
 
 ## AVD - IaC - Bicep
 
@@ -379,6 +381,7 @@ It would also be helpful to bring good and consistent naming convention:
 + Askaresh - w11 powershell from marketplace image [blog](https://askaresh.com/2022/11/28/powershell-create-a-windows-11-multi-session-golden-image-for-azure-virtual-desktop-using-marketplace-image/)
 
 + Marcel Meurer - [Sysprep and deploy Windows 11 22H2 in Azure with a custom image and a workaround](https://blog.itprocloud.de/SYSPREP_and_rollout_deploy_WINDOWS_11_22H2_in_Azure/)
++ Marcel Meurer - [OneDrive Clean-up for AVD](https://blog.itprocloud.de/OneDrive-Clean-Up-For-Azure-Virtual-Desktop-AVD-agains-Profile-Blotting/)
 
 Mahammad Kubaib advise
 
@@ -412,7 +415,7 @@ Note : (citrix and vmware vdi solution does this image management automatically 
 + [Azure Academy - AVD AIB Custom Image - Managed Identity - json RBAC](https://raw.githubusercontent.com/DeanCefola/AzureImageBuilder/main/aibRoleImageCreation.json)
 + [Azure Academy - AVD AIB Custom Image - scripts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD)
 + [Azure Academy - AVD AIB](https://www.youtube.com/watch?v=UEOZsNBjGJc)
-+ [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4)
+
 
 ## AVD - key areas towards end user experience
 
@@ -444,7 +447,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ### AVD - FsLogix
 
++ [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4)
++ [Azure Academy - FSLogix SECRETS Every AVD Admin Should LEARN](https://www.youtube.com/watch?app=desktop&v=B_R2Bi5SqVo&feature=youtu.be)
+
 + T-Bone blog, Azure fileshare for WVD with Fslogix [blog](http://www.tbone.se/2020/12/04/azure-fileshare-for-wvd-with-fslogix/)
++ Fslogix policies consideration for Profile and Office container in Citrix VDI - Non-Persistent [blog](https://ersachin22.wordpress.com/2023/07/16/fslogix-policies-consideration-for-profile-and-office-container-in-citrix-vdinon-persistent/)
 
 ### AVD - maintenance
 
