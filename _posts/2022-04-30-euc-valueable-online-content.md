@@ -501,6 +501,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ## w365 / m365
 
++ intune what's new [youtube](https://www.youtube.com/watch?v=P4QMSt5bf-4)
 + w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
 + Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
