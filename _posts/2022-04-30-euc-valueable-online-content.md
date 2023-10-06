@@ -623,6 +623,7 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Lee Jeffries [blog](https://www.leeejeffries.com/home/)
 + Patrick Matula [pages.dev](https://patrickmatula.pages.dev/)
 + Christ Twiest [blog](https://workspace-guru.com)
++ Sjoerd van den Nieuwenhof [blog](https://vdnieuwenhof.eu/)
 + Barry Browne [blog](https://mybrokencomputer.net/t/setup-a-citrix-home-lab-in-sixty-minutes/28) - setup home lab in sixty minutes
 + Jarek Sobel [github](https://github.com/jareksobel)
 + Jeremy Saunders [blog](https://www.jhouseconsulting.com/2019/03/04/controlling-the-starting-of-the-citrix-desktop-service-brokeragent-1894), [github](https://github.com/jeremyts)
