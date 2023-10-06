@@ -316,6 +316,8 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 Before you start deploying any AVD infrastructure, it would be really convinient to get some understanding of the Storage, Networking, ActiveDirectory and a bit of AVD itself. At the time of writing this it is already possible to join the Host Pools to the Azure Active Directory never the less some scenarios needs the Active Directory Services and Hybrid join.
 It would also be helpful to bring good and consistent naming convention:
 
++ AVD Mechanics Series [youtube](aka.ms/AVDMechanicsSeries)
+
 + naming convention [blog](https://justinoconnor.codes/2022/08/19/azure-periodic-table-of-resource-naming-convention-shorthands/), [microsoft](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules)
 
 + RDS in Azure, correct regular RDS farm in the cloud, not the AVD yet - year of 2017 by Freek Berson [blog](https://microsoftplatform.blogspot.com/2017/03/)
