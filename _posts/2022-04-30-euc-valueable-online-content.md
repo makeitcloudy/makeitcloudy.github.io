@@ -25,6 +25,16 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jeff Hicks - [blog](https://jdhitsolutions.com/blog/), [github](https://github.com/jdhitsolutions)
 + Mike F Robbins - [blog](https://mikefrobbins.com/)
 
+Youtube channels for Powershell Training
+
++ Nerdslesson [youtube](https://youtube.com/c/Nerdslesson)
++ NTFAQGuy [youtube](https://youtube.com/c/NTFAQGuy)
++ ABMedia-ABCo [youtube](https://www.youtube.com/c/ABMedia-ABCo/featured)
++ ShaneYoungCloud [youtube](https://www.youtube.com/c/ShaneYoungCloud/featured)
++ PowershellOrg [youtube](https://www.youtube.com/c/PowershellOrg/featured)
++ RTPSUG [youtube](https://www.youtube.com/c/RTPSUG/featured)
++ DonJonesConTech [youtube](https://www.youtube.com/c/DonJonesConTech)
+
 ## Powershell and what not
 
 + Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
