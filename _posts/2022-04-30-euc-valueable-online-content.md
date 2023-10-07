@@ -423,7 +423,7 @@ Note : (citrix and vmware vdi solution does this image management automatically 
 
 + [Azure Academy - AVD AIB Custom Image](https://www.youtube.com/watch?v=QxRb9sV3tHU)
 
-+ [Azure Academy - AVD AIB Custom Image - Managed Identity](https://www.youtube.com/watch?v=oXGmfog8Cao)
++ [Azure Academy - AVD AIB Custom Image - Managed Identity](https://www.youtube.com/watch?v=oXGmfog8Cao) - Avoid three mistakes with VM images
 + [Azure Academy - AVD AIB Custom Image - Managed Identity - json RBAC](https://raw.githubusercontent.com/DeanCefola/AzureImageBuilder/main/aibRoleImageCreation.json)
 + [Azure Academy - AVD AIB Custom Image - scripts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD)
 + [Azure Academy - AVD AIB](https://www.youtube.com/watch?v=UEOZsNBjGJc)
@@ -459,7 +459,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ### AVD - FsLogix
 
-+ [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4)
++ [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4), [Azure Academy - FSLogix biggest issues](https://www.youtube.com/watch?v=yJqTJh2Tgxo)
 + [Azure Academy - FSLogix SECRETS Every AVD Admin Should LEARN](https://www.youtube.com/watch?app=desktop&v=B_R2Bi5SqVo&feature=youtu.be)
 
 + T-Bone blog, Azure fileshare for WVD with Fslogix [blog](http://www.tbone.se/2020/12/04/azure-fileshare-for-wvd-with-fslogix/)

@@ -12,11 +12,13 @@ categories: [ReadmeFirst ,Github ,IaC]
 It's worth putting some attention on making use of git to manage your code and projects, instead of using offline versioning on the filesystem level. When one reach some amount of code, it's just a life saver to move away from chaos. Right, up to some extend ISE will be enough, never the less if you strive towards IaC any features and support from the dev tools and it's extensions, will help a lot.
 
 ## Prerequisities
+
 + Install [Git](https://git-scm.com/downloads)
 + Install [Visual Studio Code](https://code.visualstudio.com/)
 + Install extensions for Visual Studio Code: GitLens - Git supercharged, PowerShell, Azure Resource Manager (ARM) Tools, Azure CLI Tools, Bicep
 
 ## Configure Git
+
 1. Run brand new PowerShell console just in case to reinitiate the environmental variables for the console context.
 2. Run following commands within your PowerShell console
 ```powershell
@@ -35,6 +37,7 @@ Set-Location -Path $env:SystemDrive\Git
 ```
 
 ## Use Git
+
 4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally) like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
 ```powershell
 git clone https://github.com/makeitcloudy/AutomatedRDS.git
@@ -55,7 +58,12 @@ Starting this point of time your local repository is your single source of truth
 11. Start updating it.
 12. Then stage, commit and sync changes.
 
+## Following actions
+
++ [Setting up Visual Studio Code, GitHub and code signing certificate](https://www.citrixlab.dk/archives/1612)
+
 ## Summary
-That's it.<br>
-Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.<br>
+
+That's it.
+Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.
 Last update: 2022.04.03

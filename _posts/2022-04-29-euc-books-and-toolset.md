@@ -40,6 +40,10 @@ Apart from community shares, there are great books which reorganize and structur
 + [KQL](https://www.amazon.com/Must-Learn-KQL-Essential-Cloud-focused-ebook/dp/B0B193RQLY/)
 + [KQL](aka.ms/lademo) - 2022.08.28 - current link for Azure Log Analytics Query Playground
 
+### WinRM
+
++ PowerShell Remoting Trusted Hosts: What does it mean? [awakecoding](https://awakecoding.com/posts/powershell-remoting-trusted-hosts-what-does-it-mean/)
+
 ### PowerShell / sourounding topics to EUC
 
 + Month of launches [SQL](https://www.manning.com/books/learn-sql-server-administration-in-a-month-of-lunches) a bit of sql knowledge wont' harm
