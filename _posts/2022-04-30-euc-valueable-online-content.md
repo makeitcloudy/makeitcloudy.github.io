@@ -39,7 +39,7 @@ Youtube channels for Powershell Training
 
 + Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
 + Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
-+ Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell area ;) [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech)
++ Guy Leech [twitter](https://twitter.com/guyrleech) - there is no better place to be inspired in powershell. Guy's [blog](https://guyrleech.wordpress.com/) and [github](https://github.com/guyrleech), [youtube](https://www.youtube.com/@GuyRLeech/videos)
 + 70 best powershell blogs and websites to follow [feedspot](https://blog.feedspot.com/powershell_blogs/)
 + Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
 + Jason Helmick [github](https://github.com/theJasonHelmick)
@@ -142,14 +142,13 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 
 ## On-Premises - Automated lab provisioning
 
-+ GO-EUC [github](https://github.com/GO-EUC/go-euc-lab) - along with the Virtual Expo 202209 session of @AntonvanPelt and @pvdnborn
++ GO-EUC [github](https://github.com/GO-EUC/go-euc-lab) - along with the Virtual Expo 202209 session of @AntonvanPelt and @pvdnborn, [youtube](https://www.youtube.com/@go-euc6933/playlists)
 + Citrix-VAD-LAB [github](https://github.com/ryancbutler/Citrix-VAD-LAB) - quickly deploy a full CVAD environment on vCenter with ansible and terraform
 + Steven Noel [github](https://github.com/StevenNoel/Citrix-VAD-LAB-Single) - Citrix VAD LAB Single
 + XenDesktop7Lab [github](https://github.com/VirtualEngine/XenDesktop7Lab)
 + LabBuilder [github](https://github.com/PlagueHO/LabBuilder)
 + Lability [github](https://github.com/VirtualEngine/Lability)
 + PS-AutoLab-Env [github](https://github.com/pluralsight/PS-AutoLab-Env)
-+ go-euc-lab [github](https://github.com/GO-EUC/go-euc-lab)
 + win-aic-lab [github](https://github.com/dteslya/win-iac-lab)
 + Install-Lab [github](https://github.com/DominikBritz/Install-Lab)
 + MS-Lab [github](https://github.com/microsoft/MSLab)
