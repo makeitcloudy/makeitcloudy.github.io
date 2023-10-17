@@ -53,6 +53,10 @@ Youtube channels for Powershell Training
 
 + PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
 
+## PSADT - Powershell Application Deployment Toolkit
+
++ Mastering Application Deployment Excellence with Kevin Greer - [Unleashing PSADT](https://www.youtube.com/watch?v=gjmLC2gpJG0) 
+
 ## Terraform
 
 + Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
