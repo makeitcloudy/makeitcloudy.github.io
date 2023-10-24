@@ -16,30 +16,121 @@ Xen Orchestra is included within the package, though later on, once you do the i
 
 Once the XCP-ng is installed, login to it's web interface via web browser and deploy the XenOrchestra comming within the installation package. It should be available for the next 30days after the installation, which is enough amount of time, to perform the initial configuration of your hypervisor, along with spinning up debian or rocky linux (RHEL) to compile the Xen Orchestra Community Ediction from sources, which does not have the functioanlity limitations after the 30 days trial period.
 
-## Autoinstall XenOrchestra community edition
+## Option 2 - Autoinstall XenOrchestra community edition
 
-As mentioned above [ronivay](https://github.com/ronivay/XenOrchestraInstallerUpdater) provided the script which can be executed directly via SSH connection on the XCP-ng host.
+As mentioned above [ronivay](https://github.com/ronivay/XenOrchestraInstallerUpdater#image) provided the script which can be executed directly via SSH connection on the XCP-ng host.
+Youtube video how to make it happen is available on the [@HomeTinyLab](https://www.youtube.com/watch?v=bzwFg6qrUoI) YouTube channel.
 
 ```shell
-
+#run this directly on your XCP-ng host, when connected over SSH
+sudo bash -c "$(curl -s https://raw.githubusercontent.com/ronivay/XenOrchestraInstallerUpdater/master/xo-vm-import.sh)"
+# default username is xo with password admin
+# ssh of the XOA is available with username xo with password xopass
+# remember to change both passwords before putting the VM to acutal use
 ```
+
+## Option 3 - XenOrchestra installation from sources
+
+The prerequisite for this approach is that the VM's are already running, which means that you should have them provisioned alreay by making use of the prepackaged version of the XenOrchestra deploymedn, available within the XCP-ng installation, or via XE commands.
+
++ Link to the [documentation](https://xen-orchestra.com/docs/installation.html#from-the-sources)
++ Youtube tutorial from [@HomeTinyLab](https://www.youtube.com/watch?v=B6qX_nvd8Ac)
+
+```shell
+# the compilation will be conducted on the debian vm - version 23.10 (mantic)
+sudo su #su - root
+apt update
+apt upgrade
+apt install curl nfs-common neofetch
+neofetch
+# on 2023.10.24 - the 19.x has been deprecated
+#curl -fsSl https://deb.nodesource.com/setup_19.x | bash -
+# following the documentation - https://github.com/nodesource/distributions
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+NODE_MAJOR=21
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+sudo apt-get update
+sudo apt-get install nodejs -y
+
+npm install --global yarn
+# to verify the installed version of node
+node -v
+# install the packages needed by XenOrchestra
+sudo apt install build-essential redis-server libpng-dev git python3-minimal libvhdi-utils lvm2 cifs-utils
+# clone the code
+git clone -b master https://github.com/vatesfr/xen-orchestra
+# now it's time to build the appliance
+yarn
+#[5/5] Building fresh packages...
+#$ husky install
+#husky - Git hooks installed
+# Done in 260.03s.
+yarn build
+#Tasks:    26 successful, 26 total
+#Cached:    0 cached, 26 total
+# Time:    2m41.142s
+# Done in 161.96s.
+#
+# now the xenorchestra need to find the configuration file
+# we are logged in as a root user
+cd packages/xo-server
+mkdir -p ~/.config/xo-server
+cp sample.config.toml ~/.config/xo-server/config.toml 
+# now start the xenorchestra
+yarn start
+# now open a web browser and navigate to the IP address of your
+# VM where you have been compiling it
+# you can login with default credentials
+# username: admin@admin.net
+# password: admin
+
+# create a new user with admin rights, and remove the default one
+# get back to the terminal and run CTRL + C to stop the xenorchestra
+
+# make XOCE running as a service so it's start up automatically
+# when we reboot the server
+
+mkdir -p /etc/xo-server
+cp sample.config.toml /etc/xo-server/config.toml
+ls -lah /etc/xo-server/
+
+yarn global add forever
+yarn global add forever-service
+# at this point we are still in /root/xen-orchestra/packages/xo-server folder
+forever-service install orchestra -r root -s dist/cli.mjs
+service orchestra status
+# inactive
+service orchestra start
+```
+
+The noticable difference between the XenOrchestra version bundled with the XCP-ng installation, and the one compiled is the fact that, with the latter the ISO import works.
+Never the less with node 21.X it loses the conectivity with the hypervisor...
 
 ## Spinning up VM's
 
 To manage the XCP-ng you need to be familiar with xe commands, then you can do everything you need to do with through the ssh connection.
 
-+ You can also make use of the [Xen Orchestra](https://xen-orchestra.com/docs/installation.html#xoa) web based interface which can be deployed once you connect over the browser to the IP address of your hypervisor - The official graphical client.
++ You can also make use of the [Xen Orchestra](https://xen-orchestra.com/docs/installation.html#xoa) web based interface which can be deployed once you connect over the browser to the IP address of your hypervisor - The official graphical client
 + Another option if you are in disposal of window box is to install the [XCP-ng center](https://github.com/xcp-ng/xenadmin/releases/), so called xenadmin
 
 ### debian - preparation
 
 Debian distribution will be used as the place where the tooling will be made available, so the core services for XCP-ng available in Rocky won't be interrupted.
 
+```shell
+# show the version of the debian
+lsb_release -a
+# in this case it's 23.10 (mantic)
+```
+
 ### rocky - preparation
 
-It seems this can be done in many more sofisticated ways, never the less this approach works for the home lab usecase.
-
-Rocky is a continuation of the CentOS stream.
+It seems this can be done in many more sofisticated ways, never the less this approach works for the home lab usecase. Rocky is a continuation of the CentOS stream.
 
 #### rocky - XCP-ng tools installation
 
@@ -170,7 +261,7 @@ nano /etc/exports
 /data/nfs_share/labIso/ {networka ddress}/24(rw,sync,no_all_squash,root_squash)
 ```
 
-Continuation of the configuration
+Continuation of the NFS configuration
 
 ```shell
 exportfs -arv
