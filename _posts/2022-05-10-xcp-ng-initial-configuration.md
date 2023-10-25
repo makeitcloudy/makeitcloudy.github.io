@@ -16,10 +16,58 @@ Xen Orchestra is included within the package, though later on, once you do the i
 
 Once the XCP-ng is installed, login to it's web interface via web browser and deploy the XenOrchestra comming within the installation package. It should be available for the next 30days after the installation, which is enough amount of time, to perform the initial configuration of your hypervisor, along with spinning up debian or rocky linux (RHEL) to compile the Xen Orchestra Community Ediction from sources, which does not have the functioanlity limitations after the 30 days trial period.
 
-## Option 2 - Autoinstall XenOrchestra community edition
+## Option 1 - XOA - Install XenOrchestra appliance from the sources
+
+Installation from the sources:
+
+[xenorchestra.com](https://xen-orchestra.com/docs/installation.html#from-the-sources)
+[@HomeTinyLab](https://www.youtube.com/watch?v=6RR3WtQIbe0)
+[Github jarli01](https://github.com/Jarli01/xenorchestra_installer)
+
+```shell
+#execute on your debian or ubuntu
+# the credentials after installation are:
+# u: admin@admin.net
+# p: admin
+sudo bash
+bash -c "$(curl https://raw.githubusercontent.com/Jarli01/xenorchestra_installer/master/xo_install.sh)"
+```
+
+Configure the self signed cetrtficate for the XOA appliance
+
+```shell
+# Self signed SSL
+# Generate your key and cert from your XOCE installation
+sudo openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -keyout /etc/ssl/private/key.pem -out /etc/ssl/certs/certificate.pem
+# Now edit the xo-server.toml file
+nano /opt/xen-orchestra/packages/xo-server/.xo-server.toml
+# Comment-out or edit the port from 80 to 443 and add the cert and key to the appropriate locations within this file.
+port = 443
+cert = '/etc/ssl/certs/certificate.pem'
+key = '/etc/ssl/private/key.pem'
+# restart xo-serever.service
+systemctl restart xo-server.service
+```
+
+Update the XOA is covered within this script [github Jarli01](https://github.com/Jarli01/xenorchestra_updater)
+
+```shell
+# execute the lines below to upgrade XOA
+sudo bash
+<password>
+sudo curl https://raw.githubusercontent.com/Jarli01/xenorchestra_updater/master/xo-update.sh | bash
+
+# in case of incorrect version of node is detected then you should execute
+sudo n lts
+# then execute again the first lines from this section
+```
+
+## Option 2 - XOACE - install XenOrchestra Community Edition
 
 As mentioned above [ronivay](https://github.com/ronivay/XenOrchestraInstallerUpdater#image) provided the script which can be executed directly via SSH connection on the XCP-ng host.
 Youtube video how to make it happen is available on the [@HomeTinyLab](https://www.youtube.com/watch?v=bzwFg6qrUoI) YouTube channel.
+
+The approach described here, brings the version of XOA which does not drop the connectivity from the hypervisor, in 5s loops.
 
 ```shell
 #run this directly on your XCP-ng host, when connected over SSH
@@ -29,12 +77,15 @@ sudo bash -c "$(curl -s https://raw.githubusercontent.com/ronivay/XenOrchestraIn
 # remember to change both passwords before putting the VM to acutal use
 ```
 
-## Option 3 - XenOrchestra installation from sources
+## Option 3 - XOACE - XenOrchestra Community Edition installation from sources
 
 The prerequisite for this approach is that the VM's are already running, which means that you should have them provisioned alreay by making use of the prepackaged version of the XenOrchestra deploymedn, available within the XCP-ng installation, or via XE commands.
 
 + Link to the [documentation](https://xen-orchestra.com/docs/installation.html#from-the-sources)
-+ Youtube tutorial from [@HomeTinyLab](https://www.youtube.com/watch?v=B6qX_nvd8Ac)
++ Youtube tutorial from [@HomeTinyLab](https://www.youtube.com/watch?v=B6qX_nvd8Ac) - Christophe installs it sucesfully on debian 11.
+
+In my case the main drawback with this method (on ubuntu 23.10 and node.js 21.X) comparing to the XenOrchestra Appliance bundled with the XCP-ng installation is that it loses the conectivity with the hypervisor in 5 loops.
+The advantage is that the ISO import to the SR works, which was not available with the latter, based on my experience.
 
 ```shell
 # the compilation will be conducted on the debian vm - version 23.10 (mantic)
@@ -108,8 +159,43 @@ service orchestra status
 service orchestra start
 ```
 
-The noticable difference between the XenOrchestra version bundled with the XCP-ng installation, and the one compiled is the fact that, with the latter the ISO import works.
-Never the less with node 21.X it loses the conectivity with the hypervisor...
+## Patch XCP-ng
+
+There is an option to patch the XCP-ng from the XOACE, once the system is patched it needs to be rebooted. To schedule it you can approach it the following way.
+
+```shell
+echo "/sbin/shutdown -r now" | at 19:00
+at q
+```
+
+## Upgrade XCP-ng with yum
+
+The video how to upgrade from 8.1 to 8.2 is available on [@HomeTinyLab](https://www.youtube.com/watch?v=jliok9FzwEc).
+Update the master first if you have the pool, create a backup first before upgrading your XCP-ng host.
+If you put the installation media into the host, it will ask you for the option of an upgrade as well.
+
+```shell
+# execute the code below on the XCP-ng terminal
+yum update
+export VER=8.2
+wget https://updates.xcp-ng.org/8/xcp-ng-$VER.repo -O xcp-ng-$VER.repo
+wget https://updates.xcp-ng.org/8/SHA256SUMS -O SHA256SUMS
+wget https://updates.xcp-ng.org/8/SHA256SUMS.asc -O SHA256SUMS.asc
+ls -lah
+cp xcp-ng.8.2.repo /etc/yum.repos.d/xcp-ng.repo
+# overwrite it
+yum clean metadata
+yum update
+```
+
+## Storage
+
+If you pair xcp-ng with the Freenas, the on your dataset you create. [@HomeTinyLab](https://www.youtube.com/watch?v=bCPUlaUc6wc)
+
++ NFS (file level) - dataset, root, wheel, authorize only the xcp-ng host (by IP address), nfs v4 with options
++ iscsi (block level) - zvol (volume), device type, configured zvol as the extend, platform xen (thrue nas is optimizing it for the usecase), portal, no chap etc
+
+Separate the network for the storage from the vm traffic, in case of pairing with Truenas, this can be done by making use of Mellanox cards, along with the increase of the MTU on that link.
 
 ## Spinning up VM's
 
