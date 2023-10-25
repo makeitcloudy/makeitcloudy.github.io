@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "XCP-ng prerequiinitialsites configuration"
+title: "XCP-ng initial configuration"
 permalink: "/xcp-ng-initial-configuration/"
 subtitle: "XCP-ng left much to be desired, though it's a great solution for home lab"
 cover-img: /assets/img/cover/img-cover-zen.jpg
@@ -11,6 +11,7 @@ categories: [HomeLab ,XCP-ng]
 ---
 There are at least few hypervisors on the market which would be a good fit, though in this case as it is Citrix oriented lab, the XCP-ng was the choice. Hyper-V server core, would do the trick, esxi as well, though both of them will be missing the integration of the SDK.
 Xen Orchestra is included within the package, though later on, once you do the initial configuraiton, you can scrap the appliance and compile one from sources, or use the script provided by [ronivay](https://github.com/ronivay/XenOrchestraInstallerUpdater).
+The first contact with xcp-ng may be harsh, when you don't have stron RedHat background, though the convinience will come with time.
 
 ## Configuration
 
