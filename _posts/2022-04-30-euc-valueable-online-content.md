@@ -12,11 +12,7 @@ categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
 There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and [do puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.
 
-# Automation
-
-League of Devops or Clickops.
-
-## PowerShell
+# PowerShell 
 
 It's essential get comfortable with PowerShell, it will help you switch from imperative style of work towards declarative, when you get some hands on experience with DSC and Bicep. There are few great books about PowerShell as well as great quality content on the PowerShell advocates blogs.
 
@@ -25,7 +21,7 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Jeff Hicks - [blog](https://jdhitsolutions.com/blog/), [github](https://github.com/jdhitsolutions)
 + Mike F Robbins - [blog](https://mikefrobbins.com/)
 
-Youtube channels for Powershell Training
+## Powershell Training online
 
 + Nerdslesson [youtube](https://youtube.com/c/Nerdslesson)
 + NTFAQGuy [youtube](https://youtube.com/c/NTFAQGuy)
@@ -35,7 +31,7 @@ Youtube channels for Powershell Training
 + RTPSUG [youtube](https://www.youtube.com/c/RTPSUG/featured)
 + DonJonesConTech [youtube](https://www.youtube.com/c/DonJonesConTech)
 
-## Powershell and what not
+## Powershell blogs
 
 + Jeff Hicks [blog](https://github.com/jdhitsolutions) and [github](https://github.com/jdhitsolutions)
 + Adam Bertram [blog](https://adamtheautomator.com/author/adam-bertram/) and [github](https://github.com/adbertram)
@@ -49,25 +45,12 @@ Youtube channels for Powershell Training
 + PowerShell docs [github](https://github.com/MicrosoftDocs/PowerShell-Docs)
 + Upcoming breaking changes in Azure PowerShell [microsoft](https://docs.microsoft.com/en-us/powershell/azure/upcoming-breaking-changes?view=azps-8.2.0)
 
-## PowerShell - EUC related tools
-
-+ PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
-
 ## PSADT - Powershell Application Deployment Toolkit
 
-+ Mastering Application Deployment Excellence with Kevin Greer - [Unleashing PSADT](https://www.youtube.com/watch?v=gjmLC2gpJG0) 
++ Mastering Application Deployment Excellence with Kevin Greer - [Unleashing PSADT](https://www.youtube.com/watch?v=gjmLC2gpJG0)
++ PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
 
-## Terraform
-
-+ Azure and terraform part1 [blog](https://www.cloudninja.nu/post/2021/05/getting-started-with-azure-and-terraform-part-1/)
-+ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
-+ Aj [blog](https://blog.ayjc.net/posts/terraform/)
-
-## HashiCorp - Packer
-
-+ Gold Image from Azure DevOps Pipeline to deploy a Windows VDA [github](https://github.com/ryancbutler/converge-2020) by Ryan C Butler - converge-2020
-
-## DSC
+## DSC - Desired State Configuration
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
 + Troy Ault [github](https://github.com/aultt) and [blog](https://www.labiac.com/) - DSC Db related
@@ -96,11 +79,9 @@ Youtube channels for Powershell Training
 + Sharing bicep modules with azure container registry [dev.to](https://dev.to/azure/sharing-bicep-modules-with-azure-container-registry-4mo0)
 + Barbara 4bes [blog](https://4bes.nl/2021/12/23/work-with-parameters-in-bicep/)
 
-## Azure - 2023 trends
+# Azure
 
-+ Template specs
-+ Deployment stacks
-+ Azure Automanage Machine Configuration
++ Template specs, Deployment stacks, Azure Automanage Machine Configuration
 + [Microsoft Entra](https://entra.microsoft.com)
 
 ## Azure - KQL
@@ -125,6 +106,8 @@ Youtube channels for Powershell Training
 
 + John Savill - DevOps Master Class [github](https://github.com/johnthebrit/DevOpsMC)
 + Microsoft Learn - Azure PowerShell Lifecycle [microsoft](https://learn.microsoft.com/en-us/powershell/azure/azureps-support-lifecycle?view=azps-8.3.0) - when will Microsoft stop supporting the old AzureRm PowerShell Modules
+
++ cloudninja - Azure and Devops [blog](https://www.cloudninja.nu/)
 + AdminTurnedDevops - Devops-The-Hard-Way-Azure [github](https://github.com/thomast1906/DevOps-The-Hard-Way-Azure)
 
 ## Azure - Arc
@@ -185,14 +168,13 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Julian Mooren [blog](https://citrixguyblog.com/2019/01/17/citrix-hypervisor-unattended-installation-with-hotfixes-and-nvidia-grid-driver/)
 + Chris Twiest [blog](https://workspace-guru.com/2019/07/20/passthrough-a-consumer-gefore-and-quadro-gpu-to-a-vm-with-vmware-and-using-rdp/)
 
+## On-Premises - Storage
+
++ Deploy Storage Spaces Direct [Microsoft learn](https://learn.microsoft.com/en-us/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?source=recommendations)
+
 ## On-Premises - Profiles
 
-+ fslogix [webpage](https://www.sul.de/2019/04/05/fslogix-in-a-citrix-provisioning-environment/)
-
-## FSLogix
-
-+ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
-+ FSLogix [docs](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix)
++ sul.de - fslogix in a citrix provisioning environment [blog](https://www.sul.de/2019/04/05/fslogix-in-a-citrix-provisioning-environment/)
 
 ## On-Premises - Monitoring
 
@@ -223,7 +205,6 @@ Those are only buzzwords, still in 2022 it's beneficial to rely on cloud adjacen
 + Your Guide to Selecting the Nutanix Certification that’s Right for You [nutanix blog](https://next.nutanix.com/education-blog-153/your-guide-to-selecting-the-nutanix-certification-that-s-right-for-you-41289?utm_source=bambu&utm_medium=social&utm_campaign=social&blaid=3703891)
 + Nutanix University Training & Certification [nutanix](https://www.nutanix.com/support-services/training-certification/certifications), [linkedin](https://lnkd.in/dRgifdzN) - code shared some time ago: HLW22FRX
 + 2022.11 - NCA, NCP-MCI certifications for free [link](https://next.nutanix.com/education-blog-153/get-your-nca-or-ncp-mci-v6-5-certification-for-free-41217)
-+ 
 + Nutanix University [linkedin](https://www.linkedin.com/showcase/nutanixuniversity/)
 + Nutanix [architecture](https://www.nutanix.com/architecture)
 + Nutanix [Design Guide](https://vcdx133.files.wordpress.com/2019/05/the-nutanix-design-guide-first-edition.pdf)
@@ -300,12 +281,6 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Thomas Maurer - Why should you become Azure cetfied [blog](https://www.thomasmaurer.ch/2019/08/why-you-should-become-microsoft-azure-certified/)
 + JurgenOn Azure - All the exams - weekly update [github](https://github.com/JurgenOnAzure/all-the-exams)
 
-### AZ-900
-
-+ AZ-900 - John Savil's [youtube](https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3) playlist - updated in 05.2022, [github](https://github.com/johnthebrit/AZ900CertCourse), and it's 2022 Study Cram on [youtube](https://www.youtube.com/watch?v=tQp1YkB2Tgs)
-+ AZ-900 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-900-study-guide-microsoft-azure-fundamentals-2021/)
-+ AZ-900 - Microsoft learning [github](https://microsoftlearning.github.io/AZ-900T0x-MicrosoftAzureFundamentals/)
-
 ### AZ-104, AZ-140
 
 + AZ-104 - Thomas Maurer [blog](https://www.thomasmaurer.ch/2020/03/az-104-study-guide-azure-administrator/)
@@ -313,6 +288,23 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + AZ-104 - Tim's Warner Azure Administrator certification study image [lucid](https://lucid.app/publicSegments/view/70bcc0b4-625c-4660-b2a8-7ba46ea86326/image.png)
 + AZ-140 - Deliver remote desktops and apps with Azure Virtual Desktop - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/m365-wvd/)
 + AZ-140 - Implement an Azure Virtual Desktop infrastructure - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/implement-azure-virtual-infrastructure/)
+
+#3# AZ-900
+
++ AZ-900 - John Savil's [youtube](https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3) playlist - updated in 05.2022, [github](https://github.com/johnthebrit/AZ900CertCourse), and it's 2022 Study Cram on [youtube](https://www.youtube.com/watch?v=tQp1YkB2Tgs)
+
+## Intune
+
++ Microsoft Endpoint Manager Community [youtube channel](https://www.youtube.com/@MSEndpointMgr)
++ Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
++ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](<https://www.youtube.com/watch?v=c1aIqDvZjH0>
++ w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
++ Free Intune Lab tenant with [M365 developer subscription](https://www.inthecloud247.com/set-up-a-free-microsoft-intune-lab-tenant-with-microsoft/)
+
+## OSDBuilder
+
++ Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
++ Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
 
 ## Azure Virtual Desktop
 
@@ -333,8 +325,6 @@ It would also be helpful to bring good and consistent naming convention:
 + Jim Moyle - WVD Image Deployment - [github](https://github.com/JimMoyle/YouTube-WVD-Image-Deployment), [youtube](https://www.youtube.com/c/JimMoyle)
 + Johan Vanneuville [blog](https://johanvanneuville.com/avd/deploy-azure-virtual-desktop-with-terraform-part-1/) - AVD with terraform
 + Michawest - Architect WVD Workshop - AVD with PowerShell [blog](https://michawets.github.io/CA-Microsoft-WVD_ARM-Workshop/)
-
-+ Modern Endpoint Management [youtube channel](http://endpoint-manager.com/)
 
 + Mahammad Kubaib - AZ-140 [youtube](https://www.youtube.com/watch?v=PG9JfrFP8f8&list=PLYQGZ_g5WcenLEs9JbMGhOr0-UupwrTEI), [linkedin](https://www.linkedin.com/posts/mahammad-kubaib-38020850_enterprise-scale-landing-zone-reference-architecture-activity-6940550491420393472-gMrb)
 + Mahammad Kubaib - AVD/Citrix vs DNS [youtube](https://www.youtube.com/watch?v=sKs-24CLPG8)
@@ -387,7 +377,8 @@ It would also be helpful to bring good and consistent naming convention:
 
 + Patch management tips: [Updating IT systems in large and small networks](https://4sysops.com/archives/patch-management-tips-updating-it-systems-in-large-and-small-networks/)
 + Jim Moyle - Image Management - [youtuble playlist](https://www.youtube.com/watch?v=rCYX849onOM&list=PLsg-xXEEmCJpd3aqDL0IOEs1w54gv8Zgi)
-+ Vdibuzz, Mohammand Kubaib - Intune enrollment for AVD [youtube](https://www.youtube.com/watch?v=c1aIqDvZjH0)
++ HashiCorp - Packer - Gold Image from Azure DevOps Pipeline to deploy a Windows VDA [github](https://github.com/ryancbutler/converge-2020) by Ryan C Butler - converge-2020
+
 + MSI-X app attach on AVD [deployment.mx](https://www.deployment.mx/msix-app-attach-en-azure-virtual-desktop/)
 + February 2023 [what's new in msi-x](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/what-s-new-in-the-msix-packaging-tool-february-2023/ba-p/3737177)
 + Tim Mangan [blog](https://www.tmurgent.com/TmBlog/) - AppV, MSIX
@@ -424,17 +415,24 @@ Note : (citrix and vmware vdi solution does this image management automatically 
 
 ```
 
-+ [Azure Academy - AVD AIB Custom Image](https://www.youtube.com/watch?v=QxRb9sV3tHU)
+### Azure Image Builder / AVD VM apps
 
++ Azure academy - Image Builder Master Class [youtube](https://www.youtube.com/watch?v=UEOZsNBjGJc)
++ AVD VM Apps - sort of app containers [youtube](https://www.youtube.com/watch?v=C3w30h3VWxc)
+
++ [Azure Academy - AVD AIB Custom Image](https://www.youtube.com/watch?v=QxRb9sV3tHU)
 + [Azure Academy - AVD AIB Custom Image - Managed Identity](https://www.youtube.com/watch?v=oXGmfog8Cao) - Avoid three mistakes with VM images
 + [Azure Academy - AVD AIB Custom Image - Managed Identity - json RBAC](https://raw.githubusercontent.com/DeanCefola/AzureImageBuilder/main/aibRoleImageCreation.json)
 + [Azure Academy - AVD AIB Custom Image - scripts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD)
 + [Azure Academy - AVD AIB](https://www.youtube.com/watch?v=UEOZsNBjGJc)
 
-
 ## AVD - key areas towards end user experience
 
 Regardless of the overal engine underneath wich is bringing the Virtual Workplace functionality, there are few key areas which Virtual Workplace ninjas should cover, the list below will expand and cover those elemnts up to some extend.
+
+### AVD - Disaster Recovery
+
++ ciraltos - travis - Azure Virtual Desktop Disaster Recovery- [youtube](https://www.youtube.com/watch?v=xZx_4_NZn2U), and Don’t Use Azure AD Domain Services to Replace Windows Domain Controllers [youtube](https://www.youtube.com/watch?v=L6KtTqCtxc8)
 
 ### AVD - Things to consider when planning and designing
 
@@ -462,6 +460,8 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ### AVD - FsLogix
 
++ FSLogix [microsoft docs](https://learn.microsoft.com/en-gb/fslogix/)
++ FSLogix [docs](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix)
 + [Azure Academy - FSLogix](https://www.youtube.com/watch?v=lvBiLj7oAG4), [Azure Academy - FSLogix biggest issues](https://www.youtube.com/watch?v=yJqTJh2Tgxo)
 + [Azure Academy - FSLogix SECRETS Every AVD Admin Should LEARN](https://www.youtube.com/watch?app=desktop&v=B_R2Bi5SqVo&feature=youtu.be)
 
@@ -477,7 +477,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 + Troubleshoot agent [microsoft learn](https://learn.microsoft.com/en-us/azure/virtual-desktop/troubleshoot-agent)
 
-## AVD - community shares
+### AVD - community shares
 
 + wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
 + AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
@@ -496,11 +496,11 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
-## LAPS
+### LAPS
 
 + Orin Thomas - The video for the new LAPS (built into the OS rather than separate add on) presentation is up -  Managing Local admin account passwords in AD and Azure AD [youtube](https://www.youtube.com/watch?v=jdEDIXm4JgU)
 
-## Passwordless
+### Passwordless
 
 + Kacper Szurek - 2FA/U2F/FIDO2 - how to use youbikey (session in PL language) [youtube](https://www.youtube.com/watch?v=uku-G_COA7U&t=264s), [youtube](https://www.youtube.com/watch?v=Cb5adH6w_-0)
 + PasswordLess Digital Event [youtube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuQeH5-t0uwh50wlqS0JeeT)
@@ -510,14 +510,12 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + [http://Aka.ms/Passwordless10](http://Aka.ms/Passwordless10)
 + [http://Aka.ms/FidoMatrix](http://Aka.ms/FidoMatrix)
 
-## Passkeys
+### Passkeys
 
 + Passkeys - Microsoft, Apple and Google's password killer [arstechnica](https://arstechnica.com/information-technology/2022/10/passkeys-microsoft-apple-and-googles-password-killer-are-finally-here/)
 
-## w365 / m365
+### w365 / m365
 
-+ intune what's new [youtube](https://www.youtube.com/watch?v=P4QMSt5bf-4)
-+ w365 and intune management [udemy](https://www.udemy.com/course/windows-365-enterprise-and-intune-management/)
 + m365 vs w2k22 [microsoft techcommunity](https://techcommunity.microsoft.com/t5/windows-server-insiders/windows-server-2022-adds-support-for-microsoft-365-apps/m-p/3653854)
 + Microsoft 365 Apps migration from Windows Server [microsoft learn](https://learn.microsoft.com/en-us/deployoffice/endofsupport/windows-server-migration)
 + m365 apps on multisession OS [avdpunks](https://avdpunks.com/avd/2022/08/26/SupportM365AppsMultiSessionOS.html)
@@ -529,18 +527,18 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Windows in the cloud [microsoft](https://adoption.microsoft.com/en-us/windows-in-the-cloud/) - insider look at Windows 365
 + m365 network connectivity test [webpage](https://connectivity.office.com/)
 
-## Weekly digest
+### Weekly digest
 
 + PowerShell Wekly [psweekly.dowst.dev](https://psweekly.dowst.dev/)
 + Carl Stalhood - EUC weekly digest [blog](https://www.carlstalhood.com/category/euc-weekly-digest/)
 
-# EUC
+## EUC
 
 Resources available in context of End User Computing
 
 + Alternatives to Citrix, Microsoft and VMware for remote work [techtarget](https://www.techtarget.com/searchvirtualdesktop/opinion/Alternatives-to-Citrix-Microsoft-and-VMware-for-remote-work)
 
-## EUC - community shares
+### EUC - community shares
 
 + Virtual Desktops Community [blog](https://virtualdesktops.community/)
 + EUC Digest [webpage](https://www.eucdigest.com/), [linkedin](https://www.linkedin.com/company/eucdigest/?miniCompanyUrn=urn%3Ali%3Afs_miniCompany%3A23759490)
@@ -567,31 +565,21 @@ Resources available in context of End User Computing
 + Helge Klein [twitter](https://twitter.com/HelgeKlein), [blog](https://helgeklein.com/)
 + Christiaan Brinkhoff [blog](https://christiaanbrinkhoff.com/)
 
-## OSDBuilder
-
-+ Akos Bakos - OSDCloud - blog series [blog](https://akosbakos.ch/osdcloud-blog-series/)
-+ Modern Deployment - Windows 10 Offline WaaS servicing updates via OSDBuilder PowerShell module [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ), [blog](https://www.moderndeployment.com/webcast-windows-10-offline-waas-updates-via-osdbuilder-powershell/)
-
-## Azure Image Builder / AVD VM apps
-
-+ Azure academy [youtube](https://www.youtube.com/watch?v=UEOZsNBjGJc)
-+ AVD VM Apps - sort of app containers [youtube](https://www.youtube.com/watch?v=C3w30h3VWxc)
-
-# Citrix
+## Citrix
 
 There are great resources in context of Citrix
 
 + What's new and Next with Citrix DaaS - 2H 2022 [youtube](https://www.youtube.com/watch?v=w34sj6MYmRM)
-+ https://www.youtube.com/watch?v=w34sj6MYmRM
++ <https://www.youtube.com/watch?v=w34sj6MYmRM>
 + CVAD what's new - 2022.09 [citrix blog](https://www.citrix.com/blogs/2022/09/29/whats-new-with-citrix-daas-and-citrix-virtual-apps-and-desktops-september-2022/)
 + Citrix on Azure [Enterprise scale landing zone](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/landing-zone-citrix/citrix-enterprise-scale-landing-zone)
 
-## Citrix DaaS
+### Citrix DaaS
 
 + CVAD-as-Code: Applying DevOps to Images and Infrastructure - [youtube](https://www.youtube.com/watch?v=hS84ylAtrNg)
 + Denis Span [blog](https://dennisspan.com/azure-hosting-connections-in-citrix-virtual-apps-and-desktops-service-deep-dive/) - Azure hosting connections in Citrix virtual apps and deskops service deep dive
 
-## Citrix Netscaler
+### Citrix Netscaler
 
 + Esther Barthel [github](https://github.com/cognitionit) - if you are interested in REST API, Nitro for Citrix ADC and topics around automation, she is the one to follow, as well as some AVD stuff
 + Johannes Norz [blog](https://norz.at/blog) and his fantastic [wonderkitchen](https://www.wonderkitchen.tech/) - here you can benefit for your Citrix ADC skilset
@@ -601,14 +589,14 @@ There are great resources in context of Citrix
 + Jake Rutski [blog](https://blogs.serioustek.net/post/2019/03/26/troubleshooting-tips-for-citrix-adc-netscaler?es_p=8918036)
 + Mick Hilrost [blog](https://mickhilhorst.com/citrix/citrix-adc-sdk-powershell/) - some Nitro API getting started guide
 
-## Citrix - classic's
+### Citrix - classic's
 
 Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 
 + Building Carl Webster lab [introduction](https://carlwebster.com/01-building-websters-lab-v2-introduction/) and the [massive pdf](https://carlwebster.com/building-websters-lab-v2-pdf/) - his guide contains 1335 pages. Imagine how much of an errort was made to bring this to life. It's available for free. Carl's [github](https://github.com/CarlWebster)
 + Carl Stalhood [webpage](https://www.carlstalhood.com/about-carl-stalhood/) - great resources and fair amount of links to other places which may bring you up to speed, along with tips for solving many of the issues which may arise, which are not well documented somewhere else.
 
-## Citrix - community shares
+### Citrix - community shares
 
 + [https://blogs.mycug.org](https://blogs.mycugc.org/2023/)
 + James Kindon fantastic [blog](https://jkindon.com/), [github](https://github.com/JamesKindon)
@@ -647,14 +635,14 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Nishith Gupta - VMware Tools in PVS Image [blog](https://guptanishith.com/vmware-tools-in-pvs-image/)
 + Balint Oberrauch [blog](https://oberrauch.bz.it/2022/12/21/upgrade-ctx-storefront-and-retain-customizations/)
 
-## Citrix (CVAD) - tools
+### Citrix (CVAD) - tools
 
 + Citrix Hypervisor - fsi - flexible server installation [webpage](https://www.fsiproject.org/), [wiki](https://wiki.fsiproject.org:3443/wiki/doku.php)
 + Patrick Matua - CDF [webpage](https://patrickmatula.pages.dev/posts/whatiscitrixdiagnosticfacility/)
 + StoreFront [citrix logon simulator](https://stevenlemonier.fr/citrix-logon-simulator/)
 + StoreFront [citrix launcher](https://github.com/santiagocardenas/storefront-launcher)
 
-# Other
+## Other
 
 + PL - Weronika Szatan - Co zrobic zeby nie przejsc do gorszej firmy [geek.justjoin.it](https://geek.justjoin.it/zmiana-pracy-na-lepsza-czyli-co-zrobic-zeby-nie-przejsc-do-gorszej-firmy)
 + Star Inteview Method [webpage](https://www.themuse.com/advice/star-interview-method) - The Secret to Acing Your Next Job Interview
@@ -668,7 +656,6 @@ Two Carl's - let's list them alphabetically: Carl Webster and Carl Stalhood
 + Josh Duffney [blog](https://duffney.io/)
 + Stephen Owen [blog](https://github.com/1RedOne) and [github](https://github.com/1RedOne)
 + Free M365 E5 subscription [twitter](https://twitter.com/NathanMcNulty/status/1394904334438002690)
-+ Free Intune Lab tenant with [M365 developer subscription](https://www.inthecloud247.com/set-up-a-free-microsoft-intune-lab-tenant-with-microsoft/)
 
 + Experts Live Netherlands [youtube](https://www.youtube.com/c/ExpertsLive/playlists), [webpage](https://www.youtube.com/c/ExpertsLive/playlists)
 

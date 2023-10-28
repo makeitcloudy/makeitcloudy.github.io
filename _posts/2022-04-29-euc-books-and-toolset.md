@@ -134,6 +134,7 @@ Apart from community shares, there are great books which reorganize and structur
 + [Chocolatey](https://chocolatey.org/)
 + [Visual Studio Code](https://code.visualstudio.com/) with extensions
 
++ [EtchDroid](https://github.com/EtchDroid/EtchDroid) - create ISO on android
 + [pcManager](https://www.theverge.com/2022/10/21/23416070/microsoft-pc-manager-app-performance-systems-clean-up)
 + [WizTree](https://diskanalyzer.com/) - TreeSize alternative, which is just faster
 + [WinDirStat](https://windirstat.net/)

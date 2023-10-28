@@ -20,17 +20,30 @@ Channels:
 + VirtualizationHowto [youtube](https://www.youtube.com/@VirtualizationHowto), [blog](https://www.virtualizationhowto.com/)
 + MRPtech [youtube](https://www.youtube.com/@MRPtech) - proxmox, cloudflare and what not
 + NerdOnTheStreet [youtube](https://www.youtube.com/@NerdOnTheStreet)
-+ DBTech [youtube](https://www.youtube.com/@DBTechYT) - container, cloudflare
++ DBTech [youtube](https://www.youtube.com/@DBTechYT), [blog](https://dbtechreviews.com/), [dbtech wiki](https://dbt3ch.com/) - containers, cloudflare
 + ShotokuTech [youtube](https://www.youtube.com/@ShotokuTech) - windows, hyper-v core step by step
++ Christophe - HomeTinyLab [youtube](https://www.youtube.com/@hometinylab),[blog](https://hometinylab.blogspot.com/) - he goes straight to the point with the details about XCP-ng, entry level details which is fanstastic starting point
 
 + AlphaPhoenix [youtube](https://www.youtube.com/@AlphaPhoenixChannel)
 
-### CloudFlare
+## CloudFlare
 
 + MRP - Nextcloud + ZFS for Storage + Cloudflare Tunnel Access, Proxmox [youtube](https://www.youtube.com/watch?v=N5S3w-Z9Xvw)
 + MRP - Access Self-Hosted services using CLOUDFLARE Tunnel, Proxmox [youtube](https://www.youtube.com/watch?v=XyCjCmA_R2w)
 
 + DBTech - Access Your Self Hosted Services WITHOUT Port Forwarding [DB Tech](https://www.youtube.com/watch?v=VrV0udRUi8A)
+
+## Proxmox
+
++ MRP - Proxmox Home Server Tutorials [youtube playlist](https://www.youtube.com/watch?v=5ybXCED83ww&list=PL3QnZSjRPkgLd3SxBSl6JfQ1iX4SkA39d)
+
+## Terraform
+
++ Thomas Thronton [blog](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/)
+
+## Other
+
++ Aj [blog](https://blog.ayjc.net)
 
 ## Summary
 
