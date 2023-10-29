@@ -50,10 +50,15 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + Mastering Application Deployment Excellence with Kevin Greer - [Unleashing PSADT](https://www.youtube.com/watch?v=gjmLC2gpJG0)
 + PSAppDeploymentToolkit [github](https://github.com/PSAppDeployToolkit/PSAppDeployToolkit/releases/tag/3.9)
 
+# IAC - Infrastructure as Code
+
++ Azure Verified Modules [blog](https://azure.github.io/Azure-Verified-Modules/)
++ Azure Verified Modules [github](https://github.com/Azure/Azure-Verified-Modules)
+
 ## DSC - Desired State Configuration
 
 + Ravikanth C [blog](http://ravichaganti.com/) and [github](https://github.com/rchaganti) - in context of DSC, great source, if I'm not mistaken he had authored one of the DSC books available
-+ Troy Ault [github](https://github.com/aultt) and [blog](https://www.labiac.com/) - DSC Db related
++ Troy Ault - DSC db related code - [github](https://github.com/aultt) and [blog](https://www.labiac.com/)
 + [DSC Resource Kit](https://www.powershellgallery.com/packages?q=Tags%3A%22DSCResourceKit%22)
 + Troubleshoot DSC [WinRM dependency](https://learn.microsoft.com/en-us/powershell/dsc/troubleshooting/troubleshooting?view=dsc-1.1&viewFallbackFrom=powershell-7.2#winrm-dependency), [WMF 5.1](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/wmf/setup/install-configure?view=powershell-7.2)
 
