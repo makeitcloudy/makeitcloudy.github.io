@@ -36,6 +36,7 @@ Channels:
 ## Proxmox
 
 + MRP - Proxmox Home Server Tutorials [youtube playlist](https://www.youtube.com/watch?v=5ybXCED83ww&list=PL3QnZSjRPkgLd3SxBSl6JfQ1iX4SkA39d)
++ tteck - [blog](https://tteck.github.io/Proxmox/)
 
 ## Terraform
 
