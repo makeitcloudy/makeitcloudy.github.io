@@ -12,9 +12,11 @@ categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
 This blog post is a follow-up of another blog post which was describing [how to configure Mikrotik OpenVPN client on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-client-ros6/)
 
 ## To Do
+
 + improve the configuration that it allows verifying the server certificate, at this stage with current example, it is not establishing the tunnel if it is the case, so here it is not required, which seems to be a security risk. If one knows how to fix this, please feel free to comment this blog post.
 
 ## Prerequisites
+
 + DNS alias or IP address of your OpenVPN server
 + Mikrotik RB/CCR device
 + NTP server configured properly, so the time and date is in sync
@@ -22,7 +24,9 @@ This blog post is a follow-up of another blog post which was describing [how to 
 + The Mikrotik OpenVPN server configured [How to configure Mikrotik OpenVPN Server](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server/)
 
 ### Configuration - defining variables
-At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
+
+At this stage, certificates created during the configuration of the Mikrotik OpenVPN Server, are already imported. Once this is done, open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.
+
 **script does not work if the passwords contains \ *backslash***
 
 ```shell
@@ -50,8 +54,11 @@ At this stage, certificates created during the configuration of the Mikrotik Ope
 ```
 
 ### Configuration - importing certificates
+
 Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
-+ Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
+
++ Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt,cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
+
 ```shell
 /file print 
 Columns: NAME, TYPE, SIZE, CREATION-TIME
@@ -131,9 +138,12 @@ When certificates are imported, continue with further configuration depending fr
 ```
 
 Routes should be added dynamically once the tunnel is established. In case for some reason are not, static routes can be added.
+
 ### Configuration - Routes
+
 + On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
 + On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
+
 ```shell
 /ip route
 add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" routing-table=main suppress-hw-offload=no
@@ -143,7 +153,9 @@ add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" r
 On top of that **bring your firewall rules**.
 
 ## Debug
+
 In case something does not work, or you get the TLS error, [check this first](https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
+
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
@@ -152,6 +164,9 @@ In case something does not work, or you get the TLS error, [check this first](ht
 ```
 
 ## Summary
-I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G, ROS 7.3.1<br>
+
+I'm sure there are better ways doing it, but still it's a good starting point.
+
+It was tested on RB951G, ROS 7.3.1
+
 Last update: 2022.04.17

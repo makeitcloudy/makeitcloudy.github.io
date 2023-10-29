@@ -12,15 +12,18 @@ categories: [Networking ,FreshTomato ,VoIP]
 Even though it is not very popular in 2022, some still make use of VoIP phones, which are reliable as tanks unless configured properly. Even though previously it was working flawlessly, this time it cost me a bit of time to make it work.
 
 ## Background
+
 There is ton of contradictory information in the internet, some of those are comming from the year range of 2009 - 2013, it seems that the support for the VoIP device has ended on 2013. But still the ergonomy of the device is really good to be frank, and once it's configured up to this extend that it is operational it just works. There are also VoIP providers, which can still offer you a landline number from your zone, or you can setup a PBX by your own, for example Asterisk or [FreePBX](https://nerdonthestreet.com/episode/tech/freepbx-showcase) based - there is a great video about it, which has been prepared by the NerdOnTheStreet.
 
 The VoIP device interface, does not differ much between each other, if you have a spare analog phone laying somewhere and would like to give it a spin and second life, provided it send the digits with DTMF. If you like go the true geek way, there are also transceivers which can transpond the analog signals (pre DTMF - can not recall the acronym at the moment) to DTMF, and you can plug the phone from early 50ties of XX century to the VoIP gateway via the FXS port.
 
 ## Prerequisites
+
 + FreshTomato (in my case it was 2022.3)
 + VoIP phone (Cisco SPA502G, firmware 7.5.2 - there is 7.5.5 available, it was even uploaded as per the firmware update software to the device, never the less for some reason it could not get flashed. Remeber to set the option 'Upgrade Enable' to yes, to make it even possible). As an alternative you can also use the Grandstream or Cisco SPA gateway.
 
 ## Howto
+
 + Configure your router, so it assigns an IP address and DNS servers to the phone
 + Was not very succesful for some reason with some cloud flare dns servers, that's why the voip phone is using the OpenDNS servers
 + Once the router configuration is in place, just to be on the safe side, perform the backup of it's configuration and restart the device, then plug the phone and wait for it's registration. If everything is fine, then it should let's you establish an incoming call to it's number which may be comming from your VoIP provider or your own PBX system.
@@ -36,6 +39,7 @@ set sip sip-direct-media=no
 
 + Even though users are reporting (uncheking SIP) did the trick for them it did not for me. **That's why on FreshTomato, I left it checked**. All other options FTP, GRE/PPTP, H.323, RTSP are unchecked.
 + Port forwarding - not configured. Even though I have been trying with the 5060, 16384-16583 (some says that RTP requires two ports being open for one device to pass the connection stream)
+
 ```bash
 #EXT tab
 * VoIP device, configured as per your VoIP provider suggestions
@@ -51,8 +55,11 @@ set sip sip-direct-media=no
 9. DNS SRV Auto Prefix: No
 10. Proxy Fallback Interval: 900
 ```
+
 + The intresting thing is that with abovementioned configuration, when your FreshTomato is the router which serves you the Internet, then you connect your Mikrotik to it and to your Mikrotik router you plug the phone, it just works and the incomming calls are working just fine. The topology looks like this: INTERNET -> FRESHTOMATO -> MIKROTIK -> PHONE.
 
 ## Summary
-This was tested with FreshTomato 2022.3, there is great chance it will also work with other releases of the firmware.<br>
+
+This was tested with FreshTomato 2022.3, there is great chance it will also work with other releases of the firmware.
+
 Last update: 2022.06.29

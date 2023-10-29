@@ -12,10 +12,12 @@ categories: [HomeLab ,Networking ,Mikrotik]
 It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mobile is your hotspot, RouterBoard is wifi client. I could not make it work (951G with Iphone6 Plus) over USB tethering, some says that with Android device the USB tethering works. The Lte1 interface did not show up that's why the wifi way was the option.
 
 ## Prerequisites
+
 From what can be read on Mikrotik [forum](https://forum.mikrotik.com/viewtopic.php?t=120218) thread there are some caveats with the mixture of mikrotik and iphone worh exploring.<br>
 As it goes for tethering, please have a look into [this](https://forum.mikrotik.com/viewtopic.php?t=79320) thread. Reddit [thread](https://www.reddit.com/r/mikrotik/comments/k0bq7a/iphone_tethering/) is suggesting an option where the RPI can act as a bridge *'You can USB tether to RPI and then route all traffic from raspberry to mikrotik via ethernet/wireless. RPI would act as a bridge'* 
 
 ## Rules
+
 + when your iphone is the client for the Mikrotik (opposite usecase), read the thread, someone is mentioning really interesting thing there. *'we were able to find the problem. It is related to the DHCP lease time.<br>
 By default Lease time on the MikroTik DHCP Server is 10 minutes. The iPhone disconnects approx after 5-7 minutes (little more than half of the DHCP lease time).
 On TP-link the lease time is 120 minutes and that is why the iPhone is connected a lot longer. If you lower the lease time on the TP-link also to 10 minutes then you will see that it also disconnects in 5-7 minutes.<br>
@@ -27,18 +29,20 @@ The solution for this is to increase the DHCP Server lease time to a lot longer 
 + Iphone6S DHCP server, distributes the IP addresses with an expiration time of 24h, from the network range 172.20.10.0/28 - I have not ever tried connecting more than 16 devices, so the result is unknown. During my testing it is the RouterBoard which is having it's own DHCP server, serving all the clients connected over wired network, Iphone is just converting the LTE to wifi and bring the NAT functionality
 
 ## Configuration
-0. plug in the power cord to your device and plug the ethernet cable to one of the ports of the device
+
+0. plug in the power cord to your device and plug the ethernet cable to one of the ports of the 
+device
 1. connect to it via winbox, apply the stock configuration (all your ports will end up on the same LAN bridge, so regardless which ethernet you will be connected to the Mikrotik, management should be in place)
 2. Exclude the Wi-Fi interface from the bridge - Bridge -> Ports -> Delete the Wi-Fi interface (wlan1)
 3. Include the Ether1 interface in the bridge - Bridge - Ports -> Open ether5 -> Copy -> Change the interface in the new dialog to ether 1 -> OK (this will cause that all your ethernet ports can be used to connect devices, with stock configuration the ether1 is being used as the uplink) - within our scenario we use the wlan1 as the uplink
 4. Adjust which is the WAN port - Interfaces -> Interface list - WAN -> wlan1 (with stock it is ether1, it needs to be changed for the wlan1, as it plays the uplink role)
-5. Wireless -> WiFi interfaces -> wlan1 -> Mode - Station
+Wireless -> WiFi interfaces -> wlan1 -> Mode - Station
 5. Connect the Wi-Fi interface as a client to the Wi-Fi network (in our case it is the mobile hotspot from your mobile) - Wireless -> WiFi interfaces -> wlan1 -> Scan -> find the WiFi network and press Connect
 6. Adjust the security settings of the WiFi client - Wireless -> Security Profiles -> default -> Mode: dynamic keys; Authentication Types WPA/WPA2 PSK (within SOHO this is the most typical config, actually it also applies to the iphone - but please check the settings on your's as it may differ for some reason). You can also create as many profiles here as you like (depending from how many wifi hotspots you'd like to consume the Internet from, then within the Interface wlan1 -> Wireless -> security profile just change the profile and you will switch from one network to another)
 7. Enable the DHCP client on the WiFi interface - IP -> DHCP client -> Change ether1 to wlan1
 
+If everything is OK with the security settings your Mikrotik will connect to the hotspot and the Internet should be reachable.
 
-If everything is OK with the security settings your Mikrotik will connect to the hotspot and the Internet should be reachable.<br>
 You can apply further configs on top of that starting for here.
 
 ```shell
@@ -179,6 +183,8 @@ Flags: * - default
 ```
 
 ## Summary
+
 Tested on RouterOS 7.3.1. Device model 951G-2HnD, with Iphone was 6 Plus with the software version 12.5.5. It also should work with ROS 6.X and other Mirkotik devices.<br>
-That's it.<br>
+That's it.
+
 Last update: 2022.04.14

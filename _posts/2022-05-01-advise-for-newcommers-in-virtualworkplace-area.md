@@ -14,6 +14,7 @@ Those advises are not mine, but supporting them very much. I wish I knew them ea
 Here comes the quote from his guide:
 
 ## Advise
+
 1. Always learn.
 2. Always improve yourself.
 3. Be a better person today than you were yesterday.
@@ -54,6 +55,7 @@ Work in the test environment according to the approach - trial and error - every
 If you've got RAID arrays for some resilience against disk failure, have a hot spare where possible, and if not, at least set up practice alerting so you get notified on a disk failure. Make sure you size a UPS correctly, although mine mainly protects against occasional Residual Current Device (RCD) trips, so it only needs to provide a few minutes of power. (Webster. Check the detailed explanation of RCD at [Site issues with Earth leakage](https://www.apc.com/us/en/faqs/FA156793/).)
 
 **Julian Mooren:**
+
 1. Do small steps. Especially when automating because it can get quite overwhelming
 2. Maybe build the lab with a good friend or colleague. Together is better.
 3. Invest time in yourself = Better Skills and career opportunities
@@ -65,9 +67,10 @@ If you've got RAID arrays for some resilience against disk failure, have a hot s
 Controlling access to management, think jump host, MFA for windows logon and such, which I see many companies don't do very well.
 
 **Leee Jeffries:**
-Invest in yourself, get some hardware to play around with, work on the fundamentals, and focus on what interests you. You'll be surprised about how quickly you learn when you're keen to get started. Ask questions to your peers in the community; they are all friendly folks. Lastly, share what you know.<br><br>
+Invest in yourself, get some hardware to play around with, work on the fundamentals, and focus on what interests you. You'll be surprised about how quickly you learn when you're keen to get started. Ask questions to your peers in the community; they are all friendly folks. Lastly, share what you know.
 
-*vExperts:*<br>
+*vExperts:*
+
 **Stephen Jesse:**
 "don't be afraid to experiment," meaning do dumb stuff here not in production, so you know why you don't do it
 
@@ -78,12 +81,14 @@ If I may, I would add just one thing, Always try to keep it simple.
 Aim to be 1% better every day - small chunks of effort adds up. Especially working on things in your home lab and/or when learning and studying for a cert when there can be so much to do that you need to focus on little bits at a time to get through it.<br><br>
 
 ## Conclusions
+
 No one is perfect.
-Don't be afraid to start your own blog and document your learning experiences. If you have questions, someone else is asking the same questions. When you figure it out, document what you learned, the learning process, and the lessons learned along the way (also known as, oops, I made a mistake, and I
-don't want you to make the same mistake.).
+Don't be afraid to start your own blog and document your learning experiences. If you have questions, someone else is asking the same questions. When you figure it out, document what you learned, the learning process, and the lessons learned along the way (also known as, oops, I made a mistake, and I don't want you to make the same mistake.).
 Learning something new can be stressful, challenging, and frustrating. But it is rewarding when you figure the new stuff out and feel that sense of accomplishment.
 
 **2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
-+ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.<br>
+
++ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.
 + David Heinemeier [thoughts](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0)
+
 Last update: 2022.05.30

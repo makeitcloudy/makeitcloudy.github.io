@@ -12,6 +12,7 @@ categories: [HomeLab ,Networking ,OpenVPN]
  In this example the OpenVPN tunnel is set up between the Mikrotik OpenVPN server and the OpenVPN client installed on Linux or Windows Desktop Operating system. It's the protocol which should match, it does not matter on top of what compute layer it operates on unless both ends can talk it's language.
 
 ## Prerequisites
+
 + Desktop operating system (Linux / Windows )
 + OpenVPN Server configuration completed [TCP Router OS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/) or [URP Router OS 7.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros7/)
 + Exported certificates from the OpenVPN configuration, already on your client
@@ -19,13 +20,16 @@ categories: [HomeLab ,Networking ,OpenVPN]
 + Both operating systems can set the UDP or TCP tunnels, still in this blog post the UDP will be depicted on the example of linux, where TCP on windows.
 
 ## Links
+
 + OpenVPN [wiki](https://community.openvpn.net/openvpn/wiki/GettingStartedwithOVPN) - Getting Started with OpenVPN
 
 ## ToDo
+
 + modify the client configuration to make use of udp4 or tcp4-client
 + add the client configuration for FreshTomato based OpenVPN server
 
 ## Linux - UDP based client
+
 1. Install OpenVPN client
 
 ```shell
@@ -82,6 +86,7 @@ ping 192.168.88.1
 ```
 
 ## Windows - TCP based tunnel
+
 1. Install [OpenVPN client](https://openvpn.net/community-downloads/)
 
 ```powershell
@@ -104,6 +109,7 @@ Mode                 LastWriteTime         Length Name
 -a----         4/19/2022   9:55 PM            481 ovpn-Client1.ovpn
 -a----         4/19/2022  10:03 PM             27 secret
 ```
+
 2. Once the certificates are put into abovementioned directory, go ahead and edit the .ovpn file
 
 ```shell
@@ -159,8 +165,13 @@ Unknown adapter OpenVPN:
 ```
 
 ## Summary
-That's it.<br>
-It was tested on Windows OS and Lubuntu 20.04.03 LTS.<br>
-OpenSSL 1.1.1o, OpenVPN 2.5.6-I601, Router OS 6.48.6<br>
-OpenSSL 1.1.1f, OpenVPN 2.4.7, Router OS 7.3.1<br>
+
+That's it.
+
+It was tested on Windows OS and Lubuntu 20.04.03 LTS.
+
+OpenSSL 1.1.1o, OpenVPN 2.5.6-I601, Router OS 6.48.6.
+
+OpenSSL 1.1.1f, OpenVPN 2.4.7, Router OS 7.3.1.
+
 Last update: 2022.05.19

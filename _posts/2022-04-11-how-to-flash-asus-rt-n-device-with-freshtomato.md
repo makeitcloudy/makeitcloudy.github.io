@@ -62,6 +62,7 @@ Asus RT-N series is affortable and reliable piece of hardware, which can serve y
 + FreshTomato [Changelog](https://bitbucket.org/pedro311/freshtomato-arm/src/arm-master/CHANGELOG).
 + The Firmware can be downgraded or upgraded.
 + Bare in mind to erase NVRAM, if this it not done, there are chances for quirks.
-<br>
-That's it.<br>
+
+That's it.
+
 Last update: 2022.11.27

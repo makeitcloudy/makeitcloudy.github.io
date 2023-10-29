@@ -12,12 +12,14 @@ categories: [HomeLab ,Networking ,Mikrotik]
 This examples shows how to distribute the LTE via the regular ethernet ports, wifi is disabled here. It works with LTE USB stick Huawei 3372, which is also doing it's job on FreshTomato.
 
 ## Prerequisites
+
 + Mikrotik router with USB port
 + LTE modem, recognized by your device (in the past not all devices where easily recognized, how it is these days I have no idea)
 + SIM card wchich fits into LTE modem
 + Routerboard with default configuration which is reset to it's defautls (default configuration from the mikrotik applied on top of the device)
 
 ## Howto
+
 0. Plug the LTE modem into the Mikrotik, once this is done the lte1 interface will show up
 1. Replace WLAN1 from the bridge to Ether1 Bridge -> Ports
 2. Interfaces -> Interface List -> WAN -> replace Ether1 to Lte1 which is your uplink interface
@@ -125,6 +127,9 @@ set allowed-interface-list=LAN
 At the time when have been testing this, was able to get 3.5Mbps of download and 7.5Mbps of upload. This should be sufficient for thin protocols like HDX or RDP, or some regular internet browsing/work.
 
 ## Summary
-Tested on RouterOS 7.3.1. Device model 951G-2HnD, with LTE USB stick branded by Huawei, model 3372. It also should work with ROS 6.X and other Mirkotik devices, equipped with USB port.<br>
-That's it.<br>
+
+Tested on RouterOS 7.3.1. Device model 951G-2HnD, with LTE USB stick branded by Huawei, model 3372. It also should work with ROS 6.X and other Mirkotik devices, equipped with USB port.
+
+That's it.
+
 Last update: 2022.04.14

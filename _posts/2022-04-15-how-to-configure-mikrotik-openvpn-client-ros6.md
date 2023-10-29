@@ -12,6 +12,7 @@ categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
 In this scenario the regular traffic is routed through the Internet, where the target networks defined within the static routes, are traversed over the OpenVPN tunnel. The connection takes place between two Mikrotik devices, where the client reach the Internet over lte1 interface. 
 
 ## Prerequisites
+
 + DNS alias or IP address of your OpenVPN server
 + Mikrotik RB/CCR device
 + NTP server configured properly, so the time and date is in sync
@@ -19,9 +20,10 @@ In this scenario the regular traffic is routed through the Internet, where the t
 
 
 ## Backgroupnd
+
 + openVPN tunnel between the server with ROS version 6 and client with ROS 7 will work
 + the network ranges on both ends of your openVPN tunnel should differ (it's important as if you reset your devices and apply default configuration, initially on both ends there is 192.168.88.X network, it should be changed at least on one device, to make it work)
-<br>
+
 + [github gist](https://gist.github.com/ea1het/3a168a88a6a8c86ee26e71a83a2d71d9)
 + [wawrus](https://www.wawrus.pl/technologia/konfiguracja-openvpn-na-mikrotiku)
 + [grzegorzkowalik](https://grzegorzkowalik.com/mikrotik-openvpn-server/)
@@ -29,8 +31,11 @@ In this scenario the regular traffic is routed through the Internet, where the t
 + if the device is reset to it's defailt configuration apply the below settings
 
 ## Howto
-Plug the LTE stick to your Mikrotik device equipped with USB port, then connect it to the power adapter.<br>
+
+Plug the LTE stick to your Mikrotik device equipped with USB port, then connect it to the power adapter.
+
 The procedure contains few steps which should be executed in following order
+
 1. import the files exported during the OpenVPN server configuration (File -> Upload)
 2. import the certificates
 3. create PPP Profile
@@ -39,7 +44,9 @@ The procedure contains few steps which should be executed in following order
 6. add routes (dst is the target network you reach over the tunnel, gateway is the ovpn interface)
 
 ### Configuration
+
 Convert signal from LTE and pass to ether ports
+
 ```shell
 ## disable wireless interface
 /interface wireless
@@ -73,10 +80,13 @@ add address=192.168.33.0/24 comment=defconf dns-server=1.1.1.2,1.1.1.1 gateway=\
 /ip dns
 set allow-remote-requests=yes servers=1.1.1.2,1.1.1.1
 ```
+
 In case you cut yourself off from the device, just refresh your endpoint IP address or connect to the mikrotik device via it's MAC address, as this option is not disabled with it's default configuration.
 
 ### Configuration - defining variables
+
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.**The overall logic does not work if the passwords contains \ *backslash***
+
 ```shell
 :global CN [/system identity get name]
 :global OVPNSERVERPORT 4911
@@ -150,6 +160,7 @@ Columns: NAME, COMMON-NAME
 0  LAT ovpn-server-CA MikroTik             
 1 K  T ovpn-Client1   ovpn-Client1@MikroTik
 ```
+
 When certificates are imported, continue with further configuration .
 
 ### Configuration - PPP Profile and Interface
@@ -166,6 +177,7 @@ The traffic should be passed provided the firewall rules allows it.
 In case the routes for some reason are not configured dynamically, add static routes
 
 ### Configuration - add static routes
+
 + On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
 + On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
 
@@ -179,6 +191,7 @@ add disabled=no dst-address=192.168.88.0/24 gateway="$OVPNCLIENTINTERFACENAME" r
 On top of that **bring your firewall rules**.
 
 ## Debug
+
 In case something does not work, or you get the TLS error, [check this first(https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
 ```shell
 /system logging add topics=ovpn,debug,!packet
@@ -188,6 +201,9 @@ In case something does not work, or you get the TLS error, [check this first(htt
 ```
 
 ## Summary
-I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G, ROS 6.48.6<br>
+
+I'm sure there are better ways doing it, but still it's a good starting point.
+
+It was tested on RB951G, ROS 6.48.6
+
 Last update: 2022.06.18

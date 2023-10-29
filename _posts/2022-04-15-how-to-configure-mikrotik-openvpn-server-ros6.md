@@ -12,6 +12,7 @@ categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 Setting up another virtual interface on Mikrotik is not that difficult provided you know how to do it. OpenSSL installed on your Desktop can be handy to remove the password protection from key in case you are making use of it on the FreshTomato client or you don't want your OpenVPN client to provide it during the phase of establishing a connection to your VPN server.
 
 ## Prerequisites
+
 + DDNS configuration on top of your dynamic IP address or static IP address
 + Mikrotik Routerboard/CCR device
 + NTP server configured properly, so the time and date is in sync
@@ -19,6 +20,7 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 + A bit of Mikrotik knowledge
 
 ## Background
+
 I'm not an expert of any means in that area, use it at your own risk.<br>
 This example shows how to configure the OpenVPN server in semiautomated fashion, based on the Long Term Mikrotik router OS version 6.48.6 (as for the time of writing this blog post).
 Newer releases of Router OS offers extra parameters which are not included within current 6.X version, configuration described within this blog post should work on ROS 7.X, never the less I'm not recommending using it that way.<br>
@@ -26,30 +28,38 @@ Current configuration will also work on 7.X releases, I'm sure that with the use
 OpenVPN tunnel can be established betwen the devices with different ROS major versions.
 
 ### NAT
+
 Your mikrotik can be behind NAT provided the port on which your OpenVPN server is listening is forwarded on the router which your mikrotik device is connecting to, to get access to the Internet.
 
 ### OpenSSL
+
 In this usecase, OpenSSL is being used to remove the password from the certificate key. This can be usefull when your client is FreshTomato based. For Mikrotik devices, password removal from the private key is **NOT** needed. Certificates are generated on the Mikrotik device itself, no need for EeasyRSA or OpenSSL being compiled or installed.
 
 ### OpenSSL on Linux
+
 This arcicle [how to compile OpenSSL from sources](https://makeitcloudy.pl/how-to-compile-openssl-from-sources/) provides the details how to compile it on a linux machine.
 
 ### OpenSSL on Windows
+
 I'm sure there is a way to compile the OpenSSL on Windows (seems [this](https://github.com/openssl/openssl/blob/master/NOTES-WINDOWS.md) is the way to go), never the less there is a quicker way to make use of OpenSSL on this platform as well, especially if you do a bit of coding and make use of GIT already. OpenSSL exist in the following directory *C:\Program Files\Git\usr\bin* you may use it from there, or add it to *$env:PATH* and run it directly from the commandline. At the time of writing this I'm on
 
 ```console
 git --version
 git version 2.36.1.windows.1
 ```
+
 and it contains the OpenSSL 1.1.1o
+
 ```console
 openssl.exe
 OpenSSL> version
 OpenSSL 1.1.1o  3 May 2022
 ```
+
 Alternatively compiled version for Windows can be downloaded from [slproweb.com](https://slproweb.com/products/Win32OpenSSL.html)
 
 ## Auth and Ciphers
+
 Mikrotik equipped with RouterOS long term release 6.48.6, supports SHA1 or MD5 for Auth, as it goes for Ciphers it is blowfish 128 or AES128-256 as the cipher. If another types are needed, it should be updated to 7.X.
 
 ```shell
@@ -62,6 +72,7 @@ Mikrotik equipped with RouterOS long term release 6.48.6, supports SHA1 or MD5 f
 ```
 
 ## Preparation - Dates
+
 If the goal is that your self signed certificates expires in the same period of time, you may want a align with those which are alreay in place, and for that you may need to calculate amount of days remaining towards particular date. This is the way to count it, provided you have PowerShell in hand.
 
 ```powershell
@@ -73,6 +84,7 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 ```
 
 ### Assumptions
+
 + you start from zero, and reset the configuration of the Mikrotik to it's defaults (It is not mandatory as you can make use of the commands and execute on top of your existing configuration, it should also work with some tweaks)
 + your uplink is the ether1, never the less it will also work if it is lte1 or wlan1 (If your uplink is not ether1, then you can add ether1 into the bridge - then all 5 ether ports can connect to your devices/switches, and modify the Interface list, by pointing the WAN from ether1 to lte1 or wlan1, at the end modify the dhcp client to listen on lte1 or wlan1)
 + the network ranges on the OpenVPN server side and the OpenVPN client *differs from each other* it may have an issue to work if both subnets are the same
@@ -80,13 +92,16 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 + the OpenVPN network range is within the 10.0.6.0/24 (here I assume that your router has 5 ethernet interfaces and the virtual interface which is openVPN is the next available network range, still there is another assumption that you are using the 24 network mask here)
 
 ### Prerequisites
+
 + DDNS name or static IP address on the WAN interface
 + Mikrotik RB/CCR device
 + the NTP server configured properly, so the time and date is in sync
 + details about the network segments on the other side of the tunnel, to configure the routes properly
 
 ### Configuration - defining variables
-Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.<br>
+
+Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window.
+
 **script does not work if the passwords contains \ *backslash***
 
 ```shell
@@ -118,6 +133,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 ```
 
 ### Configuration - Certificate, Interface, Firewall
+
 ```shell
 ## generate a CA certificate
 /certificate
@@ -171,6 +187,7 @@ move [find comment="OpenVPN - Accept DNS requests from clients"] 1
 ```
 
 ### Configuration - add user, export certificates
+
 ```shell
 ## add a user
 /ppp secret
@@ -225,7 +242,9 @@ cert_export_[$USERNAME].key<br>
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
 ### Configuration - add static routes
+
 Add static routes towards your client device, via your OpenVPN gateway Interface.
+
 ```shell
 /ip route
 add distance=1 dst-address=192.168.33.0/24 gateway="$USERNAME"
@@ -234,7 +253,9 @@ add distance=1 dst-address=192.168.33.0/24 gateway="$USERNAME"
 On top of that **bring your firewall rules**.
 
 ### Check
+
 There is great chance that at this stage the openVPN client is not configured. Once it is and the tunnel is set properly, then among the IP addresses, dynamically assigned IP should arise for the openVPN traffic.
+
 ```shell
 /ip address print 
 Flags: X - disabled, I - invalid, D - dynamic 
@@ -249,6 +270,7 @@ Flags: X - disabled, I - invalid, D - dynamic
 ```
 
 ### Debug
+
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
@@ -257,6 +279,7 @@ Flags: X - disabled, I - invalid, D - dynamic
 ```
 
 ## Configuration - add another OpenVPN client
+
 With the abovementioned configuration there is one server and one client, 1:1 approach. If the goal is to have more clients, 1:n approach then repeat the steps described below for the OpenVPN server configuration and customize each OpenVPN client individually once the configuration on the server side.
 
 ```shell
@@ -325,6 +348,9 @@ Once certificates are exported
 Download the exported certificates, for the another user, and make use of them on the OpenVPN client device.
 
 ## Summary
-I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G and CCR with ROS 6.48.6<br>
+
+I'm sure there are better ways doing it, but still it's a good starting point.
+
+It was tested on RB951G and CCR with ROS 6.48.6
+
 Last update: 2022.06.18

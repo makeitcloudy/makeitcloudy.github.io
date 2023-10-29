@@ -12,11 +12,14 @@ categories: [HomeLab ,Networking ,Mikrotik]
 This series of mikrotik devices, can handle your regular VM traffic, as well as your storage traffic. Never the less 10G devices seems to be a better fit for homelab usecase. Not perfect, but good enough.
 
 ## Prerequisites
+
 + CRS3XX 10G device
 + a bit of Mikrotik knowledge
 
 ## Configure CRS3XX as L2 switch
+
 CRS3XX can act as L3 or L2 device, it's much more effective, when it is being used as a switch and serve your storage traffic, between all your nodes which serves the virtualization layer. The overall gain is very much visible, when you provision the machines with Citrix MCS (Machine Creation Services), or take benefit from the shared storage.
+
 ```bash
 /interface ethernet
 set [ find default-name=ether1 ] comment="CRS3XX - mgmt"
@@ -86,6 +89,9 @@ set allowed-interface-list=none
 ```
 
 ## Summary
-That's it.<br>
-It works on 6.4X firmware as well as on 7.3.1.<br>
+
+It works on 6.4X firmware as well as on 7.3.1.
+
+That's it.
+
 Last update:2022.04.13

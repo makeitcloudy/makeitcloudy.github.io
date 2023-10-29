@@ -21,6 +21,7 @@ It's worth putting some attention on making use of git to manage your code and p
 
 1. Run brand new PowerShell console just in case to reinitiate the environmental variables for the console context.
 2. Run following commands within your PowerShell console
+
 ```powershell
 git --version
 #setup the user name name and email address
@@ -30,7 +31,9 @@ git config --global color.ui true
 #at this point your very initial configuration is ready
 git config --list
 ```
+
 3. Create folder on the filesystem which is your local copy of the github repository
+
 ```powershell
 New-Item -Path $env:SystemDrive\Git -ItemType Directory
 Set-Location -Path $env:SystemDrive\Git
@@ -39,6 +42,7 @@ Set-Location -Path $env:SystemDrive\Git
 ## Use Git
 
 4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally) like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
+
 ```powershell
 git clone https://github.com/makeitcloudy/AutomatedRDS.git
 #this will result with the information that there is a version controlling within the folder you cloned
@@ -46,6 +50,7 @@ Get-ChildItem -Hidden
 Set-Location -Path .\AutomatedRDS\
 Get-ChildItem .\.git\
 ```
+
 5. Update cloned repository
 6. Stage updates (for instance with the Visual Studio Code GUI)
 7. Commit
@@ -64,6 +69,7 @@ Starting this point of time your local repository is your single source of truth
 
 ## Summary
 
-That's it.
 Ps. It may be far from the best practices, and still left much to be desired, never the less you can start from here.
+That's it.
+
 Last update: 2022.04.03

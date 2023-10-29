@@ -9,10 +9,12 @@ share-img: /assets/img/cover/img-cover-mikrotik.jpg
 tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
 ---
-This is an updated version of previous blog post which was describing [how to configure OpenVPN server on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/), which brings the updates towards ROS 7.X. Please read this post before applying those settings, unless you can ammend current configuration accordingly to suit your needs.<br>
+This is an updated version of previous blog post which was describing [how to configure OpenVPN server on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/), which brings the updates towards ROS 7.X. Please read this post before applying those settings, unless you can ammend current configuration accordingly to suit your needs.
+
 When you have a working OpenVPN on TCP, switching to UDP is like turning the Protocol switch from one to another, and modifying the firewall rules on the device acting as Mikrotik OpenVPN Server, and if it is the case on the router in front of your Mikrotik which may be performing another NAT, as OpenVPN (especially if you work with thin protocols, performs well enough to serve such scenarios).
 
 ## Prerequisites
+
 + DDNS configuration on top of your dynamic IP address or static IP address
 + Mikrotik Routerboard/CCR device
 + NTP server configured properly, so the time and date is in sync
@@ -20,17 +22,20 @@ When you have a working OpenVPN on TCP, switching to UDP is like turning the Pro
 + A bit of Mikrotik knowledge
 
 ## Background
+
 + when your Mikrotik Router which plays the OpenVPN server role is behind nat, make sure the UDP port is forwarded accordingly, especially if you make a switch from previous releases
 + one of the easiest way whether there are any packets knocking to the port (OpenVPN service) is on firewall level by the amount of Bytes received. In case the port is not forwarded accordingly then it will show 0
 + TLS handshake failure at least happens when the Auth parameter on the OVPN Server Interface, does not go hand in hand between the client and the server or the port forwarding on the NAT is not configured propely or using wrong protcol TCP instead of UDP or vice versa
 
 ## Features availbale in ROS 7.X which was not exposed before
+
 1. UDP procol (since 7.0beta3), UDP is being used by L2TP or Wireguard
 2. IPv6
 3. LZO compression
 4. Authentication without username and password
 
 ## Auth and Ciphers
+
 + It seems that the AES-NI instructions are hardware accelerated (here I'm not completelly sure), but on an example of [IPSEC](https://wiki.mikrotik.com/wiki/Manual:IP/IPsec) it looks that on some devices AES128,256 are, where 512 are not
 + I could not find the exact details within the documentation whether the AES-GCM is being use with ROS 7, or it is CBC - probably again it may vary on the device, but I'm not sure. (Hopefull debug log will reveal that detail, comparing the RouterBoards and CCR/CRS)
 
@@ -46,8 +51,8 @@ When you have a working OpenVPN on TCP, switching to UDP is like turning the Pro
 + Some says that, OpenVPN is only a toy and the [IPSec](https://wiki.mikrotik.com/wiki/Manual:IP/IPsec) is the way to go
 + Why even bother about few strings CBC/GCM is explained [here](https://alicegg.tech/2019/06/23/aes-cbc.html)
 
-
 ### Configuration - defining variables
+
 Open Mikrotik terminal, change variables below if needed, and paste into Mikrotik terminal window. As per Mikrotik [documentation](https://help.mikrotik.com/docs/display/ROS/OpenVPN) password is limited to 233, where the username can have up to 27 characters.
 **passwords can not contain \ *backslash***
 
@@ -80,6 +85,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 ```
 
 ### Configuration - Certificate, Interface, Firewall
+
 ```shell
 ## generate a CA certificate
 /certificate
@@ -133,6 +139,7 @@ move [find comment="OpenVPN - Accept DNS requests from clients"] 1
 ```
 
 ### Configuration - add user, export certificates
+
 ```shell
 ## add a user
 /ppp secret
@@ -169,10 +176,13 @@ Columns: NAME, COMMON-NAME, FINGERPRINT
 3 K  I  ovpn-Client1@MikroTik  ovpn-Client1@MikroTik  thumbprint
 
 ```
+
 NameOfyourMikrotikDevice - equals
+
 ```shell
 /system identity get name
 ```
+
 USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)<br><br>
 The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
 cert_export_[nameOfyourMikrotikDevice] - CA cert<br>
@@ -182,16 +192,22 @@ cert_export_[$USERNAME].key<br>
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
 ### Configuration - add static routes
+
 Add static routes towards your client device, via your OpenVPN gateway Interface.
+
 ```shell
 /ip route
 add distance=1 dst-address=192.168.33.0/24 gateway="$USERNAME"
 ## add any extra routes towards the networks available behind the tunnel
 ```
+
 On top of that **bring your firewall rules**.
 
 ### Check
-There is great chance that at this stage the openVPN client is not configured. Once it is and the tunnel is set properly, then among the IP addresses, dynamically assigned IP should arise for the openVPN traffic.
+
+There is great chance that at this stage the openVPN client is not configured. Once it is and the 
+tunnel is set properly, then among the IP addresses, dynamically assigned IP should arise for the openVPN traffic.
+
 ```shell
 /ip address print 
 Flags: X - disabled, I - invalid, D - dynamic 
@@ -206,6 +222,7 @@ Flags: X - disabled, I - invalid, D - dynamic
 ```
 
 ### Debug
+
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print
@@ -214,6 +231,7 @@ Flags: X - disabled, I - invalid, D - dynamic
 ```
 
 ## Configuration - add another OpenVPN client
+
 With the abovementioned configuration there is one server and one client, 1:1 approach. If the goal is to have more clients, 1:n approach then repeat the steps described below for the OpenVPN server configuration and customize each OpenVPN client individually once the configuration on the server side.
 
 ```shell
@@ -264,7 +282,9 @@ sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
 ## export-certificate "$CN" export-passphrase=""
 export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ```
-Once certificates are exported 
+
+Once certificates are exported
+
 ```shell
 /file print
 # at this moment you should see
@@ -279,6 +299,9 @@ Once certificates are exported
 Download the exported certificates, for the another user, and make use of them on subsequent OpenVPN client device.
 
 ## Summary
-I'm sure there are better ways doing it, but still it's a good starting point.<br>
-It was tested on RB951G and CCR with ROS 7.3.1<br>
+
+I'm sure there are better ways doing it, but still it's a good starting point.
+
+It was tested on RB951G and CCR with ROS 7.3.1
+
 Last update: 2022.06.18

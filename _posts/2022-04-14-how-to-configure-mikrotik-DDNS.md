@@ -12,11 +12,14 @@ categories: [HomeLab ,Networking ,DDNS, Mikrotik]
 There are few ways which this can be achieved. The simplest way is to use Mikrotik Cloud, by enabling one *IP->Cloud->DDNS enabled* within the Winbox GUI. Another option is to reach out towards the third party provider with the use of curl, and update their systems with the information of Mikrotik WAN IP address. Another option is that you have some device behind your NAT, which is doing that for you like freshTomato, or raspberryPI or whatever else.
 
 ## Prerequisites
+
 + Account on one of DDNS providers, here [afraid freedns](https://freedns.afraid.org/) is being used.
 + Mikrotik device connected to the internet
 
 ## Howto
+
 As it was mentioned within the fist paragraph there are few options if you have a dynamic IP address interface, and your goal is to expose some services towards the internet with making use of a domain name.
+
 1. Mikrotik Cloud. Your device is assigned within a subdomain within the *sn.mynetname.net* domain which contains a bunch of generated characters. If this is okay, then that's fine and good enough. (What's more you will be informed whether the device is behind NAT or not)<br>
 It looks that Mikrotik cloud is being used to update the time on your device, for instance if you have not configured the NTP client on your device.
 
@@ -70,6 +73,9 @@ add interval=1d12h name=schedule_ddns_afraiddns policy=read,write,test start-dat
 Once this is done, your dynamic IP address should be bound with the desired domain.
 
 ## Summary
-That's it<br>
-Tested on ROS 7.3.1<br>
+
+Tested on ROS 7.3.1.
+
+That's it.
+
 Last update: 2022.04.14
