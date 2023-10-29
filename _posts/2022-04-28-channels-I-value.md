@@ -46,6 +46,11 @@ Channels:
 
 + Aj [blog](https://blog.ayjc.net)
 
++ [ZeroTier](https://github.com/zerotier/)
++ [Chocolatey](https://github.com/chocolatey/choco)
++ [Bicep](https://runasradio.com/Shows/Show/822)
++ [Nerdio](https://getnerdio.com/)
+
 ## Summary
 
 Last update: 2023.09.11

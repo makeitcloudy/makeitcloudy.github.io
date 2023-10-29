@@ -24,13 +24,9 @@ navbar-links:
     - OpenVPN: "https://makeitcloudy.pl/tags/#OpenVPN"
 #    - RDS: ""    
 
-  Toolbox:
-    - EUC community: "https://makeitcloudy.pl/euc-valueable-online-content/"
-    - EUC tools: "https://makeitcloudy.pl/euc-books-and-toolset/"
-    - ZeroTier: "https://github.com/zerotier/"
-    - Chocolatey: "https://github.com/chocolatey/choco"
-    - Bicep: "https://runasradio.com/Shows/Show/822"
-    - Nerdio: "https://getnerdio.com/"
+  Blogs:
+    - EUC content: "https://makeitcloudy.pl/euc-valueable-online-content/"
+    - EUC books: "https://makeitcloudy.pl/euc-books-and-toolset/"
   
   About Me: "aboutme"
   #Author's home: "https://makeitcloudy.pl/#"
