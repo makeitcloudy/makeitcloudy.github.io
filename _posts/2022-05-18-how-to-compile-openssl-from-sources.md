@@ -4,7 +4,7 @@ title: "How to compile OpenSSL from sources"
 permalink: "/how-to-compile-openssl-from-sources/"
 subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
-thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates , SSL]
 categories: [HomeLab ,Certificates , SSL]
@@ -12,21 +12,27 @@ categories: [HomeLab ,Certificates , SSL]
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
 
 ## Prerequisites
+
 + preferably, machine with linux
 
 ## Background
+
 + Details about OpenSSL can be found on [github](https://github.com/openssl/openssl)
 + All releases can be found [here](https://www.openssl.org/source/old/)
 
 ## Howto
-1. Install Centos
+
+1. Install Rocky
 2. Install Management tools
+
 ```bash
 sudo mount /dev/cdrom /mnt
 sudo bash /mnt/Linux/install.sh -d rhel -m 8
 sudo umount /dev/cdrom
 ```
-3. Compile OpenSSL from sources
+
+1. Compile OpenSSL from sources
+
 ```bash
 # Install prereq packages and libraries
 yum group install 'Development Tools'
@@ -75,6 +81,7 @@ openssl version
 ```
 
 ## Summary
-It may be far from being perfect, never the less good enough for a home lab.<br>
-Tested on Cento8 Stream. OpenSSL 1.1.1n.<br>
-Last update: 2022.04.18
+
+It may be far from being perfect, never the less good enough for a home lab.
+Tested on Cento8 Stream. OpenSSL 1.1.1n.
+Last update: 2022.05.18

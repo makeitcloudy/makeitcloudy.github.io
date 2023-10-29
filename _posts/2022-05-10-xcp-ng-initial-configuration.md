@@ -3,9 +3,9 @@ layout: post
 title: "XCP-ng initial configuration"
 permalink: "/xcp-ng-initial-configuration/"
 subtitle: "XCP-ng left much to be desired, though it's a great solution for home lab"
-cover-img: /assets/img/cover/img-cover-zen.jpg
+cover-img: /assets/img/cover/img-cover-xen.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-xpng8.png
-share-img: /assets/img/cover/img-cover-zen.jpg
+share-img: /assets/img/cover/img-cover-xen.jpg
 tags: [HomeLab ,XCP-ng]
 categories: [HomeLab ,XCP-ng]
 ---

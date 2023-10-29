@@ -114,16 +114,20 @@ New-OSBMediaISO -FullName 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise x64 1909
 # this section will be updated shortly (2023.02.17 - recalling the process in the lab)
 ```
 
-The process of the update looks like this
+The process of the update looks like this:
 0. Mount ISO (the regular not updated iso, or the updated iso from the previous update cycle)
+
 1. Import-OSMedia (and pass the Index Parameter, depending from the target (datacenter, standard, desktop experience, core, Enterprise N, Education, Proffessional etc))
+
 2. Update-OSMedia -Name 'name of the folder within the OSBuild folder' which is planned to be updated, similar result can be also achieved with making use of Import-OSMedia with a parameter -Update and -BuildNetFX
+
 3. Once finished (it can take few hours) run the New-OSBMediaISO -FullName 'path to the OSBuilds directory' which was brought as an output from the previous commandlet.
+
 4. Once done unmount the original ISO.
 
 5. At the end repack the ISO with making use of the oscdimg and add the autounattend.xml file [BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or [goodFileIsQuietIsoFile](https://github.com/makeitcloudy/AutomatedCitrix/blob/feature/007_imagePrep/unattendedISO/goodIsoFileIsAquietIsoFile-JohanArwidmark.ps1) prepared by Johan Arwidmark. Alternatively, include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
 
-```
+```powershell
 <#
 .Synopsis
     Sample script for Deployment Research
@@ -222,4 +226,4 @@ If everything went well the based image should contain latest updates ready for 
 
 Servicing process was tested on vms which were running Windows 10 20H2 and Server 2019 OS'es. Images which were serviced/updated: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). The .
 
-Last update: 2023.02.18
+Last update: 2023.05.22
