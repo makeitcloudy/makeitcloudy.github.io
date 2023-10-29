@@ -6,8 +6,8 @@ subtitle: "Prepare the updated Windows ISO's for the homelab usecase"
 cover-img: /assets/img/cover/img-cover-lab.png
 thumbnail-img: /assets/img/thumb/img-thumb-open.jpg
 share-img: /assets/img/cover/img-cover-lab.png
-tags: [HomeLab ,Windows, Imaging]
-categories: [HomeLab ,Windows, Imaging]
+tags: [HomeLab ,Windows, OSD, Imaging]
+categories: [HomeLab ,Windows, OSD, Imaging]
 ---
 There are plenty of places where the overall process is described, the knowledge is available in other places, here it's being shown in context of the virtual workplace, home lab, regardless whether it is Citrix Virtual Apps and Desktops, Remote Desktop Services or Parallels RAS. The core infrastructure and your compute will benefit out of it, as the patching process of each VM individually is time and resource consuming, especially when you have no orchestration layer for this purpose, and your usecase is home labbing, not an enterprise scale deployments.
 

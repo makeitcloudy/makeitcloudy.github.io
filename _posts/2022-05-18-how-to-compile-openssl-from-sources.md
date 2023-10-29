@@ -6,8 +6,8 @@ subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
-tags: [HomeLab ,Certificates , SSL]
-categories: [HomeLab ,Certificates , SSL]
+tags: [HomeLab ,Certificates ,SSL ,Rocky]
+categories: [HomeLab ,Certificates ,SSL, Rocky]
 ---
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
 

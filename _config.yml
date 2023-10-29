@@ -19,10 +19,11 @@ navbar-links:
 #    - Bicep: ""
 #    - PowerShell: ""
   Topics:
-    - FreshTomato: "https://makeitcloudy.pl/tags/#FreshTomato"
     - Mikrotik: "https://makeitcloudy.pl/tags/#Mikrotik"
+    - FreshTomato: "https://makeitcloudy.pl/tags/#FreshTomato"
     - OpenVPN: "https://makeitcloudy.pl/tags/#OpenVPN"
-#    - RDS: ""    
+    - XCP-ng:  "https://makeitcloudy.pl/tags/#XCP-ng"
+#    - RDS: ""
 
   Blogs:
     - EUC content: "https://makeitcloudy.pl/euc-valueable-online-content/"
