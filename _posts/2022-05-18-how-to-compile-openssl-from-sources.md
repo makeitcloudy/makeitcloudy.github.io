@@ -26,6 +26,8 @@ Once the OpenSSL library is installed, you can make use of it, for preparing sel
 2. Install Management tools
 
 ```bash
+# Rocky contains an alternative way of installing the management tools
+# the method below works for the CentOS 8 Stream which is not supported anymore
 sudo mount /dev/cdrom /mnt
 sudo bash /mnt/Linux/install.sh -d rhel -m 8
 sudo umount /dev/cdrom
