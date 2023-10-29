@@ -68,6 +68,11 @@ Apart from community shares, there are great books which reorganize and structur
 
 + Azure Shell - [https://shell.azure.com/](https://shell.azure.com/)
 
+## Lab
+
++ Paesl
++ [BDR Suite](https://www.bdrsuite.com/vembu-bdr-suite-download/)
+
 ## Tools
 
 + Diagram as Code [github](https://github.com/mingrammer/diagrams)
