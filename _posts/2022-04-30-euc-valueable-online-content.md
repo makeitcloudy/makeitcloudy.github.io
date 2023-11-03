@@ -484,7 +484,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 
 ### AVD - community shares
 
-+ wvdcommunity [twitter](https://twitter.com/wvdcommunity), [webpage](http://virtualdesktops.community/)
++ wvdcommunity [twitter](https://twitter.com/wvdcommunity), [avdcommunity.com](https://avdcommunity.com/)
 + AVD [Linkedin group](https://www.linkedin.com/groups/3937792/)
 + Nerdio - Neil McLoughlin [twitter](https://twitter.com/virtualmanc), [blog](www.virtualmanc.co.uk), [github](https://github.com/virtualmanc/)
 + Andreas Fleischmann [twitter](https://twitter.com/andif888), [github](https://github.com/andif888)
