@@ -294,7 +294,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + AZ-140 - Deliver remote desktops and apps with Azure Virtual Desktop - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/m365-wvd/)
 + AZ-140 - Implement an Azure Virtual Desktop infrastructure - [microsoft learn](https://learn.microsoft.com/en-us/training/paths/implement-azure-virtual-infrastructure/)
 
-#3# AZ-900
+### AZ-900
 
 + AZ-900 - John Savil's [youtube](https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3) playlist - updated in 05.2022, [github](https://github.com/johnthebrit/AZ900CertCourse), and it's 2022 Study Cram on [youtube](https://www.youtube.com/watch?v=tQp1YkB2Tgs)
 
@@ -456,6 +456,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 ### AVD - Single Sign on
 
 + Azure Virtual Desktop SSO with ADFS [vdibuzz](https://vdiclub.wordpress.com/2021/06/12/azure-virtual-desktop-sso-with-adfs/)
++ Mischa Sasche - cloudexperts - [Passwordless sign-in for Azure Virtual Desktop](https://cloudexperts.community/passwordless-sign-in-for-azure-virtual-desktop/)
 + VDIBuzz SSO and passwrordless with youbikey [youtube](https://www.youtube.com/watch?v=PGUYoWMWgfw), along with youbikey supported devices [youbikey](https://support.yubico.com/hc/en-us/articles/360016913619-YubiKeys-for-Microsoft-Azure-AD-Passwordless-Sign-In-Guide)
 + Enable passwordless security key sign-in to on-premises resources by using Azure AD [microsoft](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
 + In session PasswordLess Authentication [microsoft](https://learn.microsoft.com/en-us/azure/virtual-desktop/authentication#in-session-passwordless-authentication-preview)
@@ -498,6 +499,7 @@ Regardless of the overal engine underneath wich is bringing the Virtual Workplac
 + Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status1108675328711577600)
 
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
++ [cloudexperts.community](https://cloudexperts.community/)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
 
