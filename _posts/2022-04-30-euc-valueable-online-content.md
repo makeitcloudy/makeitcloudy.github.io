@@ -39,6 +39,9 @@ It's essential get comfortable with PowerShell, it will help you switch from imp
 + 70 best powershell blogs and websites to follow [feedspot](https://blog.feedspot.com/powershell_blogs/)
 + Francois-Xavier Cat [blog](https://lazywinadmin.com/) and [github](https://github.com/lazywinadmin)
 + Jason Helmick [github](https://github.com/theJasonHelmick)
+
++ [Vexx32.github.io](https://vexx32.github.io/2018/11/02/Transferring-Functions/)
+
 + PowerShellConferenceEU [youtube](https://www.youtube.com/c/PowerShellConferenceEU)
 + Virtual PowerShell Group[webpage](https://poshcode.org/)
 + Polish PowerShell Group [github](https://github.com/PPOSHGROUP)
