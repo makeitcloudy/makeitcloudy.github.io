@@ -18,10 +18,12 @@ Apart from community shares, there are great books which reorganize and structur
 ### Citrix / EUC
 
 + Bas Van Kaam [Inside the FMA](https://www.basvankaam.com/wp-content/uploads/2019/03/Inside-Citrix-The-FlexCast-Management-Architecture.pdf)
-+ Bas Van Kaam [Byte-Sized](https://www.basvankaam.com/2019/10/14/our-byte-sized-book-is-available-for-download-free-of-charge-go-grab-your-virtual-copy-now/) and [direct](https://www.basvankaam.com/wp-content/uploads/2019/10/Final-Version-Take-17.pdf) link
-+ Johan van Amersfoort [VDI Design Guide](https://www.amazon.com/VDI-Design-Guide-comprehensive-standards/dp/1977535526) A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
-
-+ Claudio Rodrigues [DaaS - the complete guide](https://www.amazon.com/DaaS-Step-Step-Desktop-as-Service/dp/B09DN1FJ19) A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft, Citrix, VMware, Accops and much more.
++ Bas Van Kaam [Byte-Sized](https://www.basvankaam.com/2019/10/14/our-byte-sized-book-is-available-for-download-free-of-charge-go-grab-your-virtual-copy-now/), [direct link](https://www.basvankaam.com/wp-content/uploads/2019/10/Final-Version-Take-17.pdf)
++ Johan van Amersfoort [Free VDI Design Guide - Part I](https://vhojan.nl/free-vdi-design-guide-ebook-for-everyone/)  
+A comprehensive guide to help you design VMware Horizon, based on modern standards (EUC Design Series)
++ Johan van Amersfoort [VDI Design Guide - Part II](https://vhojan.nl/in-stores-now-the-vdi-design-guide-part-ii/)
++ Claudio Rodrigues [DaaS - the complete guide](https://www.amazon.com/DaaS-Step-Step-Desktop-as-Service/dp/B09DN1FJ19)  
+A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft, Citrix, VMware, Accops and much more.
 + [Rds Complete Guide](https://www.amazon.com/Rds-Complete-Guide-Everything-about/dp/1718085257) - 2018
 
 ### AVD
