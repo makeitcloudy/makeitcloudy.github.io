@@ -277,6 +277,7 @@ Apart from Microsoft learn and docs, there are community shares which helps you 
 + Guy Gregory [WVD public preview links](https://twitter.com/GuyGregory/status1108675328711577600)
 
 + avdPunks [blog](https://avdpunks.com/), [github](https://github.com/avdpunks)
++ techlab.blog [https://techlab.blog/]
 + [cloudexperts.community](https://cloudexperts.community/)
 + Danidu (Madhawa) Weerasinghe - AVD oriented [blog](https://hungryboysl.wordpress.com), [arinco.com.au](https://arinco.com.au/blogs/)
 + wvd monitoring workbook, step by step [youtube](https://www.youtube.com/watch?v=ERftVHEy5A4&t=268s)
