@@ -58,6 +58,40 @@ The components below can be used, though are not necessary if the sole purpose i
 + Configuration Designer
 + User State Migration Tool
 
+```powershell
+#region authoringBox - initial preparation 
+#region authoringBox - ADK installation
+# https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
+# Install only Deployment Tools
+#endregion
+
+#region authoringBox - initializing disk O for the ISO storage
+
+#endregion
+
+#region authoringBox - OSDBuilder installation
+
+Set-ExecutionPolicy ByPass -Scope CurrentUser -Force
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Install-Module OSDBuilder -Force
+Install-Module OSDSUS -Force
+# OSDBUilder 23.2.21.1 | OSD 24.6.18.1
+# store the OSDBuilder within the separate directly aside from your regular OS
+Get-OSDBuilder -SetHome O:\OSDBuilder
+Get-OSDBuilder -CreatePaths
+
+Get-OSDBuilder
+## Update OSDBuilder
+OSDBuilder -UpdateModule
+OSDBuilder -Update
+Update-OSDSUS
+#endregion
+#endregion
+
+Import-Module -Name OSDBuilder -Force
+Import-Module -Name OSDSUS -Force
+```
+
 ## The update process
 
 The process of the update consists of:
@@ -147,6 +181,9 @@ Import-OSMedia -Index 4
 # Unmount Diskimage
 
 Get-OSMedia
+#$windowsServer2022Release = 'Windows Server 2022 Datacenter Evaluation x64 21H2 20348.587'
+#Get-OSMedia | Where-Object {($_.Name -match $windowsServer2022ReleaseName) -and ($_.Revision -eq 'OK') -and ($_.Updates -eq 'Update')} |
+#              Foreach {Update-OSMedia -Download -Execute -Name $_.Name}
 
 New-OSBuildTask -TaskName $taskName -EnableNetFX3
 New-OSBuild -Download -Execute -ByTaskName $taskName
@@ -161,6 +198,16 @@ New-OSBMediaISO
 
 #ISO should be stored in following directory:
 Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO"
+```
+
+### oscdimg
+
+run an elevated CMD and execute
+
+```code
+cd C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg
+oscdimg.exe -bootdata:2#p0,e,b"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\etfsboot.com"#pEF,e,b"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\efisys_noprompt.bin" -u2 -udfver102 "O:\ISO\updated_OSDBuilder_result\2022\Windows Server 2022 Datacenter Evaluation x64 21H2 20348.587" "O:\ISO\updated_Final_result\2022\Windows Server 2022 Datacenter Evaluation x64 21H2 20348.587\w2k22dtc_2406_updt_untd_bios.iso"
+
 ```
 
 ## Unattended Iso - UEFI context
@@ -266,6 +313,6 @@ That's it.
 
 If everything went well the based image should contain latest updates ready for unattended installation.
 
-Servicing process was tested on vms which were running Windows 10 20H2 and Server 2019 OS'es. Images which were serviced/updated: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). The .
+Servicing process was tested on vms which were running Windows 10 20H2,21H2, Server 2019, 2022 H1 OS'es. Images which were serviced/updated: w10, w2k16, w2k19, w2k22 (depending from the version of the OSDBuilder the list of the operating systems may vary). 
 
-Last update: 2023.06.01
+Last update: 2024.06.20
