@@ -11,6 +11,7 @@ categories: [HomeLab ,Windows, OSD, Imaging]
 ---
 There are plenty of places where the overall process is described, the knowledge is available in other places, here it's being shown in context of the virtual workplace, home lab, regardless whether it is Citrix Virtual Apps and Desktops, Remote Desktop Services or Parallels RAS. The core infrastructure and your compute will benefit out of it, as the patching process of each VM individually is time and resource consuming, especially when you have no orchestration layer for this purpose, and your usecase is home labbing, not an enterprise scale deployments.
 
+
 If you decide to follow along, you will end up with updated ISO images, which will install in unattended way. If this is combined with the AXL or AutomatedCitrix repo and it's PowerShell XenPLModule available on [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/001_hypervisor).
 The module is far from being perfect and it left much to be desired, never the less it is a good starting point, and allows provisioning of VM's directly from PowerShell, without any interaction with the XenCenter or XCP-ng Center.
 
@@ -26,20 +27,18 @@ The module is far from being perfect and it left much to be desired, never the l
 
 ## Prerequisites and observations from the field
 
-+ Dedicated servicing machine (w2k19 or w10), with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet.
-+ Was stuck with servicing machine powered by w10 22H2 - it can **not** access the samba share anymore. Previous versions of the operating system does not have this problem. (smb share - is the same for both)
-+ Access to Microsoft Update webpage.
++ Dedicated servicing machine (w2k19 or w10), with the Windows ADK installed, I'm not recommending performing the image operations on your management or authoring node. The servicing machines does not have to be joined to the domain but it has to have access to the Internet
++ If you have more than one OS to service, use more than one VM to service the image, f.e if you have four images - create four VM's and run the actions in parallel
++ Have a separated drive for the OSDBuilder
 + Adequate amount of free disk space, roughly each updated operating system consumes somewhere around 20GB of free space  (including the updated iso file).
 + Regardless of the amount of vCPU the overall update process will take roughly up to 4hours. It's more memory intensive and from time to time it bring some level of stress on the storage.
-+ Rights to run an elevated PowerShell prompt
-+ It would be wise to have a separated drive, where the OSDBuilder is located along with all the media and builds prepared by this great tool
-+ If you have more than one image to maintain, due to the fact that the process is time consuming, consider spinning few vms and service the images in parallel.
++ Rights to run an elevated PowerShell prompt, you run the whole process under the elevated session
 + The autounattend.xml for the windows 10, needs an update of the product key (it changes between versions - Enterprise has different KMS key than EnterpriseN - details about the keys can be found [here](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys))
 
 ## Download the base image
 
-If you start from zero [MediaCreationTool.bat](https://github.com/AveYo/MediaCreationTool.bat/blob/main/MediaCreationTool.bat) is the tool, which can help you to download the Windows 10.
-All you have to do is to rename the .bat file, in my case it was renamed to *enterprise iso 21H2.bat*. You execute it within the elevated PowerShell session. Be prepared that you should have sufficient space on your C: drive (at least 8GB), even though the working directory where you run the MediaCreationTool is on another drive.
++ [MediaCreationTool.bat](https://github.com/AveYo/MediaCreationTool.bat/blob/main/MediaCreationTool.bat)
++ rename the .bat file, f.e *enterprise iso 21H2.bat*. You can execute it within the elevated PowerShell session. Be prepared that you should have sufficient space on your C: drive (at least 8GB), even though the working directory where you run the MediaCreationTool is on another drive.
 
 ## Prepare the OSDBuilder
 
@@ -54,78 +53,121 @@ Before the process can start you need to prepare your VM
 In case there is a previous version installed, you have uninstall it first, there is no option for a quick update of ADK.
 
 + Deployment Tools (contains oscdimg.exe - in case your only goal is to burn the updated image, during the ADK installation pick only this option feature from the installation gui)
+The components below can be used, though are not necessary if the sole purpose is to burn the iso, and autounattend.xml is already prepared
 + Image and Configuration Designer
 + Configuration Designer
 + User State Migration Tool
 
-Installation of IaCD, CD, USMT, can be skipped if the pure usecase of an update. oscdimg (part of DT) is the dependency for the iso creation once the OSDBuilder does it's trick with the bootable iso preparation.
+## The update process
 
-```powershell
-Set-ExecutionPolicy ByPass -Scope CurrentUser
-Install-Module OSDBuilder
-# store the OSDBuilder within the separate directly aside from your regular OS
-Get-OSDBuilder -SetPath O:\OSDBuilder
-Get-OSDBuilder -CreatePaths
-# nuget along with the untrusted module will be installed from the PS Gallery
-Import-Module OSDBuilder
-# Download the OneDriveSetup package
-# OSDBuilder\Content folder contains all different content which is downloaded like
-# one drive, or unattended installation or start menu customization
-# eventually instead of 'OneDriveSetup Production' 'OneDriveSetup Enterprise' switch can be used
-Get-DownOSDBuilder -ContentDownload 'OneDriveSetup Production'
-# Mount the ISO of the media, planed for an update
-# for windows 10 iso's it can be done with making use of MediaCreationTool
-# https://github.com/AveYo/MediaCreationTool.bat
+The process of the update consists of:
 
-# In order to get the index of the version which is under your interests, execute
-# https://osdbuilder.osdeploy.com/module/functions/import-osmedia
-# Import-OSMedia -ShowInfo -Quick
-
-# ImageIndex for Windows Servers editions is the natural number <1-4>
-# ImageIndex 1 - standard
-# ImageIndex 2 - standard desktop experience
-# ImageIndex 3 - datacenter
-# ImageIndex 4 - datacenter desktop experience
-
-# ImageIndex for Desktop Operating systems - w10 is the natural number as well
-# ImageIndex 1: Windows 10 Education
-# ImageIndex 2: Windows 10 Education N
-# ImageIndex 3: Windows 10 Enterprise
-# ImageIndex 4: Windows 10 Enterprise N
-# ImageIndex 5: Windows 10 Pro
-# ImageIndex 6: Windows 10 Pro N
-# in case it can not enumerate the indexes within the ISO, it may mean that the ISO is corrupted, you need to download it again and start the mount and import again
-Import-OSMedia -ImageIndex 1 -SkipGrid -Update -BuildNetFX
-# or
-Import-OSMedia -ImageName 'Windows 10 Enterprise' -ImageIndex 3 -SkipGrid -Update -BuildNetFX -Verbose
-
-# In this usecase there are no features which are enabled within the image
-# It is left as generic as possible, and in case feature or role is needed it's
-# getting enabled with making use of DSC (Desired State Configuration) later on
-# when managing the configuration drift or with some other mechanisms
-
-# once the whole operations ends it's time to create the ISO
-# this command has a dependency on the ADK and the availability of oscdimg.exe
-New-OSBMediaISO -FullName 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise x64 1909 18363.2274'
-# at this point the updated iso file should be located here
-# O:\OSDBuilder\OSBuilds\Windows 10 Enterprise x64 21H2 19044.2604\ISO
-
-# at this point continue with step number 5 mentioned below
-# this section will be updated shortly (2023.02.17 - recalling the process in the lab)
-```
-
-The process of the update looks like this:
 0. Mount ISO (the regular not updated iso, or the updated iso from the previous update cycle)
 
 1. Import-OSMedia (and pass the Index Parameter, depending from the target (datacenter, standard, desktop experience, core, Enterprise N, Education, Proffessional etc))
 
-2. Update-OSMedia -Name 'name of the folder within the OSBuild folder' which is planned to be updated, similar result can be also achieved with making use of Import-OSMedia with a parameter -Update and -BuildNetFX
+2. unmount the ISO
 
-3. Once finished (it can take few hours) run the New-OSBMediaISO -FullName 'path to the OSBuilds directory' which was brought as an output from the previous commandlet.
+3. Update-OSMedia -Name 'name of the folder within the OSBuild folder' which is planned to be updated, similar result can be also achieved with making use of Import-OSMedia with a parameter -Update and -BuildNetFX
 
-4. Once done unmount the original ISO.
+4. Once finished (it can take few hours) run the New-OSBMediaISO -FullName 'path to the OSBuilds directory' which was brought as an output from the previous commandlet.
 
-5. At the end repack the ISO with making use of the oscdimg and add the autounattend.xml file [BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or [goodFileIsQuietIsoFile](https://github.com/makeitcloudy/AutomatedCitrix/blob/feature/007_imagePrep/unattendedISO/goodIsoFileIsAquietIsoFile-JohanArwidmark.ps1) prepared by Johan Arwidmark. Alternatively, include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
+### windows 10
+
+1. download the evaluation is from the Internet
+2. store it in the $isoFolder directory
+
+```powershell
+# Tested 2024.06
+
+$isoName = '10_21H1_LTSC.iso'
+$isoFolder = 'O:\ISO\notUpdated\w10\evalCenter'
+$isoSourcePath = Join-Path -Path $isoFolder -ChildPath $isoName
+
+$imageName = 'Windows 10 Enterprise N LTSC Evaluation x64 21H2 19044.4529'
+$taskName = '202406_w2k22_eval_desktopExperience_updates'
+
+Mount-DiskImage -ImagePath $isoSourcePath -Verbose
+
+# 2. Import iso
+# ImageIndex 1: Windows 10 Enterprise LTSC Evaluation
+# ImageIndex 2: Windows 10 Enterprise N LTSC Evaluation
+Import-OSMedia -Index 2
+
+# Unmount Diskimage
+
+Get-OSMedia -GridView -Verbose
+
+#Update-OSMedia -Download -Execute
+# OS Media does not have the latest WSUSXML (MS Updates)
+# Use the following command before furnning New-OSBuild
+Update-OSMedia -Name $imageName -Download -Execute
+
+# Now that the OS Media is imported and updated, you must create a task that you’ll use to re-run the monthly updates with any features you enable or disable.
+# Run this command to create a new task (or re-run a previously created task). 
+# In my case, I’m planning to enable .NET 3.5 SP1 so I’ve created the task name as shown below. 
+# Create the name that makes sense for you.
+New-OSBuildTask -TaskName $taskName -EnableNetFX3
+
+New-OSBuild -Download -Execute -ByTaskName $taskName
+#pick the OSImport
+
+# copy the autounatted.xml here
+Invoke-Item -Path 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise N LTSC Evaluation x64 21H2 19044.4529\OS'
+
+Get-OSBuilds
+
+New-OSBMediaISO -FullName 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise N LTSC Evaluation x64 21H2 19044.4529'
+#New-OSBMediaISO -FullName "O:\OSDBuilder\OSBuilds\$windowsServer2022ReleaseName"
+#pick OSBuild - (pushed up all updates, and enabled netfx)
+
+#ISO should be stored in following directory:
+Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO
+```
+
+### windows server
+
+1. download the evaluation is from the Internet
+2. store it in the $isoFolder directory
+3. repeat the process twice (core and desktop exeprience)
+
+```powershell
+$w2k22_eval_iso_path = 'O:\ISO\notUpdated\server\2022\w2k22.iso'
+$imageName = 'Windows Server 2022 Datacenter Evaluation Desktop Experience x64 21H2 20348.587'
+$taskName = '202406_w2k22_eval_desktopExperience_updates'
+
+Mount-DiskImage -ImagePath $w2k22_eval_iso_path
+
+#ImageIndex 1: Windows Server 2022 Standard Evaluation
+#ImageIndex 2: Windows Server 2022 Standard Evaluation (Desktop Experience)
+#ImageIndex 3: Windows Server 2022 Datacenter Evaluation
+#ImageIndex 4: Windows Server 2022 Datacenter Evaluation (Desktop Experience)
+Import-OSMedia -Index 4
+
+# Unmount Diskimage
+
+Get-OSMedia
+
+New-OSBuildTask -TaskName $taskName -EnableNetFX3
+New-OSBuild -Download -Execute -ByTaskName $taskName
+#pick the OSImport
+
+# copy the autounattend.xml to the directory
+Invoke-Item -Path 'O:\OSDBuilder\OSBuilds\Windows Server 2022 Datacenter Evaluation Desktop Experience x64 21H2 20348.587\OS'
+
+New-OSBMediaISO
+#New-OSBMediaISO -FullName "O:\OSDBuilder\OSBuilds\$windowsServer2022ReleaseName"
+#pick OSBuild - (pushed up all updates, and enabled netfx)
+
+#ISO should be stored in following directory:
+Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO"
+```
+
+## Unattended Iso - UEFI context
+
+For some reason the UEFI worked for me during the updates at 2023 February, though at 2024 June, can not repeat the process anymore, and receving UEFI shell instead of the regular instlalation process. Never the less, the guides how to get rid of the press any key message for the UEFI boots can be found here.
+
+[BIOS of UEFI based](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep/unattendedISO) or [goodFileIsQuietIsoFile](https://github.com/makeitcloudy/AutomatedCitrix/blob/feature/007_imagePrep/unattendedISO/goodIsoFileIsAquietIsoFile-JohanArwidmark.ps1) prepared by Johan Arwidmark. Alternatively, include the xml directly within the OSDBuilder\Content\Unattend directory with making use of the OSDBuilder author [guide](https://osdbuilder.osdeploy.com/docs/osbuild/content-directory/unattend)
 
 ```powershell
 <#
