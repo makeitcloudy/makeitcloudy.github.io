@@ -9,11 +9,7 @@ share-img: /assets/img/cover/img-cover-lab.jpg
 tags: [HomeLab ,Windows, OSD, Imaging]
 categories: [HomeLab ,Windows, OSD, Imaging]
 ---
-There are plenty of places where the overall process is described, the knowledge is available in other places, here it's being shown in context of the virtual workplace, home lab, regardless whether it is Citrix Virtual Apps and Desktops, Remote Desktop Services or Parallels RAS. The core infrastructure and your compute will benefit out of it, as the patching process of each VM individually is time and resource consuming, especially when you have no orchestration layer for this purpose, and your usecase is home labbing, not an enterprise scale deployments.
-
-
-If you decide to follow along, you will end up with updated ISO images, which will install in unattended way. If this is combined with the AXL or AutomatedCitrix repo and it's PowerShell XenPLModule available on [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/001_hypervisor).
-The module is far from being perfect and it left much to be desired, never the less it is a good starting point, and allows provisioning of VM's directly from PowerShell, without any interaction with the XenCenter or XCP-ng Center.
+If you decide to follow along, you will end up with updated ISO images, which will install in unattended way.
 
 ## Useful Links
 
@@ -46,13 +42,14 @@ Before the process can start you need to prepare your VM
 
 1. Install the ADK coresponding to the Operating system of the VM
 
-+ Latest ADK is available [here](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
-+ Older ADK versions are available [here](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
+[Latest ADK](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install)
+[Older ADK versions](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
 
 2. Within the installation of the ADK pick only few elements
 In case there is a previous version installed, you have uninstall it first, there is no option for a quick update of ADK.
 
 + Deployment Tools (contains oscdimg.exe - in case your only goal is to burn the updated image, during the ADK installation pick only this option feature from the installation gui)
+
 The components below can be used, though are not necessary if the sole purpose is to burn the iso, and autounattend.xml is already prepared
 + Image and Configuration Designer
 + Configuration Designer
@@ -97,13 +94,9 @@ Import-Module -Name OSDSUS -Force
 The process of the update consists of:
 
 0. Mount ISO (the regular not updated iso, or the updated iso from the previous update cycle)
-
 1. Import-OSMedia (and pass the Index Parameter, depending from the target (datacenter, standard, desktop experience, core, Enterprise N, Education, Proffessional etc))
-
 2. unmount the ISO
-
 3. Update-OSMedia -Name 'name of the folder within the OSBuild folder' which is planned to be updated, similar result can be also achieved with making use of Import-OSMedia with a parameter -Update and -BuildNetFX
-
 4. Once finished (it can take few hours) run the New-OSBMediaISO -FullName 'path to the OSBuilds directory' which was brought as an output from the previous commandlet.
 
 ### windows 10
@@ -156,7 +149,9 @@ New-OSBMediaISO -FullName 'O:\OSDBuilder\OSBuilds\Windows 10 Enterprise N LTSC E
 #pick OSBuild - (pushed up all updates, and enabled netfx)
 
 #ISO should be stored in following directory:
-Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO
+Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO"
+
+#Copy the image to your ISO repository
 ```
 
 ### windows server
@@ -198,6 +193,8 @@ New-OSBMediaISO
 
 #ISO should be stored in following directory:
 Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO"
+
+# Copy the image to your ISO repository
 ```
 
 ### oscdimg
