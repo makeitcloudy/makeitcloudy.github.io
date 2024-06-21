@@ -3,7 +3,7 @@ layout: post
 title: "Rocky9 Samba and NFS configuration"
 permalink: "/rocky-samba-nfs-configuration/"
 subtitle: "Rocky9 Samba na NFS setup - ISO repository for XCP-ng"
-cover-img: /assets/img/cover/img-coer-linux-rocky.jpg
+cover-img: /assets/img/cover/img-cover-linux-rocky.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-rocky.png
 share-img: /assets/img/cover/img-cover-linux-rocky.jpg
 tags: [HomeLab , Rocky, XCP-ng]
