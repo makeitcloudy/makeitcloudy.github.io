@@ -9,13 +9,11 @@ share-img: /assets/img/cover/img-cover-xen.jpg
 tags: [HomeLab ,XCP-ng]
 categories: [HomeLab ,XCP-ng]
 ---
-There are at least few hypervisors on the market which would be a good fit, though in this case as it is Citrix oriented lab, the XCP-ng was the choice. Hyper-V server core, would do the trick, esxi as well, though both of them will be missing the integration of the SDK.
-Xen Orchestra is included within the package, though later on, once you do the initial configuraiton, you can scrap the appliance and compile one from sources, or use the script provided by [ronivay](https://github.com/ronivay/XenOrchestraInstallerUpdater).
-The first contact with xcp-ng may be harsh, when you don't have stron RedHat background, though the convinience will come with time.
+The hypervisor of choice for this lab is XCP-ng.
 
 ## Configuration
 
-Once the XCP-ng is installed, login to it's web interface via web browser and deploy the XenOrchestra comming within the installation package. It should be available for the next 30days after the installation, which is enough amount of time, to perform the initial configuration of your hypervisor, along with spinning up debian or rocky linux (RHEL) to compile the Xen Orchestra Community Ediction from sources, which does not have the functioanlity limitations after the 30 days trial period.
+The configurations looks l
 
 ## Option 1 - XOA - Install XenOrchestra appliance from the sources
 

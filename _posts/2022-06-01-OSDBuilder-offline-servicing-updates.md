@@ -195,6 +195,7 @@ New-OSBMediaISO
 Invoke-Item -Path "O:\OSDBuilder\OSBuilds\$imageName\ISO"
 
 # Copy the image to your ISO repository
+# rename copied is to w10ent_21H2_2406_untd_bios
 ```
 
 ### oscdimg
