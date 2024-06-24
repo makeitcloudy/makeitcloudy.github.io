@@ -25,7 +25,7 @@ Here are the steps how to set up Rocky 9.4 as Samba and NFS share for XCP-ng and
 2. Local iso repository: /var/opt/xen/ISO_Store
 3. Local iso repository: [rocky minimal iso](https://rockylinux.org/download) in (-rw-r--r--)
 
-4. XCP-ng: /var/opt/xen/ISO_Store - contains the Rocky9 ISOroot
+4. XCP-ng: /var/opt/xen/ISO_Store - contains the Rocky9.4 ISO
 5. XCP-ng: /opt/scripts - contains the vm_create_bios.sh script
 6. XCP-ng: /opt/scripts - contains the vm_add_disk.sh script
 
