@@ -17,9 +17,22 @@ Here are the steps how to set up Rocky 9.4 as Samba and NFS share for XCP-ng and
 * [How To Create a New Sudo-enabled User on Rocky Linux 8 [Quickstart]](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-sudo-enabled-user-on-rocky-linux-8-quickstart)
 * [How to Install Samba Server on Rocky Linux 9 / AlmaLinux 9](https://www.linuxbuzz.com/install-samba-server-on-rockylinux-almalinux/)
 
-## Assumptions
+## 0. Assumptions
 
-XCP-ng:
+0. bash scripts:
+
+* copied to /opt/scripts/ on XCP-ng
+
+1. XCP-ng tools:
+
+* XCP-ng tools: /opt/xensource/packages/iso
+
+2. ISO: 
+
+* local iso repository - /var/opt/xen/ISO_Store
+* [rocky minimal iso](https://rockylinux.org/download) in XCP-ng local iso repository (-rw-r--r--)
+
+3. XCP-ng:
 
 * /var/opt/xen/ISO_Store - contains the Rocky9 ISOroot
 * /opt/scripts - contains the vm_create_bios.sh script
@@ -27,10 +40,10 @@ XCP-ng:
 
 ```bash
 # run code in the XCP-ng terminal
-/opt/scripts/vm_create_bios.sh --VmName 'rocky9FS' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 0 --TemplateName 'Rocky Linux 9' --IsoName 'Rocky-9.2-x86_64-minimal.iso' --IsoSRName 'hdd_LocalISO' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:00:50' --StorageName 'node4_ssd_sdd' --VmDescription 'node4_rocky9_nfs_smb'
+/opt/scripts/vm_create_bios.sh --VmName 'rockyFS' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 0 --TemplateName 'Rocky Linux 9' --IsoName 'Rocky-9.4-x86_64-minimal.iso' --IsoSRName 'hdd_LocalISO' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:99:50' --StorageName 'node4_ssd_sdd' --VmDescription 'node4_rocky9_nfs_smb'
 ```
 
-## Installation
+## 1. Installation
 
 Proceed the following steps to complete the installation:
 
@@ -46,7 +59,7 @@ Proceed the following steps to complete the installation:
 4. login to the VM by making use of root account
 ```
 
-### Initial Configuration
+### 2. Initial Configuration
 
 Run the initial configuration commands via XenOrchestra virtual terminal. At this point by default you won't be able to login via ssh to the VM.
 
@@ -90,20 +103,18 @@ umount /dev/sr0 /media/cdrom
 yum update
 ```
 
-### Add drive and volume
+### 3. Add drive and volume
 
 In XCP-ng terminal, run code
 
 ```bash
 # add extra disk - dedicated for NFS and SMB storage
-/opt/scripts/vm_add_disk.sh --vmName "rocky9FS" --storageName "node4_hdd_sdc_lsi" --diskName "00_rocky9_filer_data_disk" --deviceId 4 --diskGB 160  --description "00_rocky9_filer_nfs_smb"
+/opt/scripts/vm_add_disk.sh --vmName "rockyFS" --storageName "node4_hdd_sdc_lsi" --diskName "rockyFS_dataDisk" --deviceId 4 --diskGB 160  --description "rockyFS_filer_nfs_smb"
 ```
 
 In Rocky9 VM, run code
 
 ```bash
-dnf install policycoreutils-python-utils nano mc -y
-
 mkdir -p /data
 ls -lah /dev/xvd*
 sudo fdisk -l
@@ -131,12 +142,13 @@ vi /etc/fstab
 # :wq
 ```
 
-### Samba
+### 4. Samba
 
 Install and configure samba
 
 ```bash
-dnf install samba samba-common -y
+dnf install policycoreutils-python-utils samba samba-common nano mc -y
+
 systemctl enable smb nmb
 systemctl start smb nmb
 
@@ -158,15 +170,11 @@ chcon -t samba_share_t /data/smb_share/labIso
 # without the two commands below - it is not possible to access samba shares via network
 # Set the SELinux context for the shared directory to allow Samba to access it:
 
+setsebool -P samba_export_all_ro on
 semanage fcontext -a -t samba_share_t  "/data/smb_share/labIso(/.*)?"
 restorecon -Rv /data/smb_share/labIso
-```
 
-### smb.conf
-
-Move the smb.conf
-
-```bash
+# move the smb.conf
 mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
 nano /etc/samba/smb.conf
 ```
@@ -214,54 +222,18 @@ writable = yes
 browsable = yes
 ```
 
-### Restart Services
-
-Restart smb, nmb services
+Restart smb, nmb services, configure firewall exception
 
 ```bash
+# restart services
 systemctl restart smb nmb
 testparm
-```
-
-### Configure Firewall
-
-Configure Firewall exception
-
-```bash
+# configure firewall
 firewall-cmd --permanent --zone=public --add-service=samba
 firewall-cmd --reload
 ```
 
 At this point, you should be able to reach the abovementioned paths over SMB
-
-
-## Troubleshoot
-
-```bash
-   40  sudo dnf install policycoreutils-python-utils
-   41  sudo mkdir -p /data/smb_share/labIso
-   42  sudo chown -R root:labuser /data/smb_share/labIso
-   43  sudo chmod -R 0750 /data/smb_share/labIso
-   44  sudo semanage fcontext -a -t samba_share_t "/data/smb_share/labIso(/.*)?"
-   45  sudo restorecon -Rv /data/smb_share/labIso
-   46  sudo setsebool -P samba_export_all_ro on
-   47  nano /etc/samba/smb.conf
-   48  smbpasswd -a labuser
-   49  systemctl restart smb nmb
-   50  sudo setsebool -P samba_export_all_ro on
-   51  sudo semanage fcontext -a -t samba_share_t "/data/smb_share/labIso(/.*)?"
-   52  sudo restorecon -Rv /data/smb_share/labIso
-   53  systemctl restart smb
-   54  systemctl restart nmb
-   55  nano /etc/samba/smb.conf
-   56  testparm
-   57  sudo systemctl restart smb
-   58  sudo systemctl restart nmb
-   59  sudo chown -R root:labusers /data/smb_share/labIso
-   60  sudo chmod -R 0750 /data/smb_share/labIso
-   61  history
-
-```
 
 ## Conclusions
 
@@ -269,4 +241,4 @@ Tested on:
 * Rocky 9.4
 * XCP-ng 8.2.1
 
-Last update: 2024.06.21
+Last update: 2024.06.24
