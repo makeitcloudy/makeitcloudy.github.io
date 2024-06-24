@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Rocky 9.4 Samba and NFS configuration"
+title: "Rocky 9.4 NFS and Samba configuration"
 permalink: "/rocky-samba-nfs-configuration/"
-subtitle: "Rocky 9.4 Samba na NFS setup - ISO repository for XCP-ng"
+subtitle: "Rocky 9.4 NFS and Samba setup - ISO repository for XCP-ng"
 cover-img: /assets/img/cover/img-cover-linux-rocky.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-rocky.png
 share-img: /assets/img/cover/img-cover-linux-rocky.jpg
@@ -19,31 +19,31 @@ Here are the steps how to set up Rocky 9.4 as Samba and NFS share for XCP-ng and
 
 ## 0. Assumptions
 
-0. bash scripts:
+0. bash scripts: copied to /opt/scripts/ on XCP-ng
+1. XCP-ng tools: /opt/xensource/packages/iso
 
-* copied to /opt/scripts/ on XCP-ng
+2. Local iso repository: /var/opt/xen/ISO_Store
+3. Local iso repository: [rocky minimal iso](https://rockylinux.org/download) in (-rw-r--r--)
 
-1. XCP-ng tools:
+4. XCP-ng: /var/opt/xen/ISO_Store - contains the Rocky9 ISOroot
+5. XCP-ng: /opt/scripts - contains the vm_create_bios.sh script
+6. XCP-ng: /opt/scripts - contains the vm_add_disk.sh script
 
-* XCP-ng tools: /opt/xensource/packages/iso
+## 1. Rocky - Installation
 
-2. ISO: 
-
-* local iso repository - /var/opt/xen/ISO_Store
-* [rocky minimal iso](https://rockylinux.org/download) in XCP-ng local iso repository (-rw-r--r--)
-
-3. XCP-ng:
-
-* /var/opt/xen/ISO_Store - contains the Rocky9 ISOroot
-* /opt/scripts - contains the vm_create_bios.sh script
-* /opt/scripts - contains the vm_add_disk.sh script
+Run the code below to create the rocky VM:
 
 ```bash
 # run code in the XCP-ng terminal
 /opt/scripts/vm_create_bios.sh --VmName 'rockyFS' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 0 --TemplateName 'Rocky Linux 9' --IsoName 'Rocky-9.4-x86_64-minimal.iso' --IsoSRName 'hdd_LocalISO' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:99:50' --StorageName 'node4_ssd_sdd' --VmDescription 'node4_rocky9_nfs_smb'
 ```
 
-## 1. Installation
+Add data disk to VM:
+
+```bash
+# add extra disk - dedicated for NFS and SMB storage
+/opt/scripts/vm_add_disk.sh --vmName "rockyFS" --storageName "node4_hdd_sdc_lsi" --diskName "rockyFS_dataDisk" --deviceId 4 --diskGB 160  --description "rockyFS_filer_nfs_smb"
+```
 
 Proceed the following steps to complete the installation:
 
@@ -59,7 +59,7 @@ Proceed the following steps to complete the installation:
 4. login to the VM by making use of root account
 ```
 
-### 2. Initial Configuration
+### 2. Rocky - Initial Configuration
 
 Run the initial configuration commands via XenOrchestra virtual terminal. At this point by default you won't be able to login via ssh to the VM.
 
@@ -101,20 +101,8 @@ umount /dev/sr0 /media/cdrom
 ```bash
 # update
 yum update
-```
 
-### 3. Add drive and volume
-
-In XCP-ng terminal, run code
-
-```bash
-# add extra disk - dedicated for NFS and SMB storage
-/opt/scripts/vm_add_disk.sh --vmName "rockyFS" --storageName "node4_hdd_sdc_lsi" --diskName "rockyFS_dataDisk" --deviceId 4 --diskGB 160  --description "rockyFS_filer_nfs_smb"
-```
-
-In Rocky9 VM, run code
-
-```bash
+# add volume
 mkdir -p /data
 ls -lah /dev/xvd*
 sudo fdisk -l
@@ -142,12 +130,64 @@ vi /etc/fstab
 # :wq
 ```
 
-### 4. Samba
+### 3. Rocky - Configuration
+
+#### 3.1 Rocky - NFS
+
+```shell
+# execute those under the context of the user who is in the sudoers group
+dnf install nano nfs-utils -y
+systemctl start nfs-server.service
+systemctl enable nfs-server.service
+systemctl status nfs-server.service
+
+mkdir -p /data/nfs_share/labIso
+chmod -R 770 /data/nfs_share/labIso/
+chown -R root:labusers /data/nfs_share/labIso/
+# without this XO can not enumerate the subdirectory hence the NFS ISO won't be created
+chmod -R o+rx /data/nfs_share/labIso/
+
+nano /etc/exports
+```
+
+/etc/exports file content:
+
+```shell
+# {network address} - is the address of the network from which the NFS should be reachable
+# it should contain the network range of the management interface of your XCP-ng
+# the plan is that the SR NFS ISO repository will be used
+/data/nfs_share/labIso/ {network address}/24(rw,sync,no_all_squash,root_squash)
+/data/nfs_share/labIso/ {networka ddress}/24(rw,sync,no_all_squash,root_squash)
+```
+
+Continue with the NFS configuration
+
+```shell
+exportfs -arv
+exportfs -s
+firewall-cmd --permanent --add-service=nfs
+# not sure about those need to check it later
+firewall-cmd --reload
+firewall-cmd --permanent --add-service=rpc-bind
+firewall-cmd --permanent --add-service=mountd
+firewall-cmd --reload
+```
+
+XO -> Home -> Hosts -> Storage
+
+Name: node4_rocky_nfs
+Description: node4_rocky94_nfs
+Storage Type: NFS ISO
+Server: [IP Address of the nfs vm]
+NFS Version: 4.1
+Path: pick from the expandable list
+
+#### 3.2 Rocky - Samba
 
 Install and configure samba
 
-```bash
-dnf install policycoreutils-python-utils samba samba-common nano mc -y
+```shell
+dnf install policycoreutils-python-utils samba samba-common mc -y
 
 systemctl enable smb nmb
 systemctl start smb nmb
@@ -224,7 +264,7 @@ browsable = yes
 
 Restart smb, nmb services, configure firewall exception
 
-```bash
+```shell
 # restart services
 systemctl restart smb nmb
 testparm
