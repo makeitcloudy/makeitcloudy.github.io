@@ -2,36 +2,102 @@
 layout: post
 title: "How to compile OpenSSL from sources"
 permalink: "/how-to-compile-openssl-from-sources/"
-subtitle: "OpenSSL 1.1.1 will receive updates until September 2023"
+subtitle: "OpenSSL 3.0.9 FIPS and 1.1.1"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
-tags: [HomeLab ,Certificates ,SSL ,Rocky]
-categories: [HomeLab ,Certificates ,SSL, Rocky]
+tags: [HomeLab ,Certificates ,SSL ,Rocky, Debian]
+categories: [HomeLab ,Certificates ,SSL, Rocky, Debian]
 ---
 Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
-
-## Prerequisites
-
-+ preferably, machine with linux
 
 ## Background
 
 + Details about OpenSSL can be found on [github](https://github.com/openssl/openssl)
 + All releases can be found [here](https://www.openssl.org/source/old/)
 
-## Howto
+## Prerequisites
+
++ preferably, machine with linux
 
 1. Install Rocky
 2. Install Management tools
 
-```bash
+```shell
 # Rocky contains an alternative way of installing the management tools
 # the method below works for the CentOS 8 Stream which is not supported anymore
 sudo mount /dev/cdrom /mnt
 sudo bash /mnt/Linux/install.sh -d rhel -m 8
 sudo umount /dev/cdrom
 ```
+
+## Debian 12 - OpenSSL
+
+youtube - [OpenSSL FIPS Provider](https://www.youtube.com/watch?v=geAtEXbHaFg)
+github - [OpenSSL FIPS support](https://github.com/openssl/openssl/blob/openssl-3.2/README-FIPS.md)
+
+
+```shell
+# login as sudoUser
+
+# install prerequisites
+sudo apt install build-essential
+
+# https://youtu.be/geAtEXbHaFg?t=687
+mkdir -p sources
+cd sources
+wget https://www.openssl.org/source/openssl-3.0.9.tar.gz
+tar -xf openssl-3.0.9.tar.gz 
+cd openssl-3.0.9/
+./Configure enable-fips
+
+make
+make test
+sudo make install
+
+openssl version
+
+### at this stage the openssl is ready, further configuration is with regrads with the FIPS compliance
+
+### Configuring the FIPS provider
+openssl version -d
+# Locate the openssl.cnf file in the OEPNSSLDIR directory and load it into an editor
+# find the line that includes the fipsmodule.cnf file, uncomment it, and replace the filename with the full absolute path to fipsmodule.cnf
+
+.include /usr/local/ssl/fipsmodule.cnf
+
+# do not use a relative filename
+# find the line specifying the fips section and uncomment it
+fips = fips_sect
+
+# next load the fipsmodule.ndf file (in t he same directory) into an editor
+# for now we are goind to stop the FIPS provider from activating itself by default
+# this way we can use the FIPS provider if we want to, but we can also use OpenSSL without FIPS
+# comment out the "activate" line:
+
+# activate = 1
+
+# Note that this is NOT sufficient to set activate to 0
+
+# Check that everything worked
+
+openssl list -providers -provider fips -provider base
+
+# If we don't explicitly load the fips/base providers then we should get the default provider
+
+openssl list -providers
+
+# https://github.com/openssl/openssl/blob/openssl-3.2/README-FIPS.md
+
+
+### Make everything use FIPS
+# https://youtu.be/geAtEXbHaFg?t=1497
+```
+
+
+## Rocky 8 - Open SSL
+
+
 
 1. Compile OpenSSL from sources
 
