@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to compile OpenSSL from sources"
-permalink: "/how-to-compile-openssl-from-sources/"
+title: "Compile OpenSSL from sources"
+permalink: "/compile-openssl-from-sources/"
 subtitle: "OpenSSL 3.0.9 FIPS and 1.1.1"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
