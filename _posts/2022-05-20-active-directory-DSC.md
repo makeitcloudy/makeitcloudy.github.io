@@ -4,7 +4,7 @@ title: "Active Directory setup"
 permalink: "/active-directory-DSC/"
 subtitle: "Setup Active Directory with Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
-thumbnail-img: /assets/img/thumb/img-thumb-windows.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft]
 categories: [HomeLab ,Microsoft]

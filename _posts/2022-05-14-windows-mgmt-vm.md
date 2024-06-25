@@ -4,7 +4,7 @@ title: "Windows management plane"
 permalink: "/windows-mgmt-vm/"
 subtitle: "Setup windows management box"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
-thumbnail-img: /assets/img/thumb/img-thumb-windows.jpg
+thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft]
 categories: [HomeLab ,Microsoft]
