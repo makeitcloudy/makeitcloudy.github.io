@@ -9,19 +9,28 @@ share-img: /assets/img/cover/img-cover-padlock.jpg
 tags: [HomeLab ,Certificates ,SSL ,Rocky, Debian]
 categories: [HomeLab ,Certificates ,SSL, Rocky, Debian]
 ---
-Once the OpenSSL library is installed, you can make use of it, for preparing self signed certificates, chain certificates within each other, removing secrets from private keys, with the available API and all the blessing comming with that library. Sometimes it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis.
+OpenSSL library is used for:
+* self signed certificates, chainining certificates within each other, removing secrets from private keys, etc. 
+* it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis
 
 ## Background
 
-+ Details about OpenSSL can be found on [github](https://github.com/openssl/openssl)
-+ All releases can be found [here](https://www.openssl.org/source/old/)
+### Debian 12
+
+* youtube - [OpenSSL FIPS Provider](https://www.youtube.com/watch?v=geAtEXbHaFg)
+* github - [OpenSSL FIPS support](https://github.com/openssl/openssl/blob/openssl-3.2/README-FIPS.md)
+
+### Rocky8
+
+* Details about OpenSSL can be found on [github](https://github.com/openssl/openssl)
+* All releases can be found [here](https://www.openssl.org/source/old/)
 
 ## Prerequisites
 
 + preferably, machine with linux
 
-1. Install Rocky
-2. Install Management tools
+1. Install Debian / Rocky
+2. Install VM tools
 
 ```shell
 # Rocky contains an alternative way of installing the management tools
@@ -32,10 +41,6 @@ sudo umount /dev/cdrom
 ```
 
 ## Debian 12 - OpenSSL
-
-youtube - [OpenSSL FIPS Provider](https://www.youtube.com/watch?v=geAtEXbHaFg)
-github - [OpenSSL FIPS support](https://github.com/openssl/openssl/blob/openssl-3.2/README-FIPS.md)
-
 
 ```shell
 # login as sudoUser
@@ -94,12 +99,9 @@ openssl list -providers
 # https://youtu.be/geAtEXbHaFg?t=1497
 ```
 
-
 ## Rocky 8 - Open SSL
 
-
-
-1. Compile OpenSSL from sources
+Compile OpenSSL from sources
 
 ```bash
 # Install prereq packages and libraries
@@ -150,7 +152,7 @@ openssl version
 
 ## Summary
 
-It may be far from being perfect, never the less good enough for a home lab.
-Tested on Cento8 Stream. OpenSSL 1.1.1n.
+It may be far from being perfect, though good enough for a home lab.
+Tested on Debian 12.5, Cento8 Stream. OpenSSL 3.0.9 FIPS and 1.1.1n.
 
-Last update: 2022.05.18
+Last update: 2024.06.25
