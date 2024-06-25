@@ -43,10 +43,6 @@ wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd
 xe sr-list name-label="node4_hdd_LocalISO"
 xe sr-scan uuid=$iso_SR_UUID
 #xe sr-list type=iso
-
-### List the iso with the debian string in it's name
-xe cd-list | grep debian
-export iso_fileName="debian-12.5.0-amd64-netinst.iso"
 ```
 
 ### Collect UUIDs
@@ -79,13 +75,16 @@ Setup the VM.
 
 ```shell
 ### Create VM
-xe vm-install template="Debian Bookworm 12" new-name-label="debian-noXOA" sr-uuid=$vm_SR_UUID
+xe vm-install template="Debian Bookworm 12" new-name-label="debian-misc" sr-uuid=$vm_SR_UUID
 export vm_UUID=""
-echo $vm_UUID
+xe vm-param-set uuid=$vm_UUID  name-description=" - node4 - [osName-version] - [function] - [IP Address]"
 
 ### Make use of the UUID identifier of the disk bound with the 'Disk 0 VDI'
 xe vm-disk-list uuid=$vm_UUID
 export vm_disk_UUID=""
+### Resize the virtual disk of the VM
+xe vdi-resize uuid=$vm_disk_UUID disk-size=32GiB
+xe vdi-param-set uuid=$vm_disk_UUID name-label="debian-misc_osDisk" name-description="debian12-misc_osDisk"
 ```
 
 ### Configure VM
@@ -93,16 +92,17 @@ export vm_disk_UUID=""
 Run the code below in one go, the variables were collected above.
 
 ```shell
+### List the iso with the debian string in it's name
+xe cd-list | grep debian
+export iso_fileName="debian-12.5.0-amd64-netinst.iso"
 ### Attach the installation media to the VM
 xe vm-cd-add uuid=$vm_UUID cd-name=$iso_fileName device=1
 ### Make the installation media the boot device
 xe vm-param-set HVM-boot-policy="BIOS order" uuid=$vm_UUID
 ### Link the network interface
-xe vif-create vm-uuid=$vm_UUID network-uuid=$network_UUID device=0
+xe vif-create vm-uuid=$vm_UUID network-uuid=$network_UUID mac='2A:47:41:D9:99:51' device=0
 ### Configure the memory of the VM
 xe vm-memory-limits-set dynamic-max=2048MiB dynamic-min=2048MiB static-max=2048MiB static-min=512MiB uuid=$vm_UUID
-### Resize the virtual disk of the VM
-xe vdi-resize uuid=$vm_UUID disk-size=32GiB
 ### Start th VM
 xe vm-start uuid=$vm_UUID
 ```
@@ -114,9 +114,9 @@ xe vm-start uuid=$vm_UUID
 * make use Remmina or Remote Desktop Manager on Linux, on Windows VNC Viewer (localhost:9000)
 
 ```shell
-# open second terminal tab on your device and set tht SSH connection towards the XCP-ng
-# you will need a second connection to preserve your variables within the current one
-# socat will be running in the background - with this approach we are not using screen for multiplexing the terminal
+# open second terminal tab on your device and set the SSH connection towards the XCP-ng
+# you will need a second connection to preserve your variables within the existing SSH session
+# socat will be running in the background - with this approach we are not using screen (multiplexing the terminal)
 
 ### socat should be installed to make it work
 yum install socat
@@ -153,20 +153,19 @@ Local|Auto
 
 ```shell
 ### Run in the first SSH session towards XCP-ng (this session is where your variables are stored)
-list_domains | grep $vm_UUID
+### After a reboot the VNC console session number increased by one
 # get the number of the VNC connection
+list_domains | grep $vm_UUID
 
 ### Run in the second SSH session towards XCP-ng (this session is for the SSH tunnel for the VNC to work)
 socat TCP-LISTEN:9000 UNIX-CONNECT:/var/run/xen/vnc-37
 
 ### On your endpoint, run in terminal:
 ssh -L 9000:[XCPng-MGMT_IP]:9000 root@[XCPng-MGMT_IP]
+
 ### On your endpoint launch Remmina and connect to localhost:9000
 
 ### Login to the VM as root
-### After a reboot the VNC console session number increased by one
-
-### Run in the XCP-ng
 ```
 
 ### Install XCP-ng tools
@@ -174,16 +173,28 @@ ssh -L 9000:[XCPng-MGMT_IP]:9000 root@[XCPng-MGMT_IP]
 Run code on XCP-ng, in the SSH session where your variables are stored
 
 ```shell
+### Run in the XCP-ng
 ### eject the installation media (debian-install.iso)
 xe vm-cd-eject uuid=$vm_UUID
 
 ### insert guest_tools media
 #xe cd-list | grep debian
 xe vm-cd-insert cd-name=guest-tools.iso uuid=$vm_UUID
+```
+
+Run code on VM
+
+```shell 
+### run in VM
+### mount cdrom and install guest-tools
+mount /dev/cdrom /mnt
 /mnt/Linux/install.sh
 
+### Run in XCP-ng
 ### eject the installation media (guest-tools.iso)
 xe vm-cd-eject uuid=$vm_UUID
+
+### run in VM
 reboot
 
 ### wait a minute
@@ -202,19 +213,30 @@ socat TCP-LISTEN:9000 UNIX-CONNECT:/var/run/xen/vnc-38
 ```shell
 ### Install openssh-server
 apt install sudo nano openssh-server -y
-### 
+
+### add user to the sudo group
+#usermod -aG sudo sudoUser
 nano /etc/sudoers
 # modify the User privilege specification
 sudoUser ALL=(ALL:ALL) ALL
 
 ### get the IP address of the VM
 ip a
+# modify DHCP leases
+# ifdown enX0
+# ifup enX0
 
 ### get the IP address of the VM on the XCP-ng
-xe vm-list name-label="debian-noXOA" params=name-label,networks | grep -v "^$"
+xe vm-list name-label="debian-misc" params=name-label,networks | grep -v "^$"
 ```
 
 Open a regular SSH terminal, login as sudouser and continue the configuration.
+
+### XCP-ng xe commands
+
+```shell
+xe vm-list params=name-label,power-state,networks,os-version,VCPUs-max,memory-static-max,disks,PV-drivers-up-to-date,PV-drivers-version uuid=$vm_UUID
+```
 
 ## Summary
 
