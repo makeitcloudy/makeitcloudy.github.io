@@ -77,6 +77,8 @@ sudo nano /root/.bashrc
 export PATH=$PATH:/sbin:/usr/sbin
 
 apt install sudo
+usermod -aG sudo sudoUser
+
 nano /etc/sudoers
 # modify the User privilege specification
 sudoUser ALL=(ALL:ALL) ALL
@@ -189,7 +191,7 @@ service orchestra restart
 service orchestra status
 ```
 
-## Conclusions
+## Summary
 
 Tested on:
 * Debian 12.5
