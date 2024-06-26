@@ -9,9 +9,12 @@ share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft]
 categories: [HomeLab ,Microsoft]
 ---
-This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Neither DSC authoring or OSD Image Factory are taking place here - those activities are performed on separate boxes... Only the initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
+This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
 # MGMT Node - w10_mgmt node
+
+* there is no Active Directory yet
+* AD will be configured by making use of DSC
 
 Goals:
 
@@ -81,10 +84,10 @@ Start-Process PowerShell_ISE.exe -Verb RunAs
 
 Get-ExecutionPolicy
 # double check if this is a best practice
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
 ```
 
-### 3.1 Download Prerequisites 
+### 3.1 Download Prerequisites
 
 Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
@@ -174,10 +177,12 @@ Copy the downloaded tools into the Z: drive
 ```powershell
 # https://code.visualstudio.com/docs/?dv=win64user
 # extensions:
-# * powershelllogoff
+# * powershell
 ```
 
 ### 3.4 PowerShell 7.X
+
+PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
 
 ```powershell
 # https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4
@@ -282,13 +287,6 @@ Download https://github.com/makeitcloudy/AutomatedXCP-ng | Extract Zip.
 
 # XenPLModule folder should be copied into this location
 # C:\Program Files\WindowsPowerShell\Modules
-```
-
-### 4.4 PowerShell 7.x
-
-
-```powershell
-
 ```
 
 ## 5. WinRM

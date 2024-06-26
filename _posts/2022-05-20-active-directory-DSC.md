@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Active Directory setup"
+title: "DSC - Active Directory setup"
 permalink: "/active-directory-DSC/"
 subtitle: "Setup Active Directory with Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
@@ -19,17 +19,48 @@ This piece of code is executed via SSH directly on the XCP-ng node
 
 ```bash
 # TESTED - succesfull execution - 2024.VI.14
-/opt/scripts/vm_create_uefi.sh --VmName 'dc01_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 90 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_core_updt_2302_unattended_noprompt.iso' --IsoSRName 'node1_nfs' --NetworkName 'NIC0 - .5.x' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
+/opt/scripts/vm_create_uefi.sh --VmName 'dc01_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
 ```
 
 ### VM - Automatic provisioning - w2k22_dc02 - Windows Server 2022 Core
 
 ```bash
 # TESTED - succesfull execution - 2024.VI.14
-/opt/scripts/vm_create_uefi.sh --VmName 'dc02_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_core_updt_2302_unattended_noprompt.iso' --IsoSRName 'node1_nfs' --NetworkName 'NIC0 - .5.x' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
+/opt/scripts/vm_create_uefi.sh --VmName 'dc02_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
 ```
 
 ## X. Configuration
+
+### X.X Install VM tools
+
+Run in XCP-ng terminal
+
+```shell
+# eject installation media
+xe vm-cd-eject vm=dc01_core
+xe vm-cd-eject vm=dc02_core
+
+# insert VM Tools ISO
+
+```
+
+Run in XenOrchestra, VM Console
+
+```powershell
+# install VM tools
+# 15
+# d:
+.\management-9.3.3-x64.msi
+# check install IO drivers now
+```
+
+Run in XCP-ng
+
+```shell
+# eject installation media
+xe vm-cd-eject vm=dc01_core
+xe vm-cd-eject vm=dc02_core
+```
 
 ### X.X WinRM
 
@@ -50,7 +81,7 @@ Get-NetConnectionProfile
 
 # Open firewall
 # The
-$mgmtNodeIP = '10.2.134.250'
+$mgmtNodeIP = '10.2.134.249'
 Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -RemoteAddress $mgmtNodeIP
 Enable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
@@ -67,6 +98,31 @@ Get-ChildItem -Path WSMan:\localhost\Service\Auth\
 # System.String   CbtHardeningLevel                              Relaxed
 
 #endregion
+```
+
+## w10_mgmt node
+
+WinRM connection works
+
+```powershell
+## WinRM - test
+
+$AdminUsername                      = "administrator"
+$AdminPassword                      = ConvertTo-SecureString "Password1$" -AsPlainText -Force
+$AdminCredential                    = New-Object System.Management.Automation.PSCredential ($AdminUsername, $AdminPassword)
+
+$dc01 = New-PSSession -ComputerName '10.2.134.201' -Name 'dc01_core' -Credential $AdminCredential
+
+Invoke-Command -Session $dc01 -ScriptBlock {$env:computername}
+Invoke-Command -Session $dc01 -ScriptBlock {ipconfig /all}
+
+
+## DSC prereq modules
+
+Invoke-Command {$ProgressPreference = 'silentlycontinue'} -Session $s
+Invoke-Command {Install-Module ComputerManagementDSC,NetworkingDSC -Force} -Session $s
+Invoke-Command {Get-Module -Name ComputerManagementDSC,NetworkingDsc -ListAvailable} -Session $s
+Invoke-Command {Get-DscResource HostsFile,SMBShare} -session $s | Select-Object Name,ModuleName,Version
 ```
 
 ## Summary
