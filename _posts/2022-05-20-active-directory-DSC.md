@@ -97,6 +97,8 @@ Get-ChildItem -Path WSMan:\localhost\Service\Auth\
 # System.String   CredSSP                                        false
 # System.String   CbtHardeningLevel                              Relaxed
 
+Get-Item WSMan:\localhost\Client\TrustedHosts
+
 #endregion
 ```
 
@@ -114,7 +116,7 @@ $AdminCredential                    = New-Object System.Management.Automation.PS
 $dc01 = New-PSSession -ComputerName '10.2.134.201' -Name 'dc01_core' -Credential $AdminCredential
 
 Invoke-Command -Session $dc01 -ScriptBlock {$env:computername}
-Invoke-Command -Session $dc01 -ScriptBlock {ipconfig /all}
+Invoke-Command -Session $dc02 -ScriptBlock {$env:computername}
 
 
 ## DSC prereq modules
