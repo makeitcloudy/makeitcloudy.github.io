@@ -59,7 +59,7 @@ Proceed the following steps to complete the installation:
 4. login to the VM by making use of root account
 ```
 
-### 2. Rocky - Initial Configuration
+## 2. Rocky - Initial Configuration
 
 Run the initial configuration commands via XenOrchestra virtual terminal. At this point by default you won't be able to login via ssh to the VM.
 
@@ -130,9 +130,9 @@ vi /etc/fstab
 # :wq
 ```
 
-### 3. Rocky - Configuration
+## 3. Rocky - Configuration
 
-#### 3.1 Rocky - NFS
+### 3.1 Rocky - NFS
 
 ```shell
 # execute those under the context of the user who is in the sudoers group
@@ -182,7 +182,7 @@ Server: [IP Address of the nfs vm]
 NFS Version: 4.1
 Path: pick from the expandable list
 
-#### 3.2 Rocky - Samba
+### 3.2 Rocky - Samba
 
 Install and configure samba
 

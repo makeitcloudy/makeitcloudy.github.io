@@ -11,8 +11,6 @@ categories: [HomeLab ,Microsoft]
 ---
 This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
-# MGMT Node - w10_mgmt node
-
 * there is no Active Directory yet
 * AD will be configured by making use of DSC
 
@@ -30,7 +28,7 @@ ToDo:
 * OS   : Find the registry keys which configures the Edge
 * WinRM: Configure the trusted host section with DSC
 
-## 0. Links
+## Links
 
 * [AutomatedXCP-ng](https://github.com/makeitcloudy/AutomatedXCP-ng/)
 * AutomatedXCP-ng [/opt/scripts/vm_create_bios.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_bios.sh)
@@ -38,26 +36,16 @@ ToDo:
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi_secureBoot.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi_secureBoot.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_add_disk.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_add_disk.sh)
 
-## 1. Prerequisites
+## 0. Assumptions
 
 At this point it is assumed:
 
 1. XCP-ng: There is SSH connectivity to the XCP-ng node from the endpoint device
 2. XCP-ng: The xcp-ng scripts (used to provision vm's, mentioned above) are stored on XCP-ng node in /opt/scripts/ folder
 3. XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository
-4. Following tools are installed on the w10_mgmt node
+4. On your network device of choice create a static reservation for the DHCP address, until you decide to go with the static IP
 
-* PowerShell 5.x                - OK
-* PowerShell 7.x
-* Management Box - RSAT tooling - OK
-* SQL Management Studio         - OK
-* XenServer PowerShell module   - OK
-* AutomatedXCP-ng module        - OK
-* Visual Studio Code            - 
-* Git                           - 
-* Filezilla                     - OK
-
-## 2. Install VM
+## 1. VM Installation
 
 Run on XCP-ng
 
@@ -75,25 +63,69 @@ Run on XCP-ng
 xe vm-cd-eject vm=_w10_mgmt
 ```
 
-## 3. Initial Configuration
+### 1.1 Add Data disk
 
-Initial configuration is arranged by Desired State Configuration
+Run on XCP-ng
 
-```powershell
-Start-Process PowerShell_ISE.exe -Verb RunAs
-
-Get-ExecutionPolicy
-# double check if this is a best practice
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
+```bash
+# run over SSH
+/opt/scripts/vm_add_disk.sh --vmName "_w10_mgmt" --storageName "node4_hdd_sdc_lsi" --diskName "w10_mgmt_dataDrive" --deviceId 4 --diskGB 20  --description "w10_mgmt_dataDrive"
 ```
 
-### 3.1 Download Prerequisites
+### 1.2 Initialize disk
+
+Initialize the disk diskmgmt.msc
+
+```powershell
+# GPT
+# Z:
+# data drive
+# TODO: code for the disk initialization
+```
+
+### 1.3 Install VMTools
+
+Mount the ISO, and proceed with the installation of the VMTools on the w10_mgmt VM. Reboot the VM (seems it needs to be rebooted twice).
+
+```powershell
+#
+```
+
+## 2. Download Prerequisites
 
 Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
-#### 3.1.1 Citrix stack
+### 2.2 Citrix Hypervisor SDK
+
+Installation of:
+
+* Citrix Hypervisor SDK
+* AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer
+
+### 2.3 Citrix Hypervisor SDK
+
+Download XenServer SDK
+
+```powershell
+# 1. Login to citrix.com
+# 2. Switch to my account
+# 3. Download XenServer 8.2.3 LTSR SDK - https://www.citrix.com/downloads/citrix-hypervisor/product-software/hypervisor-82-premium-edition-CU1.html | 
+# 3. Unblock the downloaded ZIP file - if you do not unblock the zip file you will end up with an error about something going wrong with the .dll file once importing module, once unblocked everything is fine
+# 4. Once unblocked - Extract Zip file
+
+# From the extracted zip copy the XenServerPSModule from the CitrixHypervisor-SDK\XenServerPowerShell folder to 
+
+# C:\Program Files\WindowsPowerShell\Modules directory or
+# $env:UserProfile\Documents\WindowsPowerShell\Modules for per-user configuration or 
+# $env:windir\system32\WindowsPowerShell\v1.0\Modules  for system-wide configuration
+
+# run new powershell session elevated - so it reloads the copied modules
+```
+
+### 2.4 VM Tools, XenCenter
 
 Download:
+
 * XenServer VM Tools for Windows
 * XenCenter 2024.2.0 Windows Management Console
 
@@ -104,7 +136,42 @@ Download:
 # download the tools - as of 2024.06 - version: 9.3.3
 ```
 
-#### 3.1.2 ImgBurn
+### 2.5 AutomatedXCPng
+
+Download https://github.com/makeitcloudy/AutomatedXCP-ng | Extract Zip.
+
+```powershell
+# Copy XenPLModule folder from AutomatedXCP-ng to C:\Program Files\WindowsPowerShell\Modules
+# follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
+
+# XenPLModule folder should be copied into this location
+# C:\Program Files\WindowsPowerShell\Modules
+```
+
+## 3. Software Installation
+
+Copy to the Z: drive.
+
+* PowerShell 5.x                - OK
+* PowerShell 7.x
+* Management Box - RSAT tooling - OK
+* SQL Management Studio         - OK
+* XenServer PowerShell module   - OK
+* AutomatedXCP-ng module        - OK
+* Visual Studio Code            - 
+* Git                           - 
+* Filezilla                     - OK
+
+### 3.1 PowerShell 7.X
+
+PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
+
+```powershell
+# https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4
+# https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
+```
+
+### 3.2 ImgBurn
 
 It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn download](https://www.imgburn.com/index.php?act=download).
 
@@ -119,9 +186,9 @@ It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn 
 # destination: Citrix_Hypervisor_821_tools.iso
 ```
 
-#### 3.1.3 FileZilla
+### 3.3 FileZilla
 
-It is used to copy the Citrix_Hypervisor_821_tools.iso to the XCP-ng node.[FileZilla download](https://filezilla-project.org/download.php?type=client)
+It is used to copy the content to the Storage Repository of XCP-ng node.[FileZilla download](https://filezilla-project.org/download.php?type=client)
 
 ```powershell
 # /opt/xensource/packages - xcp-ng - guest-tools-8.2.0 are located in this directory
@@ -138,41 +205,13 @@ xe sr-list name-label="node4_hdd_LocalISO"
 xe sr-scan uuid="UUID of the abovementioned SR"
 ```
 
-### 3.2 Install VMTools
+### 3.4 Git
 
-Mount the ISO, and proceed with the installation of the VMTools on the w10_mgmt VM. Reboot the VM (seems it needs to be rebooted twice).
+Used to synchronize the code with the remote branches.
 
-```powershell
-# at this stage on your network device of choice create a static reservation for the DHCP address, until you decide to go with the static IP
-```
+### 3.5 Visual studio code
 
-### 3.3 Extra disk
-
-Add Data Disk to the VM.
-
-#### 3.2.1 Add disk
-
-Run code on XCP-ng
-
-```bash
-# run over SSH
-/opt/scripts/vm_add_disk.sh --vmName "_w10_mgmt" --storageName "node4_hdd_sdc_lsi" --diskName "w10_mgmt_dataDrive" --deviceId 4 --diskGB 20  --description "w10_mgmt_dataDrive"
-```
-
-#### 3.2.2 Initialize disk
-
-Initialize the disk diskmgmt.msc
-
-```powershell
-# GPT
-# Z:
-# data drive
-# TODO: code for the disk initialization
-```
-
-Copy the downloaded tools into the Z: drive
-
-### 3.3 Visual studio code
+Used to code.
 
 ```powershell
 # https://code.visualstudio.com/docs/?dv=win64user
@@ -180,16 +219,42 @@ Copy the downloaded tools into the Z: drive
 # * powershell
 ```
 
-### 3.4 PowerShell 7.X
+### 3.6 SQL Management Studio
 
-PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
+Installation of SQL Management Studio
+
+* [Install SQL Management Studio with DSC](https://www.sqlservercentral.com/articles/install-ssms-using-powershell-dsc)
+* [Install SQL Management Studio](https://qawithexperts.com/article/sql/download-and-install-sql-server-management-studio-step-by-st/441)
+* [Install SQL Server](https://qawithexperts.com/article/sql/download-and-install-sql-server-step-by-step-procedure/311)
 
 ```powershell
-# https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4
-# https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
+# https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
+# https://aka.ms/ssmsfullsetup
+
+$media_path = "Z:\tools\SSMS_20_1\SSMS-Setup-ENU.exe"
+$install_path = "$env:SystemDrive\SSMSto"
+$params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
+
+Start-Process -FilePath $media_path -ArgumentList $params -Wait
 ```
 
-### 3.5 RSAT Tools
+Once done SQL Server Management Studio 20 should arise in the start menu.
+
+## 4. VM Configuration
+
+Initial configuration is arranged by Desired State Configuration
+
+```powershell
+Start-Process PowerShell_ISE.exe -Verb RunAs
+update-help
+New-Item -Path "$env:USERPROFILE\Documents\DSC\w10_mgmt" -ItemType Directory
+
+Get-ExecutionPolicy
+# double check if this is a best practice
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
+```
+
+### 4.1 RSAT Tools
 
 Installation of RSAT tools. Run ISE as administrator.
 
@@ -224,117 +289,10 @@ Add-WindowsCapability -Online -Name Rsat.SystemInsights.Management.Tools~~~~0.0.
 #Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0
 ```
 
-### 3.10 SQL Management Studio
-
-Installation of SQL Management Studio
-
-* [Install SQL Management Studio with DSC](https://www.sqlservercentral.com/articles/install-ssms-using-powershell-dsc)
-* [Install SQL Management Studio](https://qawithexperts.com/article/sql/download-and-install-sql-server-management-studio-step-by-st/441)
-* [Install SQL Server](https://qawithexperts.com/article/sql/download-and-install-sql-server-step-by-step-procedure/311)
-
-```powershell
-# https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
-# https://aka.ms/ssmsfullsetup
-
-$media_path = "Z:\tools\SSMS_20_1\SSMS-Setup-ENU.exe"
-$install_path = "$env:SystemDrive\SSMSto"
-$params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
-
-Start-Process -FilePath $media_path -ArgumentList $params -Wait
-```
-
-Once done SQL Server Management Studio 20 should arise in the start menu.
-
-## 4. PowerShell
-
-Installation of:
-
-* Citrix Hypervisor SDK
-* AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer
-
-```powershell
-update-help
-New-Item -Path "$env:USERPROFILE\Documents\DSC\w10_mgmt" -ItemType Directory
-```
-
-### 4.2 Citrix Hypervisor SDK
-
-Download XenServer SDK
-
-```powershell
-# 1. Login to citrix.com
-# 2. Switch to my account
-# 3. Download XenServer 8.2.3 LTSR SDK - https://www.citrix.com/downloads/citrix-hypervisor/product-software/hypervisor-82-premium-edition-CU1.html | 
-# 3. Unblock the downloaded ZIP file - if you do not unblock the zip file you will end up with an error about something going wrong with the .dll file once importing module, once unblocked everything is fine
-# 4. Once unblocked - Extract Zip file
-
-# From the extracted zip copy the XenServerPSModule from the CitrixHypervisor-SDK\XenServerPowerShell folder to 
-
-# C:\Program Files\WindowsPowerShell\Modules directory or
-# $env:UserProfile\Documents\WindowsPowerShell\Modules for per-user configuration or 
-# $env:windir\system32\WindowsPowerShell\v1.0\Modules  for system-wide configuration
-
-# run new powershell session elevated - so it reloads the copied modules
-```
-
-### 4.3 AutomatedXCPng
-
-Download https://github.com/makeitcloudy/AutomatedXCP-ng | Extract Zip.
-
-```powershell
-# Copy XenPLModule folder from AutomatedXCP-ng to C:\Program Files\WindowsPowerShell\Modules
-# follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
-
-# XenPLModule folder should be copied into this location
-# C:\Program Files\WindowsPowerShell\Modules
-```
-
 ## 5. WinRM
 
-Preconfigure the winRM. Run code on the w10_mgmt VM.
-
-```powershell
-### run code on w10_mgmt
-Set-NetConnectionProfile -NetworkCategory Private
-Enable-PSRemoting
-### confirm winRM is running
-Get-service -name winRM
-#Get-service -name winRM | Start-Service
-Get-Item WSMan:\localhost\Client\TrustedHosts
 
 
-### ToDo: this portion should be configured by DSC
-$destVMIP = @('10.2.134.211','10.2.134.212')
-
-$destVMIP.ForEach({
-    Test-NetConnection $_ –Port 5985
-    Test-WsMan $_
-})
-
-get-Item WSMan:\localhost\Client\TrustedHosts
-
-$destVMIP.ForEach({
-    Set-Item WSMan:\localhost\Client\TrustedHosts -Value $_ -Concatenate -Force
-})
-
-Enter-PSSession -ComputerName 10.2.134.211
-
-#endregion
-
-#######
-
-#region option 2
-#region - run this on the management box
-
-Set-Item wsman:\localhost\client\TrustedHosts -Value 10.2.134.210 -Force
-Set-Item WSMan:\localhost\Client\TrustedHosts -Value 10.2.134.211 -Concatenate
-
-$credential = Get-Credential
-
-Enter-PSSession -ComputerName 10.2.134.210 -Credential $credential
-Enter-PSSession -ComputerName 10.2.134.211 -Credential $credential
-#endregion
-```
 
 ## 6.2 DSC
 
