@@ -295,28 +295,30 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
 
 ```
 
-### 5.1 DSC - files
+### 5.1 DSC - Configuration files
 
-1. Create 000_w10mgmt_initialConfig folder in $env:USERPROFILE\Documents directory, inside this folder store:
-
-```powershell
-$env:USERPROFILE\Documents\000_w10mgmt_initialConfig\ConfigData.psd1
-$env:USERPROFILE\Documents\000_w10mgmt_initialConfig\ConfigureLCM.ps1
-$env:USERPROFILE\Documents\000_w10mgmt_initialConfig\ConfigureNode.ps1
-```
+Download from github and store in $env:USERPROFILE\Documents\dsc_config_w10mgmt\:
 
 * [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigData.psd1)
 * [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureLCM.ps1)
-[ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
+*[ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
 
-2. Create [000_w10mgmt_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig.ps1) in $env:USERPROFILE\Documents directory.
+
+```powershell
+$env:USERPROFILE\Documents\dsc_config_w10mgmt\ConfigData.psd1
+$env:USERPROFILE\Documents\dsc_config_w10mgmt\ConfigureLCM.ps1
+$env:USERPROFILE\Documents\dsc_config_w10mgmt\ConfigureNode.ps1
+```
+
+#### 5.1.1 $env:USERPROFILE\Documents\000_w10mgmt_initialConfig.ps1
+
+Create [000_w10mgmt_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig.ps1) in $env:USERPROFILE\Documents directory.
 
 ```powershell
 $env:USERPROFILE\Documents\000_w10mgmt_initialConfig.ps1
 ```
 
-
-#### 5.1.1 $env:USERPROFILE\Documents\000_w10mgmt_initialConfig.ps1
+It has the following content.
 
 ```powershell
 #region w10mgmt - initial configuration
