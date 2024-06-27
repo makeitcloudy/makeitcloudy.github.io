@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Windows management plane"
+title: "DSC - Windows 10 management VM"
 permalink: "/windows-mgmt-vm/"
-subtitle: "Setup windows management box"
+subtitle: "From zero to running DSC Initial setup"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab ,Microsoft]
-categories: [HomeLab ,Microsoft]
+tags: [HomeLab ,Microsoft ,DSC]
+categories: [HomeLab ,Microsoft ,DSC]
 ---
 This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
@@ -301,7 +301,7 @@ Download from github and store in $env:USERPROFILE\Documents\dsc_config_w10mgmt\
 
 * [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigData.psd1)
 * [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureLCM.ps1)
-*[ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
+* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
 
 
 ```powershell

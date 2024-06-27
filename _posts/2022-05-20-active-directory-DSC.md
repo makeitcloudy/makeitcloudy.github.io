@@ -6,8 +6,8 @@ subtitle: "Setup Active Directory with Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab ,Microsoft]
-categories: [HomeLab ,Microsoft]
+tags: [HomeLab ,Microsoft ,DSC]
+categories: [HomeLab ,Microsoft, DSC]
 ---
 This post is about setting up Active Directory by making use of Desired State Configuration, for home lab purposes.
 
