@@ -36,6 +36,8 @@ ToDo:
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi_secureBoot.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi_secureBoot.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_add_disk.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_add_disk.sh)
 
+* Offhours - [Using PowerShell 7 as a replacement for Windows PowerShell 5.1](https://oofhours.com/2024/06/27/using-powershell-7-as-a-replacement-for-windows-powershell-5-1/)
+
 ## 0. Assumptions
 
 At this point it is assumed:
