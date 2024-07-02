@@ -87,6 +87,8 @@ Set-InitialConfiguration -MgmtNodeIPaddress 10.2.134.239 -Verbose
 psedit $outFile
 
 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_targetNode/initialSetup.ps1'
+
+Set-Item wsman:localhost\client\trustedhosts -Value 10.2.134.239
 ```
 
 
