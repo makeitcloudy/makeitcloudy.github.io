@@ -64,43 +64,31 @@ xe vm-cd-eject vm=dc02_core
 
 ### X.X WinRM
 
+Run the following code on the target node.
+
+It downloads the code to configure the winRM
+
 ```powershell
-# https://woshub.com/using-psremoting-winrm-non-domain-workgroup/
+# 2024.06 - ToDo - comment the sections for the WSMan Get-ChildItem and Get-Item
+# 2024.06 - ToDo - enable winRM only when the service is not running
 
-#region server
-# Make sure that the WinRM service is running on the target user’s computer:
-Get-Service -Name "*WinRM*" | Select-Object status
-# If the service is not running, enable it:
-Enable-PSRemoting
+$dscCodeRepoUrl        = 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_targetNode'
+$initialSetup_FileName = 'initialSetup.ps1'
+$initalsetup_ps1_url   = $dscCodeRepoUrl,$initialSetup_FileName  -join '/'
+$outFile               = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $initialSetup_FileName
 
-Get-NetConnectionProfile
-# if the network connection is set to public, need to change it to private
-Set-NetConnectionProfile -NetworkCategory Private
-# proof it's private
-Get-NetConnectionProfile
+Invoke-WebRequest -Uri $initalsetup_ps1_url -OutFile $outFile
 
-# Open firewall
-# The
-$mgmtNodeIP = '10.2.134.249'
-Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -RemoteAddress $mgmtNodeIP
-Enable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
+Set-Location -Path $env:USERPROFILE\Documents
+. .\initialSetup.ps1
 
-# The WinRM HTTP Listener on the remote computer only allows connection with Kerberos authentication.
-Get-ChildItem -Path WSMan:\localhost\Service\Auth\
+Set-InitialConfiguration -MgmtNodeIPaddress 10.2.134.239 -Verbose
 
-# Type            Name                           SourceOfValue   Value
-# ----            ----                           -------------   -----
-# System.String   Basic                                          false
-# System.String   Kerberos                                       true
-# System.String   Negotiate                                      true
-# System.String   Certificate                                    false
-# System.String   CredSSP                                        false
-# System.String   CbtHardeningLevel                              Relaxed
+psedit $outFile
 
-Get-Item WSMan:\localhost\Client\TrustedHosts
-
-#endregion
+'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_targetNode/initialSetup.ps1'
 ```
+
 
 ## w10_mgmt node
 
