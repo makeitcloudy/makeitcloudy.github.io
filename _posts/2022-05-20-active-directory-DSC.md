@@ -11,40 +11,47 @@ categories: [HomeLab ,Microsoft, DSC]
 ---
 This post is about setting up Active Directory by making use of Desired State Configuration, for home lab purposes.
 
-# Domain Controllers
+# 0. Links
 
-### VM - Automatic provisioning - domain controllers - Windows Server 2022 Core
+# 1. Assumptions
+
+## 2. XCP-ng - VM provisioning
 
 This piece of code is executed via SSH directly on the XCP-ng node
 
-```bash
-# TESTED - succesfull execution - 2024.VI.14
-/opt/scripts/vm_create_uefi.sh --VmName 'dc01_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
-```
-
-### VM - Automatic provisioning - w2k22_dc02 - Windows Server 2022 Core
+### 2.1 XCP-ng - first domain controller
 
 ```bash
 # TESTED - succesfull execution - 2024.VI.14
-/opt/scripts/vm_create_uefi.sh --VmName 'dc02_core' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
+/opt/scripts/vm_create_uefi.sh --VmName 'dc01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
 ```
 
-## X. Configuration
+### 2.2 XCP-ng - second domain controller
 
-### X.X Install VM tools
+```bash
+# TESTED - succesfull execution - 2024.VI.14
+/opt/scripts/vm_create_uefi.sh --VmName 'dc02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
+```
 
-Run in XCP-ng terminal
+### 2.3 XCP-ng - eject installation media
+
+Run once the VM's are provisioned
 
 ```shell
 # eject installation media
-xe vm-cd-eject vm=dc01_core
-xe vm-cd-eject vm=dc02_core
+xe vm-cd-eject vm=dc01
+xe vm-cd-eject vm=dc02
 
 # insert VM Tools ISO
 
 ```
 
-Run in XenOrchestra, VM Console
+
+## 3. Windows - prerequisites
+
+## 3.1. Installation of VM tools
+
+Install VM tools, rename computer
 
 ```powershell
 # install VM tools
@@ -52,7 +59,52 @@ Run in XenOrchestra, VM Console
 # d:
 .\management-9.3.3-x64.msi
 # check install IO drivers now
+# at this stage install the tools silently
+# do NOT reboot VM - it is rebooted during renaming
+Rename-Computer -NewName dc01 -Restart -Force
 ```
+
+### 3.2. AutomatedLab Module
+
+```powershell
+#region 0.2 - Zaimportowac Modul Automated Lab
+# Pobrac folder z     : https://github.com/makeitcloudy/AutomatedLab/tree/feature/AutomatedLab
+# Zapisac zawartosc do: C:\dsc\module\AutomatedLab
+# Skopiowac do lokalizacji z modulami
+# Zaimportowac Modul do sesji PS
+
+#region TODO
+# 1. zrobic modul AutomatedLab
+# 2. zrzucic modul na Github
+# 3. pobrac go lokalnie
+# 4. zapisac / skopiowac do lokalizacji z modulami
+# 5. zaladowac, tutaj tylko wywolac funkcje odpowiedzialna za instalacje modulow
+# 6. nazwy wraz z wersjami modulow zdefiniowane jako parametr na gorze - przy inicjowaniu zmiennych
+
+```
+
+### 3.3. Desired State Configuration
+
+Run on each VM acting as domain controller
+
+```powershell
+Set-Location -Path "$env:USERPROFILE\Documents"
+
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
+#psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
+```
+
+
+### Troubleshoot
+
+```powershell
+#region 3. Troubleshoot
+$configData.AllNodes.Thumbprint
+$configData.AllNodes.CertificateFile
+#endregion
+```
+
+## XCP-ng - eject VM tools installation media
 
 Run in XCP-ng
 
@@ -61,62 +113,3 @@ Run in XCP-ng
 xe vm-cd-eject vm=dc01_core
 xe vm-cd-eject vm=dc02_core
 ```
-
-### X.X WinRM
-
-Run the following code on the target node.
-
-It downloads the code to configure the winRM
-
-```powershell
-# 2024.06 - ToDo - comment the sections for the WSMan Get-ChildItem and Get-Item
-# 2024.06 - ToDo - enable winRM only when the service is not running
-
-$dscCodeRepoUrl        = 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_targetNode'
-$initialSetup_FileName = 'initialSetup.ps1'
-$initalsetup_ps1_url   = $dscCodeRepoUrl,$initialSetup_FileName  -join '/'
-$outFile               = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $initialSetup_FileName
-
-Invoke-WebRequest -Uri $initalsetup_ps1_url -OutFile $outFile
-
-Set-Location -Path $env:USERPROFILE\Documents
-. .\initialSetup.ps1
-
-Set-InitialConfiguration -MgmtNodeIPaddress 10.2.134.239 -Verbose
-
-psedit $outFile
-
-'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_targetNode/initialSetup.ps1'
-
-Set-Item wsman:localhost\client\trustedhosts -Value 10.2.134.239
-```
-
-
-## w10_mgmt node
-
-WinRM connection works
-
-```powershell
-## WinRM - test
-
-$AdminUsername                      = "administrator"
-$AdminPassword                      = ConvertTo-SecureString "Password1$" -AsPlainText -Force
-$AdminCredential                    = New-Object System.Management.Automation.PSCredential ($AdminUsername, $AdminPassword)
-
-$dc01 = New-PSSession -ComputerName '10.2.134.201' -Name 'dc01_core' -Credential $AdminCredential
-
-Invoke-Command -Session $dc01 -ScriptBlock {$env:computername}
-Invoke-Command -Session $dc02 -ScriptBlock {$env:computername}
-
-
-## DSC prereq modules
-
-Invoke-Command {$ProgressPreference = 'silentlycontinue'} -Session $s
-Invoke-Command {Install-Module ComputerManagementDSC,NetworkingDSC -Force} -Session $s
-Invoke-Command {Get-Module -Name ComputerManagementDSC,NetworkingDsc -ListAvailable} -Session $s
-Invoke-Command {Get-DscResource HostsFile,SMBShare} -session $s | Select-Object Name,ModuleName,Version
-```
-
-## Summary
-
-Last update: 2024.06.25,
