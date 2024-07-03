@@ -101,10 +101,9 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/Automated
 ### Troubleshoot
 
 ```powershell
-#region 3. Troubleshoot
-$configData.AllNodes.Thumbprint
-$configData.AllNodes.CertificateFile
-#endregion
+psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
+psedit "$env:USERPROFILE\Documents\ADDS_setup.ps1"
+psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
 ```
 
 ## XCP-ng - eject VM tools installation media
