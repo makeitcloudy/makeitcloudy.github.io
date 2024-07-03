@@ -92,6 +92,9 @@ Set-Location -Path "$env:USERPROFILE\Documents"
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
 #psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
+
+# at this stage the computername is already renamed and it's name is : dc01
+. "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
 ```
 
 
