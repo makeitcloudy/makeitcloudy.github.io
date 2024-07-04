@@ -41,11 +41,11 @@ ToDo:
 
 Run following code in elevated ISE session.
 
-It creates [000_w10mgmt_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) in $env:USERPROFILE\Documents directory.
+It creates [000_w10mgmt_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) in $env:USERPROFILE\Documents directory.
 
 ```powershell
 #run ISE as Administartor
-$dscCodeRepoUrl                         = 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration'
+$dscCodeRepoUrl                         = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
 $dsc_000_w10mgmt_InitialConfig_FileName = '000_w10mgmt_initialConfig_demo.ps1'
 $w10mgmt_initalConfig_demo_ps1_url      = $dscCodeRepoUrl,$dsc_000_w10mgmt_InitialConfig_FileName -join '/'
 
@@ -65,9 +65,9 @@ It initialize all variables for succesfull code execution.
 
 It downloads configurations from github and store in $env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig:
 
-* [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigData.psd1)
-* [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureLCM.ps1)
-* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
+* [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigData.psd1)
+* [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureLCM.ps1)
+* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
 
 ```powershell
 # Files should be sotred in the $dscConfigDirectory
@@ -98,7 +98,7 @@ It starts the actual configuration of the node.
 
 ## 3. Content of 000_w10mgmt_initialConfig_demo.ps1
 
-The [000_w10mgmt_initialConfig_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) has the following content.
+The [000_w10mgmt_initialConfig_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) has the following content.
 
 ```powershell
 #region - run once - prerequisites for the DSC to work properly
@@ -119,7 +119,7 @@ Get-Item WSMan:\localhost\Client\TrustedHosts #empty
 
 #region - initialize variables
 #region - initialize variables - DSC structure
-$dscCodeRepoUrl                            = 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration'
+$dscCodeRepoUrl                            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
 $dsc_000_w10mgmt_InitialConfig_FolderName  = '000_w10mgmt_initialConfig'
 $dsc_000_w10mgmt_InitialConfig_FileName    = '000_w10mgmt_initialConfig_demo.ps1'
 

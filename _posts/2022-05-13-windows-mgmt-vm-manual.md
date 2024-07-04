@@ -170,6 +170,13 @@ Set-Location -Path $path
 Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 #psedit $outFile
 
+# check if it is a desktop operating system
+# in case it is then change the execution policy
+$os = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $ComputerName
+switch($os.ProductType){
+    "1" {Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force}
+}
+
 #region run
 # load function into memory
 #. .\Get-GitModule
