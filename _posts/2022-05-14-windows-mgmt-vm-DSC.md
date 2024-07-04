@@ -38,6 +38,7 @@ ToDo:
 * DNS on the w10mgmt node can resolve the public internet addresses
 * PowerShell script execution policy is configured properly to run scripts
 * winRM service is running on the node
+* AutomatedLab PowerShell Module Installed (otherwise it won't install the DSC modules properly)
 
 ## 2. Howto
 
