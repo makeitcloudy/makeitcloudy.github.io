@@ -54,32 +54,73 @@ xe vm-cd-eject vm=dc02
 Install VM tools, rename computer
 
 ```powershell
-# install VM tools
-# 15
-# d:
-.\management-9.3.3-x64.msi
-# check install IO drivers now
-# at this stage install the tools silently
-# do NOT reboot VM - it is rebooted during renaming
-Rename-Computer -NewName dc01 -Restart -Force
+#Install VM Tools
+#Rename Computer
+$newComputerName = 'dc01' #FIXME: the computername 
+
+$PackageName = "managementagent-9.3.3-x64" #FIXME: name depends from the version of the VM Tools
+$InstallerType = "msi"
+
+$LogApp = "C:\Windows\Temp\CitrixHypervisor-9.3.3.log"
+
+#region Install VM Tools
+#the assumption is that there is only one iso mounted, hence one drive
+$opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
+Get-ChildItem -Path $opticalDriveLetter
+#$Source = "$PackageName" + "." + "$InstallerType"
+$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart"
+
+# should throw 0
+(Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
+
+#Invoke-Item -Path $LogApp
+#endregion
+
+#region Rename Computer
+Rename-Computer -NewName $newComputerName -Restart -Force
+#endregion
 ```
 
 ### 3.2. AutomatedLab Module
 
-```powershell
-#region 0.2 - Zaimportowac Modul Automated Lab
-# Pobrac folder z     : https://github.com/makeitcloudy/AutomatedLab/tree/feature/AutomatedLab
-# Zapisac zawartosc do: C:\dsc\module\AutomatedLab
-# Skopiowac do lokalizacji z modulami
-# Zaimportowac Modul do sesji PS
+Download the function Get-GitModule.ps1 which:
 
-#region TODO
-# 1. zrobic modul AutomatedLab
-# 2. zrzucic modul na Github
-# 3. pobrac go lokalnie
-# 4. zapisac / skopiowac do lokalizacji z modulami
-# 5. zaladowac, tutaj tylko wywolac funkcje odpowiedzialna za instalacje modulow
-# 6. nazwy wraz z wersjami modulow zdefiniowane jako parametr na gorze - przy inicjowaniu zmiennych
+1. download module from Github - in this case the AutomatedLab
+2. extract the archive to \appData\Local\Temp
+3. copty the module folder to C:\Program Files\WindowsPowerShell\Modules\[moduleName]
+4. remove the zip file - contains the full repo content
+5. remove the extracted repository - contains the psm1
+
+```powershell
+# run in elevated PowerShell session
+# initialize variables
+$scriptName     = 'Get-GitModule.ps1'
+$uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
+$path           = "$env:USERPROFILE\Documents"
+$outFile        = Join-Path -Path $path -ChildPath $scriptName
+
+$githubUserName = 'makeitcloudy'
+$moduleName     = 'AutomatedLab'
+
+# download function Get-GitModule.ps1
+# function has the following logic:
+# 1. It 
+Set-Location -Path $path
+Invoke-WebRequest -Uri $Suri -OutFile $outFile -Verbose
+#psedit $outFile
+
+# run
+# load function into memory
+#. "$(.\$outFile)"
+#. .\Get-GitModule
+Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+
+#removal of the function
+Remove-Item -Path $outFile -Force -Verbose
+
+# troubleshooting
+Get-Module -Name $moduleName -ListAvailable
+Get-Command -Module $moduleName
 
 ```
 
