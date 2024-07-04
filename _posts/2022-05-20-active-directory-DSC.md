@@ -120,8 +120,8 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 Remove-Item -Path $outFile -Force -Verbose
 
 # troubleshooting
-Get-Module -Name $moduleName -ListAvailable
-Get-Command -Module $moduleName
+#Get-Module -Name $moduleName -ListAvailable
+#Get-Command -Module $moduleName
 
 ```
 
@@ -132,11 +132,12 @@ Run on each VM acting as domain controller
 ```powershell
 Set-Location -Path "$env:USERPROFILE\Documents"
 
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/AutomatedLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
 #psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
 
 # at this stage the computername is already renamed and it's name is : dc01
 . "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
+
 ```
 
 
