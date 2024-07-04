@@ -41,21 +41,21 @@ ToDo:
 
 Run following code in elevated ISE session.
 
-It creates [000_w10mgmt_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) in $env:USERPROFILE\Documents directory.
+It creates [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/InitialConfig_setup.ps1) in $env:USERPROFILE\Documents directory.
 
 ```powershell
 #run ISE as Administartor
-$dscCodeRepoUrl                         = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
-$dsc_000_w10mgmt_InitialConfig_FileName = '000_w10mgmt_initialConfig_demo.ps1'
-$w10mgmt_initalConfig_demo_ps1_url      = $dscCodeRepoUrl,$dsc_000_w10mgmt_InitialConfig_FileName -join '/'
+$dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
+$dsc_InitialConfigFileName     = 'InitialConfig_setup.ps1'
+$dsc_initalConfig_demo_ps1_url = $dscCodeRepoUrl,$dsc_InitialConfig_FileName -join '/'
 
-$outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_000_w10mgmt_InitialConfig_FileName
-Invoke-WebRequest -Uri $w10mgmt_initalConfig_demo_ps1_url -OutFile $outFile
+$outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfig_FileName
+Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile
 
 psedit $outFile
 ```
 
-Run the whole 000_w10mgmt_initialConfig_demo.ps1 script in one go or code within regions:
+Run the whole 000_initialConfig_demo.ps1 script in one go or code within regions:
 
 ### 2.1. Initialize variables
 
@@ -65,15 +65,15 @@ It initialize all variables for succesfull code execution.
 
 It downloads configurations from github and store in $env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig:
 
-* [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigData.psd1)
-* [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureLCM.ps1)
-* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig/ConfigureNode.ps1)
+* [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1)
+* [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1)
+* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1)
 
 ```powershell
 # Files should be sotred in the $dscConfigDirectory
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig\ConfigData.psd1
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig\ConfigureLCM.ps1
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig\ConfigureNode.ps1
+$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigData.psd1
+$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigureLCM.ps1
+$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigureNode.ps1
 ```
 
 ### 2.3. DSC - Install missing modules
@@ -98,7 +98,7 @@ It starts the actual configuration of the node.
 
 ## 3. Content of 000_w10mgmt_initialConfig_demo.ps1
 
-The [000_w10mgmt_initialConfig_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_w10mgmt_initialConfig_demo.ps1) has the following content.
+The [000_initialConfig_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig_demo.ps1) has the following content.
 
 ```powershell
 #region - run once - prerequisites for the DSC to work properly
