@@ -149,8 +149,55 @@ Rename Computer
 ```powershell
 Rename-Computer -NewName 'w10mgmt' -Force -Restart
 ```
+### 1.4 AutomatedLab Module
 
-### 1.4 RSAT Tools
+[AutomatedLab](https://github.com/makeitcloudy/AutomatedLab)
+
+```powershell
+# run in elevated PowerShell session
+#region initialize variables
+$scriptName     = 'Get-GitModule.ps1'
+$uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
+$path           = "$env:USERPROFILE\Documents"
+$outFile        = Join-Path -Path $path -ChildPath $scriptName
+
+$githubUserName = 'makeitcloudy'
+$moduleName     = 'AutomatedLab'
+#endregion
+
+# download function Get-GitModule.ps1
+Set-Location -Path $path
+Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
+#psedit $outFile
+
+#region run
+# load function into memory
+#. .\Get-GitModule
+. $outFile
+
+Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+#endregion
+
+#removal of the function
+Remove-Item -Path $outFile -Force -Verbose
+
+# troubleshooting
+#Get-Module -Name $moduleName -ListAvailable
+#Get-Command -Module $moduleName
+```
+
+### 1.5 AutomatedXCPng Module
+
+[AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng)
+
+```powershell
+# run in elevated PowerShell session
+# follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
+# There prerequisite for the AutomatedXCPng to work properly is - Citrix Hypervisor Powershell Module / SDK
+Get-GitModule -GithubUserName makeitcloudy -ModuleName AutomatedXCPng -Verbose
+```
+
+### 1.5 RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
@@ -166,6 +213,7 @@ Start-Process PowerShell_ISE.exe -Verb RunAs
 
 #Install-WindowsFeature RSAT-RDS-Licensing-Diagnosis-UI
 
+Add-WindowsCapability -Online -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0*
 Add-WindowsCapability -Online -Name Rsat.FileServices.Tools~~~~0.0.1.0
 Add-WindowsCapability -Online -Name Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0
 #Add-WindowsCapability -Online -Name Rsat.IPAM.Client.Tools~~~~0.0.1.0
@@ -230,18 +278,6 @@ Download:
 # -> Citrix Hypervisor -> Citrix Hypervisor 8.2 LTSR CU1
 
 # download the tools - as of 2024.06 - version: 9.3.3
-```
-
-### 2.5 AutomatedXCPng
-
-Download https://github.com/makeitcloudy/AutomatedXCP-ng | Extract Zip.
-
-```powershell
-# Copy XenPLModule folder from AutomatedXCP-ng to C:\Program Files\WindowsPowerShell\Modules
-# follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
-
-# XenPLModule folder should be copied into this location
-# C:\Program Files\WindowsPowerShell\Modules
 ```
 
 ## 3. Software Installation
