@@ -47,10 +47,10 @@ It creates [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitclo
 #run ISE as Administartor
 $dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
 $dsc_InitialConfigFileName     = 'InitialConfig_setup.ps1'
-$dsc_initalConfig_demo_ps1_url = $dscCodeRepoUrl,$dsc_InitialConfig_FileName -join '/'
+$dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -join '/'
 
-$outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfig_FileName
-Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile
+$outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
+Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
 
 psedit $outFile
 ```
