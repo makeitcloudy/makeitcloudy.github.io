@@ -36,6 +36,8 @@ ToDo:
 
 * Your network device of choice consists of a static reservation for the DHCP address, until you decide to go with the static IP - for the w10mgmt VM
 * DNS on the w10mgmt node can resolve the public internet addresses
+* PowerShell script execution policy is configured properly to run scripts
+* winRM service is running on the node
 
 ## 2. Howto
 
