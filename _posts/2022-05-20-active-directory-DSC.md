@@ -93,7 +93,7 @@ Download the function Get-GitModule.ps1 which:
 
 ```powershell
 # run in elevated PowerShell session
-# initialize variables
+#region initialize variables
 $scriptName     = 'Get-GitModule.ps1'
 $uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
 $path           = "$env:USERPROFILE\Documents"
@@ -101,19 +101,20 @@ $outFile        = Join-Path -Path $path -ChildPath $scriptName
 
 $githubUserName = 'makeitcloudy'
 $moduleName     = 'AutomatedLab'
+#endregion
 
 # download function Get-GitModule.ps1
-# function has the following logic:
-# 1. It 
 Set-Location -Path $path
-Invoke-WebRequest -Uri $Suri -OutFile $outFile -Verbose
+Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 #psedit $outFile
 
-# run
+#region run
 # load function into memory
-#. "$(.\$outFile)"
 #. .\Get-GitModule
+. $outFile
+
 Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+#endregion
 
 #removal of the function
 Remove-Item -Path $outFile -Force -Verbose
