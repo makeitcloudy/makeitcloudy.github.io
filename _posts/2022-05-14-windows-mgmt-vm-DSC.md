@@ -42,12 +42,22 @@ ToDo:
 
 ## 2. Howto
 
-Run following code in elevated ISE session.
+### 2.1 Run an elevated powershell ISE instance
+
+```powershell
+# run PowerShell session
+Start-Process PowerShell_ISE -Verb RunAs
+```
+
+### 2.2 Run following code in elevated ISE session.
 
 It creates [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/InitialConfig_setup.ps1) in $env:USERPROFILE\Documents directory.
 
+Run the code below.
+
 ```powershell
-#run ISE as Administartor
+#run in elevated powershell session
+#region - initialize variables, downlad prereqs
 $dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
 $dsc_InitialConfigFileName     = 'InitialConfig_setup.ps1'
 $dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -join '/'
@@ -55,25 +65,23 @@ $dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -jo
 $outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
 Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
 
-psedit $outFile
+#psedit $outFile
+#endregion
 
 $NodeName = 'testnode' #FIXME: It equals to the computername (w10mgmt in this case)
 
+#region - run it 
 . $outFile
 Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -Verbose
+# The -UpdatePowerShellHelp Parameter
 #Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
 
 ```
 
-Run the whole 000_initialConfig_demo.ps1 script in one go or code within regions:
+* It initialize all variables for succesfull code execution.
+* It downloads the powershell functions and configuration
 
-### 2.1. Initialize variables
-
-It initialize all variables for succesfull code execution.
-
-### 2.2. Download the powershell functions and configuration
-
-It downloads configurations from github and store in $env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_w10mgmt_initialConfig:
+It downloads configurations from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup:
 
 * [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1)
 * [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1)
@@ -81,32 +89,18 @@ It downloads configurations from github and store in $env:SYSTEMDRIVE\dscConfig\
 
 ```powershell
 # Files should be sotred in the $dscConfigDirectory
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigData.psd1
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigureLCM.ps1
-$env:SYSTEMDRIVE\dscConfig\_w10mgmt\000_initialConfig\ConfigureNode.ps1
+$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigData.psd1
+$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigureLCM.ps1
+$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigureNode.ps1
 ```
 
-### 2.3. DSC - Install missing modules
+* It installs missing modules for the DSC succesfull execution.
+* It prepares self signed certificate for securing the credentials.
+* It takes care about the self signed certificate thumbprint and passes it as a paramter into the LCM configuration
+* It configures the LCM
+* It starts the actual configuration of the node.
 
-It installs missing modules for the DSC succesfull execution.
-
-### 2.4. DSC - Self signed certificate preparation
-
-It prepares self signed certificate for securing the credentials.
-
-### 2.5. DSC - Certificate thumbprint update - ConfigData.psd1
-
-It opens the ConfigData.psd1 file to update the Thumbprint of the certificate
-
-### 2.6. LCM - Ammend certificate thumbprint
-
-It configures the LCM with the certificate thumbprint.
-
-### 2.7. DSC - Start Configuration
-
-It starts the actual configuration of the node.
-
-## 3. Content of 000_w10mgmt_initialConfig_demo.ps1
+## 3. Content of InitialConfig_setup.ps1
 
 The [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/InitialConfig_setup.ps1) has the following content.
 
@@ -624,7 +618,12 @@ function Set-InitialConfiguration {
 
 At this point your management VM should have:
 
-* name specified in psd1 file
+* new name, which equals to the $NodeName variable passed in paragraph 2.2, at the execution stage
+
+```powershell
+Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -Verbose
+```
+
 * disabled IPv6 address
 * defined trusted hosts
 * WinRM service running
@@ -633,4 +632,5 @@ You are also ready for further DSC configuration to setup the on-premises Active
 
 ## Summary
 
-Last update: 2024.07.01
+It was tested on: Windows 10 (22H2 - 19045.4529), Server 2022 (21H2 - 20348.1547).
+Last update: 2024.07.05

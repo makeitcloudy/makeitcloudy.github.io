@@ -73,16 +73,23 @@ Run on XCP-ng
 /opt/scripts/vm_add_disk.sh --vmName "w10mgmt" --storageName "node4_hdd_sdc_lsi" --diskName "w10_mgmt_dataDrive" --deviceId 4 --diskGB 20  --description "w10_mgmt_dataDrive"
 ```
 
-### 1.2 Initialize disk
-
-Run elevated powershell session
+### 1.2 Run an elevated powershell ISE instance
 
 ```powershell
-# assumptions: 
-# 1. there is only one drive added to the VM
-# 2. the Data disk attached is connected
-Start-Process PowerShell_ISE.exe -Verb RunAs
+# run PowerShell session
+Start-Process PowerShell_ISE -Verb RunAs
+```
 
+### 1.3 Initialize disk
+
+Run in elevated powershell session
+
+####  Assumptions: 
+
+* there is only one drive added to the VM
+* the Data disk attached is connected
+
+```powershell
 # https://www.itprotoday.com/powershell/use-powershell-to-initialize-a-disk-and-create-partitions
 # Z: | GPT | data drive
 
@@ -118,7 +125,7 @@ Install XenTools
 # https://support.citrix.com/article/CTX222533/install-xenserver-tools-silently
 # https://forums.lawrencesystems.com/t/xcp-ng-installing-citrix-agent-for-windows-via-powershell-script/13855
 
-# run on VM
+# run on VM (in elevated powershell session)
 
 $PackageName = "managementagent-9.3.3-x64"
 $InstallerType = "msi"
@@ -165,7 +172,7 @@ $githubUserName = 'makeitcloudy'
 $moduleName     = 'AutomatedLab'
 #endregion
 
-# download function Get-GitModule.ps1
+# region download function Get-GitModule.ps1
 Set-Location -Path $path
 Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 #psedit $outFile
@@ -177,11 +184,8 @@ switch($os.ProductType){
     "1" {Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force}
 }
 
-#region run
 # load function into memory
-#. .\Get-GitModule
 . $outFile
-
 Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 #endregion
 
@@ -201,7 +205,15 @@ Remove-Item -Path $outFile -Force -Verbose
 # run in elevated PowerShell session
 # follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
 # There prerequisite for the AutomatedXCPng to work properly is - Citrix Hypervisor Powershell Module / SDK
-Get-GitModule -GithubUserName makeitcloudy -ModuleName AutomatedXCPng -Verbose
+
+$githubUserName = 'makeitcloudy'
+$moduleName     = 'AutomatedXCPng'
+
+Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+
+# troubleshooting
+#Get-Module -Name $moduleName -ListAvailable
+#Get-Command -Module $moduleName
 ```
 
 ### 1.5 RSAT Tools
@@ -291,15 +303,17 @@ Download:
 
 Copy to the Z: drive.
 
+* AutomatedLab module           - OK
+* AutomatedXCP-ng module        - OK
 * PowerShell 5.x                - OK
 * PowerShell 7.x
 * Management Box - RSAT tooling - OK
-* SQL Management Studio         - OK
 * XenServer PowerShell module   - OK
-* AutomatedXCP-ng module        - OK
-* Visual Studio Code            - 
-* Git                           - 
+* ImgBurn                       - OK
 * Filezilla                     - OK
+* Git                           - 
+* Visual Studio Code            - 
+* SQL Management Studio         - OK
 
 ### 3.1 PowerShell 7.X
 
