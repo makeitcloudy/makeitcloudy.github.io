@@ -171,7 +171,7 @@ The installation process for the VMTools consists of:
 3. Unmount/Eject ISO
 3. Reboot VM (seems it needs to be rebooted twice).
 
-Code for all below mentioned sections is aggregated in [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1), spit into regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
+Code for all below mentioned sections is aggregated in [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1), held within regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
 
 #### 2.1.1 VMTools - installation code
 

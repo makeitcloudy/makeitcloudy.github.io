@@ -82,20 +82,9 @@ Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -Verbose
 
 * It initialize all variables for succesfull code execution.
 * It downloads the powershell functions and configuration
-
-It downloads configurations from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup:
-
-* [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1)
-* [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1)
-* [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1)
-
-```powershell
-# Files should be sotred in the $dscConfigDirectory
-$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigData.psd1
-$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigureLCM.ps1
-$env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup\ConfigureNode.ps1
-```
-
+* It downloads [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
+* It downloads [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
+* It downloads [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
 * It installs missing modules for the DSC succesfull execution.
 * It prepares self signed certificate for securing the credentials.
 * It takes care about the self signed certificate thumbprint and passes it as a paramter into the LCM configuration
