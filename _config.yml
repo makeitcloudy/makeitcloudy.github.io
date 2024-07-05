@@ -31,6 +31,12 @@ navbar-links:
     - XCP-ng:  "https://makeitcloudy.pl/tags/#XCP-ng"
 #    - RDS: ""
 
+  Projects:
+    - AutomatedLab : "https://github.com/makeitcloudy/AutomatedLab"
+    - AutomatedXCPng: "https://github.com/makeitcloudy/AutomatedXCPng"
+    - AutomatedRDS : "https://github.com/makeitcloudy/AutomatedRDS"
+    - HomeLab : "https://github.com/makeitcloudy/HomeLab"
+
   Blogs:
     - EUC content: "https://makeitcloudy.pl/euc-valueable-online-content/"
     - EUC books: "https://makeitcloudy.pl/euc-books-and-toolset/"
@@ -64,11 +70,11 @@ round-avatar: true
 social-network-links:
   email: "kontakt@makeitcloudy.pl"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
+# facebook: deanattali
+  github: makeitcloudy
+  twitter: ostrowski_piotr
   patreon: DeanAttali
-  youtube: c/daattali
+  youtube: @makeitcloudy
 #  medium: yourname
 #  reddit: yourname
   linkedin: piotr-ostrowski-78b95072
