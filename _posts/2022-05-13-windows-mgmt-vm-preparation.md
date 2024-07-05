@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Windows management VM - Manual setup"
-permalink: "/windows-mgmt-vm-manual/"
-subtitle: "A bit manual prerequisites preparation on management VM"
+title: "Windows management VM - Preparation"
+permalink: "/windows-mgmt-vm-preparation/"
+subtitle: "Semi-manual prerequisites preparation on management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
@@ -53,10 +53,14 @@ At this point it is assumed:
 Start-Process PowerShell_ISE -Verb RunAs
 ```
 
-### 0.1 Assumptions - Disk Related
+### 0.1 Assumptions - Additional Disk Disk
 
 * there is only one drive added to the VM
-* the Data disk attached is connected
+* the Data disk attached is connected on XCPng
+
+### 0.2 Assumptions - XCP-ng
+
+* the scripts are copied to /opt/scripts directory
 
 ## 1. VM Installation
 
@@ -75,7 +79,7 @@ Run on XCP-ng
 ```bash
 # Run on XCP-ng
 # eject installation media
-xe vm-cd-eject vm=w10-mgmt
+xe vm-cd-eject vm='mgmtNode'
 ```
 
 ### 1.1 Add Data disk
@@ -84,7 +88,7 @@ Run on XCP-ng
 
 ```bash
 # run over SSH
-/opt/scripts/vm_add_disk.sh --vmName "mgmtNode" --storageName "node4_hdd_sdc_lsi" --diskName "mgmtNode_DesktopOS_dataDrive" --deviceId 4 --diskGB 20  --description "mgmtNode_DesktopOS_dataDrive"
+/opt/scripts/vm_add_disk.sh --vmName 'mgmtNode' --storageName 'node4_hdd_sdc_lsi' --diskName 'mgmtNode_DesktopOS_dataDrive' --deviceId 4 --diskGB 20  --description 'mgmtNode_DesktopOS_dataDrive'
 ```
 
 ### 1.2 Initialize disk
@@ -121,7 +125,7 @@ Mount ISO
 
 ```bash
 # run on XCP-ng
-xe vm-cd-insert vm='w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
+xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
 ```
 
 ### 1.3.2 VMTools - installation
@@ -133,10 +137,10 @@ xe vm-cd-insert vm='w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 # https://support.citrix.com/article/CTX222533/install-xenserver-tools-silently
 # https://forums.lawrencesystems.com/t/xcp-ng-installing-citrix-agent-for-windows-via-powershell-script/13855
 
-$PackageName = "managementagent-9.3.3-x64"
-$InstallerType = "msi"
+$PackageName = 'managementagent-9.3.3-x64'
+$InstallerType = 'msi'
 
-$LogApp = "C:\Windows\Temp\CitrixHypervisor-9.3.3.log"
+$LogApp = 'C:\Windows\Temp\CitrixHypervisor-9.3.3.log'
 
 $opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
 Get-ChildItem -Path $opticalDriveLetter
@@ -154,7 +158,7 @@ $UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($Packag
 ```bash
 # Run on XCP-ng
 # eject installation media
-xe vm-cd-eject vm='w10mgmt'
+xe vm-cd-eject vm='mgmtNode'
 ```
 
 ## 2. Prerequisites for the Desired State Configuration
@@ -165,7 +169,7 @@ WinRM should some attention on the Desktop OS. Regardless that piece of code sho
 
 ```powershell
 #Rename-Computer -NewName 'w10mgmt' -Force -Restart
-$winRMServiceName = 'winRM' 
+#$winRMServiceName = 'winRM' 
 
 #check if CurrentUser is enough or LocalMachine is the correct one
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
@@ -228,7 +232,7 @@ $githubUserName = 'makeitcloudy'
 $moduleName     = 'AutomatedLab'
 #endregion
 
-# region download function Get-GitModule.ps1
+#region download function Get-GitModule.ps1
 Set-Location -Path $path
 Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 #psedit $outFile
