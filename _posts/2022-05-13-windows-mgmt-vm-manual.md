@@ -151,7 +151,9 @@ Eject VMTools media
 xe vm-cd-eject vm='w10mgmt'
 ```
 
-Rename Computer
+### 1.4 Prerequisites
+
+#### 1.4.1 Enable services
 
 ```powershell
 #Rename-Computer -NewName 'w10mgmt' -Force -Restart
@@ -178,7 +180,7 @@ switch($os.ProductType){
 
 ```
 
-### 1.4 AutomatedLab Module
+#### 1.4.1 AutomatedLab Module
 
 [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab)
 
@@ -212,7 +214,7 @@ Remove-Item -Path $outFile -Force -Verbose
 #Get-Command -Module $moduleName
 ```
 
-### 1.5 AutomatedXCPng Module
+#### 1.4.2 AutomatedXCPng Module
 
 [AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng)
 
@@ -231,7 +233,7 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 #Get-Command -Module $moduleName
 ```
 
-### 1.5 RSAT Tools
+#### 1.4.3 RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
@@ -273,14 +275,14 @@ Add-WindowsCapability -Online -Name Rsat.SystemInsights.Management.Tools~~~~0.0.
 
 Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
-### 2.2 Citrix Hypervisor SDK
+### 2.1 Citrix Hypervisor SDK
 
 Installation of:
 
 * Citrix Hypervisor SDK
 * AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer
 
-### 2.3 Citrix Hypervisor SDK
+### 2.2 Citrix Hypervisor SDK
 
 Download XenServer SDK
 
@@ -300,7 +302,7 @@ Download XenServer SDK
 # run new powershell session elevated - so it reloads the copied modules
 ```
 
-### 2.4 VM Tools, XenCenter
+### 2.3 VM Tools, XenCenter
 
 Download:
 
