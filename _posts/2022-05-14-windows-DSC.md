@@ -72,7 +72,7 @@ $NodeName = 'testnode' #FIXME: It equals to the computername (w10mgmt in this ca
 
 #region - run it 
 . $outFile
-Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -Verbose
+Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -Verbose
 # The -UpdatePowerShellHelp Parameter
 #Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
 
