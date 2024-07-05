@@ -19,8 +19,8 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 
 * The configuration is split into sections within the paragraphs of the blog post
 * Subsequent paragraphs of the blog post contains code which can be run on the VM
-* Code from paragraphs 1 - 1.3.1 - need to be executed one by one - with manual approach (jumping between XCP-ng and VM)
-* Code from paragraphs 1.3.2 - 2.3 - can be run in one go by making use of the [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1) script mentioned in paragraph 1.3.2. VMTools - installation
+* Code from paragraphs 1 - 1.2 - need to be executed one by one - with manual approach (jumping between XCP-ng and VM)
+* Code from paragraphs 2.1 - 2.3 - can be run in one go by making use of the [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1) script mentioned in paragraph 2. All the sections below agregated under single run
 
 **Goals**:
 
@@ -91,6 +91,13 @@ Eject OS installation media
 xe vm-cd-eject vm='mgmtNode'
 ```
 
+Mount VMTools ISO
+
+```bash
+# run on XCP-ng
+xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
+```
+
 ### 1.1 Add Data disk
 
 Run on XCP-ng
@@ -121,23 +128,7 @@ Get-ChildItem -Path $($driveLetter,':' -join '')
 Get-PSDrive
 ```
 
-### 1.3 VMTools
-
-1. Mount/Insert ISO
-2. Proceed with the installation
-3. Unmount/Eject ISO
-3. Reboot VM (seems it needs to be rebooted twice).
-
-### 1.3.1 VMTools - mount ISO
-
-Mount ISO
-
-```bash
-# run on XCP-ng
-xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
-```
-
-### 1.3.2 VMTools - installation
+## 2. All the sections below agregated under single run
 
 When this point of the VM provisioning is reached, there are two approaches:
 
@@ -154,6 +145,9 @@ $outFile        = Join-Path -Path $path -ChildPath $scriptName
 
 #endregion
 
+# set the execution policy
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
+
 #region download function Get-GitModule.ps1
 Set-Location -Path $path
 Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
@@ -165,7 +159,16 @@ windows-preparation
 #endregion
 ```
 
-#### 1.3.2 VMTools - installation code
+### 2.1 VMTools
+
+1. Mount/Insert ISO
+2. Proceed with the installation
+3. Unmount/Eject ISO
+3. Reboot VM (seems it needs to be rebooted twice).
+
+#### 2.1.1 VMTools - installation code
+
+Continue with this section and sections below 
 
 ```powershell
 # run on VM (in elevated powershell session)
@@ -190,7 +193,7 @@ $UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($Packag
 
 ```
 
-### 1.3.3 VMTools - eject media
+### 2.1.2 VMTools - eject media
 
 ```bash
 # Run on XCP-ng
@@ -198,9 +201,9 @@ $UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($Packag
 xe vm-cd-eject vm='mgmtNode'
 ```
 
-## 2. Prerequisites for the Desired State Configuration
+## 3. Prerequisites for the Desired State Configuration
 
-### 2.1. Configure WinRM
+### 3.1. Configure WinRM
 
 WinRM should some attention on the Desktop OS. Regardless that piece of code should be run on Desktop OS and Server OS management nodes.
 
@@ -250,7 +253,7 @@ switch($os.ProductType){
 
 ```
 
-### 2.2. PowerShell Module - AutomatedLab - Download from Github
+### 3.2. PowerShell Module - AutomatedLab - Download from Github
 
 At this stage there are only default modules which are included in the operating system, so making use of 
 
@@ -287,7 +290,7 @@ Remove-Item -Path $outFile -Force -Verbose
 #Get-Command -Module $moduleName
 ```
 
-### 2.3. PowerShell Module - AutomatedXCPng - Download from Github
+### 3.3. PowerShell Module - AutomatedXCPng - Download from Github
 
 At this point AutomatedLab is already downloaded and extracted to PowerShell module repository, hence available commandlets. 
 
@@ -311,7 +314,7 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 #Get-Command -Module $moduleName
 ```
 
-## 3. RSAT Tools
+## 4. RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
@@ -350,11 +353,11 @@ Add-WindowsCapability -Online -Name Rsat.SystemInsights.Management.Tools~~~~0.0.
 #Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0
 ```
 
-## 4. Download Prerequisites
+## 5. Download Prerequisites
 
 Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
-### 4.1. Citrix Hypervisor SDK
+### 5.1. Citrix Hypervisor SDK
 
 Download Citrix Hypervisor/XenServer SDK
 
@@ -374,7 +377,7 @@ Download Citrix Hypervisor/XenServer SDK
 # run new powershell session elevated - so it reloads the copied modules
 ```
 
-### 4.2. VM Tools, XenCenter
+### 5.2. VM Tools, XenCenter
 
 Download:
 
@@ -388,7 +391,7 @@ Download:
 # download the tools - as of 2024.06 - version: 9.3.3
 ```
 
-## 5. Software Installation
+## 6. Software Installation
 
 Copy to the Z: drive.
 
@@ -404,7 +407,7 @@ Copy to the Z: drive.
 * Visual Studio Code            - 
 * SQL Management Studio         - OK
 
-### 5.1. PowerShell 7.X
+### 6.1. PowerShell 7.X
 
 PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
 
@@ -413,7 +416,7 @@ PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provi
 # https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
 ```
 
-### 5.2. ImgBurn
+### 6.2. ImgBurn
 
 It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn download](https://www.imgburn.com/index.php?act=download).
 
@@ -428,7 +431,7 @@ It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn 
 # destination: Citrix_Hypervisor_821_tools.iso
 ```
 
-### 5.3. FileZilla
+### 6.3. FileZilla
 
 It is used to copy the content to the Storage Repository of XCP-ng node.[FileZilla download](https://filezilla-project.org/download.php?type=client)
 
@@ -447,11 +450,11 @@ xe sr-list name-label="node4_hdd_LocalISO"
 xe sr-scan uuid="UUID of the abovementioned SR"
 ```
 
-### 5.4. Git
+### 6.4. Git
 
 Used to synchronize the code with the remote branches.
 
-### 5.5 Visual studio code
+### 6.5 Visual studio code
 
 Used to code.
 
@@ -461,7 +464,7 @@ Used to code.
 # * powershell
 ```
 
-### 5.6. SQL Management Studio
+### 6.6. SQL Management Studio
 
 Installation of SQL Management Studio
 
