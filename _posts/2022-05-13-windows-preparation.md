@@ -109,10 +109,11 @@ Run on XCP-ng
 
 ### 1.2 Initialize disk
 
-Run in elevated powershell session
+Code from the section below - [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/initializeDisk.ps1) - Github
 
 ```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
+# Start-Process PowerShell_ISE -Verb RunAs
+# Run in elevated powershell session
 # https://www.itprotoday.com/powershell/use-powershell-to-initialize-a-disk-and-create-partitions
 # Z: | GPT | data drive
 
@@ -134,6 +135,8 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 * the code can be executed from each sections mentioned below, or 
 * the code can be run in one go, by making use of the code from the first section below:
+
+Code from the section below - [run_windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_windows-preparation.ps1) - Github
 
 ```powershell
 # run in elevated PowerShell session
@@ -161,10 +164,14 @@ windows-preparation
 
 ### 2.1 VMTools
 
+The installation process for the VMTools consists of:
+
 1. Mount/Insert ISO
 2. Proceed with the installation
 3. Unmount/Eject ISO
 3. Reboot VM (seems it needs to be rebooted twice).
+
+Code for all below mentioned sections is aggregated in [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1), spit into regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
 
 #### 2.1.1 VMTools - installation code
 
