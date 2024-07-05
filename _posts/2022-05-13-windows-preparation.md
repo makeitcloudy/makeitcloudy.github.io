@@ -498,6 +498,6 @@ Once done SQL Server Management Studio 20 should arise in the start menu.
 It was tested on: 
 
 * Windows 10 (22H2 - 19045.4529)
-* Server 2022 (21H2 - 20348.1547)
+* Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
 
 Last update: 2024.07.05
