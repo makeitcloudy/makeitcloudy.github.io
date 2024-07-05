@@ -171,7 +171,7 @@ switch($os.ProductType){
             #if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
             #    Write-Warning "WinRM service is stopped"
             #    Start-Service -Name $winRMServiceName
-            Enabe-PSRemoting -Verbose
+            Enable-PSRemoting -Verbose
         }
     '3' {
             Write-Output 'ServerOs'
