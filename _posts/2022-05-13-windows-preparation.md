@@ -95,6 +95,9 @@ Mount VMTools ISO
 
 ```bash
 # run on XCP-ng
+# .iso should be available in following location: 
+# /var/opt/xen/ISO_Store      - custom local iso storage created during the XCPng setup
+# /opt/xensource/packages/iso - default iso storage with XCPng tools
 xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
 ```
 
