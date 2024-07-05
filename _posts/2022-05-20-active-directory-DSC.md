@@ -46,7 +46,6 @@ xe vm-cd-eject vm=dc02
 
 ```
 
-
 ## 3. Windows - prerequisites
 
 ## 3.1. Installation of VM tools
@@ -130,6 +129,8 @@ Remove-Item -Path $outFile -Force -Verbose
 Run on each VM acting as domain controller
 
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
+# run in elevated PowerShell session
 Set-Location -Path "$env:USERPROFILE\Documents"
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
