@@ -632,5 +632,9 @@ You are also ready for further DSC configuration to setup the on-premises Active
 
 ## Summary
 
-It was tested on: Windows 10 (22H2 - 19045.4529), Server 2022 (21H2 - 20348.1547).
+It was tested on: 
+
+* Windows 10 (22H2 - 19045.4529)
+* Server 2022 (21H2 - 20348.1547)
+
 Last update: 2024.07.05

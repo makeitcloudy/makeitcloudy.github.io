@@ -41,18 +41,32 @@ ToDo:
 
 At this point it is assumed:
 
-1. XCP-ng: There is SSH connectivity to the XCP-ng node from the endpoint device
-2. XCP-ng: The xcp-ng scripts (used to provision vm's, mentioned above) are stored on XCP-ng node in /opt/scripts/ folder
-3. XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository
-4. On your network device of choice create a static reservation for the DHCP address, until you decide to go with the static IP
+* XCP-ng: There is SSH connectivity to the XCP-ng node from the endpoint device
+* XCP-ng: The xcp-ng scripts (used to provision vm's, mentioned above) are stored on XCP-ng node in /opt/scripts/ folder
+* XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository
+* On your network device of choice create a static reservation for the DHCP address, until you decide to go with the static IP
+* .
+* Code is run in elevated powershell session
+
+```powershell
+# run PowerShell session
+Start-Process PowerShell_ISE -Verb RunAs
+```
+
+### 0.1 Assumptions - Disk Related
+
+* there is only one drive added to the VM
+* the Data disk attached is connected
 
 ## 1. VM Installation
 
 Run on XCP-ng
 
 ```bash
-# Run on XCP-ng
-/opt/scripts/vm_create_uefi.sh --VmName 'w10mgmt' --VCpu 4 --CoresPerSocket 2 --MemoryGB 8 --DiskGB 40 --ActivationExpiration 90 --TemplateName 'Windows 10 (64-bit)' --IsoName 'w10ent_21H2_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:00:49' --StorageName 'node4_ssd_sdg' --VmDescription 'w10_mgmt_node'
+# Run on XCP-ng - Desktop OS - management Node
+/opt/scripts/vm_create_uefi.sh --VmName 'mgmtNode' --VCpu 4 --CoresPerSocket 2 --MemoryGB 8 --DiskGB 40 --ActivationExpiration 90 --TemplateName 'Windows 10 (64-bit)' --IsoName 'w10ent_21H2_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:00:49' --StorageName 'node4_ssd_sdg' --VmDescription 'mgmt_node'
+
+# Run on XCP-ng - Server OS - management Node
 ```
 
 * Right after the setup OS is asking you: Do you want to allow your PC to be discoverable by other PCs and devices on this network ? - NO
@@ -70,26 +84,15 @@ Run on XCP-ng
 
 ```bash
 # run over SSH
-/opt/scripts/vm_add_disk.sh --vmName "w10mgmt" --storageName "node4_hdd_sdc_lsi" --diskName "w10_mgmt_dataDrive" --deviceId 4 --diskGB 20  --description "w10_mgmt_dataDrive"
+/opt/scripts/vm_add_disk.sh --vmName "mgmtNode" --storageName "node4_hdd_sdc_lsi" --diskName "mgmtNode_DesktopOS_dataDrive" --deviceId 4 --diskGB 20  --description "mgmtNode_DesktopOS_dataDrive"
 ```
 
-### 1.2 Run an elevated powershell ISE instance
-
-```powershell
-# run PowerShell session
-Start-Process PowerShell_ISE -Verb RunAs
-```
-
-### 1.3 Initialize disk
+### 1.2 Initialize disk
 
 Run in elevated powershell session
 
-####  Assumptions: 
-
-* there is only one drive added to the VM
-* the Data disk attached is connected
-
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
 # https://www.itprotoday.com/powershell/use-powershell-to-initialize-a-disk-and-create-partitions
 # Z: | GPT | data drive
 
@@ -105,27 +108,30 @@ Get-ChildItem -Path $($driveLetter,':' -join '')
 Get-PSDrive
 ```
 
-### 1.3 Install VMTools
+### 1.3 VMTools
 
-VMTools installation.
-
-1. Mount the ISO
+1. Mount/Insert ISO
 2. Proceed with the installation
-3. Rename the VM
-3. Reboot the VM (seems it needs to be rebooted twice).
+3. Unmount/Eject ISO
+3. Reboot VM (seems it needs to be rebooted twice).
+
+### 1.3.1 VMTools - mount ISO
+
+Mount ISO
 
 ```bash
 # run on XCP-ng
 xe vm-cd-insert vm='w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 ```
 
-Install XenTools
+### 1.3.2 VMTools - installation
 
 ```powershell
+# run on VM (in elevated powershell session)
+#Start-Process PowerShell_ISE -Verb RunAs
+
 # https://support.citrix.com/article/CTX222533/install-xenserver-tools-silently
 # https://forums.lawrencesystems.com/t/xcp-ng-installing-citrix-agent-for-windows-via-powershell-script/13855
-
-# run on VM (in elevated powershell session)
 
 $PackageName = "managementagent-9.3.3-x64"
 $InstallerType = "msi"
@@ -139,11 +145,11 @@ $UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($Packag
 
 # should throw 0
 (Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
-
 #Invoke-Item -Path $LogApp
+
 ```
 
-Eject VMTools media
+### 1.3.3 VMTools - eject media
 
 ```bash
 # Run on XCP-ng
@@ -151,9 +157,11 @@ Eject VMTools media
 xe vm-cd-eject vm='w10mgmt'
 ```
 
-### 1.4 Prerequisites
+## 2. Prerequisites for the Desired State Configuration
 
-#### 1.4.1 Enable services
+### 2.1. Configure WinRM
+
+WinRM should some attention on the Desktop OS. Regardless that piece of code should be run on Desktop OS and Server OS management nodes.
 
 ```powershell
 #Rename-Computer -NewName 'w10mgmt' -Force -Restart
@@ -171,7 +179,27 @@ switch($os.ProductType){
             #if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
             #    Write-Warning "WinRM service is stopped"
             #    Start-Service -Name $winRMServiceName
-            Enable-PSRemoting -Verbose
+            
+            #region - NetConnectionProfile - set to private
+            try {
+                Write-Information 'Set NetConnectionProfile to Private'
+                Set-NetConnectionProfile -NetworkCategory Private | Out-Null
+                #Get-Item WSMan:\localhost\Client\TrustedHosts #empty
+            }
+            catch {
+
+            }
+            #endregion
+
+            #region - Enable PS Remoting
+            try {
+                Enable-PSRemoting -Verbose
+            }
+            catch {
+
+            }
+            
+            #endregion
         }
     '3' {
             Write-Output 'ServerOs'
@@ -181,9 +209,12 @@ switch($os.ProductType){
 
 ```
 
-#### 1.4.1 AutomatedLab Module
+### 2.2. PowerShell Module - AutomatedLab - Download from Github
 
-[AutomatedLab](https://github.com/makeitcloudy/AutomatedLab)
+At this stage there are only default modules which are included in the operating system, so making use of 
+
+* [Get-GiModule.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/Get-GitModule.ps1) - code
+* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
 
 ```powershell
 # run in elevated PowerShell session
@@ -215,9 +246,14 @@ Remove-Item -Path $outFile -Force -Verbose
 #Get-Command -Module $moduleName
 ```
 
-#### 1.4.2 AutomatedXCPng Module
+### 2.3. PowerShell Module - AutomatedXCPng - Download from Github
 
-[AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng)
+At this point AutomatedLab is already downloaded and extracted to PowerShell module repository, hence available commandlets. 
+
+* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
+* [AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng) - Github repository
+
+* AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer. For it to work properly it has a prerequisite of CitrixHypervisor SDK to be available on the system.
 
 ```powershell
 # run in elevated PowerShell session
@@ -234,12 +270,13 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 #Get-Command -Module $moduleName
 ```
 
-#### 1.4.3 RSAT Tools
+## 3. RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
 ```powershell
-Start-Process PowerShell_ISE.exe -Verb RunAs
+# run in elevated PowerShell session
+# Start-Process PowerShell_ISE.exe -Verb RunAs
 
 # RSAT tools on the Desktop OS can NOT be installed by making use of DSC - it throws an error
 
@@ -272,20 +309,13 @@ Add-WindowsCapability -Online -Name Rsat.SystemInsights.Management.Tools~~~~0.0.
 #Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0
 ```
 
-## 2. Download Prerequisites
+## 4. Download Prerequisites
 
 Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
-### 2.1 Citrix Hypervisor SDK
+### 4.1. Citrix Hypervisor SDK
 
-Installation of:
-
-* Citrix Hypervisor SDK
-* AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer
-
-### 2.2 Citrix Hypervisor SDK
-
-Download XenServer SDK
+Download Citrix Hypervisor/XenServer SDK
 
 ```powershell
 # 1. Login to citrix.com
@@ -303,7 +333,7 @@ Download XenServer SDK
 # run new powershell session elevated - so it reloads the copied modules
 ```
 
-### 2.3 VM Tools, XenCenter
+### 4.2. VM Tools, XenCenter
 
 Download:
 
@@ -317,7 +347,7 @@ Download:
 # download the tools - as of 2024.06 - version: 9.3.3
 ```
 
-## 3. Software Installation
+## 5. Software Installation
 
 Copy to the Z: drive.
 
@@ -333,7 +363,7 @@ Copy to the Z: drive.
 * Visual Studio Code            - 
 * SQL Management Studio         - OK
 
-### 3.1 PowerShell 7.X
+### 5.1. PowerShell 7.X
 
 PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
 
@@ -342,7 +372,7 @@ PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provi
 # https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
 ```
 
-### 3.2 ImgBurn
+### 5.2. ImgBurn
 
 It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn download](https://www.imgburn.com/index.php?act=download).
 
@@ -357,7 +387,7 @@ It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn 
 # destination: Citrix_Hypervisor_821_tools.iso
 ```
 
-### 3.3 FileZilla
+### 5.3. FileZilla
 
 It is used to copy the content to the Storage Repository of XCP-ng node.[FileZilla download](https://filezilla-project.org/download.php?type=client)
 
@@ -376,11 +406,11 @@ xe sr-list name-label="node4_hdd_LocalISO"
 xe sr-scan uuid="UUID of the abovementioned SR"
 ```
 
-### 3.4 Git
+### 5.4. Git
 
 Used to synchronize the code with the remote branches.
 
-### 3.5 Visual studio code
+### 5.5 Visual studio code
 
 Used to code.
 
@@ -390,7 +420,7 @@ Used to code.
 # * powershell
 ```
 
-### 3.6 SQL Management Studio
+### 5.6. SQL Management Studio
 
 Installation of SQL Management Studio
 
@@ -407,10 +437,16 @@ $install_path = "$env:SystemDrive\SSMSto"
 $params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
 
 Start-Process -FilePath $media_path -ArgumentList $params -Wait
+
 ```
 
 Once done SQL Server Management Studio 20 should arise in the start menu.
 
 ## Summary
 
-Last update: 2024.06.25
+It was tested on: 
+
+* Windows 10 (22H2 - 19045.4529)
+* Server 2022 (21H2 - 20348.1547)
+
+Last update: 2024.07.05
