@@ -1,23 +1,23 @@
 ---
 layout: post
-title: "Windows 10 management VM - Manual setup"
+title: "Windows management VM - Manual setup"
 permalink: "/windows-mgmt-vm-manual/"
-subtitle: "Initial manual of w10 mgmt VM"
+subtitle: "A bit manual prerequisites preparation on management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft ,DSC]
 categories: [HomeLab ,Microsoft ,DSC]
 ---
-This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
+This Windows VM (desktop or server OS) is used as a starting point, acting as management node for the MS landscape.
+Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
 * there is no Active Directory yet
 
 Goals:
 
 * GUI based administration ise conducted here
-* Once the domain is provisioned, w10_mgmt becomes domain joned
-* WinRM is ENABLED
+* Once the domain is provisioned, it becomes domain joned
 * Initial Configuration conducted by Desired State Configuration
 
 ToDo:
