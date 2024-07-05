@@ -142,13 +142,11 @@ When this point is reached, then the code can be executed from each sections men
 ```powershell
 # run in elevated PowerShell session
 #region initialize variables
-$scriptName     = 'InitialConfigu_setup_runmeFirst.ps1'
+$scriptName     = 'windows-preparation.ps1'
 $uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
 $path           = "$env:USERPROFILE\Documents"
 $outFile        = Join-Path -Path $path -ChildPath $scriptName
 
-$githubUserName = 'makeitcloudy'
-$moduleName     = 'AutomatedLab'
 #endregion
 
 #region download function Get-GitModule.ps1
@@ -158,7 +156,7 @@ Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 
 # load function into memory
 . $outFile
-Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+
 #endregion
 ```
 
