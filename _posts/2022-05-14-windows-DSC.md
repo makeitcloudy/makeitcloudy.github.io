@@ -56,6 +56,7 @@ It creates [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitclo
 Run the code below.
 
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
 #run in elevated powershell session
 #region - initialize variables, downlad prereqs
 $dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'

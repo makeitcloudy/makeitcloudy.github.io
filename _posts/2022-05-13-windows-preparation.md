@@ -142,6 +142,7 @@ When this point of the VM provisioning is reached, there are two approaches:
 Code from the section below - [run_windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_windows-preparation.ps1) - Github
 
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated PowerShell session
 #region initialize variables
 $scriptName     = 'windows-preparation.ps1'
@@ -181,8 +182,8 @@ Code for all below mentioned sections is aggregated in [windows-preparation.ps1]
 Continue with this section and sections below 
 
 ```powershell
-# run on VM (in elevated powershell session)
 #Start-Process PowerShell_ISE -Verb RunAs
+# run in elevated powershell session
 
 # https://support.citrix.com/article/CTX222533/install-xenserver-tools-silently
 # https://forums.lawrencesystems.com/t/xcp-ng-installing-citrix-agent-for-windows-via-powershell-script/13855
@@ -218,6 +219,7 @@ xe vm-cd-eject vm='mgmtNode'
 WinRM should some attention on the Desktop OS. Regardless that piece of code should be run on Desktop OS and Server OS management nodes.
 
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
 #Rename-Computer -NewName 'w10mgmt' -Force -Restart
 #$winRMServiceName = 'winRM' 
 
@@ -271,6 +273,7 @@ At this stage there are only default modules which are included in the operating
 * [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
 
 ```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated PowerShell session
 #region initialize variables
 $scriptName     = 'Get-GitModule.ps1'
