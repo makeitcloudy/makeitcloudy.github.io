@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows management VM - Preparation"
-permalink: "/windows-vm-preparation/"
+permalink: "/windows-preparation/"
 subtitle: "Semi-manual prerequisites preparation on management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg

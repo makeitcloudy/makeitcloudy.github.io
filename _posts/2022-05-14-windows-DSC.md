@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows management VM - DSC"
-permalink: "/windows-mgmt-vm-DSC/"
+permalink: "/windows-DSC/"
 subtitle: "Initial Desired State Configuration setup management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
@@ -30,7 +30,7 @@ ToDo:
 
 ## 0. Links
 
-* 
+* .
 
 ## 1. Assumptions
 
