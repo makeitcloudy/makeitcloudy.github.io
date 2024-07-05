@@ -154,8 +154,30 @@ xe vm-cd-eject vm='w10mgmt'
 Rename Computer
 
 ```powershell
-Rename-Computer -NewName 'w10mgmt' -Force -Restart
+#Rename-Computer -NewName 'w10mgmt' -Force -Restart
+$winRMServiceName = 'winRM' 
+
+#check if CurrentUser is enough or LocalMachine is the correct one
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
+
+# check if it is a desktop operating system
+# in case it is then change the execution policy
+$os = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $ComputerName
+switch($os.ProductType){
+    '1' {
+        Write-Output 'DesktopOS'
+        if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
+            Write-Warning "WinRM service is stopped"
+            Start-Service -Name $winRMServiceName
+        }
+        }
+    '3' {
+        Write-Output 'ServerOs'
+        }
+}
+
 ```
+
 ### 1.4 AutomatedLab Module
 
 [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab)
@@ -176,13 +198,6 @@ $moduleName     = 'AutomatedLab'
 Set-Location -Path $path
 Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 #psedit $outFile
-
-# check if it is a desktop operating system
-# in case it is then change the execution policy
-$os = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $ComputerName
-switch($os.ProductType){
-    "1" {Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force}
-}
 
 # load function into memory
 . $outFile

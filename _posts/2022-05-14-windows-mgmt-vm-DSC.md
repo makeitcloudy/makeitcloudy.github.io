@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Windows 10 management VM - DSC"
+title: "Windows management VM - DSC"
 permalink: "/windows-mgmt-vm-DSC/"
-subtitle: "Initial Desired State Configuration setup of w10 mgmt VM"
+subtitle: "Initial Desired State Configuration setup management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft ,DSC]
 categories: [HomeLab ,Microsoft ,DSC]
 ---
-This Windows 10 VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
+This Windows based VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
 * there is no Active Directory yet
 * AD will be configured by making use of DSC
@@ -36,9 +36,9 @@ ToDo:
 
 * Your network device of choice consists of a static reservation for the DHCP address, until you decide to go with the static IP - for the w10mgmt VM
 * DNS on the w10mgmt node can resolve the public internet addresses
-* PowerShell script execution policy is configured properly to run scripts
-* winRM service is running on the node
-* AutomatedLab PowerShell Module Installed (otherwise it won't install the DSC modules properly)
+* PowerShell script execution policy is configured properly to run scripts - OK
+* winRM service is running on the node - OK
+* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab/tree/main) PowerShell Module Installed (otherwise it won't install the DSC modules properly)
 
 ## 2. Howto
 
