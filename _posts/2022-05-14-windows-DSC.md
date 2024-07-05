@@ -78,6 +78,8 @@ Set-InitialConfiguration -NodeName $NodeName -Option WorkGroup -Verbose
 
 ```
 
+### 2.3. What does the code above do
+
 * It initialize all variables for succesfull code execution.
 * It downloads the powershell functions and configuration
 
