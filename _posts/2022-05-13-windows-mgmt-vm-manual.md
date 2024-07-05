@@ -168,13 +168,15 @@ $os = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $ComputerNa
 switch($os.ProductType){
     '1' {
         Write-Output 'DesktopOS'
-        if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
-            Write-Warning "WinRM service is stopped"
-            Start-Service -Name $winRMServiceName
+        #if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
+        #    Write-Warning "WinRM service is stopped"
+        #    Start-Service -Name $winRMServiceName
+        Enabe-PSRemoting -Verbose
         }
         }
     '3' {
         Write-Output 'ServerOs'
+        # PS Remoting seems to be configured already for the succesfull execution
         }
 }
 
