@@ -18,7 +18,9 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 **Note**:
 
 * The configuration is split into sections within the paragraphs of the blog post
-* Subsequent paragraphs of the blog post contains code which can be run on the VM, alternatively it can also be run in one go by making use of the script mentioned in paragraph 1.3.2. VMTools - installation
+* Subsequent paragraphs of the blog post contains code which can be run on the VM
+* Code from paragraphs 1 - 1.3.1 - need to be executed one by one - with manual approach (jumping between XCP-ng and VM)
+* Code from paragraphs 1.3.2 - 2.3 - can be run in one go by making use of the [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1) script mentioned in paragraph 1.3.2. VMTools - installation
 
 **Goals**:
 
@@ -29,7 +31,8 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 **ToDo**:
 
 * Idempotency into the code which wraps the DSC Configuration and it's execution
-* DSC  : Separate the Configuration, LCM into separate files - done
+* Idempotency with the VMtools installations - check if those are installed already, if so, skip the installation process
+* *DSC  : Separate the Configuration, LCM into separate files - done*
 * WinRM: Configure the trusted host section with DSC - crucial for the scenario when the configuration is run from central node
 * OS   : Focus only on the tooling itself and it's installation
 * OS   : Find the registry keys which configures the Edge
@@ -136,8 +139,10 @@ xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ### 1.3.2 VMTools - installation
 
-When this point is reached, then the code can be executed from each sections mentioned below, or the code can be run in one go, by making use of:
+When this point of the VM provisioning is reached, there are two approaches:
 
+* the code can be executed from each sections mentioned below, or 
+* the code can be run in one go, by making use of the code from the first section below:
 
 ```powershell
 # run in elevated PowerShell session
@@ -156,7 +161,7 @@ Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 
 # load function into memory
 . $outFile
-
+windows-preparation
 #endregion
 ```
 
