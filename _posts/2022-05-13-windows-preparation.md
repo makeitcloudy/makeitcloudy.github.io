@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Windows management VM - Preparation"
-permalink: "/windows-mgmt-vm-preparation/"
+permalink: "/windows-vm-preparation/"
 subtitle: "Semi-manual prerequisites preparation on management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
@@ -13,19 +13,26 @@ This Windows VM (desktop or server OS) is used as a starting point, acting as ma
 Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
 * there is no Active Directory yet
+* the VM is installed from regular ISO, which can be downloaded from Microsoft Evaluation Center ([Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO),[Windows Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022))
 
-Goals:
+**Note**:
 
-* GUI based administration ise conducted here
+* The configuration is split into sections within the paragraphs of the blog post
+* Subsequent paragraphs of the blog post contains code which can be run on the VM, alternatively it can also be run in one go by making use of the script mentioned in paragraph 1.3.2. VMTools - installation
+
+**Goals**:
+
+* GUI based administration is conducted here
 * Once the domain is provisioned, it becomes domain joned
 * Initial Configuration conducted by Desired State Configuration
 
-ToDo:
+**ToDo**:
 
-* Separate the DSC configuration
-* Focus only on the tooling itself and it's installation
+* Idempotency into the code which wraps the DSC Configuration and it's execution
+* DSC  : Separate the Configuration, LCM into separate files - done
+* WinRM: Configure the trusted host section with DSC - crucial for the scenario when the configuration is run from central node
+* OS   : Focus only on the tooling itself and it's installation
 * OS   : Find the registry keys which configures the Edge
-* WinRM: Configure the trusted host section with DSC
 
 ## Links
 
@@ -49,7 +56,7 @@ At this point it is assumed:
 * Code is run in elevated powershell session
 
 ```powershell
-# run PowerShell session
+# run a regular PowerShell session, cmd > powershell
 Start-Process PowerShell_ISE -Verb RunAs
 ```
 
@@ -73,8 +80,7 @@ Run on XCP-ng
 # Run on XCP-ng - Server OS - management Node
 ```
 
-* Right after the setup OS is asking you: Do you want to allow your PC to be discoverable by other PCs and devices on this network ? - NO
-* XenServer PV Storage Host Adapter needs to restart the system to complete installation. - YES
+Eject OS installation media
 
 ```bash
 # Run on XCP-ng
@@ -129,6 +135,34 @@ xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
 ```
 
 ### 1.3.2 VMTools - installation
+
+When this point is reached, then the code can be executed from each sections mentioned below, or the code can be run in one go, by making use of:
+
+
+```powershell
+# run in elevated PowerShell session
+#region initialize variables
+$scriptName     = 'InitialConfigu_setup_runmeFirst.ps1'
+$uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
+$path           = "$env:USERPROFILE\Documents"
+$outFile        = Join-Path -Path $path -ChildPath $scriptName
+
+$githubUserName = 'makeitcloudy'
+$moduleName     = 'AutomatedLab'
+#endregion
+
+#region download function Get-GitModule.ps1
+Set-Location -Path $path
+Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
+#psedit $outFile
+
+# load function into memory
+. $outFile
+Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
+#endregion
+```
+
+#### 1.3.2 VMTools - installation code
 
 ```powershell
 # run on VM (in elevated powershell session)
