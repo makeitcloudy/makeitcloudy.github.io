@@ -115,8 +115,11 @@ Run on XCP-ng
 Code from the section below - [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/initializeDisk.ps1) - Github
 
 ```powershell
-# Start-Process PowerShell_ISE -Verb RunAs
+#Start-Process PowerShell_ISE -Verb RunAs
 # Run in elevated powershell session
+
+# Disk should be connected to the VM, otherwise code won't work
+
 # https://www.itprotoday.com/powershell/use-powershell-to-initialize-a-disk-and-create-partitions
 # Z: | GPT | data drive
 
@@ -124,7 +127,7 @@ $driveLetter = 'Z'
 Get-Disk | Select-Object Number, IsOffline
 #Initialize-Disk -Number 1 -PartitionStype GPT
 
-$rawDisk = Get-Disk | Where-Object {$_.PartitionStyle -eq ‘Raw’}
+$rawDisk = Get-Disk | Where-Object {$_.PartitionStyle -eq 'Raw'}
 $rawDisk | Initialize-Disk -PartitionStyle GPT
 New-Partition -DiskNumber $rawDisk.DiskNumber -DriveLetter $driveLetter -UseMaximumSize
 Format-Volume -DriveLetter $driveLetter -FileSystem NTFS
@@ -139,13 +142,19 @@ When this point of the VM provisioning is reached, there are two approaches:
 * the code can be executed from each sections mentioned below, or 
 * the code can be run in one go, by making use of the code from the first section below:
 
-Code from the section below - [run_windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_windows-preparation.ps1) - Github
+Code from the section below - [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) - Github
+
+
+### 2.0.1 Prereq**:
+
+* The VMTools ISO is mounted to VM
+* DNS resolving public addresses
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated PowerShell session
 #region initialize variables
-$scriptName     = 'windows-preparation.ps1'
+$scriptName     = 'initialConfig.ps1'
 $uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
 $path           = "$env:USERPROFILE\Documents"
 $outFile        = Join-Path -Path $path -ChildPath $scriptName
@@ -162,9 +171,20 @@ Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 
 # load function into memory
 . $outFile
-windows-preparation
+#psedit $outfile
+Set-InitialConfiguration -Verbose
 #endregion
+
+Restart-Computer -Force
+
 ```
+
+### 2.0.1 What does the code above do
+
+* It installs vmTools
+* It configures winrm on desktop OS
+* It downloads AutomatedLab module from Github
+* It downloads AutomatedXCPng module from Github
 
 ### 2.1 VMTools
 

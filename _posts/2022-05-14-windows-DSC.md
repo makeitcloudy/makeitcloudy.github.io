@@ -59,8 +59,8 @@ Run the code below.
 #Start-Process PowerShell_ISE -Verb RunAs
 #run in elevated powershell session
 #region - initialize variables, downlad prereqs
-$dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration'
-$dsc_InitialConfigFileName     = 'InitialConfig_setup.ps1'
+$dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode'
+$dsc_InitialConfigFileName     = 'InitialConfigDsc.ps1'
 $dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -join '/'
 
 $outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
@@ -73,7 +73,7 @@ $NodeName = 'testnode' #FIXME: It equals to the computername (w10mgmt in this ca
 
 #region - run it 
 . $outFile
-Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -Verbose
+Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbose
 # The -UpdatePowerShellHelp Parameter
 #Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
 
@@ -81,16 +81,16 @@ Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -Verbose
 
 ### 2.3. What does the code above do
 
-* It initialize all variables for succesfull code execution.
+* It initialize all variables for succesfull code execution
 * It downloads the powershell functions and configuration
 * It downloads [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
 * It downloads [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
 * It downloads [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
-* It installs missing modules for the DSC succesfull execution.
-* It prepares self signed certificate for securing the credentials.
+* It installs missing modules for the DSC succesfull execution
+* It prepares self signed certificate for securing the credentials
 * It takes care about the self signed certificate thumbprint and passes it as a paramter into the LCM configuration
 * It configures the LCM
-* It starts the actual configuration of the node.
+* It starts the actual configuration of the node
 
 ## 3. InitialConfig_setup.ps1 - essence
 
