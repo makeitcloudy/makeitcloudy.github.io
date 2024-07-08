@@ -177,8 +177,6 @@ Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
 Set-InitialConfiguration -Verbose
 #endregion
 
-Restart-Computer -Force
-
 ```
 
 ### 2.0.1 What does the code above do
@@ -195,7 +193,7 @@ The installation process for the VMTools consists of:
 1. Mount/Insert ISO
 2. Proceed with the installation
 3. Unmount/Eject ISO
-3. Reboot VM (seems it needs to be rebooted twice).
+4. Reboot VM (seems it needs to be rebooted twice).
 
 Code for all below mentioned sections is aggregated in [InitialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1), held within regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
 
