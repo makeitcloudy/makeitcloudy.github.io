@@ -20,7 +20,7 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 * The configuration is split into sections within the paragraphs of the blog post
 * Subsequent paragraphs of the blog post contains code which can be run on the VM
 * Code from paragraphs 1 - 1.2 - need to be executed one by one - with manual approach (jumping between XCP-ng and VM)
-* Code from paragraphs 2.1 - 2.3 - can be run in one go by making use of the [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1) script mentioned in paragraph 2. All the sections below agregated under single run
+* Code from paragraphs 2.1 - 2.3 - can be run in one go by making use of the [InitialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) script mentioned in paragraph 2. All the sections below agregated under single run
 
 **Goals**:
 
@@ -145,16 +145,18 @@ When this point of the VM provisioning is reached, there are two approaches:
 Code from the section below - [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) - Github
 
 
-### 2.0.1 Prereq**:
+### 2.0.1 Prerequisites
 
 * The VMTools ISO is mounted to VM
 * DNS resolving public addresses
+
+### 2.0.2 Code
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated PowerShell session
 #region initialize variables
-$scriptName     = 'initialConfig.ps1'
+$scriptName     = 'InitialConfig.ps1'
 $uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
 $path           = "$env:USERPROFILE\Documents"
 $outFile        = Join-Path -Path $path -ChildPath $scriptName
@@ -195,7 +197,7 @@ The installation process for the VMTools consists of:
 3. Unmount/Eject ISO
 3. Reboot VM (seems it needs to be rebooted twice).
 
-Code for all below mentioned sections is aggregated in [windows-preparation.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/windows-preparation.ps1), held within regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
+Code for all below mentioned sections is aggregated in [InitialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1), held within regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
 
 #### 2.1.1 VMTools - installation code
 

@@ -51,7 +51,7 @@ Start-Process PowerShell_ISE -Verb RunAs
 
 ### 2.2 Run following code in elevated ISE session.
 
-It creates [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/InitialConfig_setup.ps1) in $env:USERPROFILE\Documents directory.
+It creates [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1) in $env:USERPROFILE\Documents directory.
 
 Run the code below.
 
@@ -92,12 +92,12 @@ Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbos
 * It configures the LCM
 * It starts the actual configuration of the node
 
-## 3. InitialConfig_setup.ps1 - essence
+## 3. InitialConfigDsc.ps1 - essence
 
-It has the following content [InitialConfig_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/InitialConfig_setup.ps1). Once run
+It has the following content [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1). Once run
 
 ```powershell
-Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -Verbose
+Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbose
 ```
 
 the target node should have:
