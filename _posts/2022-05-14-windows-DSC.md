@@ -58,6 +58,9 @@ Run the code below.
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
 #run in elevated powershell session
+
+$NodeName                      = 'testnode' #FIXME: It equals to the computername (w10mgmt in this case)
+
 #region - initialize variables, downlad prereqs
 $dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode'
 $dsc_InitialConfigFileName     = 'InitialConfigDsc.ps1'
@@ -68,8 +71,6 @@ Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
 
 #psedit $outFile
 #endregion
-
-$NodeName = 'testnode' #FIXME: It equals to the computername (w10mgmt in this case)
 
 #region - run it 
 . $outFile
