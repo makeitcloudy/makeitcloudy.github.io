@@ -108,6 +108,10 @@ rss-description: Makeitcloudy blog
 # --- General options --- #
 ###########################
 
+# https://github.com/daattali/beautiful-jekyll#advanced-parameters
+# By default, page content is constrained to a standard width. Use full-width: true to allow the content to span the entire width of the window.
+full-width: true
+
 # Select which social network share links to show in posts
 share-links-active:
   twitter: true
