@@ -8,6 +8,9 @@ thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft ,DSC]
 categories: [HomeLab ,Microsoft ,DSC]
+# https://github.com/daattali/beautiful-jekyll#advanced-parameters
+# By default, page content is constrained to a standard width. Use full-width: true to allow the content to span the entire width of the window.
+full-width: true
 ---
 This Windows based VM is used as a starting point, acting as management node for the MS landscape. Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
 
