@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Compile OpenSSL from sources"
 permalink: "/compile-openssl-from-sources/"

@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to setup vlan - Mikrotik CRS3XX series - 10G storage traffic"
 permalink: "/how-to-setup-mikrotik-vlan-crs3xx-series-10G-storage-traffic/"

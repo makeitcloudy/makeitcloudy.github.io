@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Mikrotik OpenVPN client - ROS 7.X - UDP"
 permalink: "/how-to-configure-mikrotik-openvpn-client-ros7/"

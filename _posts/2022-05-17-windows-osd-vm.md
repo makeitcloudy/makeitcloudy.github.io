@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "OSD Image Factory VM"
 permalink: "/windows-osd-vm/"

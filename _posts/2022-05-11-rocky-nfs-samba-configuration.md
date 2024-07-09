@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Rocky 9.4 NFS and Samba configuration"
 permalink: "/rocky-samba-nfs-configuration/"

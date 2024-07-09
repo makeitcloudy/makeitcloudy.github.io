@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Mikrotik with LTE modem"
 permalink: "/how-to-configure-mikrotik-with-LTE-modem/"

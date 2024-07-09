@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to reset routerboard configuration"
 permalink: "/how-to-reset-routerboard-configuration/"

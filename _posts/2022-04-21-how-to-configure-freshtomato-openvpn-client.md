@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure FreshTomato as OpenVPN client"
 permalink: "/how-to-configure-freshtomato-openvpn-client/"

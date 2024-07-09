@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Xen Orchestra Community Edition - compile from sources"
 permalink: "/xenorchestra-community-edition-compile-from-sources/"

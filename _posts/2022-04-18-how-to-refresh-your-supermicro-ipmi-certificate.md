@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Supermicro IPMI self signed certificates"
 permalink: "/how-to-refresh-your-supermicro-ipmi-certificate/"

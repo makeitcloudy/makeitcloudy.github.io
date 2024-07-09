@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to make use of Creative Zen Micro in 2022"
 permalink: "/how-to-make-use-of-creative-zen-micro-in-2022/"

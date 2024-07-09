@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to make use of wired ethernet for your mobile"
 permalink: "/how-to-make-use-of-wired-ethernet-for-your-mobile/"

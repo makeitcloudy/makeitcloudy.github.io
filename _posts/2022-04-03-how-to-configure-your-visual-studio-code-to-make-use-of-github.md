@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure your visual studio code to make use of github"
 permalink: "/how-to-configure-your-visual-studio-code-to-make-use-of-github/"

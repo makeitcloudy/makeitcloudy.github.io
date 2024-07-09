@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "EUC valueable online content"
 permalink: "/euc-valueable-online-content/"

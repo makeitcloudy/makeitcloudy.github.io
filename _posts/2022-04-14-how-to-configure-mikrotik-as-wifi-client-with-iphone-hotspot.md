@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Mikrotik as wifi client with iphone hotspot"
 permalink: "/how-to-configure-mikrotik-as-wifi-client-with-iphone-hotspot/"

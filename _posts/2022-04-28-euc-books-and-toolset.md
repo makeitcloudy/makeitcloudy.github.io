@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "EUC books and toolset"
 permalink: "/euc-books-and-toolset/"

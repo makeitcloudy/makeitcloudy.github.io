@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "OSDBuilder offline servicing updates"
 permalink: "/OSDBuilder-offline-servicing-updates/"

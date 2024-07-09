@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Mikrotik wifi bridge for Apple developers"
 permalink: "/how-to-configure-mikrotik-as-wifi-bridge-in-iphone-network/"

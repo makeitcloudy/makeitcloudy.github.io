@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to setup Mikrotik for home lab usecase"
 permalink: "/how-to-setup-mikrotik-for-home-lab-usecase/"

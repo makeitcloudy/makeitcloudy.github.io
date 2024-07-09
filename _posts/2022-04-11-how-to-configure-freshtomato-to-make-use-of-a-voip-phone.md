@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure FreshTomato to make use of a voip phone"
 permalink: "/how-to-configure-freshtomato-to-make-use-of-a-voip-phone/"

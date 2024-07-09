@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to downgrade Mikrotik Router OS"
 permalink: "/how-to-downgrade-mikrotik-ros/"

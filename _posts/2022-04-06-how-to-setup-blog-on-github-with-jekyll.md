@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to setup a blog on github with jekyll"
 permalink: "/how-to-setup-blog-on-github-with-jekyll/"

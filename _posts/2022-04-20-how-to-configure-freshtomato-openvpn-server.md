@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure FreshTomato OpenVPN server - TLS 1.3"
 permalink: "/how-to-configure-freshtomato-openvpn-server/"

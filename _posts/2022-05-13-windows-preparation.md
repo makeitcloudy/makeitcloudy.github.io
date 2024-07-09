@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Windows management VM - Preparation"
 permalink: "/windows-preparation/"

@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to setup vlan - Mikrotik RouterBoard and CCR series"
 permalink: "/how-to-setup-mikrotik-vlan-routerboard-and-CCR-series/"

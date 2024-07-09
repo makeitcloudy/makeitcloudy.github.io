@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Windows DSC authoring VM"
 permalink: "/windows-authoring-vm/"

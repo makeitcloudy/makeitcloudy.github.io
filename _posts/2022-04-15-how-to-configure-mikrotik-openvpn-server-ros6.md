@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Mikrotik OpenVPN Server - ROS 6.X - TCP"
 permalink: "/how-to-configure-mikrotik-openvpn-server-ros6/"

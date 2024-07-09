@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "XCPng first VM from CLI"
 permalink: "/xcpng-firstVM-from-CLI/"

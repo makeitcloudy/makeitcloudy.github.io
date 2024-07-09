@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Channels I value"
 permalink: "/channels-I-value/"

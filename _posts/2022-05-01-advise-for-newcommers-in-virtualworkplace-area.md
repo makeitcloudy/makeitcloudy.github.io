@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Advise for newcommers in VirtualWorkplace area"
 permalink: "/advise-for-newcommers-in-virtualworkplace-area/"
@@ -20,13 +21,15 @@ Here comes the quote from his guide:
 3. Be a better person today than you were yesterday.
 4. Learn good habits in the lab. What you do in practice becomes what you do in real life.
 5. Learn to document your lab. Documenting your work and configurations is an excellent habit to learn. I have never known anyone who complained about having too much documentation.
-6. Learn to document the changes you make in the lab. While you may not need a formal change control process for your lab, learning to document changes BEFORE you make them is an excellent habit to learn. Here are some basic examples of a change control document.<br>
-a. Reason for the change<br>
-b. What is wrong in the current environment that requires the change<br>
-c. What is the change<br>
-d. What is the impact of the change (i.e., all servers require a restart)<br>
-e. Validation of change<br>
-f. Is there a rollback plan<br>
+6. Learn to document the changes you make in the lab. While you may not need a formal change control process for your lab, learning to document changes BEFORE you make them is an excellent habit to learn. Here are some basic examples of a change control document.
+
+a. Reason for the change
+b. What is wrong in the current environment that requires the change
+c. What is the change
+d. What is the impact of the change (i.e., all servers require a restart)
+e. Validation of change
+f. Is there a rollback plan
+
 7. Do not practice stuff in the lab until you get it right once. Practice until you cannot possibly get it wrong.
 8. Remember your physical health. We I.T. people have a reputation for sitting on our rear ends all day long. Get up, get some exercise, even if it is just walking up and down the stairs. Move.
 9. Remember your physical health #2. We I.T. people have a reputation for eating junk food and rarely eating much, if any, healthy food.
@@ -42,16 +45,20 @@ f. Is there a rollback plan<br>
 19. As we did in this PDF, always do one thing at a time. Take your time, Be patient. If you make five changes at once and then test and the test fails, which of the five changes (or combination of the changes) caused the failure?
 20. There is no one right way to do anything in technology. This is the old cliché of asking 25 consultants how to automate a process or design a Citrix/Microsoft/VMware infrastructure, and you receive 25 different proposals/viewpoints/opinions. And the 25 consultants tell you why the other 24 consultants are wrong or idiots.
 21. Don't neglect people skills. Soft skills are what helps you succeed in any career. Check out this video by the fine folks at Thrive-IT. Elevating Your Soft Skills.
-22. I asked my fellow CTPs and vExperts what advice they would like to offer you.<br><br>
+22. I asked my fellow CTPs and vExperts what advice they would like to offer you.
 
-*CTPs:*<br>
+*CTPs:*
+
 **Benjamin Crill:**
+
 Always be willing to TRY a solution. You don't know that it is bad/won't work/not what you want/etc until you actually try something.
 
 **Manuel Winkel:**
+
 Work in the test environment according to the approach - trial and error - everything is possible and can be tested if it is not productive ^^
 
 **Guy Leech:**
+
 If you've got RAID arrays for some resilience against disk failure, have a hot spare where possible, and if not, at least set up practice alerting so you get notified on a disk failure. Make sure you size a UPS correctly, although mine mainly protects against occasional Residual Current Device (RCD) trips, so it only needs to provide a few minutes of power. (Webster. Check the detailed explanation of RCD at [Site issues with Earth leakage](https://www.apc.com/us/en/faqs/FA156793/).)
 
 **Julian Mooren:**
@@ -64,20 +71,25 @@ If you've got RAID arrays for some resilience against disk failure, have a hot s
 6. Don't be afraid to try/learn something completely new. Play with the solution and make yourself an impression of it. Even if it is a product from the competitor
 
 **Mads B. Petersen:**
+
 Controlling access to management, think jump host, MFA for windows logon and such, which I see many companies don't do very well.
 
 **Leee Jeffries:**
+
 Invest in yourself, get some hardware to play around with, work on the fundamentals, and focus on what interests you. You'll be surprised about how quickly you learn when you're keen to get started. Ask questions to your peers in the community; they are all friendly folks. Lastly, share what you know.
 
 *vExperts:*
 
 **Stephen Jesse:**
+
 "don't be afraid to experiment," meaning do dumb stuff here not in production, so you know why you don't do it
 
 **Pawel Kubik:**
+
 If I may, I would add just one thing, Always try to keep it simple.
 
 **Mike Martino:**
+
 Aim to be 1% better every day - small chunks of effort adds up. Especially working on things in your home lab and/or when learning and studying for a cert when there can be so much to do that you need to focus on little bits at a time to get through it.<br><br>
 
 ## Conclusions
@@ -88,7 +100,7 @@ Learning something new can be stressful, challenging, and frustrating. But it is
 
 **2022.05.29 - upodate from the field and Brian Maddedn linkedIn post**
 
-+ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal.
++ Brian Madden [thoughs](https://www.linkedin.com/pulse/brian-maddens-brutal-unfiltered-thoughts-broadcom-vmware-brian-madden/) on Broadcom/VMware deal
 + David Heinemeier [thoughts](https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0)
 
 Last update: 2022.05.30

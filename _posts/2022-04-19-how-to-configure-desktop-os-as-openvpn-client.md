@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Desktop OS as OpenVPN client"
 permalink: "/how-to-configure-desktop-os-as-openvpn-client/"

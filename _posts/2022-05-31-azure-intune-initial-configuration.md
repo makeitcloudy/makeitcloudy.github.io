@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "Azure tenant and Intune integration"
 permalink: "/azure-intune-initial-configuration/"

@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to configure Mikrotik DDNS"
 permalink: "/how-to-configure-mikrotik-DDNS/"

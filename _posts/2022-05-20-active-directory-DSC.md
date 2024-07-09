@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "DSC - Active Directory setup"
 permalink: "/active-directory-DSC/"

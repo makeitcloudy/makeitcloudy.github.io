@@ -1,4 +1,5 @@
 ---
+full-width: true
 layout: post
 title: "How to flash Asus RT-N device with FreshTomato"
 permalink: "/how-to-flash-asus-rt-n-device-with-freshtomato/"
