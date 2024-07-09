@@ -68,15 +68,21 @@ $dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -jo
 
 $outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
 Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
-
+. $outFile
 #psedit $outFile
 #endregion
 
-#region - run it 
-. $outFile
-Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbose
-# The -UpdatePowerShellHelp Parameter
+#region - Initial Setup - WorkGroup
+# The -UpdatePowerShellHelp Parameter updates powershell help on the target node
 #Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
+
+Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbose
+#endregion
+
+#region - Initial Setup - Domain
+# this section works when active directory is already setup
+Set-InitialConfigurationDsc -NewComputerName $NodeName -Option Domain -Verbose
+#endregion
 
 ```
 
