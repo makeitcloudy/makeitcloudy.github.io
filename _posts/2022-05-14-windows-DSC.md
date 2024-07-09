@@ -62,29 +62,96 @@ Run the code below.
 #Start-Process PowerShell_ISE -Verb RunAs
 #run in elevated powershell session
 
-$NodeName                      = 'testnode' #FIXME: It equals to the computername (w10mgmt in this case)
+function Set-InitialConfigDsc {
+    <#
+    .SYNOPSIS
 
-#region - initialize variables, downlad prereqs
-$dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode'
-$dsc_InitialConfigFileName     = 'InitialConfigDsc.ps1'
-$dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -join '/'
+    .DESCRIPTION
 
-$outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
-Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
-. $outFile
-#psedit $outFile
-#endregion
+    .PARAMETER NewComputerName
+    .PARAMETER Option
+    .EXAMPLE
+Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
 
-#region - Initial Setup - WorkGroup
-# The -UpdatePowerShellHelp Parameter updates powershell help on the target node
-#Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
+    .EXAMPLE
+Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
 
-Set-InitialConfigurationDsc -NewComputerName $NodeName -Option WorkGroup -Verbose
+    .LINK
+    #>
+        
+        [CmdletBinding()]
+        Param
+        (
+            [Parameter(Mandatory=$true,Position=0,ValueFromPipelineByPropertyName=$true)]
+            [ValidateNotNullOrEmpty()]
+            $NewComputerName,
+
+            [Parameter(Mandatory=$true,Position=1,ValueFromPipelineByPropertyName=$true)]
+            [ValidateNotNullOrEmpty()][ValidateSet('workgroup', 'domain')]
+            $Option
+        )
+    
+        BEGIN
+        {
+            $WarningPreference = "Continue"
+            $VerbosePreference = "Continue"
+            $InformationPreference = "Continue"
+            Write-Verbose "$env:COMPUTERNAME - $($MyInvocation.MyCommand) - InitialConfigDsc"
+            $startDate = Get-Date
+
+            #region - initialize variables, downlad prereqs
+            $dsc_CodeRepoUrl               = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode'
+            $dsc_InitialConfigFileName     = 'InitialConfigDsc.ps1'
+            $dsc_initalConfig_demo_ps1_url = $dsc_CodeRepoUrl,$dsc_InitialConfigFileName -join '/'
+
+            $outFile = Join-Path -Path $env:USERPROFILE\Documents -ChildPath $dsc_InitialConfigFileName
+            #endregion
+        }
+    
+        PROCESS
+        {
+            try {
+                Invoke-WebRequest -Uri $dsc_initalConfig_demo_ps1_url -OutFile $outFile -Verbose
+                . $outFile
+                #psedit $outFile
+            }
+            catch {
+
+            }
+
+            try {
+                #region - Initial Setup - WorkGroup
+                # The -UpdatePowerShellHelp Parameter updates powershell help on the target node
+                #Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
+
+                Set-InitialConfigurationDsc -NewComputerName $NodeName -Option $Option -Verbose
+                #endregion
+            }
+            catch {
+    
+            }
+        }
+    
+        END
+        {
+            $endDate = Get-Date
+            Write-Verbose "$env:COMPUTERNAME - $($MyInvocation.MyCommand) - Time taken: $("{0:%d}d:{0:%h}h:{0:%m}m:{0:%s}s" -f ((New-TimeSpan -Start $startDate -End $endDate)))"
+        }
+    }
+
+#$NodeName = 'testNode'
+$NodeName = '' #FIXME: It equals to the computername (w10mgmt in this case)
+
+#region - Initial Setup - Workgroup
+# For succesfull execution Domain does NOT have to be available, DNS should resolve public domains
+# Execute this piece of when configuring target node in the Workgroup
+Set-InitialConfigDsc -NewComputerName $NodeName -Option Workgroup -Verbose
 #endregion
 
 #region - Initial Setup - Domain
-# this section works when active directory is already setup
-Set-InitialConfigurationDsc -NewComputerName $NodeName -Option Domain -Verbose
+# For succesfull execution Active Directory Domain and DNS should be available
+# Execute this piece of when configuring target node, and adding it to the domain
+Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
 #endregion
 
 ```
