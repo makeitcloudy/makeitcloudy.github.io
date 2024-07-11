@@ -4,7 +4,7 @@ title: About me
 subtitle:
 ---
 
-My name is Piotr Ostrowski, I'm EUC oriented consultant. For last decade I'm involved with EUC (End User Computing) industry. As an engineer I am towards automation utilizing the PowerShell API's, imperative and declarative. My main area is Citrix Virtual Apps and Desktops, Azure Virtual Desktops, Remote Desktop Services and infrastructure, covering architecture and engineering fields. This blog is a gave back to the community.
+My name is Piotr Ostrowski, an End User Computing (EUC) oriented consultant, in IT since 18y. For last 14y involved with EUC industry. As an engineer I am towards automation utilizing the PowerShell, imperative and declarative. My main area is Citrix Virtual Apps and Desktops (CVAD), Azure Virtual Desktops (AVD), Remote Desktop Services (RDS) and infrastructure, covering architecture and engineering fields. This blog is a gave back to the community.
 
 ### A bit about me  
 
@@ -15,9 +15,10 @@ My name is Piotr Ostrowski, I'm EUC oriented consultant. For last decade I'm inv
 
 ### I like  
 
-- tinker on bikes, metal and wood
+- tinker with wood, metal and bikes
+- girevoy sport
 - listen, read and learn
-- combine people together
+- connect people together
 
 ### Technical Certifications
 
