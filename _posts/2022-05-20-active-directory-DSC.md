@@ -12,9 +12,18 @@ categories: [HomeLab ,Microsoft, DSC]
 ---
 This post is about setting up Active Directory by making use of Desired State Configuration, for home lab purposes.
 
-# 0. Links
+## 1. Links
 
-# 1. Assumptions
+### 1.1. VMtools
+
+* [Setting automatic reboots when updating the Citrix VM Tools for Windows](https://support.citrix.com/s/article/CTX292687-setting-automatic-reboots-when-updating-the-citrix-vm-tools-for-windows?language=en_US)
+* [Updates to XenServer VM Tools for Windows - For XenServer and Citrix Hypervisor](https://support.citrix.com/s/article/CTX235403-updates-to-xenserver-vm-tools-for-windows-for-xenserver-and-citrix-hypervisor?language=en_US)
+
+### 1.2. DSC code
+
+* [005_ActiveDirectory_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1)
+* [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1)
+* [ADDS_configuration.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_configuration.ps1)
 
 ## 2. XCP-ng - VM provisioning
 
@@ -23,14 +32,12 @@ This piece of code is executed via SSH directly on the XCP-ng node
 ### 2.1 XCP-ng - first domain controller
 
 ```bash
-# TESTED - succesfull execution - 2024.VI.14
 /opt/scripts/vm_create_uefi.sh --VmName 'dc01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
 ```
 
 ### 2.2 XCP-ng - second domain controller
 
 ```bash
-# TESTED - succesfull execution - 2024.VI.14
 /opt/scripts/vm_create_uefi.sh --VmName 'dc02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
 ```
 
@@ -48,6 +55,23 @@ xe vm-cd-eject vm=dc02
 ```
 
 ## 3. Windows - prerequisites
+
+## 3.0. Notes from the field
+
+* The VM clipboard does not work over the XCP-ng console.
+* The subnet where the node have the DHCP services enabled.
+* Microsoft DHCP Server within the subnet is deployed later on.
+* Then the DHCP Server within that subnet will be disabled.
+
+```powershell
+Get-NetConnectionProfile
+# Name: Network
+# InterfaceAlias: Ethernet 2
+# InterfaceIndex: 7
+# NetworkCategory: Public
+Set-NetConnectionProfile -NetworkCategory Private | Out-Null
+Set-NetFirewallRule -DisplayGroup "File and Printer Sharing" -Enabled True
+```
 
 ## 3.1. Installation of VM tools
 
@@ -68,7 +92,7 @@ $LogApp = "C:\Windows\Temp\CitrixHypervisor-9.3.3.log"
 $opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
 Get-ChildItem -Path $opticalDriveLetter
 #$Source = "$PackageName" + "." + "$InstallerType"
-$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart"
+$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart ADDLOCAL=ALL"
 
 # should throw 0
 (Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
@@ -141,7 +165,6 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 . "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
 
 ```
-
 
 ### Troubleshoot
 
