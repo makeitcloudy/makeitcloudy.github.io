@@ -76,7 +76,7 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Workgroup -Verbo
 #region - Initial Setup - Domain
 # For succesfull execution Active Directory Domain and DNS should be available
 # Execute this piece of when configuring target node, and adding it to the domain
-Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -Verbose
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName 'lab.local' -Verbose
 #endregion
 
 ```
