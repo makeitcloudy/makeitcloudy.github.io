@@ -145,7 +145,6 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 Code from the section below - [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) - Github
 
-
 ### 2.0.1 Prerequisites
 
 * The VMTools ISO is mounted to VM
@@ -200,7 +199,7 @@ Code for all below mentioned sections is aggregated in [InitialConfig.ps1](https
 
 #### 2.1.1 VMTools - installation code
 
-Continue with this section and sections below 
+Continue with this section and sections below
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -217,7 +216,8 @@ $LogApp = 'C:\Windows\Temp\CitrixHypervisor-9.3.3.log'
 $opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
 Get-ChildItem -Path $opticalDriveLetter
 #$Source = "$PackageName" + "." + "$InstallerType"
-$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart"
+# it looks that the ADDLOCAL=ALL parameter also installs the I/O related part of Management Tools
+$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart ADDLOCAL=ALL"
 
 # should throw 0
 (Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
@@ -523,9 +523,9 @@ Once done SQL Server Management Studio 20 should arise in the start menu.
 
 ## Summary
 
-It was tested on: 
+It was tested on:
 
 * Windows 10 (22H2 - 19045.4529)
 * Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
 
-Last update: 2024.07.05
+Last update: 2024.08.05

@@ -188,7 +188,7 @@ Now the efforts with the Active Directory setup can be made.
 
 ## Summary
 
-It was tested on: 
+It was tested on:
 
 * Windows 10 (22H2 - 19045.4529)
 * Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
