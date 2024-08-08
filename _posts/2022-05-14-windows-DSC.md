@@ -71,10 +71,10 @@ function Set-InitialConfigDsc {
     .PARAMETER NewComputerName
     .PARAMETER Option
     .EXAMPLE
-Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -Verbose
 
     .EXAMPLE
-Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -Verbose
 
     .LINK
     #>
@@ -120,12 +120,7 @@ Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
             }
 
             try {
-                #region - Initial Setup - WorkGroup
-                # The -UpdatePowerShellHelp Parameter updates powershell help on the target node
-                #Set-InitialConfiguration -NewComputerName $NodeName -Option WorkGroup -UpdatePowerShellHelp  -Verbose
-
-                Set-InitialConfigurationDsc -NewComputerName $NodeName -Option $Option -Verbose
-                #endregion
+                Set-InitialConfigurationDsc -NewComputerName $NewComputerName -Option $Option -Verbose
             }
             catch {
     
@@ -139,19 +134,16 @@ Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
         }
     }
 
-#$NodeName = 'testNode'
-$NodeName = '' #FIXME: It equals to the computername (w10mgmt in this case)
-
 #region - Initial Setup - Workgroup
 # For succesfull execution Domain does NOT have to be available, DNS should resolve public domains
 # Execute this piece of when configuring target node in the Workgroup
-Set-InitialConfigDsc -NewComputerName $NodeName -Option Workgroup -Verbose
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Workgroup -Verbose
 #endregion
 
 #region - Initial Setup - Domain
 # For succesfull execution Active Directory Domain and DNS should be available
 # Execute this piece of when configuring target node, and adding it to the domain
-Set-InitialConfigDsc -NewComputerName $NodeName -Option Domain -Verbose
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -Verbose
 #endregion
 
 ```
