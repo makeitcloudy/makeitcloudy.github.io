@@ -8,7 +8,7 @@ cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab ,Microsoft ,DSC]
-categories: [HomeLab ,Microsoft ,DSC]
+categories: [HomeLab, DSC, Microsoft, Mgmt]
 ---
 This Windows VM (desktop or server OS) is used as a starting point, acting as management node for the MS landscape.
 Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
@@ -33,7 +33,6 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 
 * Idempotency into the code which wraps the DSC Configuration and it's execution
 * Idempotency with the VMtools installations - check if those are installed already, if so, skip the installation process
-* *DSC  : Separate the Configuration, LCM into separate files - done*
 * WinRM: Configure the trusted host section with DSC - crucial for the scenario when the configuration is run from central node
 * OS   : Focus only on the tooling itself and it's installation
 * OS   : Find the registry keys which configures the Edge
@@ -53,25 +52,17 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 At this point it is assumed:
 
 * XCP-ng: There is SSH connectivity to the XCP-ng node from the endpoint device
-* XCP-ng: The xcp-ng scripts (used to provision vm's, mentioned above) are stored on XCP-ng node in /opt/scripts/ folder
+* XCP-ng: The XCP-ng scripts, mentioned in the Links paragraph (used to provision vm's) are stored on XCP-ng node in /opt/scripts/ folder
 * XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository
-* On your network device of choice create a static reservation for the DHCP address, until you decide to go with the static IP
-* .
-* Code is run in elevated powershell session
+* Mikrotik: On your network device of choice create reservation for the DHCP address, until you decide to go with the static IP
+* Target Node: there is one extra drive added to the VM (it keeps the tooling binaries, etc)
+* Target Node: it happens that the disk added to the VM is not connected properly to the VM on the XCP-ng, if this is the case fix it
+* Target Node: Once the VM is provisioned, run the powershell code in elevated session
 
 ```powershell
 # run a regular PowerShell session, cmd > powershell
 Start-Process PowerShell_ISE -Verb RunAs
 ```
-
-### 0.1 Assumptions - Additional Disk Disk
-
-* there is only one drive added to the VM
-* the Data disk attached is connected on XCPng
-
-### 0.2 Assumptions - XCP-ng
-
-* the scripts are copied to /opt/scripts directory
 
 ## 1. VM Installation
 
@@ -79,41 +70,38 @@ Run on XCP-ng
 
 ```bash
 # Run on XCP-ng - Desktop OS - management Node
-/opt/scripts/vm_create_uefi.sh --VmName 'mgmtNode' --VCpu 4 --CoresPerSocket 2 --MemoryGB 8 --DiskGB 40 --ActivationExpiration 90 --TemplateName 'Windows 10 (64-bit)' --IsoName 'w10ent_21H2_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:D9:00:49' --StorageName 'node4_ssd_sdg' --VmDescription 'mgmt_node'
+/opt/scripts/vm_create_uefi.sh --VmName 'c1_w10mgmt' --VCpu 4 --CoresPerSocket 2 --MemoryGB 8 --DiskGB 40 --ActivationExpiration 90 --TemplateName 'Windows 10 (64-bit)' --IsoName 'w10ent_21H2_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:19' --StorageName 'node4_ssd_sdg' --VmDescription 'c1_w10mgmt'
 
 # Run on XCP-ng - Server OS - management Node
 ```
 
-Eject OS installation media
+At this point VM is already installed. Eject OS installation media, mount VM Tools. It is assumed at this stage that the Citrix VMTools ISO is available in the ISO SR. Add extra disk.
 
 ```bash
 # Run on XCP-ng
-# eject installation media
-xe vm-cd-eject vm='mgmtNode'
-```
-
-Mount VMTools ISO
-
-```bash
-# run on XCP-ng
+# eject OS installation media
+xe vm-cd-eject vm='c1_w10mgmt'
 # .iso should be available in following location: 
 # /var/opt/xen/ISO_Store      - custom local iso storage created during the XCPng setup
 # /opt/xensource/packages/iso - default iso storage with XCPng tools
-xe vm-cd-insert vm='mgmtNode' cd-name='Citrix_Hypervisor_821_tools.iso'
-```
+xe vm-cd-insert vm='c1_w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 
-### 1.1 Add Data disk
-
-Run on XCP-ng
-
-```bash
 # run over SSH
-/opt/scripts/vm_add_disk.sh --vmName 'mgmtNode' --storageName 'node4_hdd_sdc_lsi' --diskName 'mgmtNode_DesktopOS_dataDrive' --deviceId 4 --diskGB 20  --description 'mgmtNode_DesktopOS_dataDrive'
+/opt/scripts/vm_add_disk.sh --vmName 'c1_w10mgmt' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_w10mgmt_dataDrive' --deviceId 4 --diskGB 20  --description 'w10_mgmt_dataDrive'
 ```
+
+* login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
+* alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
+* XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
+
+1. Login to the VM via RDP. XCP-ng/Xen Orchestra Console does NOT provide a clipboard yet. This is why you need the VM IP, to login there via RDP and copy the code from sections below. [Remote Desktop Manager](https://devolutions.net/remote-desktop-manager/) from Devolutions is a great fit. Still mstsc, [Remote Desktop Connection Manager](https://learn.microsoft.com/en-us/sysinternals/downloads/rdcman) will also work.
+2. Username and it's credentials has been specified in the unattended.xml file which was used to spin up the VM.
+3. When you are logged in for the first time you are asked *'Do you want to allow your PC to be discoverable by other PCs and devices in this network'* - pick whatever option you like. As you are in your home network, you can opt for yes.
+4. Do not Restart the VM yet. Collect the IP address and login via RDP.
 
 ### 1.2 Initialize disk
 
-Code from the section below - [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/initializeDisk.ps1) - Github
+ [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initializeDisk.ps1) - Link to the Github code
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -125,6 +113,7 @@ Code from the section below - [InitializeDisk.ps1](https://raw.githubusercontent
 # Z: | GPT | data drive
 
 $driveLetter = 'Z'
+$fileSystemLabel = 'dataDisk'
 Get-Disk | Select-Object Number, IsOffline
 #Initialize-Disk -Number 1 -PartitionStype GPT
 
@@ -132,25 +121,37 @@ $rawDisk = Get-Disk | Where-Object {$_.PartitionStyle -eq 'Raw'}
 $rawDisk | Initialize-Disk -PartitionStyle GPT
 New-Partition -DiskNumber $rawDisk.DiskNumber -DriveLetter $driveLetter -UseMaximumSize
 Format-Volume -DriveLetter $driveLetter -FileSystem NTFS
+Get-Volume -DriveLetter $driveLetter | Set-Volume -NewFileSystemLabel $fileSystemLabel
 Get-ChildItem -Path $($driveLetter,':' -join '')
 Get-PSDrive
 ```
 
-## 2. All the sections below agregated under single run
+## 2. HowTo
 
 When this point of the VM provisioning is reached, there are two approaches:
 
-* the code can be executed from each sections mentioned below, or 
-* the code can be run in one go, by making use of the code from the first section below:
+* The code can be run from each sections mentioned in the blogpost below, or it can one go
+* For the latter execute [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) in elevated powershell session. The code stored in this file equals the the code from the paragraph 2.0.2 - if done - skip the paragraps 2.1 and 3
+* For the RSAT installation - proceed with the code from paragraph 4. The goal is that this node performs the role of Management Node, so RSAT Tools, Admin Center, etc are desirable
+* For any Subsequent Applications and tools (SSMS, vscode, git) - proceed with the instructions from paragraph 5
 
-Code from the section below - [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) - Github
+### 2.0.1 What does the code do
 
-### 2.0.1 Prerequisites
+* It installs vmTools
+* It enables WinRM on desktop OS
+* It downloads Get-GitModule.ps1 function for the sake of downloading the modules mentioned below and then once it's there it removes is, as the Get-GitModule is available as part of the AutomatedLab, for later use, at this stage there is no module yet, right?
+* It downloads [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) module - it contains a bunch of functions which are used in the overall automation
+* It downloads [AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng) module - it brings some functionality to manage the Xen/XCP-ng by making use of PowerShell SDK.
+* It sets the power plan on the VM to high performance
 
-* The VMTools ISO is mounted to VM
+#### Prerequisites
+
 * DNS resolving public addresses
+* The VMTools ISO is mounted to VM
 
-### 2.0.2 Code
+### 2.0.2 run_initialsetup.ps1
+
+Run the code on target node in elevate powershell session. [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) - contains the code which performs the steps listed in paragraph 2.0.1.
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -178,13 +179,6 @@ Set-InitialConfiguration -Verbose
 #endregion
 
 ```
-
-### 2.0.1 What does the code above do
-
-* It installs vmTools
-* It configures winrm on desktop OS
-* It downloads AutomatedLab module from Github
-* It downloads AutomatedXCPng module from Github
 
 ### 2.1 VMTools
 
@@ -227,10 +221,12 @@ $UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($Packag
 
 ### 2.1.2 VMTools - eject media
 
+Eject the VMTools installation media.
+
 ```bash
 # Run on XCP-ng
 # eject installation media
-xe vm-cd-eject vm='mgmtNode'
+xe vm-cd-eject vm='c1_w10mgmt'
 ```
 
 ## 3. Prerequisites for the Desired State Configuration
@@ -288,7 +284,7 @@ switch($os.ProductType){
 
 ### 3.2. PowerShell Module - AutomatedLab - Download from Github
 
-At this stage there are only default modules which are included in the operating system, so making use of 
+At this stage there are only default modules which are included in the operating system, so making use of
 
 * [Get-GiModule.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/Get-GitModule.ps1) - code
 * [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
@@ -348,7 +344,11 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 #Get-Command -Module $moduleName
 ```
 
-## 4. RSAT Tools
+## 4. Management Tools
+
+RSAT, Windows Admin Center, SSMS, VScode, Git and what not.
+
+## 4.1. RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
@@ -388,45 +388,7 @@ Add-WindowsCapability -Online -Name Rsat.ServerManager.Tools~~~~0.0.1.0
 #Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0
 ```
 
-## 5. Download Prerequisites
-
-Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
-
-### 5.1. Citrix Hypervisor SDK
-
-Download Citrix Hypervisor/XenServer SDK
-
-```powershell
-# 1. Login to citrix.com
-# 2. Switch to my account
-# 3. Download XenServer 8.2.3 LTSR SDK - https://www.citrix.com/downloads/citrix-hypervisor/product-software/hypervisor-82-premium-edition-CU1.html | 
-# 3. Unblock the downloaded ZIP file - if you do not unblock the zip file you will end up with an error about something going wrong with the .dll file once importing module, once unblocked everything is fine
-# 4. Once unblocked - Extract Zip file
-
-# From the extracted zip copy the XenServerPSModule from the CitrixHypervisor-SDK\XenServerPowerShell folder to 
-
-# C:\Program Files\WindowsPowerShell\Modules directory or
-# $env:UserProfile\Documents\WindowsPowerShell\Modules for per-user configuration or 
-# $env:windir\system32\WindowsPowerShell\v1.0\Modules  for system-wide configuration
-
-# run new powershell session elevated - so it reloads the copied modules
-```
-
-### 5.2. VM Tools, XenCenter
-
-Download:
-
-* XenServer VM Tools for Windows
-* XenCenter 2024.2.0 Windows Management Console
-
-```powershell
-# hamburger menu in top right corner -> Downloads -> 
-# -> Citrix Hypervisor -> Citrix Hypervisor 8.2 LTSR CU1
-
-# download the tools - as of 2024.06 - version: 9.3.3
-```
-
-## 6. Software Installation
+## 5. Software Installation
 
 Copy to the Z: drive.
 
@@ -442,7 +404,7 @@ Copy to the Z: drive.
 * Visual Studio Code            - 
 * SQL Management Studio         - OK
 
-### 6.1. PowerShell 7.X
+### 5.1. PowerShell 7.X
 
 PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
 
@@ -451,7 +413,7 @@ PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provi
 # https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
 ```
 
-### 6.2. ImgBurn
+### 5.2. ImgBurn
 
 It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn download](https://www.imgburn.com/index.php?act=download).
 
@@ -466,7 +428,7 @@ It is used to prepare an ISO which contains XenTools. Download it from [ImgBurn 
 # destination: Citrix_Hypervisor_821_tools.iso
 ```
 
-### 6.3. FileZilla
+### 5.3. FileZilla
 
 It is used to copy the content to the Storage Repository of XCP-ng node.[FileZilla download](https://filezilla-project.org/download.php?type=client)
 
@@ -485,11 +447,11 @@ xe sr-list name-label="node4_hdd_LocalISO"
 xe sr-scan uuid="UUID of the abovementioned SR"
 ```
 
-### 6.4. Git
+### 5.4. Git
 
 Used to synchronize the code with the remote branches.
 
-### 6.5 Visual studio code
+### 5.5 Visual studio code
 
 Used to code.
 
@@ -499,7 +461,7 @@ Used to code.
 # * powershell
 ```
 
-### 6.6. SQL Management Studio
+### 5.6. SQL Management Studio
 
 Installation of SQL Management Studio
 
@@ -520,6 +482,44 @@ Start-Process -FilePath $media_path -ArgumentList $params -Wait
 ```
 
 Once done SQL Server Management Studio 20 should arise in the start menu.
+
+## 6. Download Prerequisites
+
+Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
+
+### 6.1. Citrix Hypervisor SDK
+
+Download Citrix Hypervisor/XenServer SDK
+
+```powershell
+# 1. Login to citrix.com
+# 2. Switch to my account
+# 3. Download XenServer 8.2.3 LTSR SDK - https://www.citrix.com/downloads/citrix-hypervisor/product-software/hypervisor-82-premium-edition-CU1.html | 
+# 3. Unblock the downloaded ZIP file - if you do not unblock the zip file you will end up with an error about something going wrong with the .dll file once importing module, once unblocked everything is fine
+# 4. Once unblocked - Extract Zip file
+
+# From the extracted zip copy the XenServerPSModule from the CitrixHypervisor-SDK\XenServerPowerShell folder to 
+
+# C:\Program Files\WindowsPowerShell\Modules directory or
+# $env:UserProfile\Documents\WindowsPowerShell\Modules for per-user configuration or 
+# $env:windir\system32\WindowsPowerShell\v1.0\Modules  for system-wide configuration
+
+# run new powershell session elevated - so it reloads the copied modules
+```
+
+### 6.2. VM Tools, XenCenter
+
+Download:
+
+* XenServer VM Tools for Windows
+* XenCenter 2024.2.0 Windows Management Console
+
+```powershell
+# hamburger menu in top right corner -> Downloads -> 
+# -> Citrix Hypervisor -> Citrix Hypervisor 8.2 LTSR CU1
+
+# download the tools - as of 2024.06 - version: 9.3.3
+```
 
 ## Summary
 
