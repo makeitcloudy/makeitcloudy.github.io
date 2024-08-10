@@ -122,7 +122,10 @@ Detailed explanation of the steps to prepare target node (regardless if it is a 
 
 ### 3.1. First Domain Controller
 
+#### 3.1.1. First Domain Controller - initial configuration
+
 Run the code below on the first domain controller
+**TODO:** instead of pointing the full code here, link to the github location
 
 ```powershell
 # Carl Webster code
@@ -181,6 +184,15 @@ ForEach($Subnet in $Subnets.Keys) {
 }
 
 Get-DnsServerZone | Where-Object {$_.IsAutoCreated -eq $False} | Set-DnsServerZoneAging -Aging $True -ScavengeServers $ScavengeServer -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
+
+```
+
+#### 3.1.2. First Domain Controller - AD structure
+
+Run the following code to setup the AD structure (OU, groups, users)
+**TODO:** link to the Github code which keeps the configuration
+
+```powershell
 
 ```
 
