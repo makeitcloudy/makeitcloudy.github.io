@@ -33,7 +33,6 @@ Set-NetFirewallRule -DisplayGroup "File and Printer Sharing" -Enabled True
 
 **ToDo**:
 
-
 ## Links
 
 ### VMtools
@@ -57,6 +56,7 @@ In this section, two domain controller are being setup. Run the code below on XC
 
 # Second domain controller - server core
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_dc02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
+
 ```
 
 At this point VM is already installed. At this stage it is assumed, that the Citrix VMTools ISO is available in the ISO SR.
@@ -75,6 +75,7 @@ xe vm-cd-insert vm='c1_dc01' cd-name='Citrix_Hypervisor_821_tools.iso'
 # repeat the steps on second domain controller
 xe vm-cd-eject vm='c1_dc02'
 xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
+
 ```
 
 Once done
@@ -85,12 +86,7 @@ Once done
 
 ## 2. Howto
 
-Detailed explanation of the steps is available in the two blog posts
-
-* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
-* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
-
-Run following code on each Active Directory node.
+For the quick run, on each Active Directory node, follow with the code mentioned below
 
 * [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1)
 * then once the machine is rebooted, run the code in elevated powershell session
@@ -107,6 +103,28 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 . "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
 
 ```
+
+[005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1), downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory. 
+
+* It contains the DSC script
+* Within that script there is configuration data which is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
+
+Detailed explanation of the steps to prepare target node (regardless if it is a management or active directory node) is available in the two blog posts
+
+* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
+* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
+
+## 3. Next Steps
+
+Now when the Active Directory domain is in place, you can add to the Active Directory any VM which has been spun up meanwhile. In order to do it, run the following code on the VM which should be added to ADDS:
+
+
+```powershell
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+```
+
+The details about the code are described in the blog post [windows-DSC](https://makeitcloudy.pl/windows-DSC/), paragraph 3.
 
 ### Troubleshoot
 
