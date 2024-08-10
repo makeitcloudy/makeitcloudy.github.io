@@ -39,6 +39,8 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 
 ## Links
 
+Bunch of usefull links, used within the logic:
+
 * [AutomatedXCP-ng](https://github.com/makeitcloudy/AutomatedXCP-ng/)
 * AutomatedXCP-ng [/opt/scripts/vm_create_bios.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_bios.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi.sh)
@@ -90,18 +92,22 @@ xe vm-cd-insert vm='c1_w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 /opt/scripts/vm_add_disk.sh --vmName 'c1_w10mgmt' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_w10mgmt_dataDrive' --deviceId 4 --diskGB 20  --description 'w10_mgmt_dataDrive'
 ```
 
+Once done
+
 * login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
 * alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
 * XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
 
-1. Login to the VM via RDP. XCP-ng/Xen Orchestra Console does NOT provide a clipboard yet. This is why you need the VM IP, to login there via RDP and copy the code from sections below. [Remote Desktop Manager](https://devolutions.net/remote-desktop-manager/) from Devolutions is a great fit. Still mstsc, [Remote Desktop Connection Manager](https://learn.microsoft.com/en-us/sysinternals/downloads/rdcman) will also work.
-2. Username and it's credentials has been specified in the unattended.xml file which was used to spin up the VM.
-3. When you are logged in for the first time you are asked *'Do you want to allow your PC to be discoverable by other PCs and devices in this network'* - pick whatever option you like. As you are in your home network, you can opt for yes.
-4. Do not Restart the VM yet. Collect the IP address and login via RDP.
+When the IP Address of the VM is known
+
+* Login to the VM via RDP. XCP-ng/Xen Orchestra Console does NOT provide a clipboard yet. This is why you need the VM IP, to login there via RDP and copy the code from sections below. [Remote Desktop Manager](https://devolutions.net/remote-desktop-manager/) from Devolutions is a great fit. Still mstsc, [Remote Desktop Connection Manager](https://learn.microsoft.com/en-us/sysinternals/downloads/rdcman) will also work.
+* Username and it's credentials has been specified in the unattended.xml file which was used to spin up the VM.
+* When you are logged in for the first time you are asked *'Do you want to allow your PC to be discoverable by other PCs and devices in this network'* - pick whatever option you like. As you are in your home network, you can opt for yes.
+* Do not Restart the VM yet. Collect the IP address and login via RDP.
 
 ### 1.2 Initialize disk
 
- [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initializeDisk.ps1) - Link to the Github code
+ Run [InitializeDisk.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initializeDisk.ps1). Code below equals to the one in the link to the Github repository.
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
