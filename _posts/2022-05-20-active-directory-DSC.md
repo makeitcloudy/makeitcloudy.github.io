@@ -89,7 +89,8 @@ Once done
 For the quick run, on each Active Directory node, follow with the code mentioned below
 
 * [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1)
-* then once the machine is rebooted, run the code in elevated powershell session
+* when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* then once the first machine is rebooted, run the code in elevated powershell session
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -104,6 +105,8 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 ```
 
+* when the AD deployment is finished, proceed with the same step on the second VM (which should become domain controller)
+
 [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1), downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory. 
 
 * It contains the DSC script
@@ -116,15 +119,81 @@ Detailed explanation of the steps to prepare target node (regardless if it is a 
 
 ## 3. Next Steps
 
-Now when the Active Directory domain is in place, you can add to the Active Directory any VM which has been spun up meanwhile. In order to do it, run the following code on the VM which should be added to ADDS:
 
+### 3.1. First Domain Controller
+
+Run the code below on the first domain controller
+
+```powershell
+# Carl Webster code
+$DomainName = "lab.local"
+
+### Enable Recycle bin - page 449
+Enable-ADOptionalFeature 'Recycle Bin Feature' -Scope ForestOrConfigurationSet -Target $DomainName -Confirm:$False
+
+### Set the domain's password and lockout policy
+Set-ADDefaultDomainPasswordPolicy -Identity $DomainName -PasswordHistoryCount 6 -MaxPasswordAge 90.00:00:00 -MinPasswordAge 7.00:00:00 -MinPasswordLength 8 -ComplexityEnabled $False -ReversibleEncryptionEnabled $False -LockoutDuration 00:00:00 -LockoutObservationWindow 00:00:00 -LockoutThreshold 5
+
+### Setup sites
+## here the assumption is - there are two domain controllers already
+#$ADSites2 = @()
+##create a new site
+#$ADSites = @{
+#    "134b" = "Based on Webster's Lab, 134b"
+#    "144c" = "Based on Webster's Lab, 144c"
+#}
+#ForEach($ADSite in $ADSites.Keys)
+#{
+#    $ADSites2 += $ADSite
+#    New-ADReplicationSite -Name $ADSite -Description $ADSites[$ADSite]-ProtectedFromAccidentalDeletion $True -Server $DomainName
+#}
+
+##move the new domain controller from the Default-First-Site-Name site to the new site
+#Move-ADDirectoryServer -Identity "dc01" -Site "134b"
+#Move-ADDirectoryServer -Identity "dc02" -Site "134b"
+
+##remove the Default-First-Site-Name site
+##Remove-ADReplicationSite -Identity "Default-First-Site-Name" -Confirm:$False
+#Remove-ADReplicationSite -Identity "Lab-Site" -Confirm:$False
+##create subnets and associate them with a site
+#$Subnets = @{
+#    "134b" = "10.2.134.0/24"
+#    "144c" = "10.3.144.0/24"
+#}
+#ForEach($Subnet in $Subnets.Keys) {
+#    New-ADReplicationSubnet -Name $Subnets[$Subnet] -Site $Subnet
+#}
+
+### Configure DNS
+
+$ScavengeServer = @(Get-ADDomainController).IPv4Address
+Set-DnsServerScavenging -ApplyOnAllZones -ScavengingState $True -ScavengingInterval 7.00:00:00 -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
+Set-DnsServerPrimaryZone -Name $DomainName -ReplicationScope "Forest"
+Set-DnsServerPrimaryZone -Name $DomainName -DynamicUpdate "Secure"
+
+Set-DnsServerZoneAging -Name $DomainName -Aging $True -ScavengeServers $ScavengeServer -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
+Set-DnsServerForwarder -Confirm:$False -IPAddress @('1.1.1.1','8.8.8.8','8.8.4.4') -UseRootHint $True
+#Add-DnsServerForwarder -Confirm:$False -IPAddress '8.8.8.8' -PassThru
+#Add-DnsServerForwarder -Confirm:$False -IPAddress '8.8.4.4' -PassThru
+
+ForEach($Subnet in $Subnets.Keys) {
+    Add-DnsServerPrimaryZone -NetworkID $Subnets[$Subnet] -ReplicationScope "Forest" -DynamicUpdate "Secure"
+}
+
+Get-DnsServerZone | Where-Object {$_.IsAutoCreated -eq $False} | Set-DnsServerZoneAging -Aging $True -ScavengeServers $ScavengeServer -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
+
+```
+
+### 3.2 Target VM
+
+Now when the Active Directory domain is in place, add any VM spun meanwhile, to the ADDS. In order to do it, run the following code on the target VM:
 
 ```powershell
 $domainName = 'lab.local'  #FIXME
 Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
 ```
 
-The details about the code are described in the blog post [windows-DSC](https://makeitcloudy.pl/windows-DSC/), paragraph 3.
+VM should be a member of the domain at this point. Code caveats are described in the blog post [windows-DSC](https://makeitcloudy.pl/windows-DSC/), paragraph 3.
 
 ### Troubleshoot
 
