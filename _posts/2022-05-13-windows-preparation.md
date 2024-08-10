@@ -346,7 +346,9 @@ Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
 
 ## 4. Management Tools
 
-RSAT, Windows Admin Center, SSMS, VScode, Git and what not.
+* RSAT
+* Windows Admin Center
+
 
 ## 4.1. RSAT Tools
 
@@ -390,19 +392,18 @@ Add-WindowsCapability -Online -Name Rsat.ServerManager.Tools~~~~0.0.1.0
 
 ## 5. Software Installation
 
-Copy to the Z: drive.
+Copy the software binaries to the Z: drive. Then have them installed.
 
-* AutomatedLab module           - OK
-* AutomatedXCP-ng module        - OK
-* PowerShell 5.x                - OK
-* PowerShell 7.x
-* Management Box - RSAT tooling - OK
-* XenServer PowerShell module   - OK
-* ImgBurn                       - OK
-* Filezilla                     - OK
-* Git                           - 
-* Visual Studio Code            - 
-* SQL Management Studio         - OK
+* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) module - at this stage it should be downloaded already to the C:\Program Files\WindowsPowerShell\Modules
+* [AutomatedXCP-ng](https://github.com/makeitcloudy/AutomatedXCPng) module - already downloaded to the C:\Program Files\WindowsPowerShell\Modules, by the code run in previous paragraphs
+* PowerShell 5.x
+* [PowerShell 7.x](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
+* XenServer PowerShell module
+* [ImgBurn](https://www.imgburn.com/index.php?act=download)
+* [Filezilla](https://filezilla-project.org/download.php)
+* [Git](https://git-scm.com/downloads)
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) - SQL Management Studio, [SMSS](https://learn.microsoft.com/en-us/sql/ssms/release-notes-ssms?view=sql-server-ver16#previous-ssms-releases) - previous releases
 
 ### 5.1. PowerShell 7.X
 
