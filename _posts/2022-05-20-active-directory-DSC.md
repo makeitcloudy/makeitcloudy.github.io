@@ -12,51 +12,7 @@ categories: [HomeLab ,Microsoft, DSC]
 ---
 This post is about setting up Active Directory by making use of Desired State Configuration, for home lab purposes.
 
-## 1. Links
-
-### 1.1. VMtools
-
-* [Setting automatic reboots when updating the Citrix VM Tools for Windows](https://support.citrix.com/s/article/CTX292687-setting-automatic-reboots-when-updating-the-citrix-vm-tools-for-windows?language=en_US)
-* [Updates to XenServer VM Tools for Windows - For XenServer and Citrix Hypervisor](https://support.citrix.com/s/article/CTX235403-updates-to-xenserver-vm-tools-for-windows-for-xenserver-and-citrix-hypervisor?language=en_US)
-
-### 1.2. DSC code
-
-* [005_ActiveDirectory_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) - launcher of ADDS_setup.ps1
-* [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) - ConfigData are here
-* [ADDS_configuration.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_configuration.ps1) - DSC Configuration
-
-## 2. XCP-ng - VM provisioning
-
-This piece of code is executed via SSH directly on the XCP-ng node
-
-### 2.1 XCP-ng - first domain controller
-
-```bash
-/opt/scripts/vm_create_uefi.sh --VmName 'dc01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
-```
-
-### 2.2 XCP-ng - second domain controller
-
-```bash
-/opt/scripts/vm_create_uefi.sh --VmName 'dc02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '5E:16:3e:5d:1f:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
-```
-
-### 2.3 XCP-ng - eject installation media
-
-Run once the VM's are provisioned
-
-```shell
-# eject installation media
-xe vm-cd-eject vm=dc01
-xe vm-cd-eject vm=dc02
-
-# insert VM Tools ISO
-
-```
-
-## 3. Windows - prerequisites
-
-## 3.0. Notes from the field
+**Note**:
 
 * The VM clipboard does not work over the XCP-ng console.
 * The subnet where the node have the DHCP services enabled.
@@ -73,85 +29,71 @@ Set-NetConnectionProfile -NetworkCategory Private | Out-Null
 Set-NetFirewallRule -DisplayGroup "File and Printer Sharing" -Enabled True
 ```
 
-## 3.1. Installation of VM tools
+**Goals**:
 
-Install VM tools, rename computer
+**ToDo**:
 
-```powershell
-#Install VM Tools
-#Rename Computer
-$newComputerName = 'dc01' #FIXME: the computername 
 
-$PackageName = "managementagent-9.3.3-x64" #FIXME: name depends from the version of the VM Tools
-$InstallerType = "msi"
+## Links
 
-$LogApp = "C:\Windows\Temp\CitrixHypervisor-9.3.3.log"
+### VMtools
 
-#region Install VM Tools
-#the assumption is that there is only one iso mounted, hence one drive
-$opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
-Get-ChildItem -Path $opticalDriveLetter
-#$Source = "$PackageName" + "." + "$InstallerType"
-$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart ADDLOCAL=ALL"
+* [Setting automatic reboots when updating the Citrix VM Tools for Windows](https://support.citrix.com/s/article/CTX292687-setting-automatic-reboots-when-updating-the-citrix-vm-tools-for-windows?language=en_US)
+* [Updates to XenServer VM Tools for Windows - For XenServer and Citrix Hypervisor](https://support.citrix.com/s/article/CTX235403-updates-to-xenserver-vm-tools-for-windows-for-xenserver-and-citrix-hypervisor?language=en_US)
 
-# should throw 0
-(Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
+### DSC Code
 
-#Invoke-Item -Path $LogApp
-#endregion
+* [005_ActiveDirectory_demo.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) - launcher of ADDS_setup.ps1
+* [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) - ConfigData are here
+* [ADDS_configuration.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_configuration.ps1) - DSC Configuration
 
-#region Rename Computer
-Rename-Computer -NewName $newComputerName -Restart -Force
-#endregion
+## 1. VM Installation
+
+In this section, two domain controller are being setup. Run the code below on XCP-ng over SSH.
+
+```bash
+# First domain controller - server core
+/opt/scripts/vm_create_uefi.sh --VmName 'c1_dc01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_core'
+
+# Second domain controller - server core
+/opt/scripts/vm_create_uefi.sh --VmName 'c1_dc02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:02' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_dc02_core'
 ```
 
-### 3.2. AutomatedLab Module
+At this point VM is already installed. At this stage it is assumed, that the Citrix VMTools ISO is available in the ISO SR.
 
-Download the function Get-GitModule.ps1 which:
+* Eject OS installation media, mount VM Tools
 
-1. download module from Github - in this case the AutomatedLab
-2. extract the archive to \appData\Local\Temp
-3. copty the module folder to C:\Program Files\WindowsPowerShell\Modules\[moduleName]
-4. remove the zip file - contains the full repo content
-5. remove the extracted repository - contains the psm1
+```bash
+# Run on XCP-ng over SSH
+# eject OS installation media
+xe vm-cd-eject vm='c1_dc01'
+# .iso should be available in following location: 
+# /var/opt/xen/ISO_Store      - custom local iso storage created during the XCPng setup
+# /opt/xensource/packages/iso - default iso storage with XCPng tools
+xe vm-cd-insert vm='c1_dc01' cd-name='Citrix_Hypervisor_821_tools.iso'
 
-```powershell
-# run in elevated PowerShell session
-#region initialize variables
-$scriptName     = 'Get-GitModule.ps1'
-$uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
-$path           = "$env:USERPROFILE\Documents"
-$outFile        = Join-Path -Path $path -ChildPath $scriptName
-
-$githubUserName = 'makeitcloudy'
-$moduleName     = 'AutomatedLab'
-#endregion
-
-# download function Get-GitModule.ps1
-Set-Location -Path $path
-Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
-#psedit $outFile
-
-#region run
-# load function into memory
-#. .\Get-GitModule
-. $outFile
-
-Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
-#endregion
-
-#removal of the function
-Remove-Item -Path $outFile -Force -Verbose
-
-# troubleshooting
-#Get-Module -Name $moduleName -ListAvailable
-#Get-Command -Module $moduleName
-
+# repeat the steps on second domain controller
+xe vm-cd-eject vm='c1_dc02'
+xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
 ```
 
-### 3.3. Desired State Configuration
+Once done
 
-Run on each VM acting as domain controller
+* login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
+* alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
+* XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
+
+## 2. Howto
+
+Detailed explanation of the steps is available in the two blog posts
+
+* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
+* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
+
+Run following code on each Active Directory node.
+
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1)
+* then once the machine is rebooted, run the code in elevated powershell session
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -168,18 +110,19 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 ### Troubleshoot
 
+Those type of issues are much easier to troubleshoot on Windows Server with Desktop Experience. Never the less here are some paths where the code is stored
+
 ```powershell
 psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
 psedit "$env:USERPROFILE\Documents\ADDS_setup.ps1"
 psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
 ```
 
-## XCP-ng - eject VM tools installation media
+## Summary
 
-Run in XCP-ng
+It was tested on:
 
-```shell
-# eject installation media
-xe vm-cd-eject vm=dc01_core
-xe vm-cd-eject vm=dc02_core
-```
+* Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
+
+Last update: 2024.08.10
+

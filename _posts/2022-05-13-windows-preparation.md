@@ -68,7 +68,7 @@ Start-Process PowerShell_ISE -Verb RunAs
 
 ## 1. VM Installation
 
-Run on XCP-ng
+In this section, one management node is setup. Run the code below on XCP-ng over SSH.
 
 ```bash
 # Run on XCP-ng - Desktop OS - management Node
@@ -77,10 +77,13 @@ Run on XCP-ng
 # Run on XCP-ng - Server OS - management Node
 ```
 
-At this point VM is already installed. Eject OS installation media, mount VM Tools. It is assumed at this stage that the Citrix VMTools ISO is available in the ISO SR. Add extra disk.
+At this point VM is already installed. It is assumed at this stage that the Citrix VMTools ISO is available in the ISO SR
+
+* Eject OS installation media, mount VM Tools
+* Add extra disk
 
 ```bash
-# Run on XCP-ng
+# Run on XCP-ng over SSH
 # eject OS installation media
 xe vm-cd-eject vm='c1_w10mgmt'
 # .iso should be available in following location: 
@@ -88,7 +91,7 @@ xe vm-cd-eject vm='c1_w10mgmt'
 # /opt/xensource/packages/iso - default iso storage with XCPng tools
 xe vm-cd-insert vm='c1_w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 
-# run over SSH
+# add extra disk
 /opt/scripts/vm_add_disk.sh --vmName 'c1_w10mgmt' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_w10mgmt_dataDrive' --deviceId 4 --diskGB 20  --description 'w10_mgmt_dataDrive'
 ```
 
