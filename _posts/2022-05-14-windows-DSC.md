@@ -31,11 +31,11 @@ This Windows based VM is used as a starting point, acting as management node for
 * OS   : Find the registry keys which configures the Edge
 * WinRM: Configure the trusted host section with DSC
 
-## 0. Links
+## Links
 
 * .
 
-## 1. Assumptions
+## 0. Assumptions
 
 * Your network device of choice consists a DHCP reservation for the IPv4 Address, until you decide to go with the static IP - for the VM being configured at the moment
 * DNS used by the VM can resolve the public Internet addresses
@@ -45,20 +45,23 @@ This Windows based VM is used as a starting point, acting as management node for
 
 ## 2. Howto
 
-### 2.1 Run an elevated powershell ISE instance
+Run following code in elevated ISE session
 
 ```powershell
-# run PowerShell session
-Start-Process PowerShell_ISE -Verb RunAs
+# how to start an elevated powershell session
+cmd
+powershell
+Start-Process PowerShell -Verb RunAs
 ```
 
-### 2.2 Run following code in elevated ISE session.
+Run the code from the section which suits particular scenario.
 
-It creates [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1) in $env:USERPROFILE\Documents directory.
+* At this stage there is no domain yet
+* Once the domain is setup, run the code from the paragaph 2.2
 
-Run the code below.
+### 2.1. Scenario - VM in Workgroup
 
-### Scenario - VM in Workgroup
+Run it, when the VM should stay in the workgroup, or there is no Active Directory domain setup yet.
 
 ```powershell
 # Start-Process PowerShell_ISE -Verb RunAs
@@ -77,7 +80,9 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Workgroup -Verbo
 
 ```
 
-### Scenario - Domain Joined VM
+### 2.2. Scenario - Domain Joined VM
+
+Run it, when VM should be domain joined.
 
 ```powershell
 # Set-InitialConfigDsc is part of the AutomatedLab module
@@ -105,9 +110,14 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 #endregion
 ```
 
-### 2.3. What does the code above do
+## 3. Set-InitialConfigDsc.ps1
+
+The Set-InitialConfigDsc.ps1 function leads to the file [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1), stored in GitHub. It references the [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1), which has a DSC configuration content split into workgroup and domain usecase. Those are feed in from the [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) file. Once run
+
+### 3.0. What does the code do
 
 * It initialize all variables for succesfull code execution
+* It creates the folders structure for the DSC compilations, etc - $env:SYSTEMDRIVE\dsc
 * It downloads the powershell functions and configuration
 * It downloads [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
 * It downloads [ConfigureLCM.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureLCM.ps1) from github and store in $env:SYSTEMDRIVE\dsc\config\localhost\InitialSetup
@@ -118,19 +128,13 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 * It configures the LCM
 * It starts the actual configuration of the node
 
-## 3. Set-InitialConfigDsc.ps1
-
-The Set-InitialConfigDsc.ps1 function leads to the file [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1), stored in GitHub. It references the [ConfigureNode.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigureNode.ps1), which has a DSC configuration content split into workgroup and domain usecase. Those are feed in from the [ConfigData.psd1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) file. Once run
-
-```powershell
-Set-InitialConfigurationDsc -NewComputerName $env:computername -Option WorkGroup -Verbose
-```
+It creates [InitialConfigDsc.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfigDsc.ps1) in $env:USERPROFILE\Documents directory.
 
 the target node should have:
 
 * ~~new name, which equals to the $NewComputerName variable~~ - this is covered within the initial configuration, during the execution of [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), in the [InitialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) - section 3.5
 * disabled IPv6 address
-* defined trusted hosts
+* ~~defined trusted hosts~~ - it is not needed within this deployment scenario
 * WinRM service running
 
 Now the efforts with the [Active Directory DSC](https://makeitcloudy.pl/active-directory-DSC/) setup, can be made.
