@@ -132,7 +132,8 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 * The code can be run from each sections mentioned in the blogpost below, or it can one go
 * For the latter execute [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) in elevated powershell session. The code stored in this file equals the the code from the paragraph 2.0.2 - if done - skip the paragraps 2.1 and 3
-* For the RSAT installation - proceed with the code from paragraph 4. The goal is that this node performs the role of Management Node, so RSAT Tools, Admin Center, etc are desirable
+* Once done proceed with the steps described in the blogpost [Windows-DSC](https://makeitcloudy.pl/windows-DSC/)
+* For the RSAT installation - proceed with the code from paragraph 4. The goal is that this node performs the role of Management Node, so RSAT Tools, Admin Center, etc are desirable 
 * For any Subsequent Applications and tools (SSMS, vscode, git) - proceed with the instructions from paragraph 5
 
 ### 2.0.1 What does the code do
