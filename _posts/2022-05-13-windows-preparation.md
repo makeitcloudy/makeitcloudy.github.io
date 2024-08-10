@@ -143,6 +143,8 @@ When this point of the VM provisioning is reached, there are two approaches:
 * It downloads [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) module - it contains a bunch of functions which are used in the overall automation
 * It downloads [AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng) module - it brings some functionality to manage the Xen/XCP-ng by making use of PowerShell SDK.
 * It sets the power plan on the VM to high performance
+* It renames the VM with the name provided during the code execution (it queries for the NewNodeName during the script execution)
+* It restarts the Node
 
 #### Prerequisites
 
@@ -151,7 +153,7 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 ### 2.0.2 run_initialsetup.ps1
 
-Run the code on target node in elevate powershell session. [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) - contains the code which performs the steps listed in paragraph 2.0.1.
+Run the code on target node in elevate powershell session. The function [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) leads to the github code of *InitialConfig.ps1*, which contains the code performing the steps listed in paragraph 2.0.1.
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
