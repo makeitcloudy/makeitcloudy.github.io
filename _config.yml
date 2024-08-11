@@ -25,10 +25,9 @@ navbar-links:
 #    - Bicep: ""
 #    - PowerShell: ""
   Topics:
-    - Mikrotik: "https://makeitcloudy.pl/tags/#Mikrotik"
-    - FreshTomato: "https://makeitcloudy.pl/tags/#FreshTomato"
-    - OpenVPN: "https://makeitcloudy.pl/tags/#OpenVPN"
-    - XCP-ng:  "https://makeitcloudy.pl/tags/#XCP-ng"
+    - HomeLab: "https://makeitcloudy.pl/tags/#HomeLab"
+    - Networking: "https://makeitcloudy.pl/tags/#Networking"
+    - Tag Index: "https://makeitcloudy.pl/tags/"
 #    - RDS: ""
 
   Projects:
