@@ -41,8 +41,8 @@ Only initial DSC configuration is held here, once the Active Directory domain is
 
 Bunch of usefull links, used within the logic:
 
-* [AutomatedXCP-ng](https://github.com/makeitcloudy/AutomatedXCP-ng/)
-* AutomatedXCP-ng [/opt/scripts/vm_create_bios.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_bios.sh)
+* [AutomatedXCP-ng](https://github.com/makeitcloudy/AutomatedXCP-ng/) - the PowerShell module, it contains bunch of functions which helps with XCP-ng administration, it is downloaded during the execution of the logic to the management node, which is provisioned within current blog post
+* AutomatedXCP-ng [/opt/scripts/vm_create_bios.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_bios.sh) - it is assumed that the *vm_create* scripts are stored on the XCP-ng host already within the */opt/scripts* directory
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi_secureBoot.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi_secureBoot.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_add_disk.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_add_disk.sh)
@@ -55,7 +55,7 @@ At this point it is assumed:
 
 * XCP-ng: There is SSH connectivity to the XCP-ng node from the endpoint device
 * XCP-ng: The XCP-ng scripts, mentioned in the Links paragraph (used to provision vm's) are stored on XCP-ng node in /opt/scripts/ folder
-* XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository
+* XCP-ng: Citrix Hypervisor tools are available on the ISO SR repository (*/var/opt/xen/ISO_Store*  - custom local iso storage created during the XCPng setup) and (*/opt/xensource/packages/iso* - default iso storage with XCPng tools)
 * Mikrotik: On your network device of choice create reservation for the DHCP address, until you decide to go with the static IP
 * Target Node: there is one extra drive added to the VM (it keeps the tooling binaries, etc)
 * Target Node: it happens that the disk added to the VM is not connected properly to the VM on the XCP-ng, if this is the case fix it
@@ -68,7 +68,7 @@ Start-Process PowerShell_ISE -Verb RunAs
 
 ## 1. VM Installation
 
-In this section, one management node is setup. Run the code below on XCP-ng over SSH.
+In this section, one VM which plays management node role, is setup. Run the code below on XCP-ng over SSH. The original source of the code: [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - section *Windows - Desktop OS - Initial Configuration - Management Node - w10mgmt*
 
 ```bash
 # Run on XCP-ng - Desktop OS - management Node

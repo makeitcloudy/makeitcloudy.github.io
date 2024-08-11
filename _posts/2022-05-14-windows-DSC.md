@@ -56,7 +56,7 @@ Start-Process PowerShell -Verb RunAs
 
 Run the code from the section which suits particular scenario.
 
-* At this stage there is no domain yet
+* At this stage there is no domain yet, that's why proceed with the code from paragraph 2.1
 * Once the domain is setup, run the code from the paragaph 2.2
 
 ### 2.1. Scenario - VM in Workgroup
