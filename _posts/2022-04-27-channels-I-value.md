@@ -7,8 +7,8 @@ subtitle: "There is a load of good content spread around"
 cover-img: /assets/img/cover/img-cover-lab.png
 thumbnail-img: /assets/img/thumb/img-thumb-papers.jpg
 share-img: /assets/img/cover/img-cover-lab.png
-tags: [ReadmeFirst ,HomeLab]
-categories: [ReadmeFirst ,HomeLab]
+tags: [ReadmeFirst]
+categories: [ReadmeFirst]
 ---
 
 Good content for your home labbing experience, mainly blogs and Youtube.

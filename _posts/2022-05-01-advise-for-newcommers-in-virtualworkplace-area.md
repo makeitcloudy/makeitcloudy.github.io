@@ -7,8 +7,8 @@ subtitle: "Virtual Workplace aka EUC is not always a bread and butter"
 cover-img: /assets/img/cover/img-cover-path.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-readme.jpg
 share-img: /assets/img/cover/img-cover-path.jpg
-tags: [ReadmeFirst, HomeLab, EUC]
-categories: [RedmeFirst, HomeLab, EUC]
+tags: [ReadmeFirst, EUC]
+categories: [RedmeFirst, EUC]
 ---
 Those advises are not mine, but supporting them very much. I wish I knew them earlier. Those come from the End User Computing Veteran (hat's off) Carl Webster, supported by community members, who are spreading and sharing their knowledge and experience. Carl had created his very well detailed guide [Building Webster's lab V2.pdf](https://carlwebster.com/building-websters-lab-v2/) - page 1312 of his guide for the EUC lab builders. He has spent 706 men hours creating this.
 

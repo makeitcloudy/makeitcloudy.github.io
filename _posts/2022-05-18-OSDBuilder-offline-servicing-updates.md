@@ -18,7 +18,6 @@ If you decide to follow along, you will end up with updated ISO images, which wi
 + modern management [blog](https://www.moderndeployment.com/quick-start-guide-windows-10-waas-servicing-updates-via-osdbuilder/)
 + makeitcloudy [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)
 + manelrodero [github](https://github.com/manelrodero/OSDBuilder)
-
 + getvpro [blog](https://getvpro.wordpress.com/2022/04/06/custom-offline-iso-windows-deployment-method-as-a-packer-alternative/)
 + getvpro [github](https://github.com/getvpro/Standard-WinBuilds/tree/master/Offline_Builds/Autounattend_xml)
 
@@ -52,6 +51,7 @@ In case there is a previous version installed, you have uninstall it first, ther
 + Deployment Tools (contains oscdimg.exe - in case your only goal is to burn the updated image, during the ADK installation pick only this option feature from the installation gui)
 
 The components below can be used, though are not necessary if the sole purpose is to burn the iso, and autounattend.xml is already prepared
+
 + Image and Configuration Designer
 + Configuration Designer
 + User State Migration Tool

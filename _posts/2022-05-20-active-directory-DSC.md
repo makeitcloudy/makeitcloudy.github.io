@@ -52,7 +52,11 @@ The DSC, Configuration and Script are stored within the following links:
 
 ## 1. VM Installation
 
-In this section, two domain controller are being setup. Run the code below on XCP-ng over SSH. The original source of the code: [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - section *Windows - Server OS - 2x Domain Controller - Server Core*
+In this section, two domain controller are setup.
+
+### 1.1. Provision VM
+
+Run the code below on XCP-ng over SSH. The original source of the code: [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - section *Windows - Server OS - 2x Domain Controller - Server Core*
 
 ```bash
 # First domain controller - server core
@@ -63,9 +67,14 @@ In this section, two domain controller are being setup. Run the code below on XC
 
 ```
 
-At this point VM is already installed. At this stage it is assumed, that the Citrix VMTools ISO is available in the ISO SR.
+At this point:
 
-* Eject OS installation media, mount VM Tools
+* VM is already installed.
+* It is assumed, that the Citrix VMTools ISO is available in the ISO SR.
+
+#### 1.2. Install VM tools
+
+Eject OS installation media, mount VM Tools
 
 ```bash
 # Run on XCP-ng over SSH
@@ -82,19 +91,18 @@ xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Once done
+Now:
 
 * login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
 * alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
 * XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
 
-## 2. Howto
+## 2. Active Directory - setup ADDS Role
 
 For the quick run, on each Active Directory node, follow with the code mentioned below
 
-* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1)
-* when asked, put the *dc01* for the first domain controller, and *dc02* for the second
-* then once the first machine is rebooted, run the code in elevated powershell session
+1. [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+2. then once the first machine is rebooted, run the code in elevated powershell session. This piece of code deploy the Active Directory
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -109,98 +117,47 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 ```
 
-* when the AD deployment is finished, proceed with the same step on the second VM (which should become domain controller)
+3. when the AD deployment is finished, proceed with the same steps on the second VM (which is planned to become a domain controller)
 
-[005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1), downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory. 
+### 2.1. Details about the code
 
-* It contains the DSC script
-* Within that script there is configuration data which is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
+#### 2.1.1 ActiveDirectory_demo.ps1
+
+The [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) script, downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory.
+
+#### 2.1.1 ADDS_setup.ps1
+
+* It contains the DSC script, DSC Configuration is included within the script
+* The configuration data is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
 
 Detailed explanation of the steps to prepare target node (regardless if it is a management or active directory node) is available in the two blog posts
 
 * [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
 * [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
 
-## 3. Next Steps
+## 3. Active Directory - configuration
 
+It's time for the Active Directory configuration (DNS, OU's, various objects).
 
-### 3.1. First Domain Controller
+The code below comes from the [Carl Webster - Building Websters's Lab v.2.1](https://www.carlwebster.com/building-websters-lab-v2-1/). Chapter 16 - Create Active Directory, contains the commandlets which are agregated in the [ADDS_CarlWebster_initialConfig.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1).
 
-#### 3.1.1. First Domain Controller - initial configuration
+### 3.1. Active Directory - initial configuration
 
-Run the code below on the first domain controller
-**TODO:** instead of pointing the full code here, link to the github location
+Run the code, on first domain controller: [ADDS_CarlWebster_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1) - it will be replicated across the controllers, without your intervention.
 
-```powershell
-# Carl Webster code
-$DomainName = "lab.local"
+* It enables Recycle Bin
+* It setup the password and lockout policy
+* ~~It setup Sites~~
+* It configures DNS scavenging and forwarders
 
-### Enable Recycle bin - page 449
-Enable-ADOptionalFeature 'Recycle Bin Feature' -Scope ForestOrConfigurationSet -Target $DomainName -Confirm:$False
+### 3.2. Active Directory - structure
 
-### Set the domain's password and lockout policy
-Set-ADDefaultDomainPasswordPolicy -Identity $DomainName -PasswordHistoryCount 6 -MaxPasswordAge 90.00:00:00 -MinPasswordAge 7.00:00:00 -MinPasswordLength 8 -ComplexityEnabled $False -ReversibleEncryptionEnabled $False -LockoutDuration 00:00:00 -LockoutObservationWindow 00:00:00 -LockoutThreshold 5
+Run the code: [ADDS_structure.ps1]()
+**TODO** - update the code link
 
-### Setup sites
-## here the assumption is - there are two domain controllers already
-#$ADSites2 = @()
-##create a new site
-#$ADSites = @{
-#    "134b" = "Based on Webster's Lab, 134b"
-#    "144c" = "Based on Webster's Lab, 144c"
-#}
-#ForEach($ADSite in $ADSites.Keys)
-#{
-#    $ADSites2 += $ADSite
-#    New-ADReplicationSite -Name $ADSite -Description $ADSites[$ADSite]-ProtectedFromAccidentalDeletion $True -Server $DomainName
-#}
+* It  setup the AD structure (OU, groups, users)
 
-##move the new domain controller from the Default-First-Site-Name site to the new site
-#Move-ADDirectoryServer -Identity "dc01" -Site "134b"
-#Move-ADDirectoryServer -Identity "dc02" -Site "134b"
-
-##remove the Default-First-Site-Name site
-##Remove-ADReplicationSite -Identity "Default-First-Site-Name" -Confirm:$False
-#Remove-ADReplicationSite -Identity "Lab-Site" -Confirm:$False
-##create subnets and associate them with a site
-#$Subnets = @{
-#    "134b" = "10.2.134.0/24"
-#    "144c" = "10.3.144.0/24"
-#}
-#ForEach($Subnet in $Subnets.Keys) {
-#    New-ADReplicationSubnet -Name $Subnets[$Subnet] -Site $Subnet
-#}
-
-### Configure DNS
-
-$ScavengeServer = @(Get-ADDomainController).IPv4Address
-Set-DnsServerScavenging -ApplyOnAllZones -ScavengingState $True -ScavengingInterval 7.00:00:00 -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
-Set-DnsServerPrimaryZone -Name $DomainName -ReplicationScope "Forest"
-Set-DnsServerPrimaryZone -Name $DomainName -DynamicUpdate "Secure"
-
-Set-DnsServerZoneAging -Name $DomainName -Aging $True -ScavengeServers $ScavengeServer -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
-Set-DnsServerForwarder -Confirm:$False -IPAddress @('1.1.1.1','8.8.8.8','8.8.4.4') -UseRootHint $True
-#Add-DnsServerForwarder -Confirm:$False -IPAddress '8.8.8.8' -PassThru
-#Add-DnsServerForwarder -Confirm:$False -IPAddress '8.8.4.4' -PassThru
-
-ForEach($Subnet in $Subnets.Keys) {
-    Add-DnsServerPrimaryZone -NetworkID $Subnets[$Subnet] -ReplicationScope "Forest" -DynamicUpdate "Secure"
-}
-
-Get-DnsServerZone | Where-Object {$_.IsAutoCreated -eq $False} | Set-DnsServerZoneAging -Aging $True -ScavengeServers $ScavengeServer -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00
-
-```
-
-#### 3.1.2. First Domain Controller - AD structure
-
-Run the following code to setup the AD structure (OU, groups, users)
-**TODO:** link to the Github code which keeps the configuration
-
-```powershell
-
-```
-
-### 3.2 Target VM
+# 4. Target VM
 
 Now when the Active Directory domain is in place, add any VM spun meanwhile, to the ADDS. In order to do it, run the following code on the target VM:
 
@@ -209,7 +166,11 @@ $domainName = 'lab.local'  #FIXME
 Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
 ```
 
-VM should be a member of the domain at this point. Code caveats are described in the blog post [windows-DSC](https://makeitcloudy.pl/windows-DSC/), paragraph 3.
+It should result with the VM added to the domain.
+
+**TODO** - check if the Set-InitialConfigDsc works after the VM reboot, not sure if the script should not be loaded into memory first...
+
+Code caveats are described in the blog post [windows-DSC](https://makeitcloudy.pl/windows-DSC/), paragraph 3.
 
 ### Troubleshoot
 
