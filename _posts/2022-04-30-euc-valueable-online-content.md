@@ -7,8 +7,8 @@ subtitle: "Bunch of online links with valuable content to expand knowledge in EU
 cover-img: /assets/img/cover/img-cover-bouquet.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-papers.jpg
 share-img: /assets/img/cover/img-cover-bouquet.jpg
-tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
-categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
+tags: [ReadmeFirst, HomeLab, EUC]
+categories: [ReadmeFirst, HomeLab, EUC]
 ---
 There is plenty of valuable content on the internet, which is created by the community, here are some of them which are worth following or watching. Keep calm and [do puzzles](https://www.redbubble.com/shop/jackson+pollock+jigsaw-puzzles).
 It's impossible to list all names of great people who produce the valuable content and link it in one place, never the less it is a good starting point. The question which remains is the order to lay this down, constructively in memory. Apart from that each of us has it's topics which attracts him or her the most and it is the Team who builds the Virtual Workplace solutions, not the lonesome wariors or stars.

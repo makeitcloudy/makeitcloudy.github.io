@@ -7,10 +7,10 @@ subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
-categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
+tags: [Networking, Mikrotik ,OpenVPN]
+categories: [Networking, Mikrotik, OpenVPN]
 ---
-In this scenario the regular traffic is routed through the Internet, where the target networks defined within the static routes, are traversed over the OpenVPN tunnel. The connection takes place between two Mikrotik devices, where the client reach the Internet over lte1 interface. 
+In this scenario the regular traffic is routed through the Internet, where the target networks defined within the static routes, are traversed over the OpenVPN tunnel. The connection takes place between two Mikrotik devices, where the client reach the Internet over lte1 interface.
 
 ## Prerequisites
 
@@ -18,7 +18,6 @@ In this scenario the regular traffic is routed through the Internet, where the t
 + Mikrotik RB/CCR device
 + NTP server configured properly, so the time and date is in sync
 + The Mikrotik OpenVPN server configured [How to configure Mikrotik OpenVPN Server - RouterOS 6](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/)
-
 
 ## Backgroupnd
 
@@ -107,6 +106,7 @@ Open Mikrotik terminal, change variables below if needed, and paste into Mikroti
 ```
 
 Now it's time to upload the certificates which was prepared for the client during the openVPN Server setup.
+
 + Winbox -> Files -> Upload three certificates (cert_export_Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.crt, cert_export_ovpn-Client1@Mikrotik.key)
 
 ```shell
@@ -180,7 +180,7 @@ In case the routes for some reason are not configured dynamically, add static ro
 ### Configuration - add static routes
 
 + On the OpenVPN Client device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN server.
-+ On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client. 
++ On the OpenVPN Server device - On top of existing configuration add static routes towards the networks which are nated behind your OpenVPN client.
 
 ```shell
 ## dst-address is the network on the other side of the tunnel
@@ -194,6 +194,7 @@ On top of that **bring your firewall rules**.
 ## Debug
 
 In case something does not work, or you get the TLS error, [check this first(https://openvpn.net/faq/tls-error-tls-key-negotiation-failed-to-occur-within-60-seconds-check-your-network-connectivity/).
+
 ```shell
 /system logging add topics=ovpn,debug,!packet
 /system rule print

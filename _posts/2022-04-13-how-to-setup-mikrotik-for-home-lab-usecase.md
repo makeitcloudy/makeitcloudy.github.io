@@ -7,8 +7,8 @@ subtitle: "There are plenty of alternative ways reaching this, but still mikroti
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking]
-categories: [HomeLab ,Networking]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 *As of 2022.05.26 - it is draft due to the fact that there are just too many ways of doing it, which differs per device line like CCR, CRS3XX vs CRS2XX/1XX and RB multiplied by L2 and L3 approaches*
 

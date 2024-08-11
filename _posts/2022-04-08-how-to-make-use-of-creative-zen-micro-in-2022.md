@@ -7,8 +7,8 @@ subtitle: "Right, you can still synchronize data with this great product without
 cover-img: /assets/img/cover/img-cover-zen.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-zen.jpg
 share-img: /assets/img/cover/img-cover-zen.jpg
-tags: [Audio ,Misc, Legacy]
-categories: [Audio ,Misc, Legacy]
+tags: [Audio, Misc, Zen]
+categories: [Audio,Misc, Zen]
 ---
 It's a pity that this line is not supported anymore on Windows, thankfully it's trivial to make use of it under linux.
 

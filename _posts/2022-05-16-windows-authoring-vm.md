@@ -7,8 +7,8 @@ subtitle: "Setup Desired State Configuration Authoring box"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab ,Microsoft]
-categories: [HomeLab ,Microsoft]
+tags: [HomeLab, Microsoft]
+categories: [HomeLab, Microsoft]
 ---
 This Windows 10 VM is used for authoring the Desired State Configuration configurations.
 

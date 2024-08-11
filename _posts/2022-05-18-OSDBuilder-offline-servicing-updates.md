@@ -7,8 +7,8 @@ subtitle: "Prepare the updated Windows ISO's for the homelab usecase"
 cover-img: /assets/img/cover/img-cover-lab.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-lab.jpg
-tags: [HomeLab ,Windows, OSD, Imaging]
-categories: [HomeLab ,Windows, OSD, Imaging]
+tags: [HomeLab, Windows, OSD]
+categories: [HomeLab, Windows, OSD]
 ---
 If you decide to follow along, you will end up with updated ISO images, which will install in unattended way.
 

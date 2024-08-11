@@ -7,11 +7,10 @@ subtitle: "First XCPng VM for XenOrchestra compiled from sources"
 cover-img: /assets/img/cover/img-cover-xen.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-xpng8.png
 share-img: /assets/img/cover/img-cover-xen.jpg
-tags: [HomeLab ,Debian ,XCP-ng]
-categories: [HomeLab ,Debian ,XCP-ng]
+tags: [HomeLab, XCP-ng, Debian]
+categories: [HomeLab, XCP-ng, Debian]
 ---
 The hypervisor of choice is XCP-ng. This guide has not been invented by me, it is a written version of the material available on [YouTube - XCP-ng CLI creating a VM](https://www.youtube.com/watch?v=y4PJqvFCGZ0) by HomeTinyLab.
-
 
 ## Assumptions
 
@@ -129,7 +128,7 @@ socat TCP-LISTEN:9000 UNIX-CONNECT:/var/run/xen/vnc-35
 ### Leave the connection open
 ```
 
-#### Linux 
+#### Linux
 
 Configure the SSH tunnel to the port where the hypervisor is listening on
 
@@ -242,8 +241,9 @@ xe vm-list params=name-label,power-state,networks,os-version,VCPUs-max,memory-st
 ## Summary
 
 Tested on 2024.06.25
-* hypervisor: XCP-ng 8.2.1
-* VM: Debian 12.5
-* endpoint: manjaro 24.0.1 Wynsdey
+
++ hypervisor: XCP-ng 8.2.1
++ VM: Debian 12.5
++ endpoint: manjaro 24.0.1 Wynsdey
 
 Last update: 2024.06.25

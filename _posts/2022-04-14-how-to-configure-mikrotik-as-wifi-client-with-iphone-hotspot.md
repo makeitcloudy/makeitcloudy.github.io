@@ -7,8 +7,8 @@ subtitle: "When you are roaming or need a quick backup for your main Internet wi
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mobile is your hotspot, RouterBoard is wifi client. I could not make it work (951G with Iphone6 Plus) over USB tethering, some says that with Android device the USB tethering works. The Lte1 interface did not show up that's why the wifi way was the option.
 

@@ -7,8 +7,8 @@ subtitle: "How to onboard Windows Desktop to Intune"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-azure.png
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab, XCP-ng, Windows]
-categories: [HomeLab, XCP-ng, Windows]
+tags: [HomeLab, Microsoft, Azure]
+categories: [HomeLab, Microsoft, Azure]
 ---
 There is no need to buy Intune licenses in order to perform tests in home lab. There is automated lab provisioning way available from Microsoft which is designed to be working on the hyper-v.
 It contains few virtual switches which grants the machines access to the internet, plus a bunch of machines which acts as:

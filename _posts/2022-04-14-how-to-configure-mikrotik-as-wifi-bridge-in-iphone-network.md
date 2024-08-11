@@ -7,14 +7,15 @@ subtitle: "Mikrotik acts as the interface converter, your dev machine in the sam
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 It's not the most secure way, but can be used as a good starting point for further improvements. It works with iphone and android devices which are your hot spots and the Mikrotik is the client. Mikrotik acts as interface converter and bridge, no routing functionality. Mobile is your hotspot, RouterBoard along with all devices connected to the ethenet ports are your iphone clients.
 
 ## A bit of background
 
-One of the blog reader Arturus had a usecase, where he needs to get his dev device within the same network range as the iphone. There is a server within the the network, along with the dev device connected via LAN cables to the devices, no masquerade, all devices served via IP addresses comming from the iphone. The network mask is 255.255.255.240 on the iphone hotspot, which means that 13 devices + mikrotik should be able to be handled by the iOS.<br>
+One of the blog reader Arturus had a usecase, where he needs to get his dev device within the same network range as the iphone. There is a server within the the network, along with the dev device connected via LAN cables to the devices, no masquerade, all devices served via IP addresses comming from the iphone. The network mask is 255.255.255.240 on the iphone hotspot, which means that 13 devices + mikrotik should be able to be handled by the iOS.
+
 In case there are L2 protocols which are used to communicate between devices, and the mikrotik should play the role of the interface converter, or one is willing to use cable connectivity, it may be the solution for you.
 
 By default the iOS 15.7 serves the 172.20.10.1/28.
@@ -32,8 +33,7 @@ I've seen it disconnecting from the mobile, once the display of the device turn 
 
 I'm sure there are better ways to achieve similar functionality, if this is the case reach out towards MUM or colleagues who shares the Mikrotik knowledge on youtube.
 
-1. perform the backup of your existing configuration, and export it to safe place.
-
+1. **perform the backup of your existing configuration, and export it to safe place**
 2. unplug the power cord out of your device
 3. press the res button and plug the power cord to the device, until it's configuration is reset to the default (the device will be playing the switch role, no routing functionality)
 4. connect to the device via winbox, and during the initial connection choose to option **not** to use any default configuration

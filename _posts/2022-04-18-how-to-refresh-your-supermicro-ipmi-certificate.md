@@ -7,8 +7,8 @@ subtitle: "OpenSSL will bring some grip, here and there"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
-tags: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
-categories: [HomeLab ,Certificates ,SSL ,IPMI ,Supermicro]
+tags: [HomeLab, Supermicro, Ipmi, Certificates, SSL]
+categories: [HomeLab, Supermicro, Ipmi, Certificates, SSL]
 ---
 *As of 2022.04.16 - draft*
 

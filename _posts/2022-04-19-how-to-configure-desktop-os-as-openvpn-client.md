@@ -7,8 +7,8 @@ subtitle: "OpenVPN tunnel between your desktop Operating system and OpenVPN serv
 cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-tunnel.jpg
-tags: [HomeLab ,Networking ,OpenVPN]
-categories: [HomeLab ,Networking ,OpenVPN]
+tags: [Networking, OpenVPN]
+categories: [Networking, OpenVPN]
 ---
  In this example the OpenVPN tunnel is set up between the Mikrotik OpenVPN server and the OpenVPN client installed on Linux or Windows Desktop Operating system. It's the protocol which should match, it does not matter on top of what compute layer it operates on unless both ends can talk it's language.
 

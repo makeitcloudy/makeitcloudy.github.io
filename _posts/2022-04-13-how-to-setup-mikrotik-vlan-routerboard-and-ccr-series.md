@@ -7,8 +7,8 @@ subtitle: "There are plenty of alternative vendors, but still as of now, mikroti
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 RouterBoard is sufficient for most use cases. It can be the heart of your home lab, unless you pass great amount of traffic which utilize the who throughput of the wires, then there are better product series, like CCR or CRSXXX.
 The logic mentioned within this article also applies to CCR series (at least as it goes for the VLAN configuration).
@@ -21,7 +21,8 @@ The logic mentioned within this article also applies to CCR series (at least as 
 ## Rules
 
 + There is great change you will cut off yourself from the device, if you do not take care about the order. Comparing to the CCR or CRS series, you have to be much carefull with the configuration steps. Use the safe mode within winbox, save the configuration frequently, when you progress with it, so it is easily possible to revert to it's previous state when you make the pitfall. There is no serial port, sometimes your only option is to reset the config to it's defaults and restore the configuration from backup, to it's previous state.
-+ When you reset the device to its default configuration, and you apply the initial configuration comming from the vendor, it applies the firewall configuration. Bare in mind that within the configuration showed in this blog post, you need to take care about the Interface list assignments. This configuration will guarantee that you get access to manage the device from the vlan1342 and vlan1345, which are bound to the ether2 and ether5. If this is not in place then the firewall rule which is assigned by default to the device, will drop those frames, and you won't get access.<br>
++ When you reset the device to its default configuration, and you apply the initial configuration comming from the vendor, it applies the firewall configuration. Bare in mind that within the configuration showed in this blog post, you need to take care about the Interface list assignments. This configuration will guarantee that you get access to manage the device from the vlan1342 and vlan1345, which are bound to the ether2 and ether5. If this is not in place then the firewall rule which is assigned by default to the device, will drop those frames, and you won't get access.
+
 By default you can see that someone who wrote the initial script which is being served to you takes care about the bridge level access, so you are save until the point of time, when you get rid of the PVID1 from the bridge. Frequenly, those devices are just plugged in, and someone assign the DHCP on top of the bridge (which also seems to be the default configuration), and all devices connected to the RouterBoard via the ethernet ports are within the same broadcast domain, and you can manage the device via winbox, when you are connected to any of the RB ports within that bridge.
 
 ```bash

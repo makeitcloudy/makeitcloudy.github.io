@@ -7,8 +7,8 @@ subtitle: "When you are roaming or need a quick alternative for your main Intern
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 This examples shows how to distribute the LTE via the regular ethernet ports, wifi is disabled here. It works with LTE USB stick Huawei 3372, which is also doing it's job on FreshTomato.
 

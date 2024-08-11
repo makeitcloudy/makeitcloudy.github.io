@@ -7,8 +7,8 @@ subtitle: "Router OS 7.3.1"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
-categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
+tags: [Networking, Mikrotik, OpenVPN]
+categories: [Networking, Mikrotik, OpenVPN]
 ---
 This is an updated version of previous blog post which was describing [how to configure OpenVPN server on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-server-ros6/), which brings the updates towards ROS 7.X. Please read this post before applying those settings, unless you can ammend current configuration accordingly to suit your needs.
 
@@ -165,7 +165,9 @@ export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ## clear the console history to get rid of sensitive information
 /console clear-history
 ```
+
 At this stage the certificates should look like this
+
 ```shell
 /certificate print
 Flags: K - PRIVATE-KEY; L - CRL; A - AUTHORITY; I, R - REVOKED; T - TRUSTED
@@ -184,11 +186,15 @@ NameOfyourMikrotikDevice - equals
 /system identity get name
 ```
 
-USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)<br><br>
-The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
-cert_export_[nameOfyourMikrotikDevice] - CA cert<br>
-cert_export_[$USERNAME].cert<br>
-cert_export_[$USERNAME].key<br>
+USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)
+
+The OpenVPN Server piece is done. Created certificates can be found in Files.
+
+cert_export_[nameOfyourMikrotikDevice] - CA cert
+
+cert_export_[$USERNAME].cert
+
+cert_export_[$USERNAME].key
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 

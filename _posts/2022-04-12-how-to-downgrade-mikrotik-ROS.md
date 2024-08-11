@@ -7,8 +7,8 @@ subtitle: "When you consider changing branches"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 At the time of writing this blog post the long term release of the Router OS is 6.48.6, where the stable version of ROS 7 is 7.3.1. Downgrade from 7.X to 6.X requires downloading the .npk package from the mikrotik website.
 

@@ -7,8 +7,8 @@ subtitle: "How to configure git"
 cover-img: /assets/img/cover/img-cover-git.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-code.png
 share-img: /assets/img/cover/img-cover-git.jpg
-tags: [ReadmeFirst ,Github ,IaC]
-categories: [ReadmeFirst ,Github ,IaC]
+tags: [ReadmeFirst, Github, IaC]
+categories: [ReadmeFirst, Github, IaC]
 ---
 It's worth putting some attention on making use of git to manage your code and projects, instead of using offline versioning on the filesystem level. When one reach some amount of code, it's just a life saver to move away from chaos. Right, up to some extend ISE will be enough, never the less if you strive towards IaC any features and support from the dev tools and it's extensions, will help a lot.
 
@@ -20,8 +20,8 @@ It's worth putting some attention on making use of git to manage your code and p
 
 ## Configure Git
 
-1. Run brand new PowerShell console just in case to reinitiate the environmental variables for the console context.
-2. Run following commands within your PowerShell console
++ Run brand new PowerShell console just in case to reinitiate the environmental variables for the console context.
++ Run following commands within your PowerShell console
 
 ```powershell
 git --version
@@ -33,7 +33,7 @@ git config --global color.ui true
 git config --list
 ```
 
-3. Create folder on the filesystem which is your local copy of the github repository
++ Create folder on the filesystem which is your local copy of the github repository
 
 ```powershell
 New-Item -Path $env:SystemDrive\Git -ItemType Directory
@@ -42,7 +42,7 @@ Set-Location -Path $env:SystemDrive\Git
 
 ## Use Git
 
-4. Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally) like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
++ Now you can start cloning your repository (navigate via the web browser to the repository which you'd like to clone locally) like [AutomatedRDS](https://github.com/makeitcloudy/AutomatedRDS) and hit the green icon called 'Code' and copy the link of the repository to clipboard.
 
 ```powershell
 git clone https://github.com/makeitcloudy/AutomatedRDS.git
@@ -52,17 +52,17 @@ Set-Location -Path .\AutomatedRDS\
 Get-ChildItem .\.git\
 ```
 
-5. Update cloned repository
-6. Stage updates (for instance with the Visual Studio Code GUI)
-7. Commit
-8. Sync Changes
++ Update cloned repository
++ Stage updates (for instance with the Visual Studio Code GUI)
++ Commit
++ Sync Changes
 
 Starting this point of time your local repository is your single source of truth and this is the place where you make changes and upload them remotelly. When you jump to another device and update your repository
 
-9. Fetch the repository.
-10. Pull updates from the repository.
-11. Start updating it.
-12. Then stage, commit and sync changes.
++ Fetch the repository.
++ Pull updates from the repository.
++ Start updating it.
++ Then stage, commit and sync changes.
 
 ## Following actions
 

@@ -7,8 +7,8 @@ subtitle: "Provided you have a combination of products which brings that functin
 cover-img: /assets/img/cover/img-cover-radio.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-wire.jpg
 share-img: /assets/img/cover/img-cover-radio.jpg
-tags: [Wireless ,Networking ,Misc]
-categories: [Wireless ,Networking ,Misc]
+tags: [Wireless, Networking, Misc]
+categories: [Wireless, Networking, Misc]
 ---
 In case you are interested in lowering the amount of wireless traffic in your nearby, there is an option.
 

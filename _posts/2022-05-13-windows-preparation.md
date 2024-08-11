@@ -7,8 +7,8 @@ subtitle: "Semi-manual prerequisites preparation on management VM"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab ,Microsoft ,DSC]
-categories: [HomeLab, DSC, Microsoft, Mgmt]
+tags: [HomeLab, Microsoft ,DSC]
+categories: [HomeLab, Microsoft, DSC]
 ---
 This Windows VM (desktop or server OS) is used as a starting point, acting as management node for the MS landscape.
 Only initial DSC configuration is held here, once the Active Directory domain is in place, the whole DSC work is aranged on dedicated authoring VM.
@@ -163,7 +163,7 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 ### 2.0.2 run_initialsetup.ps1
 
-Run the code on target node in elevate powershell session. The function [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) leads to the github code of *InitialConfig.ps1*, which contains the code performing the steps listed in paragraph 2.0.1.
+Run the code on target node in elevate powershell session. The *run_initialSetup.ps1* script contains function [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) which leads to the github code of *InitialConfig.ps1*, it contains the code performing the steps listed in paragraph 2.0.1.
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -192,46 +192,7 @@ Set-InitialConfiguration -Verbose
 
 ```
 
-### 2.1 VMTools
-
-The installation process for the VMTools consists of:
-
-1. Mount/Insert ISO
-2. Proceed with the installation
-3. Unmount/Eject ISO
-4. Reboot VM (seems it needs to be rebooted twice).
-
-Code for all below mentioned sections is aggregated in [InitialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1), held within regions. That's why it is not splited into pieces like the sections mentioned above. That will only tripple the effort to update it in case something is modified.
-
-#### 2.1.1 VMTools - installation code
-
-Continue with this section and sections below
-
-```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
-# run in elevated powershell session
-
-# https://support.citrix.com/article/CTX222533/install-xenserver-tools-silently
-# https://forums.lawrencesystems.com/t/xcp-ng-installing-citrix-agent-for-windows-via-powershell-script/13855
-
-$PackageName = 'managementagent-9.3.3-x64'
-$InstallerType = 'msi'
-
-$LogApp = 'C:\Windows\Temp\CitrixHypervisor-9.3.3.log'
-
-$opticalDriveLetter = (Get-CimInstance Win32_LogicalDisk | Where-Object {$_.DriveType -eq 5}).DeviceID
-Get-ChildItem -Path $opticalDriveLetter
-#$Source = "$PackageName" + "." + "$InstallerType"
-# it looks that the ADDLOCAL=ALL parameter also installs the I/O related part of Management Tools
-$UnattendedArgs = "/i $(Join-Path -Path $opticalDriveLetter -ChildPath $($PackageName,$InstallerType -join '.')) ALLUSERS=1 /Lv $LogApp /quiet /norestart ADDLOCAL=ALL"
-
-# should throw 0
-(Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -Passthru).ExitCode
-#Invoke-Item -Path $LogApp
-
-```
-
-### 2.1.2 VMTools - eject media
+## 3. Eject media
 
 Eject the VMTools installation media.
 
@@ -241,126 +202,10 @@ Eject the VMTools installation media.
 xe vm-cd-eject vm='c1_w10mgmt'
 ```
 
-## 3. Prerequisites for the Desired State Configuration
-
-### 3.1. Configure WinRM
-
-WinRM should some attention on the Desktop OS. Regardless that piece of code should be run on Desktop OS and Server OS management nodes.
-
-```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
-#Rename-Computer -NewName 'w10mgmt' -Force -Restart
-#$winRMServiceName = 'winRM' 
-
-#check if CurrentUser is enough or LocalMachine is the correct one
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
-
-# check if it is a desktop operating system
-# in case it is then change the execution policy
-$os = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $ComputerName
-switch($os.ProductType){
-    '1' {
-            Write-Output 'DesktopOS'
-            #if((Get-Service -Name $winRMServiceName).Status -match 'Stopped'){
-            #    Write-Warning "WinRM service is stopped"
-            #    Start-Service -Name $winRMServiceName
-            
-            #region - NetConnectionProfile - set to private
-            try {
-                Write-Information 'Set NetConnectionProfile to Private'
-                Set-NetConnectionProfile -NetworkCategory Private | Out-Null
-                #Get-Item WSMan:\localhost\Client\TrustedHosts #empty
-            }
-            catch {
-
-            }
-            #endregion
-
-            #region - Enable PS Remoting
-            try {
-                Enable-PSRemoting -Verbose
-            }
-            catch {
-
-            }
-            
-            #endregion
-        }
-    '3' {
-            Write-Output 'ServerOs'
-            # PS Remoting seems to be configured already for the succesfull execution
-        }
-}
-
-```
-
-### 3.2. PowerShell Module - AutomatedLab - Download from Github
-
-At this stage there are only default modules which are included in the operating system, so making use of
-
-* [Get-GiModule.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/Get-GitModule.ps1) - code
-* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
-
-```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
-# run in elevated PowerShell session
-#region initialize variables
-$scriptName     = 'Get-GitModule.ps1'
-$uri            = 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode',$scriptName -join '/'
-$path           = "$env:USERPROFILE\Documents"
-$outFile        = Join-Path -Path $path -ChildPath $scriptName
-
-$githubUserName = 'makeitcloudy'
-$moduleName     = 'AutomatedLab'
-#endregion
-
-#region download function Get-GitModule.ps1
-Set-Location -Path $path
-Invoke-WebRequest -Uri $uri -OutFile $outFile -Verbose
-#psedit $outFile
-
-# load function into memory
-. $outFile
-Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
-#endregion
-
-#removal of the function
-Remove-Item -Path $outFile -Force -Verbose
-
-# troubleshooting
-#Get-Module -Name $moduleName -ListAvailable
-#Get-Command -Module $moduleName
-```
-
-### 3.3. PowerShell Module - AutomatedXCPng - Download from Github
-
-At this point AutomatedLab is already downloaded and extracted to PowerShell module repository, hence available commandlets. 
-
-* [AutomatedLab](https://github.com/makeitcloudy/AutomatedLab) - Github repository
-* [AutomatedXCPng](https://github.com/makeitcloudy/AutomatedXCPng) - Github repository
-
-* AutomatedXCPng - PowerShell module to orchestrate XCP-ng / XenServer. For it to work properly it has a prerequisite of CitrixHypervisor SDK to be available on the system.
-
-```powershell
-# run in elevated PowerShell session
-# follow the guidelines: https://github.com/makeitcloudy/AutomatedXCPng
-# There prerequisite for the AutomatedXCPng to work properly is - Citrix Hypervisor Powershell Module / SDK
-
-$githubUserName = 'makeitcloudy'
-$moduleName     = 'AutomatedXCPng'
-
-Get-GitModule -GithubUserName $githubUserName -ModuleName $moduleName -Verbose
-
-# troubleshooting
-#Get-Module -Name $moduleName -ListAvailable
-#Get-Command -Module $moduleName
-```
-
 ## 4. Management Tools
 
 * RSAT
 * Windows Admin Center
-
 
 ## 4.1. RSAT Tools
 

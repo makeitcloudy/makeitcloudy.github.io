@@ -7,14 +7,14 @@ subtitle: "XO Community edition to orchestra your XCP-ng on debian 12.5"
 cover-img: /assets/img/cover/img-cover-xen.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-xpng8.png
 share-img: /assets/img/cover/img-cover-xen.jpg
-tags: [HomeLab ,Debian ,XCP-ng]
-categories: [HomeLab ,Debian ,XCP-ng]
+tags: [HomeLab, XCP-ng, XenOrchestra, Debian]
+categories: [HomeLab, XCP-ng, XenOrchestra, Debian]
 ---
 The hypervisor of choice for this lab is XCP-ng.
 
 ## Links
 
-* [Xen Orchestra - installation from sources](https://xen-orchestra.com/docs/installation.html#from-the-sources)
++ [Xen Orchestra - installation from sources](https://xen-orchestra.com/docs/installation.html#from-the-sources)
 
 ### Storage
 
@@ -195,7 +195,8 @@ service orchestra status
 ## Summary
 
 Tested on:
-* Debian 12.5
-* XCP-ng 8.2.1
+
++ Debian 12.5
++ XCP-ng 8.2.1
 
 Last update: 2024.06.24

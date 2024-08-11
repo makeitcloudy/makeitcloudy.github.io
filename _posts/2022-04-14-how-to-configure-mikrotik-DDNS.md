@@ -7,8 +7,8 @@ subtitle: "External DDNS provider, not the Mikrotik cloud approach"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,DDNS, Mikrotik]
-categories: [HomeLab ,Networking ,DDNS, Mikrotik]
+tags: [Networking, Mikrotik, DDNS]
+categories: [Networking, Mikrotik, DDNS]
 ---
 There are few ways which this can be achieved. The simplest way is to use Mikrotik Cloud, by enabling one *IP->Cloud->DDNS enabled* within the Winbox GUI. Another option is to reach out towards the third party provider with the use of curl, and update their systems with the information of Mikrotik WAN IP address. Another option is that you have some device behind your NAT, which is doing that for you like freshTomato, or raspberryPI or whatever else.
 
@@ -52,7 +52,8 @@ add address=2.pl.pool.ntp.org
 
 If you are in disposal of your own domain, then you may create the pointer which will be redirecting your domain or a subdomain towards that randomized number assigned to you from Mikrotik cloud. In case you are not having one, read along
 
-2. Afraid DNS, along with other DDNS providers allow you creating free accounts, and creating subdomains, within the list of domains which they expose. Once you create one, you can get the [direct URL](https://freedns.afraid.org/dynamic/) for your subdomain.<br>
+2. Afraid DNS, along with other DDNS providers allow you creating free accounts, and creating subdomains, within the list of domains which they expose. Once you create one, you can get the [direct URL](https://freedns.afraid.org/dynamic/) for your subdomain.
+
 FreeDNS from afraid exposes https://freedns.afraid.org/dynamic/update.php?__UNIQUE_STRING__ which you need to pull in order to update the IP entry within their mapping. In order to do that execute following command
 
 ```shell
@@ -63,8 +64,7 @@ FreeDNS from afraid exposes https://freedns.afraid.org/dynamic/update.php?__UNIQ
 add dont-require-permissions=no name=ddns_afraiddns owner=[MIKROTIK_ADMIN_USER] policy=read,write,test source="/tool fetch mode=https url=\"https://freedns.afraid.org\" http-data=\"dynamic/update.php\\\?[__UNIQUE_STRING__]\" keep-result=no"
 ```
 
-Once this is done the script should be scheduled.<br>
-If your IP address changes frequently then you may consider lowering the interval in this case, 36h is more than enough.
+Once this is done the script should be scheduled. If your IP address changes frequently then you may consider lowering the interval in this case, 36h is more than enough.
 
 ```shell
 /system scheduler

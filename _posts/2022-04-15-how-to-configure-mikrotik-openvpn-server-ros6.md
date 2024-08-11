@@ -7,13 +7,17 @@ subtitle: "Router OS 6.48.6"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
-categories: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
+tags: [Networking, Mikrotik, OpenVPN]
+categories: [Networking, Mikrotik, OpenVPN]
 ---
 Setting up another virtual interface on Mikrotik is not that difficult provided you know how to do it. OpenSSL installed on your Desktop can be handy to remove the password protection from key in case you are making use of it on the FreshTomato client or you don't want your OpenVPN client to provide it during the phase of establishing a connection to your VPN server.
 
 ## Prerequisites
 
++ DDNS name or static IP address on the WAN interface
++ Mikrotik RB/CCR device
++ the NTP server configured properly, so the time and date is in sync
++ details about the network segments on the other side of the tunnel, to configure the routes properly
 + DDNS configuration on top of your dynamic IP address or static IP address
 + Mikrotik Routerboard/CCR device
 + NTP server configured properly, so the time and date is in sync
@@ -22,10 +26,13 @@ Setting up another virtual interface on Mikrotik is not that difficult provided 
 
 ## Background
 
-I'm not an expert of any means in that area, use it at your own risk.<br>
+I'm not an expert of any means in that area, use it at your own risk.
+
 This example shows how to configure the OpenVPN server in semiautomated fashion, based on the Long Term Mikrotik router OS version 6.48.6 (as for the time of writing this blog post).
-Newer releases of Router OS offers extra parameters which are not included within current 6.X version, configuration described within this blog post should work on ROS 7.X, never the less I'm not recommending using it that way.<br>
-Current configuration will also work on 7.X releases, I'm sure that with the use of TLS 1.2 or more advanced hashing algirithms instead of sha1 it can be made more secure.<br>
+Newer releases of Router OS offers extra parameters which are not included within current 6.X version, configuration described within this blog post should work on ROS 7.X, never the less I'm not recommending using it that way.
+
+Current configuration will also work on 7.X releases, I'm sure that with the use of TLS 1.2 or more advanced hashing algirithms instead of sha1 it can be made more secure.
+
 OpenVPN tunnel can be established betwen the devices with different ROS major versions.
 
 ### NAT
@@ -91,13 +98,6 @@ New-TimeSpan -Start $now -end $(get-date('01.19.2025'))
 + the network ranges on the OpenVPN server side and the OpenVPN client *differs from each other* it may have an issue to work if both subnets are the same
 + once the openVPN is configured *add the correct routes on the device which plays the OpenVPN server, as well as on the OpenVPN client side* (routes should dst towards the networks on the other side of the tunnel and your gateway would be your openvpn interface)
 + the OpenVPN network range is within the 10.0.6.0/24 (here I assume that your router has 5 ethernet interfaces and the virtual interface which is openVPN is the next available network range, still there is another assumption that you are using the 24 network mask here)
-
-### Prerequisites
-
-+ DDNS name or static IP address on the WAN interface
-+ Mikrotik RB/CCR device
-+ the NTP server configured properly, so the time and date is in sync
-+ details about the network segments on the other side of the tunnel, to configure the routes properly
 
 ### Configuration - defining variables
 
@@ -234,11 +234,15 @@ NameOfyourMikrotikDevice - equals
 /system identity get name
 ```
 
-USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)<br><br>
-The OpenVPN Server piece is done. Created certificates can be found in Files.<br>
-cert_export_[nameOfyourMikrotikDevice] - CA cert<br>
-cert_export_[$USERNAME].cert<br>
-cert_export_[$USERNAME].key<br>
+USERNAME equals the name of your first OpenVPN Client (in this example ovpn-Client1)
+
+The OpenVPN Server piece is done. Created certificates can be found in Files.
+
+cert_export_[nameOfyourMikrotikDevice] - CA cert
+
+cert_export_[$USERNAME].cert
+
+cert_export_[$USERNAME].key
 
 Download the exported certificates, and make use of them on the OpenVPN client device.
 
@@ -334,7 +338,7 @@ sign client-template-to-issue ca="$CN" name="$USERNAME@$CN"
 export-certificate "$USERNAME@$CN" export-passphrase="$PASSWORDCERTPASSPHRASE"
 ```
 
-Once certificates are exported 
+Once certificates are exported
 
 ```shell
 /file print

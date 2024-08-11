@@ -7,8 +7,8 @@ subtitle: "Router OS 7.3.1"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik ,OpenVPN]
-categories: [HomeLab ,Networking ,Mikrotik, OpenVPN]
+tags: [Networking, Mikrotik, OpenVPN]
+categories: [Networking, Mikrotik, OpenVPN]
 ---
 This blog post is a follow-up of another blog post which was describing [how to configure Mikrotik OpenVPN client on ROS 6.X](https://makeitcloudy.pl/how-to-configure-mikrotik-openvpn-client-ros6/)
 

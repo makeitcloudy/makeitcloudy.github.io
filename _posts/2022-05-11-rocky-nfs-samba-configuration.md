@@ -7,8 +7,8 @@ subtitle: "Rocky 9.4 NFS and Samba setup - ISO repository for XCP-ng"
 cover-img: /assets/img/cover/img-cover-linux-rocky.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-rocky.png
 share-img: /assets/img/cover/img-cover-linux-rocky.jpg
-tags: [HomeLab , Rocky, XCP-ng]
-categories: [HomeLab , Rocky, XCP-ng]
+tags: [HomeLab, XCP-ng, Rocky]
+categories: [HomeLab, XCP-ng, Rocky]
 ---
 
 Here are the steps how to set up Rocky 9.4 as Samba and NFS share for XCP-ng and it's VMs.
@@ -279,6 +279,7 @@ At this point, you should be able to reach the abovementioned paths over SMB
 ## Conclusions
 
 Tested on:
+
 * Rocky 9.4
 * XCP-ng 8.2.1
 

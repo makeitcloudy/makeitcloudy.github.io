@@ -7,8 +7,8 @@ subtitle: "Service images with Segura OSD"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
-tags: [HomeLab ,Microsoft]
-categories: [HomeLab ,Microsoft]
+tags: [HomeLab ,Microsoft, OSD]
+categories: [HomeLab ,Microsoft, OSD]
 ---
 This VM is used for Servicing the ISO files.
 
@@ -49,7 +49,6 @@ Goals:
 * ADK
 
 * extra disk: ISO and OSDBuilder results - O:\ drive
-
 
 ## 1. Provisioning
 

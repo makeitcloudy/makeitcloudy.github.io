@@ -7,8 +7,8 @@ subtitle: "Bunch of usefull books and tools"
 cover-img: /assets/img/cover/img-cover-lab.png
 thumbnail-img: /assets/img/thumb/img-thumb-library.png
 share-img: /assets/img/cover/img-cover-lab.png
-tags: [ReadmeFirst ,HomeLab ,EUC ,Books , Tools]
-categories: [ReadmeFirst ,HomeLab, EUC ,Books , Tools]
+tags: [ReadmeFirst ,HomeLab ,EUC]
+categories: [ReadmeFirst ,HomeLab, EUC]
 ---
 Still it's worth spending money on books, which brings you non-scattered content, which can be supplemented with the latest updates comming from the great documentation from the venrods, or not. Thank you [Carl](https://www.carlstalhood.com/) and [Bas Van Kaam](https://www.basvankaam.com/my-books/).
 
@@ -100,9 +100,7 @@ A Step-by-Step Guide on deploying Desktop-as-a-Service solutions from Microsoft,
 + Citrix [License usage](https://github.com/aspicola2605/citrixlicenseusage)
 
 + Phil Bossman - PowerShell Desktop Engineering Tips n Tricks PSADT [youtube](https://www.youtube.com/watch?v=aNONnhWXEnQ), [twitter](https://twitter.com/hashtag/PSADT?src=hashtag_click)
-
 + Alexander Schuller - Modern workplace, wifi and ICA - splunkApp [linkedin](https://www.linkedin.com/pulse/modern-workplace-wi-fi-signal-quality-bad-application-sch%25C3%25BCller/)
-
 + Vmware Workstation vmxtoolkit [github](https://github.com/bottkars/vmxtoolkit)
 
 + HSF [Http File Server](www.rejetto.com/hfs) - the other way to share your files

@@ -7,11 +7,12 @@ subtitle: "OpenSSL 3.0.9 FIPS and 1.1.1"
 cover-img: /assets/img/cover/img-cover-padlock.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-padlock.jpg
 share-img: /assets/img/cover/img-cover-padlock.jpg
-tags: [HomeLab ,Certificates ,SSL ,Rocky, Debian]
-categories: [HomeLab ,Certificates ,SSL, Rocky, Debian]
+tags: [HomeLab, Rocky, Debian, Certificates, SSL]
+categories: [HomeLab, Rocky, Debian, Certificates, SSL]
 ---
 OpenSSL library is used for:
-* self signed certificates, chainining certificates within each other, removing secrets from private keys, etc. 
+
+* self signed certificates, chainining certificates within each other, removing secrets from private keys, etc
 * it is just more convinient to perform it outside of the Mikrotik or NetScaler box, especially for one who is not doing this in regular basis
 
 ## Background
@@ -28,7 +29,7 @@ OpenSSL library is used for:
 
 ## Prerequisites
 
-+ preferably, machine with linux
+* preferably, machine with linux
 
 1. Install Debian / Rocky
 2. Install VM tools

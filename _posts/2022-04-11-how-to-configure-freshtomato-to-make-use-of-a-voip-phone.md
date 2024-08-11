@@ -7,8 +7,8 @@ subtitle: "A bit of a hussle, never less it made it work"
 cover-img: /assets/img/cover/img-cover-phone.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
 share-img: /assets/img/cover/img-cover-phone.jpg
-tags: [Networking ,FreshTomato ,VoIP]
-categories: [Networking ,FreshTomato ,VoIP]
+tags: [Networking, FreshTomato, VoIP]
+categories: [Networking, FreshTomato, VoIP]
 ---
 Even though it is not very popular in 2022, some still make use of VoIP phones, which are reliable as tanks unless configured properly. Even though previously it was working flawlessly, this time it cost me a bit of time to make it work.
 
@@ -28,8 +28,9 @@ The VoIP device interface, does not differ much between each other, if you have 
 + Configure your router, so it assigns an IP address and DNS servers to the phone
 + Was not very succesful for some reason with some cloud flare dns servers, that's why the voip phone is using the OpenDNS servers
 + Once the router configuration is in place, just to be on the safe side, perform the backup of it's configuration and restart the device, then plug the phone and wait for it's registration. If everything is fine, then it should let's you establish an incoming call to it's number which may be comming from your VoIP provider or your own PBX system.
-+ **SIP-ALG** - here the confusion comes, plenty threads are suggesting that you need to disable this, by unchecking it within the interface of your router in the Advanced tab -> Contrack/NetFilter -> Tracking/NAT Helpers - uncheck SIP.<br>
-On Mikrotik it indeed do it's trick and the phone registers to the VoIP provider, as well as it immediatelly allows incoming calls. The overall experience if seamless.<br>
++ **SIP-ALG** - here the confusion comes, plenty threads are suggesting that you need to disable this, by unchecking it within the interface of your router in the Advanced tab -> Contrack/NetFilter -> Tracking/NAT Helpers - uncheck SIP.
+
+On Mikrotik it indeed do it's trick and the phone registers to the VoIP provider, as well as it immediatelly allows incoming calls. The overall experience if seamless.
 
 ```bash
 # regardless of the mikrotik series, the SIP-ALG once disabled, causes the your VoIP phone works flawlessly

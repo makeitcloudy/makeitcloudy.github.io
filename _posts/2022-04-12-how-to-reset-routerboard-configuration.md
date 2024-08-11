@@ -7,8 +7,8 @@ subtitle: "It's still the routerboard, but approaches slightly differ between pr
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 Even though it is still the routerboard it slightly differ from device to device.
 The method works, when there is no access to the device, or you have cut off yourself during the configuration.

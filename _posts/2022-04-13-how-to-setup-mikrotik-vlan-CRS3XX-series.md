@@ -7,8 +7,8 @@ subtitle: "CRS3XX just do it's job pretty well, when it goes for switching"
 cover-img: /assets/img/cover/img-cover-mikrotik.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-mikrotik.png
 share-img: /assets/img/cover/img-cover-mikrotik.jpg
-tags: [HomeLab ,Networking ,Mikrotik]
-categories: [HomeLab ,Networking ,Mikrotik]
+tags: [Networking, Mikrotik]
+categories: [Networking, Mikrotik]
 ---
 This series of mikrotik devices, can handle your regular VM traffic, as well as your storage traffic. Never the less 10G devices seems to be a better fit for homelab usecase. Not perfect, but good enough.
 

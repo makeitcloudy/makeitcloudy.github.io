@@ -7,7 +7,7 @@ subtitle: "How to take the benefit of jekyll engine to create your blog in 10min
 cover-img: /assets/img/cover/img-cover-git.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-typewriter.jpg
 share-img: /assets/img/cover/img-cover-git.jpg
-tags: [Github ,Blog]
+tags: [Github, Blog]
 categories: [Github, Blog]
 ---
 It's very convinient to take the benefit of jekyll engine to manage the content in your blog. Posts along with the whole structure, can be developed within the Vistual Studio Code and the blog posts are constructed in the markdown language, pushed directly to your github account, where the jekyll CI/CD pipeline is doing the remaining work to recompile those and have them exposed as your blog entries. Straightforward, and very usefull.

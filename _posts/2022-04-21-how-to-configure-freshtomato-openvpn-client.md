@@ -7,8 +7,8 @@ subtitle: "Paired with FreshTomato it is based on TLS1.3, Mikrotik - TLS1.2"
 cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-openvpn.png
 share-img: /assets/img/cover/img-cover-tunnel.jpg
-tags: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
-categories: [HomeLab ,Networking ,FreshTomato ,OpenVPN]
+tags: [Networking, FreshTomato, OpenVPN]
+categories: [Networking, FreshTomato, OpenVPN]
 ---
 This example is divided into three pieces. First describes the configuration for the tunnel between two FreshTomato flashed devices, next two sections combines FreshTomato client and Mikrotik Server, Router OS 7 and Router OS 6. It bases on lastest available releases of the software at the time of writing this post, which is 2022.3, Router OS 6.48.6 and 7.3.1.
 
@@ -82,7 +82,7 @@ The WAN interface is the LTE stick, which is assigned with 192.168.8.X ip addres
 There is a chance that I was mislead, never the less based on the observation unless within the *VPN Tunneling->OpenVPN Client->Basic tab* the Create NAT on tunnel option is checked, added routes were not enough for succesfull communication between the endpoints.
 Routers within the point to point connection could see each other, tunnel were established but that's all.
 
-### FreshTomato OpenVPN Client - Basic Tab
+### FreshTomato 2022.3 OpenVPN Client - Basic Tab
 
 This section is aligned with the OpenVPN server configuration described in abovementioned blogpost for FreshTomato OpenVPN Server. Both sides needs to fit within each other.
 
@@ -106,7 +106,7 @@ UserName Authen. Only            - unchecked
 Auth Digest                      - SHA512
 ```
 
-### FreshTomato OpenVPN Client - Advanced Tab
+### FreshTomato 2022.3 OpenVPN Client - Advanced Tab
 
 Prepare the further details of the overall config
 
@@ -129,7 +129,7 @@ Verify Server Certificate Name
 (verify-x509-name)               - Common name
 ```
 
-### FreshTomato OpenVPN Client - Advanced Tab - Custom Configuration
+### FreshTomato 2022.3 OpenVPN Client - Advanced Tab - Custom Configuration
 
 There is no need to pass any extra parameters here, as all of them apart from the ones mentioned below has been already defined within the configuration. To let the tunnel communicate and set the verbosity level put following parameters.
 
