@@ -20,6 +20,8 @@ If you decide to follow along, you will end up with updated ISO images, which wi
 + manelrodero [github](https://github.com/manelrodero/OSDBuilder)
 + getvpro [blog](https://getvpro.wordpress.com/2022/04/06/custom-offline-iso-windows-deployment-method-as-a-packer-alternative/)
 + getvpro [github](https://github.com/getvpro/Standard-WinBuilds/tree/master/Offline_Builds/Autounattend_xml)
++ [rufus](https://rufus.ie/en/)
++ [Windows Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) - download 180 day evaluation copy
 
 ## Prerequisites and observations from the field
 
