@@ -37,6 +37,9 @@ Set-NetFirewallRule -DisplayGroup "File and Printer Sharing" -Enabled True
 
 Bunch of usefull links
 
+* VMware - Time - [Let’s Be Precise: Enabling and Configuring Precision Time Protocol in vSphere](https://blogs.vmware.com/apps/2021/04/lets-be-precise-enabling-and-configuring-precision-time-protocol-in-vsphere.html)
+* VMware - Time - [Ensuring Accurate Time-Keeping in Virtualized Active Directory Infrastructure](https://blogs.vmware.com/apps/2020/09/ensuring-accurate-time-keeping-in-virtualized-active-directory-infrastructure.html)
+
 ### VMtools
 
 * [Setting automatic reboots when updating the Citrix VM Tools for Windows](https://support.citrix.com/s/article/CTX292687-setting-automatic-reboots-when-updating-the-citrix-vm-tools-for-windows?language=en_US)

@@ -46,7 +46,6 @@ Bunch of usefull links, used within the logic:
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_create_uefi_secureBoot.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_create_uefi_secureBoot.sh)
 * AutomatedXCP-ng [/opt/scripts/vm_add_disk.sh](https://github.com/makeitcloudy/AutomatedXCP-ng/blob/main/bash/vm_add_disk.sh)
-
 * Offhours - [Using PowerShell 7 as a replacement for Windows PowerShell 5.1](https://oofhours.com/2024/06/27/using-powershell-7-as-a-replacement-for-windows-powershell-5-1/)
 
 ## 0. Assumptions
@@ -141,7 +140,7 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 * The code can be run from each sections mentioned in the blogpost below, or it can one go
 * For the latter execute [run_initialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1) in elevated powershell session. The code stored in this file equals the the code from the paragraph 2.0.2 - if done - skip the paragraps 2.1 and 3
-* Once done proceed with the steps described in the blogpost [Windows-DSC](https://makeitcloudy.pl/windows-DSC/)
+* Now, the initial configuration is complete, further settings are described in the blogpost [Windows-DSC](https://makeitcloudy.pl/windows-DSC/)
 * For the RSAT installation - proceed with the code from paragraph 4. The goal is that this node performs the role of Management Node, so RSAT Tools, Admin Center, etc are desirable 
 * For any Subsequent Applications and tools (SSMS, vscode, git) - proceed with the instructions from paragraph 5
 

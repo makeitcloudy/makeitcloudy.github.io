@@ -27,16 +27,14 @@ Goals:
 
 ## Links
 
-[makeitcloudy - github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)
-[uefi iso](https://learn.microsoft.com/en-us/troubleshoot/windows-server/setup-upgrade-and-drivers/create-iso-image-for-uefi-platforms)
-
-[How To Create A Windows Unattended Installation Image Including VMware Tools](https://www.leewoodhouse.com/2023/02/26/how-to-create-a-windows-unattended-installation-image-including-vmware-tools/)
-
-[osdbuilder w10](https://www.youtube.com/watch?v=s5o2bjZTC34)
-[osdbuilder w2k19](https://www.youtube.com/watch?v=P3maLNRhEcA)
-
-[answer file for unatended installations](https://www.youtube.com/watch?v=9Bw-03tzjwI)
-[unatended.xml file](https://www.automatesql.com/blog/howto-create-windows-answer-files-for-unattended-installations)
+* [makeitcloudy - github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)
+* [What Is UEFI, and How Is It Different from BIOS?](https://www.howtogeek.com/56958/htg-explains-how-uefi-will-replace-the-bios/)
+* [uefi iso](https://learn.microsoft.com/en-us/troubleshoot/windows-server/setup-upgrade-and-drivers/create-iso-image-for-uefi-platforms)
+* [How To Create A Windows Unattended Installation Image Including VMware Tools](https://www.leewoodhouse.com/2023/02/26/how-to-create-a-windows-unattended-installation-image-including-vmware-tools/)
+* [osdbuilder w10](https://www.youtube.com/watch?v=s5o2bjZTC34)
+* [osdbuilder w2k19](https://www.youtube.com/watch?v=P3maLNRhEcA)
+* [answer file for unatended installations](https://www.youtube.com/watch?v=9Bw-03tzjwI)
+* [unatended.xml file](https://www.automatesql.com/blog/howto-create-windows-answer-files-for-unattended-installations)
 
 ### Prepare unattended installations
 
