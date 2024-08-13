@@ -53,13 +53,31 @@ The DSC, Configuration and Script are stored within the following links:
 * [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) - ConfigData are here
 * [ADDS_configuration.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_configuration.ps1) - DSC Configuration
 
-## 1. VM Installation
+### DSC and PowerShell code details
+
+#### 2.1.1 ActiveDirectory_demo.ps1
+
+The [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) script, downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory.
+
+#### 2.1.1 ADDS_setup.ps1
+
+* It contains the DSC script, DSC Configuration is included within the script
+* The configuration data is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
+
+Detailed explanation of the steps to prepare target node (regardless if it is a management or active directory node) is available in the two blog posts
+
+* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
+* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
+
+## 1. Windows Role Setup - Active Directory Domain Services
 
 In this section, two domain controller are setup.
 
-### 1.1. Provision VM
+### 1.1. VM provisioning - ADDS
 
-Run the code below on XCP-ng over SSH. The original source of the code: [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - section *Windows - Server OS - 2x Domain Controller - Server Core*
+Run the code below on XCP-ng over SSH. 
+
+The original source of the code: [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#active-directory-domain-services) - section *Windows - Server OS - 2x Domain Controller - Server Core*
 
 ```bash
 # First domain controller - server core
@@ -75,32 +93,25 @@ At this point:
 * VM is already installed.
 * It is assumed, that the Citrix VMTools ISO is available in the ISO SR.
 
-#### 1.2. Install VM tools
+#### 1.2. VMTools installation - ADDS
 
 Eject OS installation media, mount VM Tools
 
+Run in XCP-ng terminal over SSH.
+
 ```bash
-# Run on XCP-ng over SSH
-# eject OS installation media
-xe vm-cd-eject vm='c1_dc01'
 # .iso should be available in following location: 
 # /var/opt/xen/ISO_Store      - custom local iso storage created during the XCPng setup
 # /opt/xensource/packages/iso - default iso storage with XCPng tools
+xe vm-cd-eject vm='c1_dc01'
 xe vm-cd-insert vm='c1_dc01' cd-name='Citrix_Hypervisor_821_tools.iso'
-
 # repeat the steps on second domain controller
 xe vm-cd-eject vm='c1_dc02'
 xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Now:
-
-* login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
-* alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
-* XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
-
-## 2. Active Directory - setup ADDS Role
+## 2. Role Setup - ADDS
 
 For the quick run, on each Active Directory node, follow with the code mentioned below
 
@@ -120,23 +131,28 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 ```
 
-3. when the AD deployment is finished, proceed with the same steps on the second VM (which is planned to become a domain controller)
+3. when the AD deployment is finished, proceed with the same steps on the second VM (which become a second domain controller)
 
-### 2.1. Details about the code
+Run powershell code (elevated powershell session)
 
-#### 2.1.1 ActiveDirectory_demo.ps1
+```powershell
 
-The [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) script, downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory.
 
-#### 2.1.1 ADDS_setup.ps1
+```
 
-* It contains the DSC script, DSC Configuration is included within the script
-* The configuration data is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
+Run bash code (XCP-ng terminal over SSH)
 
-Detailed explanation of the steps to prepare target node (regardless if it is a management or active directory node) is available in the two blog posts
+```bash
+xe vm-cd-eject vm='c1_dc01'
+xe vm-cd-eject vm='c1_dc02'
 
-* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
-* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
+```
+
+Now:
+
+* login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
+* alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
+* XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
 
 ## 3. Active Directory - configuration
 
