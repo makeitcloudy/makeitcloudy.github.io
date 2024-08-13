@@ -23,7 +23,8 @@ This post is about setting up End User Computing infrastructure prerequisites, l
 
 #### 1.1.1. VM provisioning - ADDS
 
-[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-domain-controller---server-core) - Github code
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-domain-controller---server-core) - Github code  
+Run in (XCP-ng terminal over SSH). It deploys Active Directory Domain Services - Primary and Secondary Domain Controller VM.
 
 ```bash
 # First domain controller - server core
@@ -123,7 +124,7 @@ Run the code, on first domain controller: [ADDS_structure.ps1]()
 #### 1.1.7. Further steps - add existing VM to the domain
 
 Now the management node which has been prepared in earlier [blog post](https://makeitcloudy.pl/windows-DSC/) , can be added to the existing domain.  
-Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
 
 ```powershell
 #cmd
@@ -131,6 +132,7 @@ Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_Desi
 #Start-Process PowerShell -Verb RunAs
 $domainName = 'lab.local'  #FIXME
 Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+
 ```
 
 #### 1.1.8. Troubleshoot - ADDS
@@ -181,10 +183,9 @@ xe vm-cd-insert vm='c1_adcsS' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Run in the elevated powershell session (VM).
+#### 1.1.3. VM initial configuration
 
-* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
-* VM should reboot now
+Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
 
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
@@ -193,6 +194,12 @@ xe vm-cd-eject vm='c1_adcsR'
 xe vm-cd-eject vm='c1_adcsS'
 
 ```
+
+Now:
+
+* login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
+* alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
+* XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
 
 ### 1.3. DHCP
 
