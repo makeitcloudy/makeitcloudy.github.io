@@ -23,6 +23,8 @@ This post is about setting up End User Computing infrastructure prerequisites, l
 
 #### 1.1.1. VM provisioning - ADDS
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-domain-controller---server-core) - Github code
+
 ```bash
 # First domain controller - server core
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_dc01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:01' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dc01_ADDS_core'
@@ -144,7 +146,8 @@ That's it for the Active Directory Domain Services. At this point you can add yo
 
 ### 1.2. Active Directory Certification Services
 
-Active Directory Certification Services
+Active Directory Certification Services  
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---1x-adcs-root-1x-adcs-sub---desktopexperience) - Github code  
 
 #### 1.2.1. VM provisioning - ADCS - Root CA
 
@@ -194,6 +197,8 @@ xe vm-cd-eject vm='c1_adcsS'
 
 #### 1.3.1. VM provisioning - DHCP
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-dhcp-server---core) - Github code  
+
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_dhcp01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:11' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dhcp01_DHCPServer_core'
 
@@ -233,6 +238,8 @@ File Services
 
 #### 1.4.1. VM provisioning - File Server - ISCSI - Target
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---1x-file-server---iscsi-target---desktop-experience) - Github code  
+
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_iscsi' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:09' --StorageName 'node4_ssd_sdg' --VmDescription 'w2k22_iscsi_FileServer_desktop_experience'
 
@@ -249,6 +256,8 @@ File Services
 ```
 
 #### 1.4.2. VM provisioning - File Server - Member Server
+
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
 
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_fs01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:21' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_fs01_FileServer_core'
@@ -297,6 +306,8 @@ xe vm-cd-eject vm='c1_fs02'
 
 #### 1.5.1. VM provisioning - SQL Server 2019
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-sql-server---desktop-experience) - Github code  
+
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_sql01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:31' --StorageName 'node4_ssd_sdf' --VmDescription 'w2k22_sql01_SQL2019_desktop_experience'
 
@@ -329,17 +340,13 @@ xe vm-cd-eject vm='c1_sql02'
 
 ```
 
-## Windows Role - Configuration
+## 2. Code Details 
 
-
-
-## Code Details 
-
-### Code Details - ADDS
+### 2.1. Code Details - ADDS
 
 The [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) script, downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory.
 
-#### Code Details - ADDS_setup.ps1
+#### 2.1.1. Code Details - ADDS_setup.ps1
 
 * It contains the DSC script, DSC Configuration is included within the script
 * The configuration data is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
@@ -349,37 +356,37 @@ Detailed explanation of the steps to prepare target node (regardless if it is a 
 * [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
 * [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
 
-### Code Details - ADCS
+### 2.2. Code Details - ADCS
 
 ```code
 .
 ```
 
-### Code Details - DHCP
+### 2.3. Code Details - DHCP
 
 ```code
 .
 ```
 
-### Code Details - File Services
+### 2.4. Code Details - File Services
 
 ```code
 .
 ```
 
-#### Code Details - File Services - iscsi
+#### 2.4.1. Code Details - File Services - iscsi
 
 ```code
 .
 ```
 
-#### Code Details - File Services - member server
+#### 2.4.2. Code Details - File Services - member server
 
 ```code
 .
 ```
 
-### Code Details - SQL 
+### 2.5. Code Details - SQL 
 
 ```code
 .
