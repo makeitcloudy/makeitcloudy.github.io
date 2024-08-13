@@ -202,7 +202,7 @@ Now:
 
 #### 1.1.4. VM DSC configuration - ADCS - RootCA
 
-Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+Run [run_initialConfigDsc_workgroup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_workgroupps1) in the elevated powershell session (VM).  
 RootCA is **not** a member of the domain.
 
 ```powershell
@@ -270,7 +270,7 @@ xe vm-cd-eject vm='c1_dhcp02'
 
 ```
 
-#### 1.3.5. VM DSC configuration
+#### 1.3.5. VM DSC configuration - DHCP
 
 Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
 
@@ -287,7 +287,7 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
 
-#### 1.4.1. VM provisioning - File Server - ISCSI - Target
+#### 1.4.1. VM provisioning - File Server - ISCSI Target
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---1x-file-server---iscsi-target---desktop-experience) - Github code  
 
@@ -296,28 +296,13 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 
 ```
 
-#### 1.4.2. VM provisioning - File Server - Member Server
+#### 1.4.2. VM provisioning - File Server - ISCSI Target - Add Disk
 
+Once the VM is installed add drives.  
 Run in (XCP-ng terminal over SSH).
 
 ```bash
-/opt/scripts/vm_create_uefi.sh --VmName 'c1_fs01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:21' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_fs01_FileServer_core'
-
-/opt/scripts/vm_create_uefi.sh --VmName 'c1_fs02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:22' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_fs02_FileServer_core'
-
-# once the VM is installed add drives
-## Add Disk
-/opt/scripts/vm_add_disk.sh --vmName 'fs01_core' --storageName 'node4_hdd_sdc_lsi' --diskName 'fs01_PDrive' --deviceId 4 --diskGB 60  --description 'fs01_ProfileDrive'
-/opt/scripts/vm_add_disk.sh --vmName 'fs02_core' --storageName 'node4_hdd_sdc_lsi' --diskName 'fs02_PDrive' --deviceId 4 --diskGB 60  --description 'fs02_ProfileDrive'
-
-```
-
-#### 1.4.3 VM provisioning - File Server - Add Disk
-
-```bash
-# once the VM is installed add drives
 # do not initialize them - do that from the failover cluster console
-
 /opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_quorumDrive" --deviceId 5 --diskGB 20  --description "w2k22_quorumDrive"
 /opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_vhdxClusterStorageDrive" --deviceId 6 --diskGB 100  --description "w2k22_vhdxClusterStorageDrive"
 
@@ -328,7 +313,29 @@ add network interfaces to the VM:
 * cluster network
 * storage network
 
-#### 1.4.3. VMTools installation - File Server
+#### 1.4.3. VM provisioning - File Server - Member Server
+
+Run in (XCP-ng terminal over SSH).
+
+```bash
+/opt/scripts/vm_create_uefi.sh --VmName 'c1_fs01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:21' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_fs01_FileServer_core'
+
+/opt/scripts/vm_create_uefi.sh --VmName 'c1_fs02' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:22' --StorageName 'node4_ssd_sde' --VmDescription 'w2k22_fs02_FileServer_core'
+
+```
+
+#### 1.4.4 VM provisioning - File Server - Member Server - Add Disk
+
+Once the VM is installed add drives.  
+Run in (XCP-ng terminal over SSH).
+
+```bash
+/opt/scripts/vm_add_disk.sh --vmName 'c1_fs01' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs01_PDrive' --deviceId 4 --diskGB 60  --description 'fs01_ProfileDrive'
+/opt/scripts/vm_add_disk.sh --vmName 'c1_fs02' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs02_PDrive' --deviceId 4 --diskGB 60  --description 'fs02_ProfileDrive'
+
+```
+
+#### 1.4.5. VMTools installation - File Server
 
 Run in XCP-ng terminal over SSH.
 
