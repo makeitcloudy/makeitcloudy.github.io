@@ -202,9 +202,11 @@ Now:
 
 ### 1.3. DHCP
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-dhcp-server---core) - Github code  
+
 #### 1.3.1. VM provisioning - DHCP
 
-[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-dhcp-server---core) - Github code  
+Run in (XCP-ng terminal over SSH).
 
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_dhcp01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:11' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dhcp01_DHCPServer_core'
@@ -213,7 +215,7 @@ Now:
 
 ```
 
-#### 1.3.1. VMTools installation - DHCP
+#### 1.3.2. VMTools installation - DHCP
 
 Run in XCP-ng terminal over SSH.
 
@@ -226,10 +228,12 @@ xe vm-cd-insert vm='c1_dhcp02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
+#### 1.3.4. VM initial configuration
+
 Run in the elevated powershell session (VM).
 
-* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
-* VM should reboot now
+Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
