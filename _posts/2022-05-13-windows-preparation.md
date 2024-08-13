@@ -162,8 +162,10 @@ When this point of the VM provisioning is reached, there are two approaches:
 
 ### 2.0.2 run_initialsetup.ps1
 
-Run the code on target node in elevate powershell session. The *run_initialSetup.ps1* script contains function [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) which leads to the github code of *InitialConfig.ps1*, it contains the code performing the steps listed in paragraph 2.0.1.
+Run in the elevated powershell session (VM).  
 
+ * [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) 
+ 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated PowerShell session
@@ -190,6 +192,8 @@ Set-InitialConfiguration -Verbose
 #endregion
 
 ```
+
+Script contains function [Set-InitialConfiguration](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/000_targetNode/InitialConfig.ps1) which leads to the github code of *InitialConfig.ps1*, it contains the code performing the steps listed in paragraph 2.0.1.
 
 ## 3. Eject media
 
