@@ -42,6 +42,7 @@ At this point:
 Run in (XCP-ng terminal over SSH).
 
 ```bash
+# it works - provided there is only one iso on SR with such name
 # .iso should be available in following location: 
 # /var/opt/xen/ISO_Store      - custom local iso storage created during the XCPng setup
 # /opt/xensource/packages/iso - default iso storage with XCPng tools
@@ -93,7 +94,7 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 #### 1.1.4. Role setup - ADDS - second domain controller
 
-IT deploys the Active Directory Role. 
+It deploys the Active Directory Role. 
 
 * Login to the VM, run the code in elevated powershell session.
 * This VM is added to the existing domain, which consists of one domain controller
@@ -124,10 +125,10 @@ Run the code, on first domain controller: [ADDS_CarlWebster_initialConfig.ps1](h
 
 #### 1.1.6. Initial Logical Structure - ADDS
 
-Run the code, on first domain controller: [ADDS_structure.ps1]()
+Run the code, on first domain controller: [ADDS_structure.ps1]()  
 **TODO** - update the code link
 
-* It  setup the AD structure (OU, groups, users)
+* It setup the AD structure (OU, groups, users)
 
 #### 1.1.7. Troubleshoot - ADDS
 
@@ -189,8 +190,9 @@ xe vm-cd-eject vm='c1_adcsS'
 
 ```
 
+### 1.3. DHCP
 
-### 1.3. VM provisioning - DHCP
+#### 1.3.1. VM provisioning - DHCP
 
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_dhcp01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 2 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:11' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_dhcp01_DHCPServer_core'
