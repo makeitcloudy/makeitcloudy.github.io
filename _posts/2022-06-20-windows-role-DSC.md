@@ -235,8 +235,6 @@ Run in the elevated powershell session (VM).
 Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
-Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
-
 ```bash
 xe vm-cd-eject vm='c1_dhcp01'
 xe vm-cd-eject vm='c1_dhcp02'
@@ -245,7 +243,7 @@ xe vm-cd-eject vm='c1_dhcp02'
 
 ### 1.4. File Server
 
-File Services
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
 
 #### 1.4.1. VM provisioning - File Server - ISCSI - Target
 
@@ -254,21 +252,11 @@ File Services
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_iscsi' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:09' --StorageName 'node4_ssd_sdg' --VmDescription 'w2k22_iscsi_FileServer_desktop_experience'
 
-# once the VM is installed add drives
-# do not initialize them - do that from the failover cluster console
-
-/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_quorumDrive" --deviceId 5 --diskGB 20  --description "w2k22_quorumDrive"
-/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_vhdxClusterStorageDrive" --deviceId 6 --diskGB 100  --description "w2k22_vhdxClusterStorageDrive"
-
-# add network interfaces to the VM
-# * cluster network
-# * storage network
-
 ```
 
 #### 1.4.2. VM provisioning - File Server - Member Server
 
-[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
+Run in (XCP-ng terminal over SSH).
 
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_fs01' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_core_untd_nprmt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:21' --StorageName 'node4_ssd_sdd' --VmDescription 'w2k22_fs01_FileServer_core'
@@ -281,6 +269,22 @@ File Services
 /opt/scripts/vm_add_disk.sh --vmName 'fs02_core' --storageName 'node4_hdd_sdc_lsi' --diskName 'fs02_PDrive' --deviceId 4 --diskGB 60  --description 'fs02_ProfileDrive'
 
 ```
+
+#### 1.4.3 VM provisioning - File Server - Add Disk
+
+```bash
+# once the VM is installed add drives
+# do not initialize them - do that from the failover cluster console
+
+/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_quorumDrive" --deviceId 5 --diskGB 20  --description "w2k22_quorumDrive"
+/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_vhdxClusterStorageDrive" --deviceId 6 --diskGB 100  --description "w2k22_vhdxClusterStorageDrive"
+
+```
+
+add network interfaces to the VM:
+
+* cluster network
+* storage network
 
 #### 1.4.3. VMTools installation - File Server
 
