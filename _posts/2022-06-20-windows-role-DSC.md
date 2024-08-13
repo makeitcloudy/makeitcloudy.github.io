@@ -57,10 +57,20 @@ xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 #### 1.1.3. VM initial configuration
 
-Run in the elevated powershell session (VM).
+Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
+When asked, put the *dc01* for the first domain controller, and *dc02* for the second
 
-* [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) - when asked, put the *dc01* for the first domain controller, and *dc02* for the second
-* VM should reboot now
+It goes through initial configuration of the VM.
+
+* it install VM tools
+* it downloads the AutomateLab module
+* it downloads the AutomatedXCPng module
+* it sets registry key as per CTX222533
+* it sets the powershell execution policy
+* it configures WinMR
+* it set the power plan - high performance
+* it renames the VM
+* it reboots the VM
 
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
@@ -78,43 +88,20 @@ Now:
 
 #### 1.1.3. Role setup - ADDS - first domain controller
 
+Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
+
 It deploys the Active Directory Role.
 
 * Login back to VM, run the code in elevated powershell session. 
 * When the AD deployment is finished, proceed with the same steps on the second VM.
 
-```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
-# run in elevated PowerShell session
-Set-Location -Path "$env:USERPROFILE\Documents"
-
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
-#psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
-
-# at this stage the computername is already renamed and it's name is : dc01
-. "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
-
-```
-
 #### 1.1.4. Role setup - ADDS - second domain controller
 
-It deploys the Active Directory Role. 
+Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
+
+It adds second VM to the existing Active Directory domain, which consists of one domain controller, so far. 
 
 * Login to the VM, run the code in elevated powershell session.
-* This VM is added to the existing domain, which consists of one domain controller
-
-```powershell
-#Start-Process PowerShell_ISE -Verb RunAs
-# run in elevated PowerShell session
-Set-Location -Path "$env:USERPROFILE\Documents"
-
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1' -OutFile "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -Verbose
-#psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
-
-# at this stage the computername is already renamed and it's name is : dc01
-. "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1" -ComputerName $env:Computername
-
-```
 
 #### 1.1.5. Initial Configuration - ADDS
 
