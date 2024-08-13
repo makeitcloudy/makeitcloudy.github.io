@@ -186,7 +186,6 @@ xe vm-cd-insert vm='c1_adcsS' cd-name='Citrix_Hypervisor_821_tools.iso'
 #### 1.1.3. VM initial configuration
 
 Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
-
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
