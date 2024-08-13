@@ -89,7 +89,6 @@ Now:
 #### 1.1.3. Role setup - ADDS - first domain controller
 
 Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
-
 It deploys the Active Directory Role.
 
 * Login back to VM, run the code in elevated powershell session. 
@@ -132,6 +131,19 @@ psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
 ```
 
 That's it for the Active Directory Domain Services. At this point you can add your VM's to the domain. It should work provided your network and DNS configurations are correct.
+
+### 1.1.8. Further steps - add existing VM to the domain
+
+Now the management node which has been prepared in earlier [blog post](https://makeitcloudy.pl/windows-DSC/) , can be added to the existing domain.  
+Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+```
 
 ### 1.2. Active Directory Certification Services
 
