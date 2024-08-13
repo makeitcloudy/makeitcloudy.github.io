@@ -16,6 +16,7 @@ This post is about setting up End User Computing infrastructure prerequisites, l
 
 [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - contains the code used to provision the VM's on the hypervisor layer
 
+
 ## 1. Windows Role Setup
 
 ### 1.1. Active Directory Domain Services
@@ -177,14 +178,12 @@ xe vm-cd-insert vm='c1_adcsS' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Run powershell code (elevated powershell session)
+Run in the elevated powershell session (VM).
 
-```powershell
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* VM should reboot now
 
-
-```
-
-Run bash code (XCP-ng terminal over SSH)
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
 xe vm-cd-eject vm='c1_adcsR'
@@ -215,14 +214,12 @@ xe vm-cd-insert vm='c1_dhcp02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Run powershell code (elevated powershell session)
+Run in the elevated powershell session (VM).
 
-```powershell
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* VM should reboot now
 
-
-```
-
-Run bash code (XCP-ng terminal over SSH)
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
 xe vm-cd-eject vm='c1_dhcp01'
@@ -281,14 +278,12 @@ xe vm-cd-insert vm='c1_fs02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Run powershell code (elevated powershell session)
+Run in the elevated powershell session (VM).
 
-```powershell
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* VM should reboot now
 
-
-```
-
-Run bash code (XCP-ng terminal over SSH)
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
 xe vm-cd-eject vm='c1_iscsi'
@@ -321,14 +316,12 @@ xe vm-cd-insert vm='c1_sql02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-Run powershell code (elevated powershell session)
+Run in the elevated powershell session (VM).
 
-```powershell
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* VM should reboot now
 
-
-```
-
-Run bash code (XCP-ng terminal over SSH)
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
 xe vm-cd-eject vm='c1_sql01'
@@ -337,6 +330,60 @@ xe vm-cd-eject vm='c1_sql02'
 ```
 
 ## Windows Role - Configuration
+
+
+
+## Code Details 
+
+### Code Details - ADDS
+
+The [005_ActiveDirectory_demo.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory_demo.ps1) script, downloads the [ADDS_setup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_setup.ps1) to the user profile documents directory.
+
+#### Code Details - ADDS_setup.ps1
+
+* It contains the DSC script, DSC Configuration is included within the script
+* The configuration data is completelly separated from the [ConfigData.psd1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/000_initialConfig/ConfigData.psd1) - this information is important, especially with the IP address modifications of the Domain Controllers, once those are changed, it should be also reflected in the ConfigData.psd1. Otherwise machines won't join to the domain, when the [scenario - Domain Joined VM](https://makeitcloudy.pl/windows-DSC/) from paragraph 2.2 is run
+
+Detailed explanation of the steps to prepare target node (regardless if it is a management or active directory node) is available in the two blog posts
+
+* [windows-preparation](https://makeitcloudy.pl/windows-preparation/) - paragraph 2.0.2
+* [windows-dsc](https://makeitcloudy.pl/windows-DSC/) - paragraph
+
+### Code Details - ADCS
+
+```code
+.
+```
+
+### Code Details - DHCP
+
+```code
+.
+```
+
+### Code Details - File Services
+
+```code
+.
+```
+
+#### Code Details - File Services - iscsi
+
+```code
+.
+```
+
+#### Code Details - File Services - member server
+
+```code
+.
+```
+
+### Code Details - SQL 
+
+```code
+.
+```
 
 ## Summary
 
