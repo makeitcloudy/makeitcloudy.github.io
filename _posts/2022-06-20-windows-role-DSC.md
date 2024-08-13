@@ -183,7 +183,7 @@ xe vm-cd-insert vm='c1_adcsS' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-#### 1.1.3. VM initial configuration
+#### 1.1.3. VM initial configuration - ADCS
 
 Run [run_InitialSetup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialsetupps1) in the elevated powershell session (VM).  
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
@@ -199,6 +199,35 @@ Now:
 * login to the VM via XenOrchestra Console window, or any other way you have handy, and get it's IP address
 * alternatively if you have a reservation for the mac address on your DHCP server, get the IP from there
 * XenServer on the CLI does not have a chance to get to know the IP, as there are no VMTools installed yet
+
+#### 1.1.4. VM DSC configuration - ADCS - RootCA
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+RootCA is **not** a member of the domain.
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Workgroup -Verbose
+
+```
+
+#### 1.1.5. VM DSC configuration - ADCS - SubCA
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+SubCA is member of the domain.
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+
+```
+
 
 ### 1.3. DHCP
 
@@ -228,7 +257,7 @@ xe vm-cd-insert vm='c1_dhcp02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
-#### 1.3.4. VM initial configuration
+#### 1.3.4. VM initial configuration - DHCP
 
 Run in the elevated powershell session (VM).
 
@@ -238,6 +267,19 @@ Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 ```bash
 xe vm-cd-eject vm='c1_dhcp01'
 xe vm-cd-eject vm='c1_dhcp02'
+
+```
+
+#### 1.3.5. VM DSC configuration
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
 
 ```
 
@@ -316,6 +358,8 @@ xe vm-cd-eject vm='c1_fs01'
 xe vm-cd-eject vm='c1_fs02'
 
 ```
+
+#### 1.4.4. VM initial configuration - File Server
 
 ### 1.5. SQL
 
