@@ -8,7 +8,7 @@ cover-img: /assets/img/cover/img-cover-tunnel.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-tomato.jpg
 share-img: /assets/img/cover/img-cover-tunnel.jpg
 tags: [Networking, FreshTomato, OpenVPN]
-categories: [Networking , FreshTomato, OpenVPN]
+categories: [Networking, FreshTomato, OpenVPN]
 ---
 This post describe how to setup OpenVPN server on Freshtomato. There are so many versions, that new commers may feel overwhelmed, and there are plenty traps during configuration. I'm not an expert by any means in those areas, using this in my homelab and actually this is the sole purpose of the overall usecase, that someone can make use of second hand 25$ cpu ARMv7 based router, and setup an OpenVPN on top of it to get access to the homelab, when roaming, or expose it's LAN resources towards the oher FreshTomato based OpenVPN client or mobile devices etc.
 

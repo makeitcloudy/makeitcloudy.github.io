@@ -2,7 +2,7 @@
 full-width: true
 layout: post
 title: "DSC - Active Directory setup"
-permalink: "/active-directory-DSC/"
+permalink: "/windows-role-active-directory-DSC/"
 subtitle: "Setup Active Directory with Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg

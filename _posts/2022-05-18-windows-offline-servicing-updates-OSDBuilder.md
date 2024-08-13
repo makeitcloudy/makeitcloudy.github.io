@@ -2,7 +2,7 @@
 full-width: true
 layout: post
 title: "OSDBuilder offline servicing updates"
-permalink: "/OSDBuilder-offline-servicing-updates/"
+permalink: "/windows-offline-servicing-updates-OSDBuilder/"
 subtitle: "Prepare the updated Windows ISO's for the homelab usecase"
 cover-img: /assets/img/cover/img-cover-lab.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
@@ -12,7 +12,7 @@ categories: [HomeLab, Windows, OSD]
 ---
 If you decide to follow along, you will end up with updated ISO images, which will install in unattended way.
 
-## Useful Links
+# Links
 
 + modern management [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ)
 + modern management [blog](https://www.moderndeployment.com/quick-start-guide-windows-10-waas-servicing-updates-via-osdbuilder/)

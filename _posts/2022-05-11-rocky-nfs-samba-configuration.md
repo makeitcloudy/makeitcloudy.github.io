@@ -2,7 +2,7 @@
 full-width: true
 layout: post
 title: "Rocky 9.4 NFS and Samba configuration"
-permalink: "/rocky-samba-nfs-configuration/"
+permalink: "/rocky-nfs-samba-configuration/"
 subtitle: "Rocky 9.4 NFS and Samba setup - ISO repository for XCP-ng"
 cover-img: /assets/img/cover/img-cover-linux-rocky.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-rocky.png

@@ -297,4 +297,4 @@ Start-Process 'https://intune.microsoft.com'
 
 ## Conclusions
 
-Last update: 2022.05.31
+Last update: 2023.01.31

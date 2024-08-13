@@ -2,7 +2,7 @@
 full-width: true
 layout: post
 title: "Windows DSC authoring VM"
-permalink: "/windows-authoring-vm/"
+permalink: "/2022-05-16-windows-vm-authoring/"
 subtitle: "Setup Desired State Configuration Authoring box"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
