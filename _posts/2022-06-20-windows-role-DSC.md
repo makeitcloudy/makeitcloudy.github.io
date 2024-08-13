@@ -285,11 +285,13 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 
 ### 1.4. File Server
 
-[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
+File Server setup is split into two pieces. Current scenario assumes that there is no external FreeNas for the exposure of iSCSI target.  
+iSCSI for the further clustering setup is exposed on the Windows VM.  
 
 #### 1.4.1. VM provisioning - File Server - ISCSI Target
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---1x-file-server---iscsi-target---desktop-experience) - Github code  
+Run in (XCP-ng terminal over SSH).
 
 ```bash
 /opt/scripts/vm_create_uefi.sh --VmName 'c1_iscsi' --VCpu 4 --CoresPerSocket 2 --MemoryGB 4 --DiskGB 32 --ActivationExpiration 180 --TemplateName 'Windows Server 2022 (64-bit)' --IsoName 'w2k22dtc_2302_untd_nprmpt_uefi.iso' --IsoSRName 'node4_nfs' --NetworkName 'eth1 - VLAN1342 untagged - up' --Mac '2A:47:41:C1:00:09' --StorageName 'node4_ssd_sdg' --VmDescription 'w2k22_iscsi_FileServer_desktop_experience'
@@ -315,6 +317,7 @@ add network interfaces to the VM:
 
 #### 1.4.3. VM provisioning - File Server - Member Server
 
+[XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
 Run in (XCP-ng terminal over SSH).
 
 ```bash
