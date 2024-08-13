@@ -120,19 +120,7 @@ Run the code, on first domain controller: [ADDS_structure.ps1]()
 
 * It setup the AD structure (OU, groups, users)
 
-#### 1.1.7. Troubleshoot - ADDS
-
-Those type of issues are much easier to troubleshoot on Windows Server with Desktop Experience. Never the less here are some paths where the code is stored
-
-```powershell
-psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
-psedit "$env:USERPROFILE\Documents\ADDS_setup.ps1"
-psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
-```
-
-That's it for the Active Directory Domain Services. At this point you can add your VM's to the domain. It should work provided your network and DNS configurations are correct.
-
-### 1.1.8. Further steps - add existing VM to the domain
+#### 1.1.7. Further steps - add existing VM to the domain
 
 Now the management node which has been prepared in earlier [blog post](https://makeitcloudy.pl/windows-DSC/) , can be added to the existing domain.  
 Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_addsps1) in the elevated powershell session (VM).  
@@ -144,6 +132,18 @@ Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_Desi
 $domainName = 'lab.local'  #FIXME
 Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
 ```
+
+#### 1.1.8. Troubleshoot - ADDS
+
+Those type of issues are much easier to troubleshoot on Windows Server with Desktop Experience. Never the less here are some paths where the code is stored
+
+```powershell
+psedit "$env:USERPROFILE\Documents\ActiveDirectory_demo.ps1"
+psedit "$env:USERPROFILE\Documents\ADDS_setup.ps1"
+psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
+```
+
+That's it for the Active Directory Domain Services. At this point you can add your VM's to the domain. It should work provided your network and DNS configurations are correct.
 
 ### 1.2. Active Directory Certification Services
 
