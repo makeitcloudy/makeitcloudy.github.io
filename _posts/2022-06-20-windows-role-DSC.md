@@ -298,7 +298,7 @@ Run in (XCP-ng terminal over SSH).
 
 ```
 
-#### 1.4.2. VM provisioning - File Server - ISCSI Target - Add Disk
+#### 1.4.2. VM provisioning - File Server - ISCSI Target - Add disk
 
 Once the VM is installed add drives.  
 Run in (XCP-ng terminal over SSH).
@@ -327,7 +327,7 @@ Run in (XCP-ng terminal over SSH).
 
 ```
 
-#### 1.4.4 VM provisioning - File Server - Member Server - Add Disk
+#### 1.4.4 VM provisioning - File Server - Member Server - Add disk
 
 Once the VM is installed add drives.  
 Run in (XCP-ng terminal over SSH).
@@ -396,6 +396,8 @@ xe vm-cd-insert vm='c1_sql02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
+#### 1.5.3. VM initial configuration - SQL Server
+
 Run in the elevated powershell session (VM).
 
 * [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *sql01* and *sql02* for the second VM
@@ -409,7 +411,7 @@ xe vm-cd-eject vm='c1_sql02'
 
 ```
 
-#### 1.5.3. Add extra disk for the database storage
+#### 1.5.3. VM provisioning - SQL Server - Add disk
 
 ```bash
 /opt/scripts/vm_add_disk.sh --vmName "c1_sql01" --storageName "node4_ssd_sdd" --diskName "w2k22_sql01_Sdrive" --deviceId 5 --diskGB 30  --description "w2k22_Sdrive_SQLDBdrive"
@@ -421,6 +423,50 @@ xe vm-cd-eject vm='c1_sql02'
 # details, which script runs which part : 
 # https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-sql-server---desktop-experience
 
+```
+
+#### 1.5.4. VM DSC configuration - SQL Server
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+SubCA is member of the domain.
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+
+```
+
+#### 1.5.5. Install SQL 2019
+
+Mount SQL Server 2019 installation media
+
+```bash
+xe vm-cd-eject vm='c1_sql01'
+xe vm-cd-insert vm='c1_sql01' cd-name='SQLServer2019-x64-ENU.iso'
+xe vm-cd-eject vm='c1_sql02'
+xe vm-cd-insert vm='c1_sql02' cd-name='SQLServer2019-x64-ENU.iso'
+
+```
+
+Run in elevated powershell session
+
+```powershell
+#Start-Process PowerShell_ISE -Verb RunAs
+# run in elevated PowerShell session
+Set-Location -Path "$env:USERPROFILE\Documents"
+
+#$sqlDefaultInstanceConfiguration = 'SQL_defaultInstance_configuration.ps1'
+#$sqlDefaultInstanceSetup = 'SQL_defaultInstance_setup.ps1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/009_SQL/SQL_defaultInstance_configuration.ps1' -OutFile "$env:USERPROFILE\Documents\SQL_defaultInstance_configuration.ps1" -Verbose
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/009_SQL/SQL_defaultInstance_setup.ps1' -OutFile "$env:USERPROFILE\Documents\SQL_defaultInstance_setup.ps1" -Verbose
+#psedit "$env:USERPROFILE\Documents\SQL_defaultInstance_setup.ps1"
+#psedit "$env:USERPROFILE\Documents\SQL_defaultInstance_configuration.ps1"
+
+# it launches the process of SQL installation
+.\SQL_defaultInstance_setup.ps1
 ```
 
 ## 2. Code Details 
