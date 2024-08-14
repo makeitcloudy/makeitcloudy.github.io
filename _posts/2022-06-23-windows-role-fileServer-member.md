@@ -1,7 +1,7 @@
 ---
 full-width: true
 layout: post
-title: "Windows File Server setup"
+title: "File Server setup"
 permalink: "/windows-role-fileServer-member/"
 subtitle: "Setup Windows File Server Member with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg

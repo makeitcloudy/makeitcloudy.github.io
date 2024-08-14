@@ -1,9 +1,9 @@
 ---
 full-width: true
 layout: post
-title: "EUC lab - prerequisites"
-permalink: "/windows-euc-lab-prerequisites/"
-subtitle: "Container with details for the subsequent blog posts"
+title: "EUC lab - blog post series"
+permalink: "/windows-euc-lab-blog-post-series/"
+subtitle: "Container with details for the subsequent blog posts, focused on automated EUC oriented lab setup"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg

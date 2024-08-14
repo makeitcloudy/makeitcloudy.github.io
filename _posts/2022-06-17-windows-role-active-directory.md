@@ -1,7 +1,7 @@
 ---
 full-width: true
 layout: post
-title: "Windows Active Directory Domain Services Setup"
+title: "Active Directory Domain Services Setup"
 permalink: "/windows-role-active-directory/"
 subtitle: "Setup Windows Active Directory Domain Services with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg

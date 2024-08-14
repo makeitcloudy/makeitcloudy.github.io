@@ -1,7 +1,7 @@
 ---
 full-width: true
 layout: post
-title: "Windows DHCP Server setup"
+title: "DHCP Server setup"
 permalink: "/windows-role-dhcp/"
 subtitle: "Setup Windows DHCP with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg

@@ -1,7 +1,7 @@
 ---
 full-width: true
 layout: post
-title: "Windows iSCSI Target File Server setup"
+title: "iSCSI Target File Server setup"
 permalink: "/windows-role-fileServer-iSCSI-target/"
 subtitle: "Setup Windows iSCSI File Server with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
