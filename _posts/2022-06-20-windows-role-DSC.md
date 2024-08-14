@@ -288,7 +288,7 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 File Server setup is split into two pieces. Current scenario assumes that there is no external FreeNas for the exposure of iSCSI target.  
 iSCSI for the further clustering setup is exposed on the Windows VM.  
 
-#### 1.4.1. VM provisioning - File Server - ISCSI Target
+#### 1.4.1. VM provisioning - File Server - iSCSI Target
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---1x-file-server---iscsi-target---desktop-experience) - Github code  
 Run in (XCP-ng terminal over SSH).
@@ -298,15 +298,38 @@ Run in (XCP-ng terminal over SSH).
 
 ```
 
-#### 1.4.2. VM provisioning - File Server - ISCSI Target - Add disk
+##### 1.4.1.1 VMTools installation - File Server - iSCSI Target
+
+Run in XCP-ng terminal over SSH.
+
+```bash
+
+xe vm-cd-eject vm='c1_iscsi'
+xe vm-cd-insert vm='c1_iscsi' cd-name='Citrix_Hypervisor_821_tools.iso'
+
+```
+
+Run in the elevated powershell session (VM).
+
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *iscsi* for VM name
+* VM should reboot now
+
+Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
+
+```bash
+xe vm-cd-eject vm='c1_iscsi'
+
+```
+
+##### 1.4.1.2 VM provisioning - File Server - iSCSI Target - Add disk
 
 Once the VM is installed add drives.  
 Run in (XCP-ng terminal over SSH).
 
 ```bash
 # do not initialize them - do that from the failover cluster console
-/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_quorumDrive" --deviceId 5 --diskGB 20  --description "w2k22_quorumDrive"
-/opt/scripts/vm_add_disk.sh --vmName "c1_iscsi" --storageName "node4_hdd_sdc_lsi" --diskName "w2k22_c1_iscsi_vhdxClusterStorageDrive" --deviceId 6 --diskGB 100  --description "w2k22_vhdxClusterStorageDrive"
+/opt/scripts/vm_add_disk.sh --vmName 'c1_iscsi' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_iscsi_quorumDrive' --deviceId 5 --diskGB 20  --description 'w2k22_quorumDrive'
+/opt/scripts/vm_add_disk.sh --vmName 'c1_iscsi' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_iscsi_vhdxClusterStorageDrive' --deviceId 6 --diskGB 100  --description 'w2k22_vhdxClusterStorageDrive'
 
 ```
 
@@ -315,7 +338,27 @@ add network interfaces to the VM:
 * cluster network
 * storage network
 
-#### 1.4.3. VM provisioning - File Server - Member Server
+##### 1.4.1.3 VM DSC configuration - File Server - iSCSI Target
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+SubCA is member of the domain.
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+
+```
+
+##### 1.4.1.4 VM provisioning - File Server - iSCSI Target
+
+```powershell
+#setup ISCSI target
+```
+
+#### 1.4.2. VM provisioning - File Server - Member Server
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-file-server---core) - Github code  
 Run in (XCP-ng terminal over SSH).
@@ -327,25 +370,11 @@ Run in (XCP-ng terminal over SSH).
 
 ```
 
-#### 1.4.4 VM provisioning - File Server - Member Server - Add disk
-
-Once the VM is installed add drives.  
-Run in (XCP-ng terminal over SSH).
-
-```bash
-/opt/scripts/vm_add_disk.sh --vmName 'c1_fs01' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs01_PDrive' --deviceId 4 --diskGB 60  --description 'fs01_ProfileDrive'
-/opt/scripts/vm_add_disk.sh --vmName 'c1_fs02' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs02_PDrive' --deviceId 4 --diskGB 60  --description 'fs02_ProfileDrive'
-
-```
-
-#### 1.4.5. VMTools installation - File Server
+##### 1.4.2.1. VMTools installation - File Server - Member Server
 
 Run in XCP-ng terminal over SSH.
 
 ```bash
-xe vm-cd-eject vm='c1_iscsi'
-xe vm-cd-insert vm='c1_iscsi' cd-name='Citrix_Hypervisor_821_tools.iso'
-
 xe vm-cd-eject vm='c1_fs01'
 xe vm-cd-insert vm='c1_fs01' cd-name='Citrix_Hypervisor_821_tools.iso'
 
@@ -356,20 +385,49 @@ xe vm-cd-insert vm='c1_fs02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 Run in the elevated powershell session (VM).
 
-* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *iscsi*, *fs01* and *fs02* for VM names
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *fs01* and *fs02* for VM names
 * VM should reboot now
 
 Eject VMTools installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
-xe vm-cd-eject vm='c1_iscsi'
-
 xe vm-cd-eject vm='c1_fs01'
 xe vm-cd-eject vm='c1_fs02'
 
 ```
 
-#### 1.4.4. VM initial configuration - File Server
+##### 1.4.2.2. VM provisioning - File Server - Member Server - Add disk
+
+Once the VM is installed add drives.  
+Run in (XCP-ng terminal over SSH).
+
+```bash
+/opt/scripts/vm_add_disk.sh --vmName 'c1_fs01' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs01_PDrive' --deviceId 4 --diskGB 60  --description 'fs01_ProfileDrive'
+/opt/scripts/vm_add_disk.sh --vmName 'c1_fs02' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_fs02_PDrive' --deviceId 4 --diskGB 60  --description 'fs02_ProfileDrive'
+
+```
+
+##### 1.4.1.3 VM DSC configuration - File Server - Member Server
+
+Run [run_initialConfigDsc_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1) in the elevated powershell session (VM).  
+SubCA is member of the domain.
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+$domainName = 'lab.local'  #FIXME
+Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainName $domainName -Verbose
+
+```
+
+**Note:** If the DSC configuration progress stuck on checking for disk, then in XCP-ng verify if the disk added to the VM, has Status Connected. There is great chance it's disconnected.
+
+#### 1.4.4.3. VM initial configuration - File Server
+
+```powershell
+#setup cluster
+```
 
 ### 1.5. SQL
 
@@ -467,6 +525,15 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 # it launches the process of SQL installation
 .\SQL_defaultInstance_setup.ps1
+
+```
+
+Eject installation media
+
+```bash
+xe vm-cd-eject vm='c1_sql01'
+xe vm-cd-eject vm='c1_sql02'
+
 ```
 
 ## 2. Code Details 
