@@ -107,11 +107,12 @@ Run [run_ADDS.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_Desi
 It adds second VM to the existing Active Directory domain, which consists of one domain controller, so far. 
 
 * Login to the VM, run the code in elevated powershell session.
+* When the subsequent domain controller is added to the domain, continue with the initial ADDS, DNS configuration
 
 #### 1.1.5. Initial Configuration - ADDS
 
 It's time for the Active Directory configuration (DNS, OU's, various objects).  
-Run code in elevated PowerShell session, on the first domain controller. (it will be replicated across domain controllers, without your intervention)
+Run [run_adds_initialconfig.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_adds_initialconfigps1) in elevated PowerShell session, on the first domain controller. (it will be replicated across domain controllers, without your intervention).
 
 ```powershell
 #cmd
@@ -141,8 +142,7 @@ What does the code do:
 
 #### 1.1.6. Initial Logical Structure - ADDS
 
-Run the code, on first domain controller: [ADDS_structure.ps1]()  
-**TODO** - update the code link
+Run the code, on first domain controller: [run_adds_structure.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_adds_structureps1)  
 
 * It setup the AD structure (OU, groups, users)
 
