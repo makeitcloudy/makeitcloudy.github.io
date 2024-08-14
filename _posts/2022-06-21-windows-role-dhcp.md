@@ -80,3 +80,11 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Domain -DomainNa
 ```powershell
 #setup cluster
 ```
+
+## Summary
+
+It was tested on:
+
+* Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
+
+Last update: 2024.08.14

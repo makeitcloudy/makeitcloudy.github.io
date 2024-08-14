@@ -1,7 +1,7 @@
 ---
 full-width: true
 layout: post
-title: "Active Directory Domain Services Setup"
+title: "Active Directory Domain Services setup"
 permalink: "/windows-role-active-directory/"
 subtitle: "Setup Windows Active Directory Domain Services with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
@@ -151,3 +151,11 @@ psedit C:\dsc\config\localhost\ActiveDirectory\ADDS_configuration.ps1
 ```
 
 That's it for the Active Directory Domain Services. At this point you can add your VM's to the domain. It should work provided your network and DNS configurations are correct.
+
+## Summary
+
+It was tested on:
+
+* Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
+
+Last update: 2024.08.14

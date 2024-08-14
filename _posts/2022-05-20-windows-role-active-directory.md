@@ -14,7 +14,7 @@ This post is about setting up Active Directory by making use of Powershell and D
 
 **Note**:
   
-**DEPRECATED** - it was replaced by 2022-06-17-windows-role-active-directory
+**DEPRECATED** - it was replaced by [Active Directory Domain Services Setup](https://makeitcloudy.pl/windows-role-active-directory/)
 
 * The VM clipboard does not work over the XCP-ng console.
 * The subnet where the node have the DHCP services enabled.
