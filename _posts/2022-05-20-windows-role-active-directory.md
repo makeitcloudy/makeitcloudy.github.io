@@ -113,12 +113,14 @@ xe vm-cd-insert vm='c1_dc02' cd-name='Citrix_Hypervisor_821_tools.iso'
 
 ```
 
+On each Active Directory node, run in elevated PowerShell session:
+
+* [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
+* VM reboots
+
 ## 2. Role Setup - ADDS
 
-For the quick run, on each Active Directory node, follow with the code mentioned below
-
-1. [run_InitialSetup.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/_blogPost/windows-preparation/run_initialSetup.ps1), when asked, put the *dc01* for the first domain controller, and *dc02* for the second
-2. then once the first machine is rebooted, run the code in elevated powershell session. This piece of code deploy the Active Directory
+This piece of code deploy the Active Directory. Run PowerShell code (elevated powershell session) in the first domain controller.
 
 ```powershell
 #Start-Process PowerShell_ISE -Verb RunAs
@@ -133,16 +135,11 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/f
 
 ```
 
-3. when the AD deployment is finished, proceed with the same steps on the second VM (which become a second domain controller)
+*. when the AD deployment is finished, proceed with the same steps on the subsequent VM (which become a subsequent domain controller)
 
-Run powershell code (elevated powershell session)
+**Note:** Code is designed for the deployment of two domain controllers in case there is need for more, DSC script and configuration data should be expanded by new nodenames.
 
-```powershell
-
-
-```
-
-Run bash code (XCP-ng terminal over SSH)
+Eject installation media. Run bash code (XCP-ng terminal over SSH)
 
 ```bash
 xe vm-cd-eject vm='c1_dc01'
@@ -174,6 +171,7 @@ Run the code, on first domain controller: [ADDS_CarlWebster_initialConfig.ps1](h
 ### 3.2. Active Directory - structure
 
 Run the code: [ADDS_structure.ps1]()
+
 **TODO** - update the code link
 
 * It  setup the AD structure (OU, groups, users)
@@ -209,5 +207,5 @@ It was tested on:
 
 * Server 2022 (21H2 - 20348.1547) - Core & Desktop Experience
 
-Last update: 2024.08.10
+Last update: 2024.08.14
 
