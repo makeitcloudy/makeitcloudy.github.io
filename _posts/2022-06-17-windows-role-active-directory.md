@@ -111,8 +111,28 @@ It adds second VM to the existing Active Directory domain, which consists of one
 #### 1.1.5. Initial Configuration - ADDS
 
 It's time for the Active Directory configuration (DNS, OU's, various objects).  
-The code below comes from the [Carl Webster - Building Websters's Lab v.2.1](https://www.carlwebster.com/building-websters-lab-v2-1/). Chapter 16 - Create Active Directory, contains the commandlets which are agregated in the [ADDS_CarlWebster_initialConfig.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1).  
-Run the code, on first domain controller: [ADDS_CarlWebster_initialConfig.ps1](https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1) - it will be replicated across the controllers, without your intervention.
+Run code in elevated PowerShell session, on the first domain controller. (it will be replicated across domain controllers, without your intervention)
+
+```powershell
+#cmd
+#powershell
+#Start-Process PowerShell -Verb RunAs
+# run in elevated PowerShell session
+Set-Location -Path "$env:USERPROFILE\Documents"
+
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/makeitcloudy/HomeLab/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1' -OutFile "$env:USERPROFILE\Documents\ADDS_CarlWebster_initialConfig.ps1" -Verbose
+
+#psedit "$env:USERPROFILE\Documents\ADDS_CarlWebster_initialConfig.ps1"
+
+# it launches the process of SQL installation
+.\ADDS_CarlWebster_initialConfig.ps1
+
+```
+
+* [Carl Webster - Building Websters's Lab v.2.1](https://www.carlwebster.com/building-websters-lab-v2-1/). Chapter 16 - Create Active Directory - is the source of *InitialConfiguration - ADDS* paragraph
+* [ADDS_CarlWebster_initialConfig.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/005_ActiveDirectory/ADDS_CarlWebster_initialConfig.ps1) - it contains agregated commandlets from abovementioned guide
+
+What does the code do:
 
 * It enables Recycle Bin
 * It setup the password and lockout policy
