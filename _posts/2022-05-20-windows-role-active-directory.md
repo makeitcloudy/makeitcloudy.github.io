@@ -1,18 +1,20 @@
 ---
 full-width: true
 layout: post
-title: "DSC - Active Directory setup"
-permalink: "/windows-role-active-directory-DSC/"
-subtitle: "Setup Active Directory with Desired State Configuration"
+title: "Active Directory Domain Services setup"
+permalink: "/windows-role-active-directory/"
+subtitle: "Setup Active Directory with PowerShell and Desired State Configuration"
 cover-img: /assets/img/cover/img-cover-microsoft.jpg
 thumbnail-img: /assets/img/thumb/img-thumb-window.jpg
 share-img: /assets/img/cover/img-cover-microsoft.jpg
 tags: [HomeLab, Microsoft, DSC]
 categories: [HomeLab, Microsoft, DSC]
 ---
-This post is about setting up Active Directory by making use of Desired State Configuration, for home lab purposes.
+This post is about setting up Active Directory by making use of Powershell and Desired State Configuration, for home lab purposes.
 
 **Note**:
+  
+**DEPRECATED** - it was replaced by 2022-06-17-windows-role-active-directory
 
 * The VM clipboard does not work over the XCP-ng console.
 * The subnet where the node have the DHCP services enabled.
