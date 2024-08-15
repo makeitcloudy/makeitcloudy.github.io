@@ -21,6 +21,11 @@ This post is about setting up Windows File Server Member by making use of Powers
 
 **ToDo**:
 
+## Links
+
+* [Hyper-V Cluster Setup on Windows Server Machines: A Step-by-Step Guide](https://www.nakivo.com/blog/hyper-v-cluster-setup/) - Naviko
+* [TrueNAS-Based Backup Appliance with NAKIVO](https://www.nakivo.com/backup-appliance/freenas/)
+
 # 1. File Server Member
 
 File Server setup is split into two pieces. Current scenario assumes that there is no external FreeNas for the exposure of iSCSI target.  

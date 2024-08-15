@@ -21,6 +21,10 @@ This post is about setting up SQL Server by making use of Powershell and Desired
 
 **ToDo**:
 
+## Links
+
+* [PlagueHO](https://github.com/PlagueHO/LabBuilder/blob/main/source/dsclibrary/MEMBER_SQLSERVER2016.DSC.ps1) - LabBuilder - DSC Configurations
+
 # 1. SQL Server
 
 [XCPng-scenario-HomeLab](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md#windows---server-os---2x-sql-server---desktop-experience) - Github code  
