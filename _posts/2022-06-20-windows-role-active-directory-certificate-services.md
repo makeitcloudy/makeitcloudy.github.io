@@ -14,8 +14,10 @@ This post is about setting up End User Computing infrastructure prerequisites, l
 
 ## Links
 
-[XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - contains the code used to provision the VM's on the hypervisor layer
-
+* [XCPng-scenario-HomeLab.md](https://github.com/makeitcloudy/HomeLab/blob/feature/001_Hypervisor/_code/XCPng-scenario-HomeLab.md) - contains the code used to provision the VM's on the hypervisor layer
+* [Building Webster's Lab V1](https://www.carlwebster.com/building-websters-lab-v1/) - 2019
+* [Building Webster's Lab V2](https://www.carlwebster.com/building-websters-lab-v2/) - 2021
+* [Building Webster’s Lab V2.1](https://www.carlwebster.com/building-websters-lab-v2-1/) - 2023
 
 # 1. Active Directory Certification Services
 
