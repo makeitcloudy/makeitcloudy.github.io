@@ -209,8 +209,10 @@ xe vm-cd-eject vm='c1_w10mgmt'
 
 * RSAT
 * Windows Admin Center
+* IIS Management Service
+* IIS Manager for Remote Administration 1.2
 
-## 4.1. RSAT Tools
+### 4.1. RSAT Tools
 
 VM configuration is arranged by PowerShell and Desired State Configuration. Installation of RSAT tools. Run ISE as administrator.
 
@@ -249,6 +251,15 @@ Add-WindowsCapability -Online -Name Rsat.ServerManager.Tools~~~~0.0.1.0
 #Add-WindowsCapability -Online -Name Rsat.VolumeActivation.Tools~~~~0.0.1.0
 #Add-WindowsCapability -Online -Name Rsat.WSUS.Tools~~~~0.0.1.0
 ```
+
+### 4.2. IIS Management Service
+
+* Install Windows Feature -> Internet Information Services -> Web Management Tools -> IIS Management Service
+
+### 4.3. IIS Manager for Remote Administration
+
+* Download IIS Manager for Remote Administration 1.2
+Internet -> https://www.microsoft.com/en-us/download/details.aspx?id=41177
 
 ## 5. Software Installation
 
