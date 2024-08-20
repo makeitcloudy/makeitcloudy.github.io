@@ -254,12 +254,26 @@ Add-WindowsCapability -Online -Name Rsat.ServerManager.Tools~~~~0.0.1.0
 
 ### 4.2. IIS Management Service
 
+```code
 * Install Windows Feature -> Internet Information Services -> Web Management Tools -> IIS Management Service
+```
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerManagementTools -All
+```
 
 ### 4.3. IIS Manager for Remote Administration
 
+```code
 * Download IIS Manager for Remote Administration 1.2
 Internet -> https://www.microsoft.com/en-us/download/details.aspx?id=41177
+```
+
+```powershell
+# tested on 2024.08
+Start-Process 'https://www.microsoft.com/en-us/download/details.aspx?id=41177'
+Invoke-WebRequest -Uri 'https://download.microsoft.com/download/2/4/3/24374C5F-95A3-41D5-B1DF-34D98FF610A3/inetmgr_amd64_en-US.msi'
+```
 
 ## 5. Software Installation
 
