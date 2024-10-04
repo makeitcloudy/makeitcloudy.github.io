@@ -14,6 +14,8 @@ If you decide to follow along, you will end up with updated ISO images, which wi
 
 # Links
 
++ [Volume License keys](https://thewindowsactivator.com/kms-client-activation-and-product-keys/) - thewindowsactivator.com
++ [Unattended.xml generator](https://schneegans.de/windows/unattend-generator/)
 + modern management [youtube](https://www.youtube.com/watch?v=JKE1nrVxheQ)
 + modern management [blog](https://www.moderndeployment.com/quick-start-guide-windows-10-waas-servicing-updates-via-osdbuilder/)
 + makeitcloudy [github](https://github.com/makeitcloudy/AutomatedCitrix/tree/feature/007_imagePrep)

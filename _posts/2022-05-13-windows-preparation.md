@@ -90,7 +90,8 @@ xe vm-cd-eject vm='c1_w10mgmt'
 # /opt/xensource/packages/iso - default iso storage with XCPng tools
 xe vm-cd-insert vm='c1_w10mgmt' cd-name='Citrix_Hypervisor_821_tools.iso'
 
-# add extra disk
+
+# add extra disk - this step works provided the vmTools are already installed
 /opt/scripts/vm_add_disk.sh --vmName 'c1_w10mgmt' --storageName 'node4_hdd_sdc_lsi' --diskName 'c1_w10mgmt_dataDrive' --deviceId 4 --diskGB 20  --description 'w10_mgmt_dataDrive'
 ```
 
@@ -290,13 +291,27 @@ Copy the software binaries to the Z: drive. Then have them installed.
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) - SQL Management Studio, [SMSS](https://learn.microsoft.com/en-us/sql/ssms/release-notes-ssms?view=sql-server-ver16#previous-ssms-releases) - previous releases
 
-### 5.1. PowerShell 7.X
+### 5.1. 
+
+```powershell
+
+```
+
+
+### 5.1. PowerShell 7.X, Azure CLI, Bicep, GraphAPI, PNP
 
 PowerShell 7.x is NOT needed for the initial configuration of the mgmt VM, provided 'PSDscResources' is used. If the 'PSDesiredStateConfiguration' is there, the problems starts to arise. Unless you stick with Modules and Resources going hand in hand with PSVersion 5.1.19041.236 - it's ok.
 
 ```powershell
 # https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4
 # https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/PowerShell-7.4.3-win-x64.msi
+# https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+
+#https://www.powershellgallery.com/packages/Microsoft.Graph/2.9.1 -> Info -> Project Site
+#https://github.com/microsoftgraph/msgraph-sdk-powershell
+Install-Module -Name Microsoft.Graph
+
+# https://pnp.github.io/ - Microsoft 365 and power platform
 ```
 
 ### 5.2. ImgBurn
@@ -371,7 +386,9 @@ Once done SQL Server Management Studio 20 should arise in the start menu.
 
 ## 6. Download Prerequisites
 
-Login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
+* https://www.xenserver.com/downloads
+
+Alternatively, login to [https://citrix.com/account](https://citrix.com/account) with myCitrix credentials.
 
 ### 6.1. Citrix Hypervisor SDK
 
