@@ -63,6 +63,8 @@ Run the code from the section which suits particular scenario.
 
 Run it, when the VM should stay in the workgroup, or there is no Active Directory domain setup yet.
 
+* [run_initialConfigDSC_workgroup.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_workgroupps1)
+
 ```powershell
 # Start-Process PowerShell_ISE -Verb RunAs
 # run in elevated powershell session
@@ -83,6 +85,8 @@ Set-InitialConfigDsc -NewComputerName $env:computername -Option Workgroup -Verbo
 ### 2.2. Scenario - Domain Joined VM
 
 Run it, when VM should be domain joined.
+
+* [run_initialConfigDSC_domain.ps1](https://github.com/makeitcloudy/HomeLab/blob/feature/007_DesiredStateConfiguration/_blogPost/README.md#run_initialconfigdsc_domainps1)
 
 ```powershell
 # Set-InitialConfigDsc is part of the AutomatedLab module
@@ -137,7 +141,7 @@ the target node should have:
 * ~~defined trusted hosts~~ - it is not needed within this deployment scenario
 * WinRM service running
 
-Now the efforts with the [Active Directory DSC](https://makeitcloudy.pl/active-directory-DSC/) setup, can be made.
+Now the efforts with the [Active Directory DSC](https://makeitcloudy.pl/windows-role-active-directory/) setup, can be made.
 
 ## Summary
 
